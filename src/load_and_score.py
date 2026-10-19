@@ -20,6 +20,7 @@ def load(data, features=None):
             start=time.perf_counter()
             conn.import_from_file(str(data/(table+'.csv')),('GST_EVIDENCE',table.upper()),import_params={'skip':1})
             report['load_seconds'][table]=time.perf_counter()-start
+            print(f'Loaded {table}: {report["load_seconds"][table]:.3f}s',flush=True)
         execute_file(conn,'sql/20_entities.sql')
         execute_file(conn,'sql/10_checks.sql')
         for view in VIEWS:

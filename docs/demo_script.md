@@ -20,7 +20,7 @@ Ask for the selected factory's dispatch gap by month. Display the guarded SELECT
 
 ## Evaluation
 
-Held-out factory-month recall is 84.42%, with 16.76% false positives. Annual factory recall is 99.31%, but annual false positives are 84.17%. There are 629 missed cheat months. This is not ready for operational taxpayer targeting. Seed A selected the threshold; seed B was held out. Open one recorded miss and its reason. Scale measurements are added only after they run.
+Held-out factory-month recall is 84.42%, with 16.76% false positives. Annual factory recall is 99.31%, but annual false positives are 84.17%. There are 629 missed cheat months. This is not ready for operational taxpayer targeting. Seed A selected the threshold; seed B was held out. Open one recorded miss and its reason. The separate scale run imported 20,978,945 raw evidence rows in 56.42 seconds. Counts and gap checksums matched before and after ledger materialisation. Query-result caching was disabled for the comparison.
 
 ## Limits and adaptation
 

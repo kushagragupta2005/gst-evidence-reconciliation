@@ -1,0 +1,20 @@
+{
+  "V_MATERIAL_OUTPUT": {
+    "csv_read_seconds": 0.0238385839984403,
+    "compute_seconds": 0.0017130409978562966,
+    "total_seconds": 0.025551624996296596,
+    "rows": 11790,
+    "checksum": 1616913.6688200005,
+    "exasol_raw_seconds": 0.29647212499548914,
+    "equivalent_counts_and_gaps": true
+  },
+  "V_DISPATCH_INVOICE": {
+    "csv_read_seconds": 0.05453812499763444,
+    "compute_seconds": 0.023836583000957035,
+    "total_seconds": 0.07837470799859148,
+    "rows": 2342,
+    "checksum": 424153.9876,
+    "exasol_raw_seconds": 0.2755181669999729,
+    "equivalent_counts_and_gaps": true
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "manifest": {
+    "seed": 20261020,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 28694,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 27360,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 228854
+  },
+  "query_result_cache": "OFF",
+  "measurement_threshold": 0.025,
+  "unoptimised": {
+    "V_MATERIAL_OUTPUT": {
+      "seconds": 0.29647212499548914,
+      "rows": [
+        [
+          11790,
+          "1616913.66882"
+        ]
+      ]
+    },
+    "V_DISPATCH_INVOICE": {
+      "seconds": 0.2755181669999729,
+      "rows": [
+        [
+          2342,
+          "424153.9876"
+        ]
+      ]
+    },
+    "V_STOCK_ROLLFORWARD": {
+      "seconds": 0.27425720800238196,
+      "rows": [
+        [
+          0,
+          null
+        ]
+      ]
+    },
+    "V_SUPPLIER_LOOP": {
+      "seconds": 0.2752210409962572,
+      "rows": [
+        [
+          5822,
+          "2814931.8121"
+        ]
+      ]
+    },
+    "V_RANKED_CASES": {
+      "seconds": 0.3173753749942989,
+      "rows": [
+        [
+          28800,
+          5934.913238715933
+        ]
+      ]
+    }
+  },
+  "slowest": "V_RANKED_CASES",
+  "profile_rows": 51,
+  "cache_refresh_seconds": 0.32372170799499145,
+  "optimised": {
+    "V_MATERIAL_OUTPUT": [
+      {
+        "seconds": 0.022084582997194957,
+        "rows": [
+          [
+            11790,
+            "1616913.66882"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.02198737500293646,
+        "rows": [
+          [
+            11790,
+            "1616913.66882"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.022016750001057517,
+        "rows": [
+          [
+            11790,
+            "1616913.66882"
+          ]
+        ]
+      }
+    ],
+    "V_DISPATCH_INVOICE": [
+      {
+        "seconds": 0.02055300000210991,
+        "rows": [
+          [
+            2342,
+            "424153.9876"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.021257874999719206,
+        "rows": [
+          [
+            2342,
+            "424153.9876"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.019738082999538165,
+        "rows": [
+          [
+            2342,
+            "424153.9876"
+          ]
+        ]
+      }
+    ],
+    "V_STOCK_ROLLFORWARD": [
+      {
+        "seconds": 0.020389040997542907,
+        "rows": [
+          [
+            0,
+            null
+          ]
+        ]
+      },
+      {
+        "seconds": 0.020584625002811663,
+        "rows": [
+          [
+            0,
+            null
+          ]
+        ]
+      },
+      {
+        "seconds": 0.019932208000682294,
+        "rows": [
+          [
+            0,
+            null
+          ]
+        ]
+      }
+    ],
+    "V_SUPPLIER_LOOP": [
+      {
+        "seconds": 0.0210862919993815,
+        "rows": [
+          [
+            5822,
+            "2814931.8121"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.02043437500105938,
+        "rows": [
+          [
+            5822,
+            "2814931.8121"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.020287542000005487,
+        "rows": [
+          [
+            5822,
+            "2814931.8121"
+          ]
+        ]
+      }
+    ],
+    "V_RANKED_CASES": [
+      {
+        "seconds": 0.10170199999993201,
+        "rows": [
+          [
+            28800,
+            5934.913238715933
+          ]
+        ]
+      },
+      {
+        "seconds": 0.09800254099536687,
+        "rows": [
+          [
+            28800,
+            5934.913238715933
+          ]
+        ]
+      },
+      {
+        "seconds": 0.0989272919978248,
+        "rows": [
+          [
+            28800,
+            5934.913238715933
+          ]
+        ]
+      }
+    ]
+  },
+  "udf": {
+    "available": false,
+    "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488701077520384)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488701077520384\n    code        =>  42000\n    "
+  }
+}

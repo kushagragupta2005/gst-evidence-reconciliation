@@ -1,0 +1,249 @@
+{
+  "manifest": {
+    "seed": 20261021,
+    "factories": 220000,
+    "months": 12,
+    "rows": {
+      "factories": 220000,
+      "suppliers": 220000,
+      "factory_month": 2640000,
+      "invoices": 2630948,
+      "purchase_invoices": 2640000,
+      "eway_bills": 5280000,
+      "supplier_returns": 2507997,
+      "bank_entries": 5280000,
+      "machines": 234667,
+      "truth": 2640000
+    },
+    "raw_evidence_rows": 20978945
+  },
+  "load_seconds": {
+    "factories": 0.9107891249950626,
+    "suppliers": 0.9998852499993518,
+    "factory_month": 13.482804458995815,
+    "invoices": 9.2517402079975,
+    "purchase_invoices": 9.342883334000362,
+    "eway_bills": 7.6860414590046275,
+    "supplier_returns": 3.672330832996522,
+    "bank_entries": 10.600145666998287,
+    "machines": 0.47646824999537785
+  },
+  "actual_rows": {
+    "factories": 220000,
+    "suppliers": 220000,
+    "factory_month": 2640000,
+    "invoices": 2630948,
+    "purchase_invoices": 2640000,
+    "eway_bills": 5280000,
+    "supplier_returns": 2507997,
+    "bank_entries": 5280000,
+    "machines": 234667
+  },
+  "join_sanity": {
+    "duplicate_months": 0,
+    "orphan_months": 0
+  },
+  "query_result_cache": "OFF",
+  "measurement_threshold": 0.025,
+  "unoptimised": {
+    "V_MATERIAL_OUTPUT": {
+      "seconds": 14.174167332996149,
+      "rows": [
+        [
+          1079795,
+          "146535283.00388"
+        ]
+      ]
+    },
+    "V_DISPATCH_INVOICE": {
+      "seconds": 27.609198958001798,
+      "rows": [
+        [
+          211801,
+          "39786989.7839"
+        ]
+      ]
+    },
+    "V_STOCK_ROLLFORWARD": {
+      "seconds": 32.376357792003546,
+      "rows": [
+        [
+          0,
+          null
+        ]
+      ]
+    },
+    "V_SUPPLIER_LOOP": {
+      "seconds": 29.850972000000183,
+      "rows": [
+        [
+          525203,
+          "256722238.7552"
+        ]
+      ]
+    },
+    "V_RANKED_CASES": {
+      "seconds": 48.94639983300294,
+      "rows": [
+        [
+          2640000,
+          541527.2112754667
+        ]
+      ]
+    }
+  },
+  "slowest": "V_RANKED_CASES",
+  "profile_rows": 51,
+  "cache_refresh_seconds": 16.262825333993533,
+  "optimised": {
+    "V_MATERIAL_OUTPUT": [
+      {
+        "seconds": 0.42536024999571964,
+        "rows": [
+          [
+            1079795,
+            "146535283.00388"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.4133452500027488,
+        "rows": [
+          [
+            1079795,
+            "146535283.00388"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.41060154200386023,
+        "rows": [
+          [
+            1079795,
+            "146535283.00388"
+          ]
+        ]
+      }
+    ],
+    "V_DISPATCH_INVOICE": [
+      {
+        "seconds": 0.2904049999997369,
+        "rows": [
+          [
+            211801,
+            "39786989.7839"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.2858514160034247,
+        "rows": [
+          [
+            211801,
+            "39786989.7839"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.28610129200387746,
+        "rows": [
+          [
+            211801,
+            "39786989.7839"
+          ]
+        ]
+      }
+    ],
+    "V_STOCK_ROLLFORWARD": [
+      {
+        "seconds": 0.28648187500220956,
+        "rows": [
+          [
+            0,
+            null
+          ]
+        ]
+      },
+      {
+        "seconds": 0.28068458300549537,
+        "rows": [
+          [
+            0,
+            null
+          ]
+        ]
+      },
+      {
+        "seconds": 0.28083199999673525,
+        "rows": [
+          [
+            0,
+            null
+          ]
+        ]
+      }
+    ],
+    "V_SUPPLIER_LOOP": [
+      {
+        "seconds": 0.3037700839995523,
+        "rows": [
+          [
+            525203,
+            "256722238.7552"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.3054856250018929,
+        "rows": [
+          [
+            525203,
+            "256722238.7552"
+          ]
+        ]
+      },
+      {
+        "seconds": 0.30846324999583885,
+        "rows": [
+          [
+            525203,
+            "256722238.7552"
+          ]
+        ]
+      }
+    ],
+    "V_RANKED_CASES": [
+      {
+        "seconds": 6.141385875002015,
+        "rows": [
+          [
+            2640000,
+            541527.2112754667
+          ]
+        ]
+      },
+      {
+        "seconds": 6.085765709001862,
+        "rows": [
+          [
+            2640000,
+            541527.2112754667
+          ]
+        ]
+      },
+      {
+        "seconds": 6.231265665999672,
+        "rows": [
+          [
+            2640000,
+            541527.2112754667
+          ]
+        ]
+      }
+    ]
+  },
+  "udf": {
+    "available": false,
+    "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488455936704512)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488455936704512\n    code        =>  42000\n    "
+  }
+}

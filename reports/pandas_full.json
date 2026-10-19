@@ -1,0 +1,20 @@
+{
+  "V_STOCK_ROLLFORWARD": {
+    "csv_read_seconds": 1.9064317080046749,
+    "compute_seconds": 0.3809479999981704,
+    "total_seconds": 2.2873797080028453,
+    "rows": 0,
+    "checksum": 0.0,
+    "exasol_raw_seconds": 32.376357792003546,
+    "equivalent_counts_and_gaps": true
+  },
+  "V_SUPPLIER_LOOP": {
+    "csv_read_seconds": 2.10230112499994,
+    "compute_seconds": 1.4015684170008171,
+    "total_seconds": 3.503869542000757,
+    "rows": 525203,
+    "checksum": 256722238.75519997,
+    "exasol_raw_seconds": 29.850972000000183,
+    "equivalent_counts_and_gaps": true
+  }
+}
