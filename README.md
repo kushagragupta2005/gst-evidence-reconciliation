@@ -119,7 +119,7 @@ Combine seats for a solo or two-person team. The event permits up to three membe
 
 ## Submission checklist
 
-- [ ] Public GitHub repository publication
+- [x] Public GitHub repository publication: https://github.com/kushagragupta2005/gst-evidence-reconciliation
 - [x] Exasol Personal one-query smoke check (`SELECT 1` returned `1`)
 - [x] Reproducible data generation, load, and checks (one-command setup run)
 - [x] Catch rate, honest-decoy false-positive rate, and full-scale query times
