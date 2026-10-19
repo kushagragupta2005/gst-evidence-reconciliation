@@ -94,6 +94,12 @@ def evaluate(train_dir,test_dir,output='results.json'):
     result['misses']={'factory_months':len(misses),'factories_never_caught':int(((factory.is_cheat==1)&~factory.flagged).sum()),'reasons':misses.reason.value_counts().to_dict(),'examples':misses.head(12).to_dict('records')}
     result['threshold_curve']=[{'threshold':t,**rates(b.is_cheat,(bm.to_numpy()>t).sum(axis=1)>=2)} for t in GRID]
     result['provenance']={'feature_sha256':hashlib.sha256((Path(test_dir)/'features.csv').read_bytes()).hexdigest(),'truth_sha256':hashlib.sha256((Path(test_dir)/'truth.csv').read_bytes()).hexdigest()}
+    if Path(output).exists():
+        previous=json.loads(Path(output).read_text())
+        # Scale measurements describe their own saved manifest and remain independent of re-evaluation.
+        if 'performance' in previous:result['performance']=previous['performance']
+        if previous.get('dataset')==result['dataset'] and 'demo_examples' in previous:
+            result['demo_examples']=previous['demo_examples']
     Path(output).write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
     b.to_csv('reports/held_out_predictions.csv',index=False)
     misses.to_csv('reports/misses.csv',index=False)

@@ -6,7 +6,7 @@
 
 This project creates reproducible synthetic GST evidence, loads it into Exasol Personal, and runs four conservation and reconciliation checks. Each result contains the entity, period, expected value, observed value, gap, and source evidence. A unit is prioritised only when at least two distinct source families support the concern. Single-signal cases remain in review, while factories with no discrepancy evidence appear as clear. Ground-truth labels are used only to measure catch rate and false-positive rate; they are not used by the checks.
 
-**Project author:** Kushagra Gupta. This is a solo project; Kushagra handled the data generator, Exasol schema and SQL checks, LLM/MCP layer, dashboard, scoring, pitch deck, and demo.
+**Project author:** Kushagra Gupta. This is a solo project; Kushagra led the project with AI coding-assistant help, covering the data generator, Exasol schema and SQL checks, LLM/MCP layer, dashboard, scoring, pitch deck, and demo.
 
 The current version covers material input versus declared output, dispatches versus invoices, stock roll-forward, and supplier-chain/invoice-loop signals. Six hard decoy types exercise source-specific false alarms; financial checks corroborate the four core reconciliation checks.
 
@@ -16,7 +16,7 @@ The [official ExaThon India 2026 page](https://www.exasol.com/events/exathon-ind
 
 ## Quick start
 
-1. Install Python 3.11+. Install the launcher using the [official Exasol Personal repository](https://github.com/exasol/exasol-personal#-get-started), then start the database:
+1. Install Python 3.12+. Install the launcher using the [official Exasol Personal repository](https://github.com/exasol/exasol-personal#-get-started), then start the database:
 
    ```sh
    curl -fsSL https://downloads.exasol.com/exasol-personal/installer.sh | sh
@@ -25,7 +25,7 @@ The [official ExaThon India 2026 page](https://www.exasol.com/events/exathon-ind
    ```
 
 2. Run `exasol connect` and execute `SELECT 1;` to confirm the database is available.
-3. Run `sh run_demo.sh` from the repository root. This generates the small seeded dataset, creates a Python virtual environment, installs the dependencies, loads all CSVs, applies the SQL views, reports catch rate, decoy false-positive rate, row counts and query time, then starts the dashboard.
+3. Run `sh run_demo.sh` from the repository root. This creates a virtual environment from pinned dependencies, generates and loads seeds A and B, runs SQL checks, scores held-out results, refreshes dashboard views, and starts the dashboard. Configure the existing read-only account described below first.
 
 The default run evaluates two medium datasets using `scripts/evaluate.sh`. Set `EXASOL_DSN`, `EXASOL_USER`, and `EXASOL_PASSWORD` to override the local defaults. The generator streams 12 months per factory. Outward invoices and supplier purchase invoices are separate. The current measured evaluation is below; scale results are recorded separately below.
 
@@ -247,3 +247,22 @@ The note validator binds expected/observed/gap claims to their named evidence ro
 ![Guarded follow-up SQL and actual Exasol result](docs/screenshots/followup.png)
 
 The screenshots are captures of the running dashboard, not mocked interfaces. Demo examples and their evidence are saved under `demo_examples` in results.json. The note and follow-up both identify their deterministic fallback mode.
+
+## Reproduction and engineering checks
+
+Prerequisites: Python 3.12+, `make`, Git, a running Exasol Personal endpoint, admin credentials to recreate **only `GST_EVIDENCE`**, and an existing read-only account for the dashboard. Local starter-kit credential files are discovered automatically. Otherwise provide `EXASOL_DSN`, `EXASOL_USER`, `EXASOL_PASSWORD`, `EXASOL_RO_USER`, and `EXASOL_RO_PASSWORD` as environment variables. Never commit secrets. An API key is optional and absent in the recorded fallback demo.
+
+```sh
+make all             # pinned install -> generate A/B -> load -> SQL -> score -> dashboard
+make test            # offline unit tests, no Exasol or LLM API required
+make reproduce       # complete measured evaluation, without starting the web server
+make dashboard       # inspect the already loaded seed B data
+make scale           # separate full run and pandas comparison; restores the seed B demo afterwards
+make verify-clean    # fresh source tree + fresh venv; reuses installed Exasol
+```
+
+`PYTHON=/path/to/python3.12 make all` selects a compatible interpreter. `requirements-lock.txt` pins the full installed Python dependency set; `requirements.txt` lists the direct dependencies. GitHub Actions runs the offline suite on Python 3.12. SQL unit tests execute the real view definitions in SQLite, with a documented dialect shim for CREATE syntax, GREATEST, and decimal division; they are not a replacement for the actual Exasol load and 28,800-row ranking comparison.
+
+Expected outputs: `results.json`, `reports/evaluation.md`, `reports/recall_fpr.png`, per-month predictions and misses, imported Exasol tables/views, and a dashboard at localhost:8501. A fresh source tree and virtual environment completed in 120 seconds on the project author's machine while reusing its Exasol installation; other hardware and dependency downloads will vary. Full-scale loading, profiling and repeated uncached queries take longer and require additional disk space. Scale data is streamed into CSVs rather than held entirely in Python memory. `reports/clean_setup.json` records the measured duration and scope.
+
+The input tables are a batch snapshot. Run `python -m src.cache` after changing source data; cached ledger views otherwise retain the old snapshot. The scorer keeps previous scale measurements with their own manifests; recomputing accuracy does not silently replace measured timing claims. For a clean machine without the starter kit, configure an equivalent read-only Exasol account before opening the dashboard.
