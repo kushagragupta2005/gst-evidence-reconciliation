@@ -119,12 +119,17 @@ Combine seats for a solo or two-person team. The event permits up to three membe
 
 ## Submission checklist
 
-- [ ] Public GitHub repository
+- [ ] Public GitHub repository publication
 - [x] Exasol Personal one-query smoke check (`SELECT 1` returned `1`)
 - [x] Reproducible data generation, load, and checks (one-command setup run)
 - [x] Catch rate, honest-decoy false-positive rate, and full-scale query times
 - [x] Evidence-only case notes and number verification
 - [x] Minimal ranked list and evidence timeline
 - [x] Pitch deck and narrated demo video (2 minutes 17 seconds)
-- [ ] Clean-machine setup and final event-rule review
+- [x] Event team rules and submission deadline rechecked
+- [x] Fresh exported-checkout setup run on the same Mac
+- [ ] Clean separate-machine setup
+- [ ] Submit to the event portal before the deadline
+
+The fresh-checkout run reused the Exasol Personal installation already on this Mac; it did not verify a separate machine's Exasol installation.
 
