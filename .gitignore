@@ -5,3 +5,6 @@ data/generated/
 .env
 *.log
 .DS_Store
+data/train/
+data/full/
+.pitch_build/

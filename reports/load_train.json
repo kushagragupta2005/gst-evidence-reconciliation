@@ -1,0 +1,73 @@
+{
+  "manifest": {
+    "seed": 20261019,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 28706,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 27360,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 228866
+  },
+  "load_seconds": {
+    "factories": 0.11217758400016464,
+    "suppliers": 0.08116258300287882,
+    "factory_month": 0.2992290830006823,
+    "invoices": 0.3590897500034771,
+    "purchase_invoices": 0.41482012499909615,
+    "eway_bills": 0.322947041997395,
+    "supplier_returns": 0.11883904199930839,
+    "bank_entries": 0.3026460830005817,
+    "machines": 0.1563554579988704
+  },
+  "views": {
+    "V_MATERIAL_OUTPUT": {
+      "seconds": 0.3380575840055826,
+      "rows": 7098,
+      "checksum": 1459015.80348
+    },
+    "V_DISPATCH_INVOICE": {
+      "seconds": 0.28064270799950464,
+      "rows": 1950,
+      "checksum": 420059.8905
+    },
+    "V_STOCK_ROLLFORWARD": {
+      "seconds": 0.2728286250057863,
+      "rows": 0,
+      "checksum": 0.0
+    },
+    "V_SUPPLIER_LOOP": {
+      "seconds": 0.27716412500012666,
+      "rows": 2503,
+      "checksum": 2587644.4531
+    },
+    "V_RANKED_CASES": {
+      "seconds": 0.3008825840006466,
+      "rows": 28800,
+      "checksum": 5329.093929425463
+    }
+  },
+  "actual_rows": {
+    "factories": 2400,
+    "suppliers": 2400,
+    "factory_month": 28800,
+    "invoices": 28706,
+    "purchase_invoices": 28800,
+    "eway_bills": 57600,
+    "supplier_returns": 27360,
+    "bank_entries": 57600,
+    "machines": 2560
+  },
+  "join_sanity": {
+    "duplicate_months": 0,
+    "orphan_months": 0
+  }
+}

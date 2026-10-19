@@ -16,8 +16,8 @@ if ! supports_runtime "$PYTHON"; then
   echo "Python 3.11+ is required. Install it or set PYTHON=/path/to/python3.11+" >&2
   exit 1
 fi
-"$PYTHON" src/generate.py --scale "${SCALE:-small}" --out data/generated
+
 "$PYTHON" -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python src/load_and_score.py --data data/generated
+sh scripts/evaluate.sh
 exec .venv/bin/streamlit run app.py
