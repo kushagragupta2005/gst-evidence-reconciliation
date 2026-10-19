@@ -2,6 +2,8 @@
 
 ## Three-minute demo sequence
 
+Kushagra Gupta built and presents this project solo.
+
 | Time | Show | Talk track |
 | --- | --- | --- |
 | 0:00–0:31 | Opening problem statement | Read the exact problem sentence. |

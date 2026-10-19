@@ -6,11 +6,13 @@
 
 This project creates reproducible synthetic GST evidence, loads it into Exasol Personal, and runs four conservation and reconciliation checks. Each result contains the entity, period, expected value, observed value, gap, and source evidence. A unit is prioritised only when at least two independent check families support the concern. Single-signal cases remain in review, while factories with no discrepancy evidence appear as clear. Ground-truth labels are used only to measure catch rate and false-positive rate; they are not used by the checks.
 
+**Project author:** Kushagra Gupta. This is a solo project; Kushagra handled the data generator, Exasol schema and SQL checks, LLM/MCP layer, dashboard, scoring, pitch deck, and demo.
+
 The first version covers material input versus declared output, dispatches versus invoices, stock roll-forward, and supplier-chain/invoice-loop signals. Honest factories with a machinery change, product-mix shift, or longer operating hours are included as decoys.
 
 ## Event fit
 
-The [official ExaThon India 2026 page](https://www.exasol.com/events/exathon-india-2026/) lists teams of 1–3, registration closing 15 October 2026, and submission closing 25 October 2026 at 11:59 pm IST. The event requires Exasol Personal, synthetic or public data, a public GitHub repository, and an Apache-2.0 or MIT licence. The team is registered, as confirmed by the project owner.
+The [official ExaThon India 2026 page](https://www.exasol.com/events/exathon-india-2026/) lists teams of 1–3, registration closing 15 October 2026, and submission closing 25 October 2026 at 11:59 pm IST. The event requires Exasol Personal, synthetic or public data, a public GitHub repository, and an Apache-2.0 or MIT licence. Kushagra Gupta is registered as the sole participant for this project.
 
 ## Quick start
 
@@ -107,15 +109,9 @@ flowchart LR
 - [Timed demo outline and research sources](docs/demo_and_pitch.md)
 - [Demo narration script](docs/demo_script.md)
 
-## Team roles
+## Project authorship
 
-| Seat | Responsibilities |
-| --- | --- |
-| Member 1 | Synthetic data generator, Exasol schema and SQL checks |
-| Member 2 | LLM and MCP agent, evidence-only notes and number guard |
-| Member 3 | Dashboard, scoring review, pitch deck and demo video |
-
-Combine seats for a solo or two-person team. The event permits up to three members.
+Kushagra Gupta built this project independently, including the synthetic data generator, Exasol schema and SQL checks, evidence-only LLM/MCP layer, dashboard, scoring, pitch deck, and demo video. There are no other project team members.
 
 ## Submission checklist
 

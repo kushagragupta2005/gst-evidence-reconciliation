@@ -2,6 +2,8 @@
 
 The included MP4 uses these five voiceover sections and custom evidence screens. The opening repeats the exact problem statement shown in the README and pitch deck.
 
+Created and narrated by Kushagra Gupta as a solo project.
+
 ## 1. Problem
 
 A GST officer can’t tell which factories are hiding production or inflating tax credits, because every document she checks is declared by the factory itself, while the independent evidence (power use, goods movement, supplier records, bank flows) sits in separate places and is never compared. If this worked, she would start each week with a short list of units whose paperwork contradicts physical reality, each contradiction spelled out, and honest-but-unusual factories cleared.
