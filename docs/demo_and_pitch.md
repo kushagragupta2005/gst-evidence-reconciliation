@@ -1,5 +1,7 @@
-# Submission materials
+# Pitch and demo handoff
 
-The pitch now uses held-out results.json. The previous static-screen video predates the revised evaluation and is superseded; do not submit it. A replacement live capture is in progress.
+The five-slide pitch uses the held-out seed B results in `results.json`. It selects ExaThon India 2026 Track 03, Factories, Fleets & Supply Chains. The Germany slide proposes a local adaptation without unsourced figures and states that German VAT rules are not implemented.
 
-See demo_script.md for the current script, evaluation_protocol.md for the frozen measurement protocol, and ../reports/evaluation.md for all measured subgroups.
+The older MP4 predates the evaluation and should not be submitted. Kushagra Gupta will record the replacement demo using the timed outline in `demo_script.md`. The PDF export is under `../output/pdf/`.
+
+See `evaluation_protocol.md` for the frozen measurement protocol, `../reports/evaluation.md` for subgroup metrics and misses, and `judge_qa.md` for short answers to likely questions.
