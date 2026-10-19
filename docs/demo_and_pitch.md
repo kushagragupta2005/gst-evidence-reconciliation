@@ -2,7 +2,7 @@
 
 ## Three-minute demo sequence
 
-Kushagra Gupta built and presents this project solo.
+Kushagra Gupta built this project solo.
 
 | Time | Show | Talk track |
 | --- | --- | --- |

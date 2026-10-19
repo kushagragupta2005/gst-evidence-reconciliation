@@ -2,7 +2,7 @@
 
 The included MP4 uses these five voiceover sections and custom evidence screens. The opening repeats the exact problem statement shown in the README and pitch deck.
 
-Created and narrated by Kushagra Gupta as a solo project.
+This demo script accompanies the solo project built by Kushagra Gupta.
 
 ## 1. Problem
 
