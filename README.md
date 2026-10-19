@@ -228,3 +228,22 @@ Window functions implement prior-closing continuity and a trailing power baselin
 
 This workload repeatedly scans numeric evidence columns, groups shipments and payments by factory and period, joins independent ledgers, and evaluates window functions over annual histories. Exasol keeps these operations close to the primary data and makes the same SQL evidence available to scoring, the dashboard and guarded follow-ups. Batch materialisation makes repeated reads cheaper while preserving a traceable SQL path to raw evidence. The measured local VM results establish feasibility at this synthetic scale; they do not establish a speed advantage over every alternative or production latency.
 <!-- PERFORMANCE END -->
+
+## Dashboard follow-ups and note validation
+
+The dashboard uses the existing starter-kit `mcp_readonly` account through a guarded SQL tool. No new database account was created. The account can read all schemas at the database layer; the follow-up compiler allows only three project views (`V_FEATURES`, `V_ALL_EVIDENCE`, `V_RANKED_CASES`), a validated factory ID, fixed SELECT templates, and `LIMIT 200`. Arbitrary SQL, joins, functions, comments and extra statements are rejected. A 30-second session timeout bounds execution. Both system and direct object privileges are checked before use; admin credentials are rejected by the dashboard path.
+
+For another installation, set `EXASOL_RO_USER` and `EXASOL_RO_PASSWORD` to an existing read-only account. The starter kit stores its local read-only credential in `~/.exasol-starter-kit/credentials/mcp_readonly_password`. Local files are not used for remote endpoints.
+
+The recorded demo uses the deterministic fallback, as requested by Kushagra. It makes no LLM or MCP transport call. With `OPENAI_API_KEY` configured, the optional LLM interprets questions into a validated intent and can write evidence-only notes; its output never decides flags. This optional API path has not been exercised with a live key in this revision. [Responses API reference](https://developers.openai.com/api/reference/python/resources/responses/methods/create).
+
+The note validator binds expected/observed/gap claims to their named evidence row, checks numeric membership, and rejects unbound numbers, percentages and written-out numerals. It does not establish semantic truth or guilt. `tests/test_notes.py` includes tampered and swapped-field rejection cases. A rejected LLM note falls back to the deterministic note.
+
+### Live dashboard screenshots
+
+![Planted cheat and source evidence](docs/screenshots/cheat.png)
+![Validated deterministic case note](docs/screenshots/note.png)
+![Honest factory excluded from the priority queue](docs/screenshots/decoy.png)
+![Guarded follow-up SQL and actual Exasol result](docs/screenshots/followup.png)
+
+The screenshots are captures of the running dashboard, not mocked interfaces. Demo examples and their evidence are saved under `demo_examples` in results.json. The note and follow-up both identify their deterministic fallback mode.

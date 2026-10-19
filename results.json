@@ -1938,5 +1938,112 @@
         }
       }
     }
+  },
+  "demo_examples": {
+    "cheat": {
+      "factory_id": "F000012",
+      "period_month": "2026-05",
+      "is_cheat": 1,
+      "scenario": "hidden_production",
+      "intensity": 0.3,
+      "evasive": 0,
+      "discrepancy_class": "contradicting evidence",
+      "explanation": "concealment may remain below the calibrated threshold",
+      "signals": 3,
+      "flagged": true,
+      "score": 0.9183383811920393,
+      "evidence": [
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "bank_sales",
+          "source_family": "financial",
+          "expected": "126125.8138",
+          "observed": "180189.6273",
+          "gap": "54063.8135",
+          "severity": 0.30003843345537573,
+          "evidence": "invoice value compared with receipts",
+          "discrepancy_class": "needs human review"
+        },
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "dispatch_invoice",
+          "source_family": "movement",
+          "expected": "1501.4978",
+          "observed": "1051.0484",
+          "gap": "450.4494",
+          "severity": 0.3000000399600985,
+          "evidence": "document reuse fraction=0",
+          "discrepancy_class": "mismatch"
+        },
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "material_output",
+          "source_family": "production",
+          "expected": "1850.98288",
+          "observed": "1261.8152",
+          "gap": "589.16768",
+          "severity": 0.31829990777656464,
+          "evidence": "material kg=2313.7286, power kWh=7124.2641, hours=160, raw stock change=0",
+          "discrepancy_class": "contradicting evidence"
+        }
+      ]
+    },
+    "decoy": {
+      "factory_id": "F000142",
+      "period_month": "2026-04",
+      "is_cheat": 0,
+      "scenario": "product_mix_shift",
+      "intensity": 0.0,
+      "evasive": 0,
+      "discrepancy_class": "needs human review",
+      "explanation": "product mix shift: legitimate timing or operating change; not proof of wrongdoing",
+      "signals": 1,
+      "flagged": false,
+      "score": 0.233752423280222,
+      "evidence": [
+        {
+          "factory_id": "F000142",
+          "period_month": "2026-04",
+          "check_family": "material_output",
+          "source_family": "production",
+          "expected": "1751.84032",
+          "observed": "1342.3434",
+          "gap": "409.49692",
+          "severity": 0.23375242328022225,
+          "evidence": "material kg=2189.8004, power kWh=5417.4021, hours=160, raw stock change=0",
+          "discrepancy_class": "needs human review"
+        }
+      ]
+    },
+    "miss": {
+      "factory_id": "F000006",
+      "period_month": "2026-05",
+      "is_cheat": 1,
+      "scenario": "eway_reuse",
+      "intensity": 0.05,
+      "evasive": 1,
+      "discrepancy_class": "mismatch",
+      "explanation": "only one independent source family exposed",
+      "signals": 1,
+      "flagged": false,
+      "score": 0.5,
+      "evidence": [
+        {
+          "factory_id": "F000006",
+          "period_month": "2026-05",
+          "check_family": "dispatch_invoice",
+          "source_family": "movement",
+          "expected": "762.6496",
+          "observed": "762.6497",
+          "gap": "-0.0001",
+          "severity": 0.5,
+          "evidence": "document reuse fraction=0.5",
+          "discrepancy_class": "mismatch"
+        }
+      ]
+    }
   }
 }
