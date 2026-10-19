@@ -1,0 +1,7 @@
+__pycache__/
+.venv/
+.pitch_build/
+data/generated/
+.env
+*.log
+.DS_Store
