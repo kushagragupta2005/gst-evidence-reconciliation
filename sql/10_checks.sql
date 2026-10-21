@@ -84,10 +84,12 @@ SELECT r.FACTORY_ID,r.PERIOD_MONTH,r.SIGNAL_COUNT,r.STATUS,
        COALESCE(a.SOURCE_FAMILY,'none') SOURCE_FAMILY,
        CASE
          WHEN r.SIGNAL_COUNT<>1 THEN 'Not applicable: corroborated or no signal'
-         WHEN a.SOURCE_FAMILY='production' AND u.FACTORY_ID IS NOT NULL THEN 'Cleared: documented machinery change'
-         WHEN a.SOURCE_FAMILY='production' AND l.PREVIOUS_PRODUCT IS NOT NULL AND l.PREVIOUS_PRODUCT<>l.PRODUCT THEN 'Cleared: documented product mix change'
-         WHEN a.SOURCE_FAMILY='production' AND l.PRIOR_HOURS_BASELINE IS NOT NULL AND l.OPERATING_HOURS>l.PRIOR_HOURS_BASELINE*1.2 THEN 'Cleared: documented longer operating hours'
-         WHEN a.SOURCE_FAMILY='production' AND l.RAW_STOCK_CHANGE>0 THEN 'Cleared: documented seasonal stock build'
+         WHEN a.SOURCE_FAMILY='production' AND d.DOCUMENT_TYPE='machinery_change' AND u.FACTORY_ID IS NOT NULL THEN 'Cleared: verified machinery change'
+         WHEN a.SOURCE_FAMILY='production' AND d.DOCUMENT_TYPE='product_mix_change' AND l.PREVIOUS_PRODUCT IS NOT NULL AND l.PREVIOUS_PRODUCT<>l.PRODUCT THEN 'Cleared: verified product mix change'
+         WHEN a.SOURCE_FAMILY='production' AND d.DOCUMENT_TYPE='operating_hours_change' AND l.PRIOR_HOURS_BASELINE IS NOT NULL AND l.OPERATING_HOURS>l.PRIOR_HOURS_BASELINE*1.2 THEN 'Cleared: verified longer operating hours'
+         WHEN a.SOURCE_FAMILY='production' AND d.DOCUMENT_TYPE='stock_build' AND l.RAW_STOCK_CHANGE>0 THEN 'Cleared: verified seasonal stock build'
+         WHEN a.SOURCE_FAMILY='supplier' AND d.DOCUMENT_TYPE='supplier_onboarding' THEN 'Cleared: verified supplier onboarding'
+         WHEN a.SOURCE_FAMILY='financial' AND d.DOCUMENT_TYPE='bank_settlement' THEN 'Cleared: verified bank settlement'
          ELSE 'Review-only: unexplained'
        END DISPOSITION
 FROM GST_EVIDENCE.V_RANKED_CASES r
@@ -97,4 +99,5 @@ LEFT JOIN (
  FROM GST_EVIDENCE.V_ALL_EVIDENCE
  GROUP BY FACTORY_ID,PERIOD_MONTH
 ) a ON a.FACTORY_ID=r.FACTORY_ID AND a.PERIOD_MONTH=r.PERIOD_MONTH
+LEFT JOIN (SELECT FACTORY_ID,PERIOD_MONTH,DOCUMENT_TYPE FROM GST_EVIDENCE.SUPPORTING_DOCUMENTS WHERE VERIFICATION_STATUS='verified') d ON d.FACTORY_ID=r.FACTORY_ID AND d.PERIOD_MONTH=r.PERIOD_MONTH
 LEFT JOIN (SELECT FACTORY_ID,INSTALLED_MONTH FROM GST_EVIDENCE.MACHINES GROUP BY FACTORY_ID,INSTALLED_MONTH) u ON u.FACTORY_ID=r.FACTORY_ID AND u.INSTALLED_MONTH=r.PERIOD_MONTH;

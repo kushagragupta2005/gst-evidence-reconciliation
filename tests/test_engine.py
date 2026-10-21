@@ -8,7 +8,7 @@ import re
 import tempfile
 import unittest
 from pathlib import Path
-from src.generate import generate,TABLES
+from src.generate import DECOYS,generate,TABLES
 from src.evaluate import rates
 from src.followup import compile_plan,guard_sql,plan_question
 
@@ -50,6 +50,17 @@ class GeneratorTests(unittest.TestCase):
                         if abs(expected-float(row['closing_stock']))>1e-3:
                             detected.add(label['scenario'])
             self.assertEqual(detected,{'hidden_production','itc_inflation','eway_reuse'})
+    def test_generated_document_statuses_separate_decoys_from_fake_explanations(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)
+            with contextlib.redirect_stdout(io.StringIO()):
+                generate('small',path,51001,120,fake_explanations=True)
+            with (path/'truth.csv').open() as handle:
+                truth={(row['factory_id'],row['period_month']):row for row in csv.DictReader(handle)}
+            with (path/'supporting_documents.csv').open() as handle:
+                documents=list(csv.DictReader(handle))
+            self.assertTrue(any(truth[(d['factory_id'],d['period_month'])]['scenario'] in DECOYS and d['verification_status']=='verified' for d in documents))
+            self.assertTrue(any(truth[(d['factory_id'],d['period_month'])]['is_cheat']=='1' and d['verification_status']=='rejected' for d in documents))
     def test_generated_data_sql_compatibility_smoke(self):
         """Exercise generator -> tables -> reconciliation views without Exasol."""
         with tempfile.TemporaryDirectory() as folder:
@@ -117,6 +128,13 @@ class SQLTests(unittest.TestCase):
         self.c.execute("INSERT INTO GST_EVIDENCE.FACTORY_MONTH VALUES ('F000001','2026-02','steel_rod',150,100,0,80,50,180,320,160,0)")
         row=self.c.execute("SELECT SEVERITY FROM GST_EVIDENCE.V_STOCK_ROLLFORWARD WHERE PERIOD_MONTH='2026-02'").fetchone()
         self.assertEqual(row,(.25,))
+    def test_clear_disposition_requires_verified_document(self):
+        self.c.execute('UPDATE GST_EVIDENCE.FACTORY_MONTH SET DECLARED_OUTPUT=60')
+        self.c.execute("INSERT INTO GST_EVIDENCE.MACHINES VALUES ('M1','F000001','2026-01',2000)")
+        self.c.execute("INSERT INTO GST_EVIDENCE.SUPPORTING_DOCUMENTS VALUES ('D1','F000001','2026-01','machinery_change','rejected','verifier')")
+        self.assertEqual(self.c.execute('SELECT DISPOSITION FROM GST_EVIDENCE.V_SINGLE_SIGNAL_DISPOSITIONS').fetchone()[0],'Review-only: unexplained')
+        self.c.execute("UPDATE GST_EVIDENCE.SUPPORTING_DOCUMENTS SET VERIFICATION_STATUS='verified'")
+        self.assertEqual(self.c.execute('SELECT DISPOSITION FROM GST_EVIDENCE.V_SINGLE_SIGNAL_DISPOSITIONS').fetchone()[0],'Cleared: verified machinery change')
 
 class GuardAndMetricsTests(unittest.TestCase):
     def test_template_select(self):

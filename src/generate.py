@@ -20,6 +20,7 @@ TABLES = {
  'supplier_returns': 'supplier_id,period_month,declared_sales_kg',
  'bank_entries': 'transaction_id,factory_id,period_month,amount,direction',
  'machines': 'machine_id,factory_id,installed_month,rated_units_month',
+ 'supporting_documents': 'document_id,factory_id,period_month,document_type,verification_status,verified_by',
  'truth': 'factory_id,period_month,is_cheat,scenario,intensity,evasive,discrepancy_class,explanation,taxpayer_explanation',
 }
 SCALES = {'small': 600, 'medium': 2400, 'large': 220000}
@@ -138,10 +139,15 @@ def generate(scale, out_dir, seed, count=None, noise_multiplier=1.0,
             taxpayer_explanation = ''
             if truth == 'decoy' and m >= 3:
                 taxpayer_explanation = 'documented ' + scenario.replace('_', ' ')
+                document_type = {'machinery_upgrade':'machinery_change','product_mix_shift':'product_mix_change',
+                                 'longer_hours':'operating_hours_change','seasonal_stock_build':'stock_build',
+                                 'new_supplier_onboarding':'supplier_onboarding','lumpy_bank_flows':'bank_settlement'}[scenario]
+                emit('supporting_documents', f'D{i:06}-{m:02}', fid, month, document_type, 'verified', 'synthetic verifier')
             elif live and fake_explanations:
                 taxpayer_explanation = rng.choice((
                     'documented machinery change', 'documented product mix shift',
                     'documented longer operating hours', 'documented seasonal stock build'))
+                emit('supporting_documents', f'D{i:06}-{m:02}', fid, month, 'operating_change', 'rejected', 'synthetic verifier')
             emit('truth', fid, month, int(live), scenario, intensity, evasive,
                  expected_class, explanation, taxpayer_explanation)
             opening = closing
