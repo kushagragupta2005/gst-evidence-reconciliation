@@ -31,3 +31,4 @@ fi
 "$PY" -c 'import json; from src.db import connect; c=connect(); c.execute("UPDATE GST_EVIDENCE.SETTINGS SET THRESHOLD="+str(json.load(open("results.json"))["protocol"]["threshold"])); c.close()'
 "$PY" -m src.cache
 "$PY" scripts/report.py
+"$PY" scripts/build_site_data.py
