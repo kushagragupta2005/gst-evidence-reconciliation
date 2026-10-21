@@ -1,6 +1,7 @@
 __pycache__/
 .venv/
 .pitch_build/
+tmp/
 data/generated/
 .env
 *.log
