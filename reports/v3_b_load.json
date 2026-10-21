@@ -1,0 +1,84 @@
+{
+  "manifest": {
+    "seed": 51002,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 28711,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 27360,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "supporting_documents": 12621,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 241492,
+    "noise_multiplier": 1.0,
+    "missing_documents_rate": 0.0,
+    "fake_explanations": true
+  },
+  "load_seconds": {
+    "factories": 0.08682033402146772,
+    "suppliers": 0.059110208007041365,
+    "factory_month": 0.18844141700537875,
+    "invoices": 0.14959783398080617,
+    "purchase_invoices": 0.1830082499946002,
+    "eway_bills": 0.29164987499825656,
+    "supplier_returns": 0.08398520899936557,
+    "bank_entries": 0.17310766701120883,
+    "machines": 0.044982749997871,
+    "supporting_documents": 0.09116587499738671
+  },
+  "views": {
+    "V_MATERIAL_OUTPUT": {
+      "seconds": 0.19202591700013727,
+      "rows": 7125,
+      "checksum": 1459636.88778
+    },
+    "V_DISPATCH_INVOICE": {
+      "seconds": 0.1645514580013696,
+      "rows": 2038,
+      "checksum": 418785.5609
+    },
+    "V_STOCK_ROLLFORWARD": {
+      "seconds": 0.16209158301353455,
+      "rows": 2684,
+      "checksum": 743652.7281
+    },
+    "V_SUPPLIER_LOOP": {
+      "seconds": 0.163501584000187,
+      "rows": 2675,
+      "checksum": 2616895.7532
+    },
+    "V_RANKED_CASES": {
+      "seconds": 0.18106179201276973,
+      "rows": 28800,
+      "checksum": 5933.904993387106
+    },
+    "V_SINGLE_SIGNAL_DISPOSITIONS": {
+      "seconds": 0.28602908400353044,
+      "rows": 28800,
+      "checksum": 17677.0
+    }
+  },
+  "actual_rows": {
+    "factories": 2400,
+    "suppliers": 2400,
+    "factory_month": 28800,
+    "invoices": 28711,
+    "purchase_invoices": 28800,
+    "eway_bills": 57600,
+    "supplier_returns": 27360,
+    "bank_entries": 57600,
+    "machines": 2560,
+    "supporting_documents": 12621
+  },
+  "join_sanity": {
+    "duplicate_months": 0,
+    "orphan_months": 0
+  }
+}
