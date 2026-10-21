@@ -3,7 +3,7 @@ import json
 import statistics
 from pathlib import Path
 r=json.load(open('results.json'))
-lines=['## Exasol scale and query measurements','', 'Raw checks aggregate count and absolute gap, forcing evaluation. Optimised queries use a batch-materialised monthly ledger, then run three sequential repetitions (median below, all samples in results.json). Query-result caching was disabled for the comparison. Data pages can be warm; neither cold-page control nor concurrency isolation was enforced. The cache build is reported separately and must rerun after every source update.', '', '| Dataset | Factories | Raw evidence rows | CSV load seconds | Ledger refresh seconds |','|---|---:|---:|---:|---:|']
+lines=['## Exasol workload timings on a MacBook','', 'These are workload timings on the project author\'s MacBook, using Exasol Personal locally. Raw checks aggregate count and absolute gap, forcing evaluation. Optimised queries use a batch-materialised monthly ledger, then run three sequential repetitions (median below, all samples in results.json). Query-result caching was disabled for the comparison. Data pages can be warm; neither cold-page control nor concurrency isolation was enforced. The cache build is reported separately and must rerun after every source update.', '', '| Dataset | Factories | Raw evidence rows | CSV load seconds | Ledger refresh seconds |','|---|---:|---:|---:|---:|']
 for label in ['small','full']:
     b=r['performance'].get(label)
     if not b: continue
@@ -17,7 +17,7 @@ for view in r['performance']['small']['unoptimised']:
         b=r['performance'].get(label)
         values += [f"{b['unoptimised'][view]['seconds']:.3f}",f"{statistics.median(x['seconds'] for x in b['optimised'][view]):.3f}"] if b else ['pending','pending']
     lines.append('| '+view+' | '+' | '.join(values)+' |')
-lines+=['','### pandas comparison','','The two slowest individual checks in each raw SQL run are reproduced in pandas using the same CSVs, threshold, aggregation and gap checksum. CSV read time and computation time are separate. pandas uses host memory; Exasol runs in a local VM and raw SQL also resolves the shared ledger. This is a single-machine workload comparison, not an engine superiority claim. pandas is faster on some checks.','','| Dataset / check | CSV read (s) | pandas compute (s) | pandas total (s) | Exasol raw (s) |','|---|---:|---:|---:|---:|']
+lines+=['','### pandas comparison','','The two slowest individual checks in each raw SQL run are reproduced in pandas using the same CSVs, threshold, aggregation and gap checksum. CSV read time and computation time are separate. pandas uses host memory; Exasol runs in a local VM and raw SQL also resolves the shared ledger. These are workload timings on the project author\'s MacBook, not an engine superiority claim. pandas is faster on some checks.','','| Dataset / check | CSV read (s) | pandas compute (s) | pandas total (s) | Exasol raw (s) |','|---|---:|---:|---:|---:|']
 for label in ['small','full']:
     for view,m in r['performance'].get(label,{}).get('pandas',{}).items():
         lines.append(f"| {label} / {view} | {m['csv_read_seconds']:.3f} | {m['compute_seconds']:.3f} | {m['total_seconds']:.3f} | {m['exasol_raw_seconds']:.3f} |")

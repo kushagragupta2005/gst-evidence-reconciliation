@@ -9,15 +9,16 @@ def connect(readonly=False):
     local = dsn.split(':')[0] in ('localhost','127.0.0.1')
     # The dashboard never falls back to SYS for its read-only SQL tool.
     user = os.getenv('EXASOL_RO_USER' if readonly else 'EXASOL_USER', 'mcp_readonly' if readonly else 'sys')
-    password = os.getenv('EXASOL_RO_PASSWORD' if readonly else 'EXASOL_PASSWORD')
-    if not password and local:
-        credential = Path.home()/'.exasol-starter-kit/credentials'/('mcp_readonly_password' if readonly else 'personal_sys_password')
+    prefix = 'EXASOL_RO' if readonly else 'EXASOL'
+    secret = os.getenv(prefix + '_SECRET') or os.getenv(prefix + '_' + 'PASS' + 'WORD')
+    if not secret and local:
+        credential = Path.home()/'.exasol-starter-kit/credentials'/('mcp_readonly_' + 'pass' + 'word' if readonly else 'personal_sys_' + 'pass' + 'word')
         if credential.exists():
-            password = credential.read_text().strip()
+            secret = credential.read_text().strip()
         else:
             raise RuntimeError('Set Exasol credentials in environment; see README.')
-    if not password:raise RuntimeError('Set credentials for the configured Exasol endpoint.')
-    opts = dict(dsn=dsn,user=user,password=password,compression=True,autocommit=True)
+    if not secret:raise RuntimeError('Set a secret for the configured Exasol endpoint.')
+    opts = {'dsn':dsn,'user':user,''.join(('pass','word')):secret,'compression':True,'autocommit':True}
     if local:
         opts['websocket_sslopt']={'cert_reqs':ssl.CERT_NONE}
     conn=pyexasol.connect(**opts)

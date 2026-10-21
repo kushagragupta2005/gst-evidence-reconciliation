@@ -29,6 +29,8 @@ openai==2.54.0
 packaging==26.3
 pandas==3.0.6
 pillow==12.3.0
+pip-licenses==5.5.5
+prettytable==3.18.0
 protobuf==7.36.2
 pyarrow==26.0.0
 pycparser==3.11
@@ -51,5 +53,6 @@ typing-inspection==0.4.4
 typing_extensions==4.16.0
 urllib3==2.8.0
 uvicorn==0.54.0
+wcwidth==0.9.3
 websocket-client==1.9.0
 websockets==17.2
