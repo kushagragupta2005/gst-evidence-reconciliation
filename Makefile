@@ -1,11 +1,15 @@
 .NOTPARALLEL:
-.PHONY: all bootstrap provision-dashboard reproduce-dev dashboard test scale-dev verify-clean
+.PHONY: all bootstrap provision-dashboard reproduce reproduce-dev dashboard test scale-dev verify-clean
 PY = .venv/bin/python
 all: test
 bootstrap:
 	sh scripts/bootstrap.sh
 provision-dashboard: bootstrap
 	$(PY) -m src.provision_dashboard_reader
+reproduce: bootstrap provision-dashboard
+	$(PY) -m src.generate --scale medium --seed 51003 --out data/v3_c --fake-explanations
+	$(PY) -m src.load_and_score --data data/v3_c --features data/v3_c/features.csv --report reports/reproduction_v3_c_load.json
+	$(PY) -c "from src.db import connect; c=connect(readonly=True); assert c.execute('SELECT COUNT(*) FROM GST_EVIDENCE.V_RANKED_CASES').fetchval()==28800; c.close()"
 reproduce-dev: bootstrap
 	sh scripts/evaluate_v2.sh
 	$(PY) -m scripts.export_demo_examples

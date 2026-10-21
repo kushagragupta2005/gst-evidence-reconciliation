@@ -53,12 +53,13 @@ flowchart LR
 - Exasol Personal installed and running locally, with `SELECT 1;` succeeding
 - A restricted database account configured through `EXASOL_RO_USER` and `EXASOL_RO_SECRET` for the dashboard. It must have only `CREATE SESSION`, `USAGE`, and explicit `SELECT` grants on the four dashboard views in [`sql/02_readonly_grants.sql`](sql/02_readonly_grants.sql).
 
-Install the database from the [official Exasol Personal repository](https://github.com/exasol/exasol-personal). Do not put credentials in the repository.
+Install the database by following the [official Exasol Personal installation instructions](https://github.com/exasol/exasol-personal#-get-started). Do not put credentials in the repository.
 
 ```sh
 sh scripts/bootstrap.sh
 make provision-dashboard
 make test
+make reproduce
 ```
 
 `make provision-dashboard` creates the local `DASHBOARD_READER` account, grants only the four label-free views, and stores a generated secret in the local database credential directory with owner-only permissions. Set `EXASOL_RO_SECRET` first to provide the secret yourself.
@@ -71,6 +72,8 @@ make dashboard
 
 The dashboard shows a ranked factory queue, evidence timeline, signal contributions, clear/review-only dispositions, deterministic case-note fallback, and three guarded follow-up templates. It accepts no arbitrary SQL.
 
+**Reproduced from a fresh clone on the author's machine; not yet tested on a second machine.**
+
 ## Reproduction commands
 
 | Command | Purpose | Status |
@@ -78,6 +81,7 @@ The dashboard shows a ranked factory queue, evidence timeline, signal contributi
 | `make test` | Offline unit and SQL-contract tests | Required for every change |
 | `sh scripts/verify_clean_setup.sh --offline` | Fresh source tree and Python environment, then offline tests | Measured locally |
 | `make reproduce-dev` | Regenerate the historical V2 development suite | Development only; overwrites local database/demo artefacts |
+| `make reproduce` | Regenerate and load the V3-C confirmation dataset | Recreates `GST_EVIDENCE` schemas and verifies 28,800 ranked monthly rows |
 | `make scale-dev` | Generate the legacy synthetic performance workload | Development only; must not be used as a V2 accuracy claim |
 | `make dashboard` | Start the local Streamlit application | Requires the restricted account |
 
