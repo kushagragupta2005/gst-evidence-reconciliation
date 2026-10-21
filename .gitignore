@@ -11,4 +11,5 @@ data/full/
 data/seed_c/
 data/robust_*/
 data/v2_*/
+reports/attribution/*_features.csv
 .pitch_build/

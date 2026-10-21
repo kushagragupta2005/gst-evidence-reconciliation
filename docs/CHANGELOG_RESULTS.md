@@ -58,3 +58,18 @@ evaluation result.
   reran both held-out evaluators. The two-signal decisions and headline
   recall/FPR stayed unchanged; V2-C Precision@50 is 75.00% and Precision@200
   is 74.96% under the aligned order. 20 offline tests passed.
+
+## 2026-10-21 — fixed-seed attribution study
+
+- **Method:** legacy/current generator × legacy/current detector on identical
+  Seed A 31001 and Seed B 31002. Each cell selects a threshold on Seed A only.
+  Machine-readable results: `reports/attribution.json`; generated narrative:
+  `docs/ATTRIBUTION.md`.
+- **Finding:** the FPR change from 16.65% to 2.22% is entirely the threshold
+  change from 2.5% to 5.0%. At either fixed threshold, old/new detector SQL
+  produces identical decision metrics and the generator change leaves FPR
+  unchanged. Ranking cannot affect FPR because it only orders prioritised rows.
+- **Stock-mechanic effect:** at 5.0%, new planted stock mechanics raise recall
+  from 65.81% to 82.74% and evasive recall from 6.95% to 57.24%, with FPR held
+  at 2.22%. This is explicitly a planted-mechanic result, not real-world
+  validation. The V2-C evasive recall remains lower at 49.14%.
