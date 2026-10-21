@@ -50,6 +50,33 @@ class GeneratorTests(unittest.TestCase):
                         if abs(expected-float(row['closing_stock']))>1e-3:
                             detected.add(label['scenario'])
             self.assertEqual(detected,{'hidden_production','itc_inflation','eway_reuse'})
+    def test_generated_data_sql_compatibility_smoke(self):
+        """Exercise generator -> tables -> reconciliation views without Exasol."""
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'generated'
+            with contextlib.redirect_stdout(io.StringIO()):
+                generate('small',path,44001,24)
+            conn=sqlite3.connect(':memory:')
+            try:
+                conn.execute("ATTACH DATABASE ':memory:' AS GST_EVIDENCE")
+                conn.create_function('GREATEST',-1,lambda *v:max(v) if all(x is not None for x in v) else None)
+                for filename in ['sql/00_schema.sql','sql/10_checks.sql']:
+                    sql=Path(filename).read_text().replace('CREATE SCHEMA IF NOT EXISTS GST_EVIDENCE;','').replace('CREATE OR REPLACE','CREATE')
+                    conn.executescript(re.sub(r'DECIMAL\(\d+,\d+\)','REAL',sql))
+                for table in TABLES:
+                    if table=='truth':
+                        continue
+                    with (path/(table+'.csv')).open(newline='') as handle:
+                        reader=csv.DictReader(handle)
+                        fields=reader.fieldnames
+                        quoted=','.join(fields)
+                        placeholders=','.join('?' for _ in fields)
+                        conn.executemany(f'INSERT INTO GST_EVIDENCE.{table.upper()} ({quoted}) VALUES ({placeholders})',
+                                         [tuple(row[field] for field in fields) for row in reader])
+                self.assertEqual(conn.execute('SELECT COUNT(*) FROM GST_EVIDENCE.V_RANKED_CASES').fetchone()[0],24*12)
+                self.assertGreater(conn.execute('SELECT COUNT(*) FROM GST_EVIDENCE.V_ALL_EVIDENCE').fetchone()[0],0)
+            finally:
+                conn.close()
     def test_dashboard_source_does_not_read_evaluation_labels(self):
         dashboard=Path('app.py').read_text().upper()
         for token in ['HELD_OUT_PREDICTIONS','IS_CHEAT','.SCENARIO','GST_EVALUATION','TRUTH.CSV']:

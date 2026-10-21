@@ -28,7 +28,6 @@ def demo_presets():
         return {}
     return json.loads(path.read_text())
 
-results=json.loads(Path('results.json').read_text())
 presets=demo_presets()
 labels={'cheat':'Evidence contradiction example','decoy':'Single-signal clearing example','miss':'Known miss example'}
 mode=st.sidebar.radio('Inspect a recorded example',[labels[k] for k in presets]+['Manual factory'])
@@ -48,15 +47,15 @@ try:
     evidence=query(f"SELECT FACTORY_ID,PERIOD_MONTH,CHECK_FAMILY,SOURCE_FAMILY,EXPECTED,OBSERVED,GAP,SEVERITY,ESTIMATED_TAX_EXPOSURE_INR,EVIDENCE,DISCREPANCY_CLASS FROM GST_EVIDENCE.V_ALL_EVIDENCE WHERE FACTORY_ID='{fid}' AND PERIOD_MONTH='{month}' ORDER BY CHECK_FAMILY LIMIT 20")
     features=query(f"SELECT PERIOD_MONTH,CHECK_FAMILY,SOURCE_FAMILY,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='{fid}' ORDER BY PERIOD_MONTH,CHECK_FAMILY LIMIT 100")
 except Exception as error:
-    st.error('Start Exasol and run make reproduce to load data. Configure an existing read-only account as described in README.')
+    st.error('Start Exasol and run make reproduce-dev to load development data. Configure the restricted account described in README.')
     st.caption(type(error).__name__);st.stop()
 
 with case_tab:
     st.subheader(f'{fid} · {month}')
     selected=timeline[timeline.period_month==month]
     if selected.empty:st.warning('No rows for this factory and month.');st.stop()
-    state=selected.iloc[0];a,b,c=st.columns(3)
-    a.metric('SQL status',state['status']);b.metric('Source families',int(state.signal_count));c.metric('Calibrated ratio threshold',str(results['protocol']['threshold']))
+    state=selected.iloc[0];a,b=st.columns(2)
+    a.metric('SQL status',state['status']);b.metric('Source families',int(state.signal_count))
     st.caption('Production combines material, power and stock. Movement, supplier and financial evidence count separately. Severity is a discrepancy ratio, not a probability of fraud.')
     if demo_kind=='decoy':
         st.success('Why this factory was not prioritised: one source family crosses the threshold in this month. It remains reviewable; this screen does not determine legal innocence.')
@@ -109,7 +108,7 @@ with ask_tab:
     st.caption('Guarded read-only Exasol SQL tool · fixed SELECT templates · allow-listed views · maximum 200 rows')
     question=st.text_input('Question',f'show the dispatch gap by month for factory {fid}',key='question_'+fid)
     enable_llm=st.checkbox('Use LLM to interpret and summarise',disabled=not bool(os.getenv('OPENAI_API_KEY')))
-    if not os.getenv('OPENAI_API_KEY'):st.info('Deterministic fallback active. No LLM or MCP call is claimed; this uses the permitted guarded SQL alternative.')
+    if not os.getenv('OPENAI_API_KEY'):st.info('Deterministic fallback active. Follow-up answers use the guarded read-only SQL tool.')
     if st.button('Run follow-up'):
         try:
             sql=plan_question(question,fid,enable_llm)
@@ -126,17 +125,11 @@ with ask_tab:
         except Exception as error:st.error(str(error))
 
 with results_tab:
-    st.subheader('Held-out results, including errors')
-    x,y,z=st.columns(3);x.metric('Monthly recall',f"{results['factory_month']['recall']:.2%}");y.metric('Monthly FPR',f"{results['factory_month']['fpr']:.2%}");z.metric('Missed cheat months',results['misses']['factory_months'])
-    st.warning(f"Factory-queue FPR is {results['factory_queue']['seed_c']['fpr']:.2%} after {results['factory_queue']['k']} prioritised months. Results are synthetic scenario recovery only.")
-    st.caption('Threshold and K were selected on seed A; results are reported on fresh seed C. Monthly review queues approximate a weekly workload. Confidence intervals do not capture generator bias.')
-    full=results.get('performance',{}).get('full')
-    if full:
-        st.metric('Raw evidence rows measured in Exasol',f"{full['manifest']['raw_evidence_rows']:,}")
-        st.caption(f"CSV import: {sum(full.get('load_seconds',{}).values()):.2f} s. Scale run is separate from the held-out evaluation; demo database has been restored to seed C.")
-        st.dataframe([{'view':k,'raw_seconds':v['seconds'],'ledger_seconds':full['optimised'][k][0]['seconds']} for k,v in full['unoptimised'].items()],hide_index=True,width='stretch')
-    st.image('reports/recall_fpr.png');st.dataframe(pd.DataFrame(results['misses']['examples']),hide_index=True)
-    with st.expander('All recorded metrics and confidence intervals'):st.json(results)
+    st.subheader('Evaluation status')
+    st.warning('No post-change held-out headline is currently published.')
+    st.write('The existing V2 seed reports are development artefacts because their seeds and outputs have already been inspected. They remain available for audit in the repository and are not used to make a dashboard decision.')
+    st.write('Before submission, a new preregistered held-out suite must report factory-month and factory-level recall, false-positive rate, precision, clustered confidence intervals, misses, decoy breakdowns, and fixed-capacity ranking precision.')
+    st.caption('All evidence on the case pages comes from SQL views. Ground truth never enters this dashboard process.')
 
 with problem_tab:
     st.subheader('The problem')

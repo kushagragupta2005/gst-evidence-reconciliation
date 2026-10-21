@@ -1,4 +1,6 @@
 {
+  "result_status": "DEV",
+  "result_scope": "DEV calibration study.",
   "dataset": "V2-A / seed 31001 / calibration only",
   "selection_rule": "minimum factory-month balanced error; larger threshold on ties",
   "selected_threshold": 0.05,

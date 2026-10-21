@@ -2721,10 +2721,6 @@
           }
         ]
       },
-      "udf": {
-        "available": false,
-        "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488701077520384)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488701077520384\n    code        =>  42000\n    "
-      },
       "pandas": {
         "V_MATERIAL_OUTPUT": {
           "csv_read_seconds": 0.0238385839984403,
@@ -3000,10 +2996,6 @@
             ]
           }
         ]
-      },
-      "udf": {
-        "available": false,
-        "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488455936704512)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488455936704512\n    code        =>  42000\n    "
       },
       "pandas": {
         "V_STOCK_ROLLFORWARD": {

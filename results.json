@@ -1,4 +1,6 @@
 {
+  "result_status": "DEV",
+  "result_scope": "DEV legacy evaluation and legacy workload records; not a post-change held-out claim.",
   "protocol": {
     "train_seed": 20261019,
     "held_out_seed": 20261022,
@@ -3392,9 +3394,5 @@
     "p50_seconds": 0.7139017494992004,
     "p95_seconds": 0.803842249995796,
     "definition": "One simultaneous guarded SELECT per connection, including connect, query and result fetch. Local workload timing on a MacBook; not an isolated server benchmark."
-  },
-  "udf": {
-    "status": "excluded",
-    "reason": "Python 3.12 SLC installed, but no successful UDF execution is published in this submission."
   }
 }

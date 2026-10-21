@@ -1,4 +1,6 @@
 {
+  "result_status": "DEV",
+  "result_scope": "DEV fixed-seed attribution study.",
   "method": {
     "old_commit": "6fd85a5",
     "new_commit": "0a41eca",

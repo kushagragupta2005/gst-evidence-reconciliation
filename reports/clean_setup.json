@@ -1,1 +1,1 @@
-{"status":"passed","elapsed_seconds":120,"scope":"fresh source tree and venv on same machine; existing Exasol runtime reused","offline":false}
+{"status":"passed","elapsed_seconds":111,"scope":"fresh source tree and venv; offline SQL compatibility smoke only","offline":true}

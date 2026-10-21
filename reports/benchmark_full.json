@@ -1,4 +1,6 @@
 {
+  "result_status": "DEV",
+  "result_scope": "DEV legacy workload record that predates the current detector.",
   "manifest": {
     "seed": 20261021,
     "factories": 220000,
@@ -241,9 +243,5 @@
         ]
       }
     ]
-  },
-  "udf": {
-    "available": false,
-    "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488455936704512)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488455936704512\n    code        =>  42000\n    "
   }
 }

@@ -1,3 +1,4 @@
 #!/bin/sh
 set -eu
-exec make all
+make test
+exec make dashboard

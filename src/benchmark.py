@@ -58,19 +58,11 @@ def benchmark(data,label,do_load=True):
         before=result['unoptimised'][view]['rows'][0];after=result['optimised'][view][0]['rows'][0]
         import math
         assert before[0]==after[0] and math.isclose(float(before[1] or 0),float(after[1] or 0),rel_tol=1e-9,abs_tol=.001),view
-    try:
-        c.execute(Path('sql/30_baseline_udf.sql').read_text().rsplit('/',1)[0])
-        udfquery='SELECT GST_EVIDENCE.ROBUST_POWER_BASELINE(FACTORY_ID,PERIOD_MONTH,POWER_KWH/NULLIF(DECLARED_OUTPUT,0)) FROM GST_EVIDENCE.FACTORY_MONTH GROUP BY FACTORY_ID'
-        start=time.perf_counter()
-        c.execute('CREATE OR REPLACE TABLE GST_EVIDENCE.POWER_BASELINES AS '+udfquery)
-        result['udf']={'seconds':time.perf_counter()-start,'output_rows':c.execute('SELECT COUNT(*) FROM GST_EVIDENCE.POWER_BASELINES').fetchval(),'role':'historical-only median/MAD explanation; not used for flags or held-out metrics'}
-    except Exception as e:
-        result['udf']={'available':False,'error':str(e).split('query')[0]}
     c.close()
     Path(f'reports/benchmark_{label}.json').write_text(json.dumps(result,indent=2,default=str)+'\n')
     r=json.load(open('results.json'));r.setdefault('performance',{})[label]=result
     Path('results.json').write_text(json.dumps(r,indent=2,default=str)+'\n')
-    print(json.dumps({k:result[k] for k in ['slowest','cache_refresh_seconds','udf']},indent=2))
+    print(json.dumps({k:result[k] for k in ['slowest','cache_refresh_seconds']},indent=2))
     return result
 
 if __name__=='__main__':

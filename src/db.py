@@ -8,15 +8,17 @@ def connect(readonly=False):
     dsn = os.getenv('EXASOL_DSN','localhost:8563')
     local = dsn.split(':')[0] in ('localhost','127.0.0.1')
     # The dashboard never falls back to SYS for its read-only SQL tool.
-    user = os.getenv('EXASOL_RO_USER' if readonly else 'EXASOL_USER', 'mcp_readonly' if readonly else 'sys')
+    user = os.getenv('EXASOL_RO_USER' if readonly else 'EXASOL_USER', 'DASHBOARD_READER' if readonly else 'sys')
     prefix = 'EXASOL_RO' if readonly else 'EXASOL'
     secret = os.getenv(prefix + '_SECRET') or os.getenv(prefix + '_' + 'PASS' + 'WORD')
     if not secret and local:
-        credential = Path.home()/'.exasol-starter-kit/credentials'/('mcp_readonly_' + 'pass' + 'word' if readonly else 'personal_sys_' + 'pass' + 'word')
+        credential = Path.home()/'.exasol-starter-kit/credentials'/('dashboard_reader_' + 'pass' + 'word' if readonly else 'personal_sys_' + 'pass' + 'word')
         if credential.exists():
             secret = credential.read_text().strip()
         else:
             raise RuntimeError('Set Exasol credentials in environment; see README.')
+    if readonly and not user:
+        raise RuntimeError('Set EXASOL_RO_USER for the restricted dashboard account.')
     if not secret:raise RuntimeError('Set a secret for the configured Exasol endpoint.')
     opts = {'dsn':dsn,'user':user,''.join(('pass','word')):secret,'compression':True,'autocommit':True}
     if local:

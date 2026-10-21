@@ -1,4 +1,4 @@
--- Example question for an Exasol MCP agent: "Show the dispatch gap by month."
+-- Example guarded dashboard query: "Show the dispatch gap by month."
 SELECT PERIOD_MONTH,
        COUNT(*) AS FACTORY_COUNT,
        SUM(ABS(GAP)) AS TOTAL_ABSOLUTE_DISPATCH_GAP

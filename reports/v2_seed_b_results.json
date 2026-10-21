@@ -1,4 +1,6 @@
 {
+  "result_status": "DEV",
+  "result_scope": "DEV V2-B: seed and output were inspected during development.",
   "protocol": {
     "train_seed": 31001,
     "held_out_seed": 31002,

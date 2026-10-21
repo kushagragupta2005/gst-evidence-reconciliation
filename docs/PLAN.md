@@ -11,7 +11,7 @@ build due by 25 October 2026 at 18:00 IST; Phase 2 starts only after submission.
 | 2 | Fix stock scenarios and add verified-document evidence for clears, wrong clears, INR exposure. | High: impact/technical | High | Generator, SQL, tests, held-out report |
 | 3 | Align deployed ranking with evaluation; test it. | High: UX/integrity | Medium | Shared ranking SQL/function and test |
 | 4 | Submission compliance: README, run guide, deck alignment, video script, checklist. | High: documentation | Medium | Script-generated artifacts and checklist |
-| 5 | Obtain one verified Exasol advanced feature: Python UDF or successful MCP transcript; otherwise remove all claims. | High: Exasol | Medium | Executed SQL/MCP transcript and test |
+| 5 | Obtain one verified Exasol advanced feature with a successful transcript and test; otherwise remove all claims. | High: Exasol | Medium | Executed transcript and test |
 | 6 | Optimise ranked cases using profile evidence and record before/after full-scale results. | High: Exasol | Medium | Profile, benchmark artifact, reproducible query |
 | 7 | Fair repeated benchmark: Exasol, pandas, DuckDB; state losses. | Medium: technical | Medium | Identical workload harness and report |
 | 8 | Evaluation repairs: evasive recall, weekly queue, ablation, realistic prevalence, PR/ROC/Brier. | High: integrity | High | Frozen held-out run log/results |
