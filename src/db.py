@@ -25,9 +25,9 @@ def connect(readonly=False):
     if readonly:
         system={r[0] for r in conn.execute("SELECT PRIVILEGE FROM SYS.EXA_USER_SYS_PRIVS").fetchall()}
         objects={r[0] for r in conn.execute("SELECT PRIVILEGE FROM SYS.EXA_USER_OBJ_PRIVS").fetchall()}
-        if not system <= {"CREATE SESSION","SELECT ANY TABLE","USE ANY SCHEMA"} or not objects <= {"SELECT"}:
+        if system != {"CREATE SESSION"} or not objects <= {"SELECT","USAGE"}:
             conn.close()
-            raise RuntimeError("Dashboard credentials must have read-only privileges.")
+            raise RuntimeError("Dashboard credentials must be limited to explicit label-free view grants.")
         conn.execute("ALTER SESSION SET QUERY_TIMEOUT=30")
     return conn
 

@@ -10,6 +10,10 @@ The old perfect-score benchmark is superseded. Never compare its three-month sce
 - Report B at the selected threshold. The B sensitivity curve is descriptive, not calibration. Bootstrap resamples factories and preserves their months. Metrics are conditional on the fitted threshold, not nested training uncertainty. Degenerate intervals in small subgroups are not safety guarantees.
 - Precision@k is the mean over nonempty monthly queues of up to k prioritised factories, not daily/weekly operational precision. A separate weekly dataset is not fabricated. Queue bootstrap repeats the ranking with resampled clusters (duplicates represent resampled factory copies).
 - Confusion rows are planted discrepancy descriptions, columns are the strongest nonfinancial observed discrepancy (financial-only: needs human review). A sixth column records no signal; clean truth months are excluded. Class predictions are reported even if fewer than two source families fire. Honest decoys can have a mismatch class without becoming fraud allegations.
-- Truth.csv stays outside SQL detection. Factory scenario metadata is for evaluation/demo explanation only. The detector SQL does not reference either label column. Production uses assumed 80% yield and four kWh/unit; these deliberately imperfect assumptions cause legitimate discrepancies.
+- Truth.csv stays outside the detection schema and is loaded only into the
+  evaluator-only `GST_EVALUATION` schema when explicitly requested. Factory
+  scenario metadata is not loaded into the detector database. Production uses
+  assumed 80% yield and four kWh/unit; these deliberately imperfect assumptions
+  cause legitimate discrepancies.
 - Raw evidence rows count monthly production, invoices, purchase invoices, shipment observations, returns, and bank transactions. They exclude truth and factory/supplier/machine dimensions. Derived feature rows are reported separately and are never added to raw row counts.
 - Synthetic monthly aggregates simplify allocation, supplier ownership, units, bank timing, and observability. All numerical results are scenario-recovery measurements, not tax-fraud prevalence or real-world validation.

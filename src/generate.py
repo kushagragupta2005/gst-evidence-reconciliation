@@ -9,7 +9,9 @@ CHEATS = ('hidden_production', 'itc_inflation', 'eway_reuse')
 DECOYS = ('machinery_upgrade', 'product_mix_shift', 'longer_hours', 'seasonal_stock_build', 'new_supplier_onboarding', 'lumpy_bank_flows')
 INTENSITIES = (.05, .15, .30)
 TABLES = {
- 'factories': 'factory_id,name,address,phone,vehicle_plate,ground_truth,scenario',
+ # Detection inputs deliberately contain no outcome or scenario labels. Labels
+ # belong only in truth.csv, which the evaluator reads outside GST_EVIDENCE.
+ 'factories': 'factory_id,name,address,phone,vehicle_plate',
  'suppliers': 'supplier_id,name,address,phone,linked_factory_id,owner_factory_id',
  'factory_month': 'factory_id,period_month,product,opening_stock,purchases_kg,purchases_finished,declared_output,declared_dispatch,closing_stock,power_kwh,operating_hours,raw_stock_change',
  'invoices': 'invoice_id,factory_id,period_month,quantity,invoice_value',
@@ -52,7 +54,7 @@ def generate(scale, out_dir, seed, count=None, noise_multiplier=1.0,
         evasive = int(truth == 'cheat' and rng.random() < .25)
         active = set(rng.sample(range(3, 12), rng.randint(3, 8))) if truth == 'cheat' else set()
         address, phone, plate = f'{i} Industrial Estate Sector {i%12}', f'+91-98{i:08}', f'KA{i%99:02}AB{i%10000:04}'
-        emit('factories', fid, f'Synthetic Works {i:06}', address, phone, plate, truth, scenario)
+        emit('factories', fid, f'Synthetic Works {i:06}', address, phone, plate)
         emit('suppliers', sid, f'Synthetic Supplier {i:06}', f'{i+count} Trade Estate', phone, f'F{links[i]:06}' if i in links else '', fid)
         emit('machines', f'M{i:06}', fid, '2025-01', 1800)
         if scenario == 'machinery_upgrade':

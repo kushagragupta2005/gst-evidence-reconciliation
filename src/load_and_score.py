@@ -1,6 +1,8 @@
-"""Load only this project's schema; export label-free SQL features for evaluation."""
+"""Load detection-only inputs; labels never enter the GST_EVIDENCE schema."""
 import argparse
+import csv
 import json
+import tempfile
 import time
 from pathlib import Path
 from src.db import connect, execute_file
@@ -8,21 +10,43 @@ from src.generate import TABLES
 
 VIEWS = ('V_MATERIAL_OUTPUT','V_DISPATCH_INVOICE','V_STOCK_ROLLFORWARD','V_SUPPLIER_LOOP','V_RANKED_CASES','V_SINGLE_SIGNAL_DISPOSITIONS')
 
+def detector_input(data, table):
+    """Return a label-free import file, also supporting pre-isolation CSVs."""
+    source = data / f'{table}.csv'
+    expected = TABLES[table].split(',')
+    with source.open(newline='') as handle:
+        reader = csv.DictReader(handle)
+        if reader.fieldnames == expected:
+            return str(source), None
+        if table != 'factories' or not set(expected).issubset(reader.fieldnames or []):
+            raise ValueError(f'Unexpected columns in {source}: {reader.fieldnames}')
+        temp = tempfile.NamedTemporaryFile(mode='w', newline='', suffix='.csv', delete=False)
+        writer = csv.DictWriter(temp, fieldnames=expected, lineterminator='\n')
+        writer.writeheader()
+        writer.writerows({name: row[name] for name in expected} for row in reader)
+        temp.close()
+        return temp.name, Path(temp.name)
+
 def load(data, features=None):
     data=Path(data)
     conn=connect()
     report={'manifest':json.loads((data/'manifest.json').read_text()),'load_seconds':{},'views':{}}
+    temporary_files=[]
     try:
         execute_file(conn,'sql/00_schema.sql')
         for table in TABLES:
-            if table=='truth': # Labels stay outside the database detection path.
+            if table=='truth':
                 continue
             start=time.perf_counter()
-            conn.import_from_file(str(data/(table+'.csv')),('GST_EVIDENCE',table.upper()),import_params={'skip':1})
+            source, temporary = detector_input(data, table)
+            if temporary:
+                temporary_files.append(temporary)
+            conn.import_from_file(source,('GST_EVIDENCE',table.upper()),import_params={'skip':1})
             report['load_seconds'][table]=time.perf_counter()-start
             print(f'Loaded {table}: {report["load_seconds"][table]:.3f}s',flush=True)
         execute_file(conn,'sql/20_entities.sql')
         execute_file(conn,'sql/10_checks.sql')
+        execute_file(conn,'sql/02_readonly_grants.sql')
         for view in VIEWS:
             start=time.perf_counter()
             # Aggregate values as well as COUNT so optimizer cannot skip computations.
@@ -40,6 +64,8 @@ def load(data, features=None):
         assert not any(report['join_sanity'].values())
     finally:
         conn.close()
+        for temporary in temporary_files:
+            temporary.unlink(missing_ok=True)
     return report
 
 if __name__=='__main__':

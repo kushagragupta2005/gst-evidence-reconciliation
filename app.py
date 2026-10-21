@@ -23,25 +23,23 @@ def query(sql):
 
 @st.cache_data
 def demo_presets():
-    p=pd.read_csv('reports/held_out_predictions.csv')
-    never=set(p.groupby('factory_id').flagged.max().loc[lambda x:~x].index)
-    selections={
-      'Planted cheat':p[(p.is_cheat==1)&p.flagged&(p.scenario=='hidden_production')&(p.intensity==.3)&(p.evasive==0)],
-      'Honest decoy':p[p.factory_id.isin(never)&(p.signals==1)&(p.intensity==0)&(p.scenario!='honest')&(p.period_month>='2026-04')],
-      'Missed cheat':p[(p.is_cheat==1)&~p.flagged],
-    }
-    return {k:g.iloc[0].to_dict() for k,g in selections.items() if len(g)}
+    path=Path('reports/demo_cases.json')
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text())
 
 results=json.loads(Path('results.json').read_text())
 presets=demo_presets()
-mode=st.sidebar.radio('Inspect a recorded example',list(presets)+['Manual factory'])
-st.sidebar.caption('Curated examples from held-out labels. Labels select demo examples only; SQL determines flags.')
+labels={'cheat':'Evidence contradiction example','decoy':'Single-signal clearing example','miss':'Known miss example'}
+mode=st.sidebar.radio('Inspect a recorded example',[labels[k] for k in presets]+['Manual factory'])
+st.sidebar.caption('Recorded identifiers and Exasol evidence only. Evaluation labels never enter this dashboard process.')
 if mode=='Manual factory':
     fid=st.sidebar.text_input('Factory ID','F000006').upper()
     month=st.sidebar.selectbox('Month',[f'2026-{i:02}' for i in range(1,13)])
-    demo=None
+    demo=None; demo_kind=None
 else:
-    demo=presets[mode];fid=demo['factory_id'];month=demo['period_month']
+    demo_kind=next(k for k,v in labels.items() if v==mode)
+    demo=presets[demo_kind];fid=demo['factory_id'];month=demo['period_month']
 if not re.fullmatch(r'F\d{6}',fid):st.error('Use F followed by six digits.');st.stop()
 
 case_tab,cleared_tab,ask_tab,results_tab,problem_tab=st.tabs(['Factory case','Cleared','Ask a follow-up','Evaluation & scale','Problem & limits'])
@@ -60,13 +58,10 @@ with case_tab:
     state=selected.iloc[0];a,b,c=st.columns(3)
     a.metric('SQL status',state['status']);b.metric('Source families',int(state.signal_count));c.metric('Calibrated ratio threshold',str(results['protocol']['threshold']))
     st.caption('Production combines material, power and stock. Movement, supplier and financial evidence count separately. Severity is a discrepancy ratio, not a probability of fraud.')
-    if demo:
-        st.info('Synthetic scenario: '+demo['scenario'].replace('_',' '))
-    if mode=='Honest decoy':
-        st.success('Why this honest factory was not prioritised: only a single source family crosses the threshold in this month; no month reaches the required corroboration rule. The planted operating change is legitimate. It remains reviewable, not legally cleared.')
-        st.caption(str(demo['explanation']))
-    if mode=='Missed cheat':
-        st.warning('Known miss: the planted cheat is absent from this monthly priority queue because fewer than two source families exceed the frozen threshold. Ground truth is shown for evaluation only.')
+    if demo_kind=='decoy':
+        st.success('Why this factory was not prioritised: one source family crosses the threshold in this month. It remains reviewable; this screen does not determine legal innocence.')
+    if demo_kind=='miss':
+        st.warning('Known miss example: fewer than two source families exceed the frozen threshold, so this month is absent from the priority queue.')
     st.markdown('**Evidence rows returned by Exasol**')
     if not evidence.empty:
         display=evidence.copy();display['unit']=display.check_family.map(lambda x:'INR' if x.startswith('bank_') else 'kg')

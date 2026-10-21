@@ -334,7 +334,7 @@ This workload repeatedly scans numeric evidence columns, groups shipments and pa
 
 ## Dashboard follow-ups and note validation
 
-The dashboard uses the existing starter-kit `mcp_readonly` account through a guarded SQL tool. No new database account was created. The account can read all schemas at the database layer; the follow-up compiler allows only three project views (`V_FEATURES`, `V_ALL_EVIDENCE`, `V_RANKED_CASES`), a validated factory ID, fixed SELECT templates, and `LIMIT 200`. Arbitrary SQL, joins, functions, comments and extra statements are rejected. A 30-second session timeout bounds execution. Both system and direct object privileges are checked before use; admin credentials are rejected by the dashboard path.
+The dashboard uses the existing starter-kit `mcp_readonly` account through a guarded SQL tool. The account has `CREATE SESSION` plus explicit `USAGE` and `SELECT` grants on four label-free views: `V_FEATURES`, `V_ALL_EVIDENCE`, `V_RANKED_CASES`, and `V_SINGLE_SIGNAL_DISPOSITIONS`. It cannot select the evaluator-only `GST_EVALUATION.TRUTH` table. The follow-up compiler allows only three project views, a validated factory ID, fixed `SELECT` templates, and `LIMIT 200`. Arbitrary SQL, joins, functions, comments and extra statements are rejected. A 30-second session timeout bounds execution; admin credentials are rejected by the dashboard path.
 
 For another installation, set `EXASOL_RO_USER` and `EXASOL_RO_SECRET` to an existing read-only account. The starter kit's local read-only credential is discovered automatically. Local files are not used for remote endpoints.
 

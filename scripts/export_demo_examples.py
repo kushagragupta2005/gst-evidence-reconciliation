@@ -1,4 +1,4 @@
-"""Persist the explicitly curated demo cases and their actual SQL evidence."""
+"""Evaluator-only selection of label-free IDs for the dashboard demo."""
 import json
 from pathlib import Path
 import pandas as pd
@@ -13,9 +13,10 @@ c=connect(readonly=True);examples={}
 for kind,frame in candidates.items():
     row=frame.iloc[0].to_dict();fid,month=row['factory_id'],row['period_month']
     statement=c.execute(f"SELECT * FROM GST_EVIDENCE.V_ALL_EVIDENCE WHERE FACTORY_ID='{fid}' AND PERIOD_MONTH='{month}' ORDER BY CHECK_FAMILY LIMIT 20")
-    row['evidence']=[dict(zip([x.lower() for x in statement.column_names()],r)) for r in statement.fetchall()]
-    examples[kind]=row
+    evidence=[dict(zip([x.lower() for x in statement.column_names()],r)) for r in statement.fetchall()]
+    # The dashboard receives identifiers and SQL evidence only. Evaluation labels
+    # used to select these cases remain in this evaluator process.
+    examples[kind]={'factory_id':fid,'period_month':month,'evidence':evidence}
 c.close()
-r=json.load(open('results.json'));r['demo_examples']=examples
-Path('results.json').write_text(json.dumps(r,indent=2,default=str)+'\n')
+Path('reports/demo_cases.json').write_text(json.dumps(examples,indent=2,default=str)+'\n')
 print({k:(v['factory_id'],v['period_month']) for k,v in examples.items()})

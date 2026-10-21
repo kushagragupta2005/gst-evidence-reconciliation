@@ -28,7 +28,7 @@ held-out evaluation run.
 | Source data is synthetic. | VERIFIED | `src/generate.py` creates every evidence CSV; no real-data connector exists. |
 | Seeded 12-month datasets and held-out Seed C metrics exist. | VERIFIED | `src/generate.py`; `data/seed_c/manifest.json`; `results.json`. |
 | Detector SQL does not reference truth labels. | VERIFIED | `tests/test_engine.py::test_sql_does_not_use_truth` passed; `sql/10_checks.sql` contains no label reference. |
-| Labels are isolated from the detection database. | WRONG | `sql/00_schema.sql` defines `FACTORIES.GROUND_TRUTH` and `FACTORIES.SCENARIO`; loader imports factories. This violates the stricter competition requirement even though detector views do not query them. |
+| Labels are isolated from the detection database. | VERIFIED AFTER REMEDIATION | The original state was wrong: `FACTORIES` had label columns. The rebuilt state has five factory columns, no `GST_EVIDENCE.TRUTH`, 28,800 rows in `GST_EVALUATION.TRUTH`, and dashboard-label access is denied. Evidence: `reports/load_seed_c_label_isolated.json` and the verification command recorded in `docs/CHANGELOG_RESULTS.md`. |
 | Two source families are required for priority status. | VERIFIED | `sql/10_checks.sql` creates `STATUS='prioritise'` when `SIGNAL_COUNT >= 2`; tests cover same-family non-corroboration. |
 | Stock roll-forward catches generated cases. | WRONG | `results.json` reports zero rows for `V_STOCK_ROLLFORWARD` at small and full scale. The generator keeps stock identities internally consistent. |
 | Supplier loops affect detection score. | WRONG | `sql/10_checks.sql` records `LOOP_FOUND` text, but it does not change severity or ranking. |

@@ -25,8 +25,20 @@ class GeneratorTests(unittest.TestCase):
         problem=Path('README.md').read_text().split('\n> ',1)[1].split('\n',1)[0]
         self.assertEqual(hashlib.sha256(problem.encode()).hexdigest(),'d5b711f68044bdd8079701b61916870971a76d3a20104649a4bd0035c870ba33')
     def test_sql_does_not_use_truth(self):
-        sql=Path('sql/10_checks.sql').read_text().upper()
-        for name in ['GROUND_TRUTH','SCENARIO','GST_EVIDENCE.TRUTH']:self.assertNotIn(name,sql)
+        detector_sql=(Path('sql/00_schema.sql').read_text()+Path('sql/10_checks.sql').read_text()).upper()
+        for name in ['GROUND_TRUTH','SCENARIO','GST_EVALUATION']:
+            self.assertNotIn(name,detector_sql)
+        self.assertNotIn('CREATE OR REPLACE TABLE GST_EVIDENCE.TRUTH',detector_sql)
+    def test_detection_factory_input_has_no_labels(self):
+        fields=TABLES['factories'].upper()
+        self.assertNotIn('GROUND_TRUTH',fields)
+        self.assertNotIn('SCENARIO',fields)
+    def test_dashboard_source_does_not_read_evaluation_labels(self):
+        dashboard=Path('app.py').read_text().upper()
+        for token in ['HELD_OUT_PREDICTIONS','IS_CHEAT','.SCENARIO','GST_EVALUATION','TRUTH.CSV']:
+            self.assertNotIn(token,dashboard)
+        plans=Path('src/followup.py').read_text().upper()
+        self.assertNotIn('GST_EVALUATION',plans)
 
 class SQLTests(unittest.TestCase):
     def setUp(self):
