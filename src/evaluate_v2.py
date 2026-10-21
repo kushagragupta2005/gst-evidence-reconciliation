@@ -44,12 +44,10 @@ def monthly_frame(truth, matrix, features, threshold):
     fired = features[features.severity > threshold].copy()
     fired['source_family'] = fired.source_family.astype(str)
     families = fired.groupby(['factory_id', 'period_month']).source_family.agg(lambda v: '+'.join(sorted(set(v)))).rename('families_firing')
-    gaps = (features.assign(value_at_risk=np.where(
-        features.check_family.str.startswith('bank_'), features.gap.abs(), features.gap.abs()*120))
-        .groupby(['factory_id','period_month']).value_at_risk.max())
+    gaps = (features.groupby(['factory_id','period_month']).estimated_tax_exposure_inr.max())
     out = out.join(families, on=['factory_id','period_month']).join(gaps, on=['factory_id','period_month'])
     out['families_firing'] = out.families_firing.fillna('none')
-    out['value_at_risk'] = out.value_at_risk.fillna(0.0)
+    out['estimated_tax_exposure_inr'] = out.estimated_tax_exposure_inr.fillna(0.0)
     return out, fired
 
 
@@ -74,7 +72,7 @@ def factory_queue(frame, k):
     group = frame.groupby('factory_id').agg(
         is_cheat=('is_cheat','max'), scenario=('scenario','first'),
         intensity=('intensity','first'), evasive=('evasive','first'),
-        prioritised_months=('flagged','sum'), value_at_risk=('value_at_risk','sum'))
+        prioritised_months=('flagged','sum'), estimated_tax_exposure_inr=('estimated_tax_exposure_inr','sum'))
     group['flagged'] = group.prioritised_months >= k
     return group.reset_index()
 
@@ -124,12 +122,12 @@ def evaluate(train_dir, test_dir, v1_path='results.json', output='results.json',
     threshold, calibration = choose_threshold(train, train_matrix)
     a_frame, _ = monthly_frame(train, train_matrix, prepare(train_dir)[2], threshold)
     queue_k, queue_calibration = calibration_queue(a_frame)
-    ranking_keys = ['signals','weakest_link_normalised_gap','value_at_risk','factory_id']
+    ranking_keys = ['signals','weakest_link_normalised_gap','estimated_tax_exposure_inr','factory_id']
     sort_tests = {}
     for name, keys in {
         'families_only':['signals','factory_id'],
         'families_then_weakest_link':['signals','weakest_link_normalised_gap','factory_id'],
-        'families_then_weakest_link_then_value_at_risk':ranking_keys,
+        'families_then_weakest_link_then_estimated_tax_exposure':ranking_keys,
     }.items():
         sort_tests[name] = precision_at_k(a_frame, 50, keys)
 
@@ -180,7 +178,7 @@ def evaluate(train_dir, test_dir, v1_path='results.json', output='results.json',
       'fpr_clean_vs_decoy':fpr_clean_decoy,'decoy_signal_pairs':decoy_pairs.to_dict('records'),
       'factory_queue':{'k':queue_k,'seed_a_calibration':queue_calibration,'seed_c':factory_metrics,
                        'queue_size':int(fac.flagged.sum()),'definition':'factory enters queue after K prioritised months; monthly SQL flag remains unchanged'},
-      'ranking':{'sort_key':'families firing, then weakest-link normalised gap, then value at risk',
+      'ranking':{'sort_key':'families firing, then weakest-link normalised gap, then estimated INR tax exposure',
                  'seed_a_sort_test':sort_tests,'seed_c_precision_at_k':at_k},
       'precision_at_k':at_k, 'prevalence_adjusted_precision':prevalence,
       'review_capacity':{'framing':'If a team can review K cases per monthly snapshot, the table reports the observed synthetic precision at K.',

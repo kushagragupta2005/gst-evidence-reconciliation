@@ -33,8 +33,8 @@ held-out evaluation run.
 | Stock roll-forward catches generated cases. | VERIFIED AFTER REMEDIATION | Original Seed C had zero stock rows. Pre-registered V2-C has 2,627 stock evidence rows and held-out per-check recall of 88.09%; see `reports/v2_load_seed_c.json` and `reports/v2_seed_c_results.json`. This remains synthetic scenario recovery. |
 | Supplier loops affect detection score. | WRONG | `sql/10_checks.sql` records `LOOP_FOUND` text, but it does not change severity or ranking. |
 | Normalised entity keys affect detection. | WRONG | `sql/20_entities.sql` creates `ENTITY_KEYS`; no scoring or ranking query references it. |
-| Dashboard ranking matches evaluated ranking. | WRONG | Evaluation uses families, weakest-link normalised gap, then value-at-risk (`src/evaluate_v2.py`). Dashboard orders `TOTAL_ABSOLUTE_GAP` (`app.py`). |
-| `TOTAL_ABSOLUTE_GAP` is an absolute monetary gap. | WRONG | It is `SUM(MAX_SEVERITY)` in `sql/10_checks.sql`, a dimensionless severity sum. |
+| Dashboard ranking matches evaluated ranking. | VERIFIED AFTER REMEDIATION | Both use family count, weakest fired normalised gap, estimated INR tax exposure, then factory ID. `test_dashboard_and_evaluator_share_rank_order` enforces this source-level contract. |
+| The rank field name accurately describes its contents. | VERIFIED AFTER REMEDIATION | `TOTAL_ABSOLUTE_GAP` was replaced with `TOTAL_SEVERITY`. `ESTIMATED_TAX_EXPOSURE_INR` is separately exposed with documented synthetic formulas. |
 | “Cleared” means supporting documents were verified. | WRONG | `V_SINGLE_SIGNAL_DISPOSITIONS` uses machine/product/hours/stock fields only; there is no uploaded-evidence table. |
 | A Python UDF result is part of the submission. | WRONG | `results.json.udf.status` is `excluded`; `sql/30_baseline_udf.sql` exists but no successful execution artifact is published. |
 | A live Exasol MCP follow-up demo is recorded. | UNVERIFIABLE | The dashboard uses guarded PyExasol templates (`src/followup.py`, `src/db.py`); no successful MCP transcript exists. |

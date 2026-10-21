@@ -44,8 +44,8 @@ if not re.fullmatch(r'F\d{6}',fid):st.error('Use F followed by six digits.');st.
 
 case_tab,cleared_tab,ask_tab,results_tab,problem_tab=st.tabs(['Factory case','Cleared','Ask a follow-up','Evaluation & scale','Problem & limits'])
 try:
-    timeline=query(f"SELECT PERIOD_MONTH,SIGNAL_COUNT,TOTAL_ABSOLUTE_GAP,STATUS FROM GST_EVIDENCE.V_RANKED_CASES WHERE FACTORY_ID='{fid}' ORDER BY PERIOD_MONTH LIMIT 12")
-    evidence=query(f"SELECT FACTORY_ID,PERIOD_MONTH,CHECK_FAMILY,SOURCE_FAMILY,EXPECTED,OBSERVED,GAP,SEVERITY,EVIDENCE,DISCREPANCY_CLASS FROM GST_EVIDENCE.V_ALL_EVIDENCE WHERE FACTORY_ID='{fid}' AND PERIOD_MONTH='{month}' ORDER BY CHECK_FAMILY LIMIT 20")
+    timeline=query(f"SELECT PERIOD_MONTH,SIGNAL_COUNT,TOTAL_SEVERITY,WEAKEST_LINK_NORMALISED_GAP,ESTIMATED_TAX_EXPOSURE_INR,STATUS FROM GST_EVIDENCE.V_RANKED_CASES WHERE FACTORY_ID='{fid}' ORDER BY PERIOD_MONTH LIMIT 12")
+    evidence=query(f"SELECT FACTORY_ID,PERIOD_MONTH,CHECK_FAMILY,SOURCE_FAMILY,EXPECTED,OBSERVED,GAP,SEVERITY,ESTIMATED_TAX_EXPOSURE_INR,EVIDENCE,DISCREPANCY_CLASS FROM GST_EVIDENCE.V_ALL_EVIDENCE WHERE FACTORY_ID='{fid}' AND PERIOD_MONTH='{month}' ORDER BY CHECK_FAMILY LIMIT 20")
     features=query(f"SELECT PERIOD_MONTH,CHECK_FAMILY,SOURCE_FAMILY,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='{fid}' ORDER BY PERIOD_MONTH,CHECK_FAMILY LIMIT 100")
 except Exception as error:
     st.error('Start Exasol and run make reproduce to load data. Configure an existing read-only account as described in README.')
@@ -90,7 +90,7 @@ with case_tab:
     with st.expander('Per-signal contributions, including signals below threshold'):
         st.dataframe(contributions,hide_index=True,width='stretch')
     with st.expander('Ranked monthly queue (up to 50 factories)'):
-        st.dataframe(query(f"SELECT FACTORY_ID,PERIOD_MONTH,SIGNAL_COUNT,TOTAL_ABSOLUTE_GAP,STATUS FROM GST_EVIDENCE.V_RANKED_CASES WHERE PERIOD_MONTH='{month}' AND STATUS='prioritise' ORDER BY TOTAL_ABSOLUTE_GAP DESC,FACTORY_ID LIMIT 50"),hide_index=True,width='stretch')
+        st.dataframe(query(f"SELECT FACTORY_ID,PERIOD_MONTH,SIGNAL_COUNT,WEAKEST_LINK_NORMALISED_GAP,ESTIMATED_TAX_EXPOSURE_INR,STATUS FROM GST_EVIDENCE.V_RANKED_CASES WHERE PERIOD_MONTH='{month}' AND STATUS='prioritise' ORDER BY SIGNAL_COUNT DESC,WEAKEST_LINK_NORMALISED_GAP DESC,ESTIMATED_TAX_EXPOSURE_INR DESC,FACTORY_ID LIMIT 50"),hide_index=True,width='stretch')
 
 with cleared_tab:
     st.subheader('Cleared with a documented reason')

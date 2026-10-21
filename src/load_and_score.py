@@ -50,7 +50,7 @@ def load(data, features=None):
         for view in VIEWS:
             start=time.perf_counter()
             # Aggregate values as well as COUNT so optimizer cannot skip computations.
-            column='TOTAL_ABSOLUTE_GAP' if view=='V_RANKED_CASES' else ('SIGNAL_COUNT' if view=='V_SINGLE_SIGNAL_DISPOSITIONS' else 'GAP')
+            column='TOTAL_SEVERITY' if view=='V_RANKED_CASES' else ('SIGNAL_COUNT' if view=='V_SINGLE_SIGNAL_DISPOSITIONS' else 'GAP')
             row=conn.execute(f'SELECT COUNT(*),SUM(ABS({column})) FROM GST_EVIDENCE.{view}').fetchone()
             report['views'][view]={'seconds':time.perf_counter()-start,'rows':row[0],'checksum':float(row[1] or 0)}
         if features:

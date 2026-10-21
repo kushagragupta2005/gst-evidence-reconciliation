@@ -56,6 +56,12 @@ class GeneratorTests(unittest.TestCase):
             self.assertNotIn(token,dashboard)
         plans=Path('src/followup.py').read_text().upper()
         self.assertNotIn('GST_EVALUATION',plans)
+    def test_dashboard_and_evaluator_share_rank_order(self):
+        dashboard=Path('app.py').read_text().replace(' ','').upper()
+        order='ORDERBYSIGNAL_COUNTDESC,WEAKEST_LINK_NORMALISED_GAPDESC,ESTIMATED_TAX_EXPOSURE_INRDESC,FACTORY_ID'
+        self.assertIn(order,dashboard)
+        evaluator=Path('src/evaluate_v2.py').read_text()
+        self.assertIn("['signals','weakest_link_normalised_gap','estimated_tax_exposure_inr','factory_id']",evaluator)
 
 class SQLTests(unittest.TestCase):
     def setUp(self):

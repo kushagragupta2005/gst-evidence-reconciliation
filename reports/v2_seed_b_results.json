@@ -1409,7 +1409,7 @@
     "definition": "factory enters queue after K prioritised months; monthly SQL flag remains unchanged"
   },
   "ranking": {
-    "sort_key": "families firing, then weakest-link normalised gap, then value at risk",
+    "sort_key": "families firing, then weakest-link normalised gap, then estimated INR tax exposure",
     "seed_a_sort_test": {
       "families_only": {
         "macro_precision": 0.7483333333333334,
@@ -1567,7 +1567,7 @@
         ],
         "definition": "up to k prioritised factory-months per monthly snapshot; no cleared rows are padded"
       },
-      "families_then_weakest_link_then_value_at_risk": {
+      "families_then_weakest_link_then_estimated_tax_exposure": {
         "macro_precision": 0.75,
         "monthly_queues": [
           {
@@ -2076,7 +2076,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.062733466588754,
         "families_firing": "production",
-        "value_at_risk": 6015.012000000001,
+        "estimated_tax_exposure_inr": 1082.70216,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2093,7 +2093,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.052631650163218,
         "families_firing": "production",
-        "value_at_risk": 8401.764000000001,
+        "estimated_tax_exposure_inr": 1512.31752,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2110,7 +2110,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.064724067531668,
         "families_firing": "production",
-        "value_at_risk": 7630.344,
+        "estimated_tax_exposure_inr": 1373.46192,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2127,7 +2127,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.135054711053677,
         "families_firing": "production",
-        "value_at_risk": 21840.614400000002,
+        "estimated_tax_exposure_inr": 3931.310592,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2144,7 +2144,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.056901505825451,
         "families_firing": "production",
-        "value_at_risk": 11488.272,
+        "estimated_tax_exposure_inr": 2067.88896,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2161,7 +2161,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.11163298916102,
         "families_firing": "production",
-        "value_at_risk": 12032.616,
+        "estimated_tax_exposure_inr": 2165.87088,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2178,7 +2178,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.052631571144747,
         "families_firing": "production",
-        "value_at_risk": 8520.468,
+        "estimated_tax_exposure_inr": 1533.68424,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2195,7 +2195,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.5,
         "families_firing": "movement",
-        "value_at_risk": 10769.771999999999,
+        "estimated_tax_exposure_inr": 1938.55896,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2212,7 +2212,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.5,
         "families_firing": "movement",
-        "value_at_risk": 9856.02,
+        "estimated_tax_exposure_inr": 1774.0836,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2229,7 +2229,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.5,
         "families_firing": "movement",
-        "value_at_risk": 8664.720000000001,
+        "estimated_tax_exposure_inr": 1559.6496,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2246,7 +2246,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.5,
         "families_firing": "movement",
-        "value_at_risk": 9727.872000000001,
+        "estimated_tax_exposure_inr": 1751.01696,
         "reason": "only one independent source family exceeded threshold"
       },
       {
@@ -2263,7 +2263,7 @@
         "flagged": false,
         "weakest_link_normalised_gap": 0.428571411528605,
         "families_firing": "production",
-        "value_at_risk": 43108.692,
+        "estimated_tax_exposure_inr": 7759.56456,
         "reason": "only one independent source family exceeded threshold"
       }
     ]
@@ -2381,7 +2381,7 @@
     }
   ],
   "provenance": {
-    "feature_sha256": "481ff1cbf65b905767f22013a03d7931295a5815c9c15c70a5fc89f90f7d6ef1",
+    "feature_sha256": "fe14dcc5f9b2a16fe58dfd3160d75749fc5557a1ad47fa924c933cd865aed287",
     "truth_sha256": "c67d271114a80ccdb561e7d480d87e5e3de2657bff15edc93410b3e999349787"
   },
   "v1_vs_v2": {

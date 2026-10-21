@@ -43,3 +43,18 @@ evaluation result.
   improvement over the original Seed C experiment. The stronger metrics follow
   from a new observable stock mechanism and must not be compared as a
   like-for-like gain. Full-scale timing has not yet been rerun for V2.
+
+## 2026-10-21 — ranking/exposure alignment
+
+- **Change:** replaced the misleading dimensionless `TOTAL_ABSOLUTE_GAP` field
+  with `TOTAL_SEVERITY`. `V_RANKED_CASES` now exposes source-family count,
+  weakest fired severity, and `ESTIMATED_TAX_EXPOSURE_INR`; the dashboard and
+  evaluator use the same lexicographic order.
+- **Exposure assumption:** unreported production/dispatch and stock gaps use
+  120 INR per synthetic unit × 18%; supplier gaps use 90 INR × 18%; bank gaps
+  use the positive unexplained rupee difference × 18%. This is an ordering
+  estimate, never an assessed tax demand.
+- **Verification:** reloaded frozen V2-A/B/C input through revised views and
+  reran both held-out evaluators. The two-signal decisions and headline
+  recall/FPR stayed unchanged; V2-C Precision@50 is 75.00% and Precision@200
+  is 74.96% under the aligned order. 20 offline tests passed.

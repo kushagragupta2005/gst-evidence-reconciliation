@@ -25,7 +25,7 @@ def benchmark(data,label,do_load=True):
     c.execute(f'UPDATE GST_EVIDENCE.SETTINGS SET THRESHOLD={threshold}')
     result['measurement_threshold']=threshold
     result['unoptimised']={}
-    queries={view:f'SELECT COUNT(*),SUM(ABS({"TOTAL_ABSOLUTE_GAP" if view=="V_RANKED_CASES" else "GAP"})) FROM GST_EVIDENCE.{view}' for view in VIEWS}
+    queries={view:f'SELECT COUNT(*),SUM(ABS({"TOTAL_SEVERITY" if view=="V_RANKED_CASES" else "GAP"})) FROM GST_EVIDENCE.{view}' for view in VIEWS}
     for view,q in queries.items():
         result['unoptimised'][view]=timed(c,q)
     slowest=max(result['unoptimised'],key=lambda v:result['unoptimised'][v]['seconds'])
