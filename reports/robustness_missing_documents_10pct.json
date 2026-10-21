@@ -1,0 +1,3137 @@
+{
+  "protocol": {
+    "train_seed": 20261019,
+    "held_out_seed": 20261022,
+    "evaluation_version": "v2",
+    "months_per_factory": 12,
+    "threshold": 0.025,
+    "objective": "minimum factory-month balanced error on seed A; larger threshold on ties; K selected on seed A only",
+    "calibration": [
+      {
+        "tp": 3271,
+        "fp": 4154,
+        "fn": 685,
+        "tn": 20690,
+        "recall": 0.826845298281092,
+        "fpr": 0.16720334889711802,
+        "precision": 0.44053872053872056,
+        "threshold": 0.025,
+        "balanced_error": 0.17017902530801302
+      },
+      {
+        "tp": 2450,
+        "fp": 551,
+        "fn": 1506,
+        "tn": 24293,
+        "recall": 0.6193124368048534,
+        "fpr": 0.02217839317340203,
+        "precision": 0.8163945351549483,
+        "threshold": 0.05,
+        "balanced_error": 0.20143297818427433
+      },
+      {
+        "tp": 2011,
+        "fp": 414,
+        "fn": 1945,
+        "tn": 24430,
+        "recall": 0.5083417593528817,
+        "fpr": 0.01666398325551441,
+        "precision": 0.829278350515464,
+        "threshold": 0.075,
+        "balanced_error": 0.25416111195131635
+      },
+      {
+        "tp": 1981,
+        "fp": 294,
+        "fn": 1975,
+        "tn": 24550,
+        "recall": 0.5007583417593529,
+        "fpr": 0.011833843181452261,
+        "precision": 0.8707692307692307,
+        "threshold": 0.1,
+        "balanced_error": 0.2555377507110497
+      },
+      {
+        "tp": 1943,
+        "fp": 184,
+        "fn": 2013,
+        "tn": 24660,
+        "recall": 0.49115267947421637,
+        "fpr": 0.007406214780228627,
+        "precision": 0.9134931828866949,
+        "threshold": 0.125,
+        "balanced_error": 0.25812676765300613
+      },
+      {
+        "tp": 1426,
+        "fp": 86,
+        "fn": 2530,
+        "tn": 24758,
+        "recall": 0.36046511627906974,
+        "fpr": 0.003461600386411206,
+        "precision": 0.9431216931216931,
+        "threshold": 0.15,
+        "balanced_error": 0.3214982420536707
+      },
+      {
+        "tp": 986,
+        "fp": 6,
+        "fn": 2970,
+        "tn": 24838,
+        "recall": 0.24924165824064712,
+        "fpr": 0.0002415070037031074,
+        "precision": 0.9939516129032258,
+        "threshold": 0.2,
+        "balanced_error": 0.37549992438152796
+      },
+      {
+        "tp": 979,
+        "fp": 0,
+        "fn": 2977,
+        "tn": 24844,
+        "recall": 0.2474721941354904,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "threshold": 0.25,
+        "balanced_error": 0.3762639029322548
+      },
+      {
+        "tp": 512,
+        "fp": 0,
+        "fn": 3444,
+        "tn": 24844,
+        "recall": 0.12942366026289182,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "threshold": 0.3,
+        "balanced_error": 0.4352881698685541
+      },
+      {
+        "tp": 95,
+        "fp": 0,
+        "fn": 3861,
+        "tn": 24844,
+        "recall": 0.024014155712841254,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "threshold": 0.4,
+        "balanced_error": 0.48799292214357937
+      },
+      {
+        "tp": 94,
+        "fp": 0,
+        "fn": 3862,
+        "tn": 24844,
+        "recall": 0.023761375126390292,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "threshold": 0.55,
+        "balanced_error": 0.48811931243680484
+      }
+    ],
+    "bootstrap": "1000 factory-cluster resamples; percentile 95% intervals, seed 721; conditional on frozen choices",
+    "warning": "Synthetic scenario recovery only. Truth and taxpayer explanations are excluded from detector SQL."
+  },
+  "dataset": {
+    "seed": 20261022,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 25760,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 24541,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 223101,
+    "noise_multiplier": 1.0,
+    "missing_documents_rate": 0.1,
+    "fake_explanations": true
+  },
+  "factory_month": {
+    "tp": 3257,
+    "fp": 6213,
+    "fn": 642,
+    "tn": 18688,
+    "recall": 0.8353423954860221,
+    "fpr": 0.24950805188546646,
+    "precision": 0.3439281942977825,
+    "ci95": {
+      "recall": [
+        0.8135140019988008,
+        0.8552391298065577
+      ],
+      "fpr": [
+        0.24316702434467344,
+        0.2556179345883826
+      ],
+      "precision": [
+        0.3239451890080403,
+        0.3626566822446654
+      ]
+    }
+  },
+  "factory": {
+    "tp": 603,
+    "fp": 694,
+    "fn": 117,
+    "tn": 986,
+    "recall": 0.8375,
+    "fpr": 0.41309523809523807,
+    "precision": 0.46491904394757133,
+    "ci95": {
+      "recall": [
+        0.8113417255567651,
+        0.8615492957746479
+      ],
+      "fpr": [
+        0.39089749397489487,
+        0.4361645806004635
+      ],
+      "precision": [
+        0.4400583906872158,
+        0.49128132832080196
+      ]
+    }
+  },
+  "recall_by_type_intensity": {
+    "factory_month": {
+      "eway_reuse/5%": {
+        "tp": 408,
+        "fp": 0,
+        "fn": 55,
+        "tn": 0,
+        "recall": 0.8812095032397408,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8336404696198835,
+            0.9269508839714319
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eway_reuse/15%": {
+        "tp": 374,
+        "fp": 0,
+        "fn": 90,
+        "tn": 0,
+        "recall": 0.8060344827586207,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7427905382070443,
+            0.8645876149725413
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eway_reuse/30%": {
+        "tp": 318,
+        "fp": 0,
+        "fn": 39,
+        "tn": 0,
+        "recall": 0.8907563025210085,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8375220530201031,
+            0.9397650602409638
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/5%": {
+        "tp": 437,
+        "fp": 0,
+        "fn": 106,
+        "tn": 0,
+        "recall": 0.8047882136279927,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7421049095506836,
+            0.8676809746038637
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/15%": {
+        "tp": 290,
+        "fp": 0,
+        "fn": 49,
+        "tn": 0,
+        "recall": 0.855457227138643,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7799875776397516,
+            0.9272752666328085
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/30%": {
+        "tp": 320,
+        "fp": 0,
+        "fn": 78,
+        "tn": 0,
+        "recall": 0.8040201005025126,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.731034865046263,
+            0.8786444542512504
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/5%": {
+        "tp": 317,
+        "fp": 0,
+        "fn": 102,
+        "tn": 0,
+        "recall": 0.7565632458233891,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.6827812541337643,
+            0.8247005516154453
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/15%": {
+        "tp": 384,
+        "fp": 0,
+        "fn": 56,
+        "tn": 0,
+        "recall": 0.8727272727272727,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8149614660635268,
+            0.9241113685173402
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/30%": {
+        "tp": 409,
+        "fp": 0,
+        "fn": 67,
+        "tn": 0,
+        "recall": 0.8592436974789915,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7999897750511248,
+            0.9082986829972686
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "factory": {
+      "eway_reuse/5%": {
+        "tp": 75,
+        "fp": 0,
+        "fn": 7,
+        "tn": 0,
+        "recall": 0.9146341463414634,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8536585365853658,
+            0.9634146341463414
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eway_reuse/15%": {
+        "tp": 75,
+        "fp": 0,
+        "fn": 15,
+        "tn": 0,
+        "recall": 0.8333333333333334,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7555555555555555,
+            0.9
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eway_reuse/30%": {
+        "tp": 52,
+        "fp": 0,
+        "fn": 16,
+        "tn": 0,
+        "recall": 0.7647058823529411,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.6617647058823529,
+            0.8676470588235294
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/5%": {
+        "tp": 83,
+        "fp": 0,
+        "fn": 19,
+        "tn": 0,
+        "recall": 0.8137254901960784,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7352941176470589,
+            0.8921568627450981
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/15%": {
+        "tp": 57,
+        "fp": 0,
+        "fn": 8,
+        "tn": 0,
+        "recall": 0.8769230769230769,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7846153846153846,
+            0.9538461538461539
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/30%": {
+        "tp": 56,
+        "fp": 0,
+        "fn": 17,
+        "tn": 0,
+        "recall": 0.7671232876712328,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.6712328767123288,
+            0.863013698630137
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/5%": {
+        "tp": 60,
+        "fp": 0,
+        "fn": 16,
+        "tn": 0,
+        "recall": 0.7894736842105263,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.6973684210526315,
+            0.881578947368421
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/15%": {
+        "tp": 71,
+        "fp": 0,
+        "fn": 8,
+        "tn": 0,
+        "recall": 0.8987341772151899,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8227848101265823,
+            0.9620253164556962
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/30%": {
+        "tp": 74,
+        "fp": 0,
+        "fn": 11,
+        "tn": 0,
+        "recall": 0.8705882352941177,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8,
+            0.9411764705882353
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "fpr_by_decoy": {
+    "factory_month": {
+      "longer_hours": {
+        "tp": 0,
+        "fp": 656,
+        "fn": 0,
+        "tn": 1264,
+        "recall": null,
+        "fpr": 0.3416666666666667,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.32083333333333336,
+            0.3635546875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "lumpy_bank_flows": {
+        "tp": 0,
+        "fp": 633,
+        "fn": 0,
+        "tn": 1287,
+        "recall": null,
+        "fpr": 0.3296875,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.3098958333333333,
+            0.3536458333333333
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "machinery_upgrade": {
+        "tp": 0,
+        "fp": 619,
+        "fn": 0,
+        "tn": 1301,
+        "recall": null,
+        "fpr": 0.3223958333333333,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.30364583333333334,
+            0.3401171875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "new_supplier_onboarding": {
+        "tp": 0,
+        "fp": 731,
+        "fn": 0,
+        "tn": 1189,
+        "recall": null,
+        "fpr": 0.3807291666666667,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.3583203125,
+            0.4041796875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "product_mix_shift": {
+        "tp": 0,
+        "fp": 634,
+        "fn": 0,
+        "tn": 1286,
+        "recall": null,
+        "fpr": 0.3302083333333333,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.3098958333333333,
+            0.3489583333333333
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "seasonal_stock_build": {
+        "tp": 0,
+        "fp": 651,
+        "fn": 0,
+        "tn": 1269,
+        "recall": null,
+        "fpr": 0.3390625,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.31666666666666665,
+            0.3625
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "factory": {
+      "longer_hours": {
+        "tp": 0,
+        "fp": 101,
+        "fn": 0,
+        "tn": 59,
+        "recall": null,
+        "fpr": 0.63125,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.55625,
+            0.7064062499999999
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "lumpy_bank_flows": {
+        "tp": 0,
+        "fp": 91,
+        "fn": 0,
+        "tn": 69,
+        "recall": null,
+        "fpr": 0.56875,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.5,
+            0.64375
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "machinery_upgrade": {
+        "tp": 0,
+        "fp": 97,
+        "fn": 0,
+        "tn": 63,
+        "recall": null,
+        "fpr": 0.60625,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.53125,
+            0.675
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "new_supplier_onboarding": {
+        "tp": 0,
+        "fp": 118,
+        "fn": 0,
+        "tn": 42,
+        "recall": null,
+        "fpr": 0.7375,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.675,
+            0.80625
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "product_mix_shift": {
+        "tp": 0,
+        "fp": 98,
+        "fn": 0,
+        "tn": 62,
+        "recall": null,
+        "fpr": 0.6125,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.5375,
+            0.68125
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "seasonal_stock_build": {
+        "tp": 0,
+        "fp": 98,
+        "fn": 0,
+        "tn": 62,
+        "recall": null,
+        "fpr": 0.6125,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.5375,
+            0.6875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "fpr_clean_vs_decoy": {
+    "factory_month": {
+      "clean_factories": {
+        "tp": 0,
+        "fp": 1458,
+        "fn": 0,
+        "tn": 7182,
+        "recall": null,
+        "fpr": 0.16875,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.16156828703703702,
+            0.1760474537037037
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "honest_decoys": {
+        "tp": 0,
+        "fp": 3924,
+        "fn": 0,
+        "tn": 7596,
+        "recall": null,
+        "fpr": 0.340625,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.33125,
+            0.34887369791666667
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "factory": {
+      "clean_factories": {
+        "tp": 0,
+        "fp": 91,
+        "fn": 0,
+        "tn": 629,
+        "recall": null,
+        "fpr": 0.12638888888888888,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.10277777777777777,
+            0.15
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "honest_decoys": {
+        "tp": 0,
+        "fp": 603,
+        "fn": 0,
+        "tn": 357,
+        "recall": null,
+        "fpr": 0.628125,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.597890625,
+            0.6573177083333334
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "decoy_signal_pairs": [
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "financial",
+      "months": 60,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "financial+movement+production+supplier",
+      "months": 176,
+      "false_positives": 176,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "financial+movement+supplier",
+      "months": 33,
+      "false_positives": 33,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "financial+production",
+      "months": 276,
+      "false_positives": 276,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "financial+production+supplier",
+      "months": 28,
+      "false_positives": 28,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "financial+supplier",
+      "months": 11,
+      "false_positives": 11,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "none",
+      "months": 227,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "production",
+      "months": 949,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "production+supplier",
+      "months": 132,
+      "false_positives": 132,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "longer_hours",
+      "signal_pair": "supplier",
+      "months": 28,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "financial",
+      "months": 965,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "financial+movement+production+supplier",
+      "months": 38,
+      "false_positives": 38,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "financial+movement+supplier",
+      "months": 163,
+      "false_positives": 163,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "financial+production",
+      "months": 262,
+      "false_positives": 262,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "financial+production+supplier",
+      "months": 31,
+      "false_positives": 31,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "financial+supplier",
+      "months": 129,
+      "false_positives": 129,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "none",
+      "months": 233,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "production",
+      "months": 60,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "production+supplier",
+      "months": 10,
+      "false_positives": 10,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "lumpy_bank_flows",
+      "signal_pair": "supplier",
+      "months": 29,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "financial",
+      "months": 62,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "financial+movement+production+supplier",
+      "months": 164,
+      "false_positives": 164,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "financial+movement+supplier",
+      "months": 47,
+      "false_positives": 47,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "financial+production",
+      "months": 255,
+      "false_positives": 255,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "financial+production+supplier",
+      "months": 32,
+      "false_positives": 32,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "financial+supplier",
+      "months": 10,
+      "false_positives": 10,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "none",
+      "months": 229,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "production",
+      "months": 975,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "production+supplier",
+      "months": 111,
+      "false_positives": 111,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "machinery_upgrade",
+      "signal_pair": "supplier",
+      "months": 35,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "financial",
+      "months": 55,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "financial+movement+production+supplier",
+      "months": 42,
+      "false_positives": 42,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "financial+movement+supplier",
+      "months": 149,
+      "false_positives": 149,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "financial+production",
+      "months": 19,
+      "false_positives": 19,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "financial+production+supplier",
+      "months": 74,
+      "false_positives": 74,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "financial+supplier",
+      "months": 215,
+      "false_positives": 215,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "none",
+      "months": 256,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "production",
+      "months": 68,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "production+supplier",
+      "months": 232,
+      "false_positives": 232,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "new_supplier_onboarding",
+      "signal_pair": "supplier",
+      "months": 810,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "financial",
+      "months": 77,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "financial+movement+production+supplier",
+      "months": 169,
+      "false_positives": 169,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "financial+movement+supplier",
+      "months": 45,
+      "false_positives": 45,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "financial+production",
+      "months": 263,
+      "false_positives": 263,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "financial+production+supplier",
+      "months": 28,
+      "false_positives": 28,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "financial+supplier",
+      "months": 8,
+      "false_positives": 8,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "none",
+      "months": 232,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "production",
+      "months": 959,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "production+supplier",
+      "months": 121,
+      "false_positives": 121,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "product_mix_shift",
+      "signal_pair": "supplier",
+      "months": 18,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "financial",
+      "months": 62,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "financial+movement+production+supplier",
+      "months": 159,
+      "false_positives": 159,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "financial+movement+supplier",
+      "months": 47,
+      "false_positives": 47,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "financial+production",
+      "months": 270,
+      "false_positives": 270,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "financial+production+supplier",
+      "months": 42,
+      "false_positives": 42,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "financial+supplier",
+      "months": 9,
+      "false_positives": 9,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "none",
+      "months": 222,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "production",
+      "months": 954,
+      "false_positives": 0,
+      "fpr": 0.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "production+supplier",
+      "months": 124,
+      "false_positives": 124,
+      "fpr": 1.0
+    },
+    {
+      "scenario": "seasonal_stock_build",
+      "signal_pair": "supplier",
+      "months": 31,
+      "false_positives": 0,
+      "fpr": 0.0
+    }
+  ],
+  "factory_queue": {
+    "k": 4,
+    "seed_a_calibration": [
+      {
+        "k": 2,
+        "tp": 674,
+        "fp": 1020,
+        "fn": 46,
+        "tn": 660,
+        "recall": 0.9361111111111111,
+        "fpr": 0.6071428571428571,
+        "precision": 0.39787485242030696,
+        "queue_size": 1694,
+        "balanced_error": 0.335515873015873
+      },
+      {
+        "k": 3,
+        "tp": 631,
+        "fp": 661,
+        "fn": 89,
+        "tn": 1019,
+        "recall": 0.8763888888888889,
+        "fpr": 0.39345238095238094,
+        "precision": 0.48839009287925694,
+        "queue_size": 1292,
+        "balanced_error": 0.258531746031746
+      },
+      {
+        "k": 4,
+        "tp": 543,
+        "fp": 381,
+        "fn": 177,
+        "tn": 1299,
+        "recall": 0.7541666666666667,
+        "fpr": 0.22678571428571428,
+        "precision": 0.5876623376623377,
+        "queue_size": 924,
+        "balanced_error": 0.2363095238095238
+      }
+    ],
+    "seed_c": {
+      "tp": 603,
+      "fp": 694,
+      "fn": 117,
+      "tn": 986,
+      "recall": 0.8375,
+      "fpr": 0.41309523809523807,
+      "precision": 0.46491904394757133,
+      "ci95": {
+        "recall": [
+          0.8113417255567651,
+          0.8615492957746479
+        ],
+        "fpr": [
+          0.39089749397489487,
+          0.4361645806004635
+        ],
+        "precision": [
+          0.4400583906872158,
+          0.49128132832080196
+        ]
+      }
+    },
+    "queue_size": 1297,
+    "definition": "factory enters queue after K prioritised months; monthly SQL flag remains unchanged"
+  },
+  "ranking": {
+    "sort_key": "families firing, then weakest-link normalised gap, then value at risk",
+    "seed_a_sort_test": {
+      "families_only": {
+        "macro_precision": 0.6516666666666667,
+        "monthly_queues": [
+          {
+            "month": "2026-01",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-02",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-03",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-04",
+            "returned": 50,
+            "true_cheats": 43,
+            "precision": 0.86
+          },
+          {
+            "month": "2026-05",
+            "returned": 50,
+            "true_cheats": 42,
+            "precision": 0.84
+          },
+          {
+            "month": "2026-06",
+            "returned": 50,
+            "true_cheats": 42,
+            "precision": 0.84
+          },
+          {
+            "month": "2026-07",
+            "returned": 50,
+            "true_cheats": 47,
+            "precision": 0.94
+          },
+          {
+            "month": "2026-08",
+            "returned": 50,
+            "true_cheats": 46,
+            "precision": 0.92
+          },
+          {
+            "month": "2026-09",
+            "returned": 50,
+            "true_cheats": 44,
+            "precision": 0.88
+          },
+          {
+            "month": "2026-10",
+            "returned": 50,
+            "true_cheats": 40,
+            "precision": 0.8
+          },
+          {
+            "month": "2026-11",
+            "returned": 50,
+            "true_cheats": 42,
+            "precision": 0.84
+          },
+          {
+            "month": "2026-12",
+            "returned": 50,
+            "true_cheats": 45,
+            "precision": 0.9
+          }
+        ],
+        "definition": "up to k prioritised factory-months per monthly snapshot; no cleared rows are padded"
+      },
+      "families_then_weakest_link": {
+        "macro_precision": 0.75,
+        "monthly_queues": [
+          {
+            "month": "2026-01",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-02",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-03",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-04",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-05",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-06",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-07",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-08",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-09",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-10",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-11",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-12",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          }
+        ],
+        "definition": "up to k prioritised factory-months per monthly snapshot; no cleared rows are padded"
+      },
+      "families_then_weakest_link_then_value_at_risk": {
+        "macro_precision": 0.75,
+        "monthly_queues": [
+          {
+            "month": "2026-01",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-02",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-03",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-04",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-05",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-06",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-07",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-08",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-09",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-10",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-11",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          },
+          {
+            "month": "2026-12",
+            "returned": 50,
+            "true_cheats": 50,
+            "precision": 1.0
+          }
+        ],
+        "definition": "up to k prioritised factory-months per monthly snapshot; no cleared rows are padded"
+      }
+    },
+    "seed_c_precision_at_k": {
+      "50": {
+        "macro_precision": 0.075,
+        "monthly_queues": [
+          {
+            "month": "2026-01",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-02",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-03",
+            "returned": 50,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-04",
+            "returned": 50,
+            "true_cheats": 1,
+            "precision": 0.02
+          },
+          {
+            "month": "2026-05",
+            "returned": 50,
+            "true_cheats": 6,
+            "precision": 0.12
+          },
+          {
+            "month": "2026-06",
+            "returned": 50,
+            "true_cheats": 5,
+            "precision": 0.1
+          },
+          {
+            "month": "2026-07",
+            "returned": 50,
+            "true_cheats": 4,
+            "precision": 0.08
+          },
+          {
+            "month": "2026-08",
+            "returned": 50,
+            "true_cheats": 7,
+            "precision": 0.14
+          },
+          {
+            "month": "2026-09",
+            "returned": 50,
+            "true_cheats": 4,
+            "precision": 0.08
+          },
+          {
+            "month": "2026-10",
+            "returned": 50,
+            "true_cheats": 6,
+            "precision": 0.12
+          },
+          {
+            "month": "2026-11",
+            "returned": 50,
+            "true_cheats": 6,
+            "precision": 0.12
+          },
+          {
+            "month": "2026-12",
+            "returned": 50,
+            "true_cheats": 6,
+            "precision": 0.12
+          }
+        ],
+        "definition": "up to k prioritised factory-months per monthly snapshot; no cleared rows are padded"
+      },
+      "200": {
+        "macro_precision": 0.18166666666666664,
+        "monthly_queues": [
+          {
+            "month": "2026-01",
+            "returned": 200,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-02",
+            "returned": 200,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-03",
+            "returned": 200,
+            "true_cheats": 0,
+            "precision": 0.0
+          },
+          {
+            "month": "2026-04",
+            "returned": 200,
+            "true_cheats": 46,
+            "precision": 0.23
+          },
+          {
+            "month": "2026-05",
+            "returned": 200,
+            "true_cheats": 55,
+            "precision": 0.275
+          },
+          {
+            "month": "2026-06",
+            "returned": 200,
+            "true_cheats": 46,
+            "precision": 0.23
+          },
+          {
+            "month": "2026-07",
+            "returned": 200,
+            "true_cheats": 46,
+            "precision": 0.23
+          },
+          {
+            "month": "2026-08",
+            "returned": 200,
+            "true_cheats": 62,
+            "precision": 0.31
+          },
+          {
+            "month": "2026-09",
+            "returned": 200,
+            "true_cheats": 50,
+            "precision": 0.25
+          },
+          {
+            "month": "2026-10",
+            "returned": 200,
+            "true_cheats": 39,
+            "precision": 0.195
+          },
+          {
+            "month": "2026-11",
+            "returned": 200,
+            "true_cheats": 44,
+            "precision": 0.22
+          },
+          {
+            "month": "2026-12",
+            "returned": 200,
+            "true_cheats": 48,
+            "precision": 0.24
+          }
+        ],
+        "definition": "up to k prioritised factory-months per monthly snapshot; no cleared rows are padded"
+      }
+    }
+  },
+  "precision_at_k": {
+    "50": {
+      "macro_precision": 0.075,
+      "monthly_queues": [
+        {
+          "month": "2026-01",
+          "returned": 50,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-02",
+          "returned": 50,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-03",
+          "returned": 50,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-04",
+          "returned": 50,
+          "true_cheats": 1,
+          "precision": 0.02
+        },
+        {
+          "month": "2026-05",
+          "returned": 50,
+          "true_cheats": 6,
+          "precision": 0.12
+        },
+        {
+          "month": "2026-06",
+          "returned": 50,
+          "true_cheats": 5,
+          "precision": 0.1
+        },
+        {
+          "month": "2026-07",
+          "returned": 50,
+          "true_cheats": 4,
+          "precision": 0.08
+        },
+        {
+          "month": "2026-08",
+          "returned": 50,
+          "true_cheats": 7,
+          "precision": 0.14
+        },
+        {
+          "month": "2026-09",
+          "returned": 50,
+          "true_cheats": 4,
+          "precision": 0.08
+        },
+        {
+          "month": "2026-10",
+          "returned": 50,
+          "true_cheats": 6,
+          "precision": 0.12
+        },
+        {
+          "month": "2026-11",
+          "returned": 50,
+          "true_cheats": 6,
+          "precision": 0.12
+        },
+        {
+          "month": "2026-12",
+          "returned": 50,
+          "true_cheats": 6,
+          "precision": 0.12
+        }
+      ],
+      "definition": "up to k prioritised factory-months per monthly snapshot; no cleared rows are padded"
+    },
+    "200": {
+      "macro_precision": 0.18166666666666664,
+      "monthly_queues": [
+        {
+          "month": "2026-01",
+          "returned": 200,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-02",
+          "returned": 200,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-03",
+          "returned": 200,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-04",
+          "returned": 200,
+          "true_cheats": 46,
+          "precision": 0.23
+        },
+        {
+          "month": "2026-05",
+          "returned": 200,
+          "true_cheats": 55,
+          "precision": 0.275
+        },
+        {
+          "month": "2026-06",
+          "returned": 200,
+          "true_cheats": 46,
+          "precision": 0.23
+        },
+        {
+          "month": "2026-07",
+          "returned": 200,
+          "true_cheats": 46,
+          "precision": 0.23
+        },
+        {
+          "month": "2026-08",
+          "returned": 200,
+          "true_cheats": 62,
+          "precision": 0.31
+        },
+        {
+          "month": "2026-09",
+          "returned": 200,
+          "true_cheats": 50,
+          "precision": 0.25
+        },
+        {
+          "month": "2026-10",
+          "returned": 200,
+          "true_cheats": 39,
+          "precision": 0.195
+        },
+        {
+          "month": "2026-11",
+          "returned": 200,
+          "true_cheats": 44,
+          "precision": 0.22
+        },
+        {
+          "month": "2026-12",
+          "returned": 200,
+          "true_cheats": 48,
+          "precision": 0.24
+        }
+      ],
+      "definition": "up to k prioritised factory-months per monthly snapshot; no cleared rows are padded"
+    }
+  },
+  "prevalence_adjusted_precision": {
+    "1.00%": {
+      "assumed_prevalence": 0.01,
+      "precision": 0.03271152394325174
+    },
+    "5.00%": {
+      "assumed_prevalence": 0.05,
+      "precision": 0.14981045326651396
+    },
+    "10.00%": {
+      "assumed_prevalence": 0.1,
+      "precision": 0.2711345274956177
+    },
+    "synthetic observed": {
+      "assumed_prevalence": 0.13538194444444446,
+      "precision": 0.34392819429778243
+    }
+  },
+  "review_capacity": {
+    "framing": "If a team can review K cases per monthly snapshot, the table reports the observed synthetic precision at K.",
+    "capacity_rows": [
+      {
+        "cases_per_snapshot": 50,
+        "precision": 0.075
+      },
+      {
+        "cases_per_snapshot": 200,
+        "precision": 0.18166666666666664
+      }
+    ]
+  },
+  "confusion": {
+    "unit": "factory-month; strongest non-financial evidence, including review-only cases; clean months excluded",
+    "rows_truth": [
+      "mismatch",
+      "missing documents",
+      "supplier issue",
+      "contradicting evidence",
+      "needs human review"
+    ],
+    "columns_predicted": [
+      "mismatch",
+      "missing documents",
+      "supplier issue",
+      "contradicting evidence",
+      "needs human review",
+      "no signal"
+    ],
+    "counts": [
+      [
+        1072,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4335,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1157,
+        8,
+        27,
+        5
+      ],
+      [
+        196,
+        0,
+        9,
+        546,
+        395,
+        0
+      ],
+      [
+        0,
+        0,
+        136,
+        2621,
+        3691,
+        0
+      ]
+    ]
+  },
+  "single_signal_decoy_months": 6197,
+  "misses": {
+    "factory_months": 642,
+    "factories_never_caught": 117,
+    "reasons": {
+      "only one independent source family exceeded threshold": 637,
+      "all independent source ratios below threshold": 5
+    },
+    "examples": [
+      {
+        "factory_id": "F000005",
+        "period_month": "2026-08",
+        "is_cheat": 1,
+        "scenario": "hidden_production",
+        "intensity": 0.3,
+        "evasive": 1,
+        "discrepancy_class": "contradicting evidence",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented machinery change",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.308703850419521,
+        "families_firing": "production",
+        "value_at_risk": 25549.2432,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000005",
+        "period_month": "2026-12",
+        "is_cheat": 1,
+        "scenario": "hidden_production",
+        "intensity": 0.3,
+        "evasive": 1,
+        "discrepancy_class": "contradicting evidence",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented seasonal stock build",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.321536572193355,
+        "families_firing": "production",
+        "value_at_risk": 30416.6112,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000030",
+        "period_month": "2026-04",
+        "is_cheat": 1,
+        "scenario": "hidden_production",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "contradicting evidence",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented product mix shift",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.055984583807396,
+        "families_firing": "production",
+        "value_at_risk": 7905.7728,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000030",
+        "period_month": "2026-10",
+        "is_cheat": 1,
+        "scenario": "hidden_production",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "contradicting evidence",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented product mix shift",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.062496148377972,
+        "families_firing": "production",
+        "value_at_risk": 7204.3128,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000030",
+        "period_month": "2026-12",
+        "is_cheat": 1,
+        "scenario": "hidden_production",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "contradicting evidence",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented machinery change",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.074430401577372,
+        "families_firing": "production",
+        "value_at_risk": 7340.4888,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000047",
+        "period_month": "2026-10",
+        "is_cheat": 1,
+        "scenario": "hidden_production",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "contradicting evidence",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented machinery change",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.047863456277562,
+        "families_firing": "production",
+        "value_at_risk": 6004.4856,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000047",
+        "period_month": "2026-11",
+        "is_cheat": 1,
+        "scenario": "hidden_production",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "contradicting evidence",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented product mix shift",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.067367850126569,
+        "families_firing": "production",
+        "value_at_risk": 8854.135199999999,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000048",
+        "period_month": "2026-04",
+        "is_cheat": 1,
+        "scenario": "eway_reuse",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "mismatch",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented seasonal stock build",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.5,
+        "families_firing": "movement",
+        "value_at_risk": 2829.528,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000048",
+        "period_month": "2026-07",
+        "is_cheat": 1,
+        "scenario": "eway_reuse",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "mismatch",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented machinery change",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.5,
+        "families_firing": "movement",
+        "value_at_risk": 1340.544,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000048",
+        "period_month": "2026-08",
+        "is_cheat": 1,
+        "scenario": "eway_reuse",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "mismatch",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented longer operating hours",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.5,
+        "families_firing": "movement",
+        "value_at_risk": 1532.904,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000048",
+        "period_month": "2026-10",
+        "is_cheat": 1,
+        "scenario": "eway_reuse",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "mismatch",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented machinery change",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.5,
+        "families_firing": "movement",
+        "value_at_risk": 2730.5280000000002,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000060",
+        "period_month": "2026-04",
+        "is_cheat": 1,
+        "scenario": "hidden_production",
+        "intensity": 0.3,
+        "evasive": 1,
+        "discrepancy_class": "contradicting evidence",
+        "explanation": "only one independent source family exposed",
+        "taxpayer_explanation": "documented seasonal stock build",
+        "signals": 1,
+        "flagged": false,
+        "weakest_link_normalised_gap": 0.321776472221478,
+        "families_firing": "production",
+        "value_at_risk": 43901.875199999995,
+        "reason": "only one independent source family exceeded threshold"
+      }
+    ]
+  },
+  "threshold_curve": [
+    {
+      "threshold": 0.025,
+      "tp": 3257,
+      "fp": 6213,
+      "fn": 642,
+      "tn": 18688,
+      "recall": 0.8353423954860221,
+      "fpr": 0.24950805188546646,
+      "precision": 0.3439281942977825
+    },
+    {
+      "threshold": 0.05,
+      "tp": 2570,
+      "fp": 3048,
+      "fn": 1329,
+      "tn": 21853,
+      "recall": 0.6591433700948961,
+      "fpr": 0.12240472270189952,
+      "precision": 0.4574581701673193
+    },
+    {
+      "threshold": 0.075,
+      "tp": 2106,
+      "fp": 2935,
+      "fn": 1793,
+      "tn": 21966,
+      "recall": 0.5401384970505257,
+      "fpr": 0.11786675233926348,
+      "precision": 0.4177742511406467
+    },
+    {
+      "threshold": 0.1,
+      "tp": 2079,
+      "fp": 2835,
+      "fn": 1820,
+      "tn": 22066,
+      "recall": 0.533213644524237,
+      "fpr": 0.11385084936347938,
+      "precision": 0.4230769230769231
+    },
+    {
+      "threshold": 0.125,
+      "tp": 2043,
+      "fp": 2734,
+      "fn": 1856,
+      "tn": 22167,
+      "recall": 0.5239805078225186,
+      "fpr": 0.10979478735793743,
+      "precision": 0.4276742725559975
+    },
+    {
+      "threshold": 0.15,
+      "tp": 1624,
+      "fp": 2640,
+      "fn": 2275,
+      "tn": 22261,
+      "recall": 0.41651705565529623,
+      "fpr": 0.10601983856070038,
+      "precision": 0.3808630393996248
+    },
+    {
+      "threshold": 0.2,
+      "tp": 1269,
+      "fp": 2561,
+      "fn": 2630,
+      "tn": 22340,
+      "recall": 0.3254680687355732,
+      "fpr": 0.10284727520983093,
+      "precision": 0.331331592689295
+    },
+    {
+      "threshold": 0.25,
+      "tp": 1262,
+      "fp": 2556,
+      "fn": 2637,
+      "tn": 22345,
+      "recall": 0.323672736599128,
+      "fpr": 0.10264648006104173,
+      "precision": 0.33053954950235725
+    },
+    {
+      "threshold": 0.3,
+      "tp": 825,
+      "fp": 2556,
+      "fn": 3074,
+      "tn": 22345,
+      "recall": 0.21159271608104643,
+      "fpr": 0.10264648006104173,
+      "precision": 0.2440106477373558
+    },
+    {
+      "threshold": 0.4,
+      "tp": 484,
+      "fp": 2556,
+      "fn": 3415,
+      "tn": 22345,
+      "recall": 0.1241343934342139,
+      "fpr": 0.10264648006104173,
+      "precision": 0.15921052631578947
+    },
+    {
+      "threshold": 0.55,
+      "tp": 484,
+      "fp": 2556,
+      "fn": 3415,
+      "tn": 22345,
+      "recall": 0.1241343934342139,
+      "fpr": 0.10264648006104173,
+      "precision": 0.15921052631578947
+    }
+  ],
+  "provenance": {
+    "feature_sha256": "c8b1df48b05e6cba13aa93d4b20858c79144160ce73f8ff7b7c9801e9754adea",
+    "truth_sha256": "f885e3d60d59ee117524235aaa58544841ce7cfd34b45c54fda6245730d8a408"
+  },
+  "v1_vs_v2": {
+    "v1_seed_b": {
+      "seed": 20261022,
+      "factory_month": {
+        "tp": 3283,
+        "fp": 4128,
+        "fn": 625,
+        "tn": 20764,
+        "recall": 0.84007164790174,
+        "fpr": 0.16583641330547969,
+        "precision": 0.44299014977735796,
+        "ci95": {
+          "recall": [
+            0.8180874148210711,
+            0.8629498301904526
+          ],
+          "fpr": [
+            0.1602798721069183,
+            0.17187210397546493
+          ],
+          "precision": [
+            0.4204047481590791,
+            0.4664813656947193
+          ]
+        }
+      },
+      "factory": {
+        "tp": 538,
+        "fp": 379,
+        "fn": 182,
+        "tn": 1301,
+        "recall": 0.7472222222222222,
+        "fpr": 0.2255952380952381,
+        "precision": 0.5866957470010905,
+        "ci95": {
+          "recall": [
+            0.7146451860375911,
+            0.7784016031119232
+          ],
+          "fpr": [
+            0.20699268227892934,
+            0.24729598639618813
+          ],
+          "precision": [
+            0.5554318689895569,
+            0.6169045005488474
+          ]
+        }
+      }
+    },
+    "v2_seed_c": {
+      "seed": 20261022,
+      "factory_month": {
+        "tp": 3257,
+        "fp": 6213,
+        "fn": 642,
+        "tn": 18688,
+        "recall": 0.8353423954860221,
+        "fpr": 0.24950805188546646,
+        "precision": 0.3439281942977825,
+        "ci95": {
+          "recall": [
+            0.8135140019988008,
+            0.8552391298065577
+          ],
+          "fpr": [
+            0.24316702434467344,
+            0.2556179345883826
+          ],
+          "precision": [
+            0.3239451890080403,
+            0.3626566822446654
+          ]
+        }
+      },
+      "factory": {
+        "tp": 603,
+        "fp": 694,
+        "fn": 117,
+        "tn": 986,
+        "recall": 0.8375,
+        "fpr": 0.41309523809523807,
+        "precision": 0.46491904394757133,
+        "ci95": {
+          "recall": [
+            0.8113417255567651,
+            0.8615492957746479
+          ],
+          "fpr": [
+            0.39089749397489487,
+            0.4361645806004635
+          ],
+          "precision": [
+            0.4400583906872158,
+            0.49128132832080196
+          ]
+        }
+      }
+    }
+  },
+  "performance": {
+    "small_unoptimised": {
+      "manifest": {
+        "seed": 20261020,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28694,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228854
+      },
+      "load_seconds": {
+        "factories": 0.10582520800380735,
+        "suppliers": 0.05932475000008708,
+        "factory_month": 0.2506940829989617,
+        "invoices": 0.26712320799560985,
+        "purchase_invoices": 0.3154014579995419,
+        "eway_bills": 0.388598457997432,
+        "supplier_returns": 0.12124575000052573,
+        "bank_entries": 0.44147258400334977,
+        "machines": 0.1196951669990085
+      },
+      "views": {
+        "V_MATERIAL_OUTPUT": {
+          "seconds": 0.3253586670034565,
+          "rows": 7113,
+          "checksum": 1472010.94028
+        },
+        "V_DISPATCH_INVOICE": {
+          "seconds": 0.28596829200250795,
+          "rows": 1947,
+          "checksum": 403111.6425
+        },
+        "V_STOCK_ROLLFORWARD": {
+          "seconds": 0.2729915410018293,
+          "rows": 0,
+          "checksum": 0.0
+        },
+        "V_SUPPLIER_LOOP": {
+          "seconds": 0.2755787499991129,
+          "rows": 2633,
+          "checksum": 2637425.9452
+        },
+        "V_RANKED_CASES": {
+          "seconds": 0.28673287499987055,
+          "rows": 28800,
+          "checksum": 5420.606306182403
+        }
+      },
+      "actual_rows": {
+        "factories": 2400,
+        "suppliers": 2400,
+        "factory_month": 28800,
+        "invoices": 28694,
+        "purchase_invoices": 28800,
+        "eway_bills": 57600,
+        "supplier_returns": 27360,
+        "bank_entries": 57600,
+        "machines": 2560
+      },
+      "join_sanity": {
+        "duplicate_months": 0,
+        "orphan_months": 0
+      },
+      "measurement_threshold": 0.1
+    },
+    "small": {
+      "manifest": {
+        "seed": 20261020,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28694,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228854
+      },
+      "query_result_cache": "OFF",
+      "measurement_threshold": 0.025,
+      "unoptimised": {
+        "V_MATERIAL_OUTPUT": {
+          "seconds": 0.29647212499548914,
+          "rows": [
+            [
+              11790,
+              "1616913.66882"
+            ]
+          ]
+        },
+        "V_DISPATCH_INVOICE": {
+          "seconds": 0.2755181669999729,
+          "rows": [
+            [
+              2342,
+              "424153.9876"
+            ]
+          ]
+        },
+        "V_STOCK_ROLLFORWARD": {
+          "seconds": 0.27425720800238196,
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ]
+        },
+        "V_SUPPLIER_LOOP": {
+          "seconds": 0.2752210409962572,
+          "rows": [
+            [
+              5822,
+              "2814931.8121"
+            ]
+          ]
+        },
+        "V_RANKED_CASES": {
+          "seconds": 0.3173753749942989,
+          "rows": [
+            [
+              28800,
+              5934.913238715933
+            ]
+          ]
+        }
+      },
+      "slowest": "V_RANKED_CASES",
+      "profile_rows": 51,
+      "cache_refresh_seconds": 0.32372170799499145,
+      "optimised": {
+        "V_MATERIAL_OUTPUT": [
+          {
+            "seconds": 0.022084582997194957,
+            "rows": [
+              [
+                11790,
+                "1616913.66882"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.02198737500293646,
+            "rows": [
+              [
+                11790,
+                "1616913.66882"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.022016750001057517,
+            "rows": [
+              [
+                11790,
+                "1616913.66882"
+              ]
+            ]
+          }
+        ],
+        "V_DISPATCH_INVOICE": [
+          {
+            "seconds": 0.02055300000210991,
+            "rows": [
+              [
+                2342,
+                "424153.9876"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.021257874999719206,
+            "rows": [
+              [
+                2342,
+                "424153.9876"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.019738082999538165,
+            "rows": [
+              [
+                2342,
+                "424153.9876"
+              ]
+            ]
+          }
+        ],
+        "V_STOCK_ROLLFORWARD": [
+          {
+            "seconds": 0.020389040997542907,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          },
+          {
+            "seconds": 0.020584625002811663,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          },
+          {
+            "seconds": 0.019932208000682294,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          }
+        ],
+        "V_SUPPLIER_LOOP": [
+          {
+            "seconds": 0.0210862919993815,
+            "rows": [
+              [
+                5822,
+                "2814931.8121"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.02043437500105938,
+            "rows": [
+              [
+                5822,
+                "2814931.8121"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.020287542000005487,
+            "rows": [
+              [
+                5822,
+                "2814931.8121"
+              ]
+            ]
+          }
+        ],
+        "V_RANKED_CASES": [
+          {
+            "seconds": 0.10170199999993201,
+            "rows": [
+              [
+                28800,
+                5934.913238715933
+              ]
+            ]
+          },
+          {
+            "seconds": 0.09800254099536687,
+            "rows": [
+              [
+                28800,
+                5934.913238715933
+              ]
+            ]
+          },
+          {
+            "seconds": 0.0989272919978248,
+            "rows": [
+              [
+                28800,
+                5934.913238715933
+              ]
+            ]
+          }
+        ]
+      },
+      "udf": {
+        "available": false,
+        "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488701077520384)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488701077520384\n    code        =>  42000\n    "
+      },
+      "pandas": {
+        "V_MATERIAL_OUTPUT": {
+          "csv_read_seconds": 0.0238385839984403,
+          "compute_seconds": 0.0017130409978562966,
+          "total_seconds": 0.025551624996296596,
+          "rows": 11790,
+          "checksum": 1616913.6688200005,
+          "exasol_raw_seconds": 0.29647212499548914,
+          "equivalent_counts_and_gaps": true
+        },
+        "V_DISPATCH_INVOICE": {
+          "csv_read_seconds": 0.05453812499763444,
+          "compute_seconds": 0.023836583000957035,
+          "total_seconds": 0.07837470799859148,
+          "rows": 2342,
+          "checksum": 424153.9876,
+          "exasol_raw_seconds": 0.2755181669999729,
+          "equivalent_counts_and_gaps": true
+        }
+      },
+      "load_seconds": {
+        "factories": 0.10582520800380735,
+        "suppliers": 0.05932475000008708,
+        "factory_month": 0.2506940829989617,
+        "invoices": 0.26712320799560985,
+        "purchase_invoices": 0.3154014579995419,
+        "eway_bills": 0.388598457997432,
+        "supplier_returns": 0.12124575000052573,
+        "bank_entries": 0.44147258400334977,
+        "machines": 0.1196951669990085
+      }
+    },
+    "full": {
+      "manifest": {
+        "seed": 20261021,
+        "factories": 220000,
+        "months": 12,
+        "rows": {
+          "factories": 220000,
+          "suppliers": 220000,
+          "factory_month": 2640000,
+          "invoices": 2630948,
+          "purchase_invoices": 2640000,
+          "eway_bills": 5280000,
+          "supplier_returns": 2507997,
+          "bank_entries": 5280000,
+          "machines": 234667,
+          "truth": 2640000
+        },
+        "raw_evidence_rows": 20978945
+      },
+      "load_seconds": {
+        "factories": 0.9107891249950626,
+        "suppliers": 0.9998852499993518,
+        "factory_month": 13.482804458995815,
+        "invoices": 9.2517402079975,
+        "purchase_invoices": 9.342883334000362,
+        "eway_bills": 7.6860414590046275,
+        "supplier_returns": 3.672330832996522,
+        "bank_entries": 10.600145666998287,
+        "machines": 0.47646824999537785
+      },
+      "actual_rows": {
+        "factories": 220000,
+        "suppliers": 220000,
+        "factory_month": 2640000,
+        "invoices": 2630948,
+        "purchase_invoices": 2640000,
+        "eway_bills": 5280000,
+        "supplier_returns": 2507997,
+        "bank_entries": 5280000,
+        "machines": 234667
+      },
+      "join_sanity": {
+        "duplicate_months": 0,
+        "orphan_months": 0
+      },
+      "query_result_cache": "OFF",
+      "measurement_threshold": 0.025,
+      "unoptimised": {
+        "V_MATERIAL_OUTPUT": {
+          "seconds": 14.174167332996149,
+          "rows": [
+            [
+              1079795,
+              "146535283.00388"
+            ]
+          ]
+        },
+        "V_DISPATCH_INVOICE": {
+          "seconds": 27.609198958001798,
+          "rows": [
+            [
+              211801,
+              "39786989.7839"
+            ]
+          ]
+        },
+        "V_STOCK_ROLLFORWARD": {
+          "seconds": 32.376357792003546,
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ]
+        },
+        "V_SUPPLIER_LOOP": {
+          "seconds": 29.850972000000183,
+          "rows": [
+            [
+              525203,
+              "256722238.7552"
+            ]
+          ]
+        },
+        "V_RANKED_CASES": {
+          "seconds": 48.94639983300294,
+          "rows": [
+            [
+              2640000,
+              541527.2112754667
+            ]
+          ]
+        }
+      },
+      "slowest": "V_RANKED_CASES",
+      "profile_rows": 51,
+      "cache_refresh_seconds": 16.262825333993533,
+      "optimised": {
+        "V_MATERIAL_OUTPUT": [
+          {
+            "seconds": 0.42536024999571964,
+            "rows": [
+              [
+                1079795,
+                "146535283.00388"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.4133452500027488,
+            "rows": [
+              [
+                1079795,
+                "146535283.00388"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.41060154200386023,
+            "rows": [
+              [
+                1079795,
+                "146535283.00388"
+              ]
+            ]
+          }
+        ],
+        "V_DISPATCH_INVOICE": [
+          {
+            "seconds": 0.2904049999997369,
+            "rows": [
+              [
+                211801,
+                "39786989.7839"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.2858514160034247,
+            "rows": [
+              [
+                211801,
+                "39786989.7839"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.28610129200387746,
+            "rows": [
+              [
+                211801,
+                "39786989.7839"
+              ]
+            ]
+          }
+        ],
+        "V_STOCK_ROLLFORWARD": [
+          {
+            "seconds": 0.28648187500220956,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          },
+          {
+            "seconds": 0.28068458300549537,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          },
+          {
+            "seconds": 0.28083199999673525,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          }
+        ],
+        "V_SUPPLIER_LOOP": [
+          {
+            "seconds": 0.3037700839995523,
+            "rows": [
+              [
+                525203,
+                "256722238.7552"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.3054856250018929,
+            "rows": [
+              [
+                525203,
+                "256722238.7552"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.30846324999583885,
+            "rows": [
+              [
+                525203,
+                "256722238.7552"
+              ]
+            ]
+          }
+        ],
+        "V_RANKED_CASES": [
+          {
+            "seconds": 6.141385875002015,
+            "rows": [
+              [
+                2640000,
+                541527.2112754667
+              ]
+            ]
+          },
+          {
+            "seconds": 6.085765709001862,
+            "rows": [
+              [
+                2640000,
+                541527.2112754667
+              ]
+            ]
+          },
+          {
+            "seconds": 6.231265665999672,
+            "rows": [
+              [
+                2640000,
+                541527.2112754667
+              ]
+            ]
+          }
+        ]
+      },
+      "udf": {
+        "available": false,
+        "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488455936704512)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488455936704512\n    code        =>  42000\n    "
+      },
+      "pandas": {
+        "V_STOCK_ROLLFORWARD": {
+          "csv_read_seconds": 1.9064317080046749,
+          "compute_seconds": 0.3809479999981704,
+          "total_seconds": 2.2873797080028453,
+          "rows": 0,
+          "checksum": 0.0,
+          "exasol_raw_seconds": 32.376357792003546,
+          "equivalent_counts_and_gaps": true
+        },
+        "V_SUPPLIER_LOOP": {
+          "csv_read_seconds": 2.10230112499994,
+          "compute_seconds": 1.4015684170008171,
+          "total_seconds": 3.503869542000757,
+          "rows": 525203,
+          "checksum": 256722238.75519997,
+          "exasol_raw_seconds": 29.850972000000183,
+          "equivalent_counts_and_gaps": true
+        }
+      }
+    }
+  },
+  "demo_examples": {
+    "cheat": {
+      "factory_id": "F000012",
+      "period_month": "2026-05",
+      "is_cheat": 1,
+      "scenario": "hidden_production",
+      "intensity": 0.3,
+      "evasive": 0,
+      "discrepancy_class": "contradicting evidence",
+      "explanation": "concealment may remain below the calibrated threshold",
+      "signals": 3,
+      "flagged": true,
+      "score": 0.9183383811920393,
+      "evidence": [
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "bank_sales",
+          "source_family": "financial",
+          "expected": "126125.8138",
+          "observed": "180189.6273",
+          "gap": "54063.8135",
+          "severity": 0.30003843345537573,
+          "evidence": "invoice value compared with receipts",
+          "discrepancy_class": "needs human review"
+        },
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "dispatch_invoice",
+          "source_family": "movement",
+          "expected": "1501.4978",
+          "observed": "1051.0484",
+          "gap": "450.4494",
+          "severity": 0.3000000399600985,
+          "evidence": "document reuse fraction=0",
+          "discrepancy_class": "mismatch"
+        },
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "material_output",
+          "source_family": "production",
+          "expected": "1850.98288",
+          "observed": "1261.8152",
+          "gap": "589.16768",
+          "severity": 0.31829990777656464,
+          "evidence": "material kg=2313.7286, power kWh=7124.2641, hours=160, raw stock change=0",
+          "discrepancy_class": "contradicting evidence"
+        }
+      ]
+    },
+    "decoy": {
+      "factory_id": "F000142",
+      "period_month": "2026-04",
+      "is_cheat": 0,
+      "scenario": "product_mix_shift",
+      "intensity": 0.0,
+      "evasive": 0,
+      "discrepancy_class": "needs human review",
+      "explanation": "product mix shift: legitimate timing or operating change; not proof of wrongdoing",
+      "signals": 1,
+      "flagged": false,
+      "score": 0.233752423280222,
+      "evidence": [
+        {
+          "factory_id": "F000142",
+          "period_month": "2026-04",
+          "check_family": "material_output",
+          "source_family": "production",
+          "expected": "1751.84032",
+          "observed": "1342.3434",
+          "gap": "409.49692",
+          "severity": 0.23375242328022225,
+          "evidence": "material kg=2189.8004, power kWh=5417.4021, hours=160, raw stock change=0",
+          "discrepancy_class": "needs human review"
+        }
+      ]
+    },
+    "miss": {
+      "factory_id": "F000006",
+      "period_month": "2026-05",
+      "is_cheat": 1,
+      "scenario": "eway_reuse",
+      "intensity": 0.05,
+      "evasive": 1,
+      "discrepancy_class": "mismatch",
+      "explanation": "only one independent source family exposed",
+      "signals": 1,
+      "flagged": false,
+      "score": 0.5,
+      "evidence": [
+        {
+          "factory_id": "F000006",
+          "period_month": "2026-05",
+          "check_family": "dispatch_invoice",
+          "source_family": "movement",
+          "expected": "762.6496",
+          "observed": "762.6497",
+          "gap": "-0.0001",
+          "severity": 0.5,
+          "evidence": "document reuse fraction=0.5",
+          "discrepancy_class": "mismatch"
+        }
+      ]
+    }
+  }
+}

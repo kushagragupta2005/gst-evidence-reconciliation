@@ -18,12 +18,13 @@ TABLES = {
  'supplier_returns': 'supplier_id,period_month,declared_sales_kg',
  'bank_entries': 'transaction_id,factory_id,period_month,amount,direction',
  'machines': 'machine_id,factory_id,installed_month,rated_units_month',
- 'truth': 'factory_id,period_month,is_cheat,scenario,intensity,evasive,discrepancy_class,explanation',
+ 'truth': 'factory_id,period_month,is_cheat,scenario,intensity,evasive,discrepancy_class,explanation,taxpayer_explanation',
 }
 SCALES = {'small': 600, 'medium': 2400, 'large': 220000}
 
 
-def generate(scale, out_dir, seed, count=None):
+def generate(scale, out_dir, seed, count=None, noise_multiplier=1.0,
+             missing_documents_rate=0.0, fake_explanations=False):
     rng = random.Random(seed)
     count = count or SCALES[scale]
     out_dir = Path(out_dir)
@@ -76,7 +77,8 @@ def generate(scale, out_dir, seed, count=None):
                 incoming = invoice * 120
             # Ordinary measurement/timing noise independent of labels, plus occasional large errors.
             def measure(v):
-                return max(0, v * (1+rng.gauss(0,.015)+(rng.uniform(-.18,.18) if rng.random()<.025 else 0)))
+                return max(0, v * (1+rng.gauss(0,.015*noise_multiplier)+
+                                   (rng.uniform(-.18,.18)*noise_multiplier if rng.random()<.025 else 0)))
             purchases, power, incoming, outgoing = map(measure, (purchases, power, incoming, outgoing))
             closing = opening + declared - dispatch
             expected_class = 'clean'
@@ -103,25 +105,39 @@ def generate(scale, out_dir, seed, count=None):
                     incoming *= 1.45 if m%2 else .55
             product = 'sheet' if scenario == 'product_mix_shift' and m>=3 else 'steel_rod'
             emit('factory_month', fid, month, product, opening, purchases, 0, declared, dispatch, closing, power, hours, raw_change)
-            if invoice:
+            # Robustness variants remove one ordinary document at a declared rate.  The
+            # truth label remains independent from whether the document is available.
+            missing_document = rng.random() < missing_documents_rate
+            if invoice and missing_document is not True:
                 emit('invoices', f'I{i:06}-{m:02}', fid, month, invoice, invoice*120)
             emit('purchase_invoices', f'P{i:06}-{m:02}', fid, month, sid, purchase_claim, purchase_claim*90)
             # Two independent shipment records, same document ID only for planted reuse.
             for shipment in range(2):
                 doc = 0 if live and scenario == 'eway_reuse' else shipment
                 emit('eway_bills', f'E{i:06}-{m:02}-{doc}', fid, month, dispatch/2, plate)
-            if not (scenario == 'new_supplier_onboarding' and m>=3):
+            if not (scenario == 'new_supplier_onboarding' and m>=3) and not missing_document:
                 emit('supplier_returns', sid, month, measure(output/.8))
             else:
                 expected_class = 'missing documents'
             emit('bank_entries', f'B{i:06}-{m:02}I', fid, month, incoming, 'in')
             emit('bank_entries', f'B{i:06}-{m:02}O', fid, month, outgoing, 'out')
-            emit('truth', fid, month, int(live), scenario, intensity, evasive, expected_class, explanation)
+            taxpayer_explanation = ''
+            if truth == 'decoy' and m >= 3:
+                taxpayer_explanation = 'documented ' + scenario.replace('_', ' ')
+            elif live and fake_explanations:
+                taxpayer_explanation = rng.choice((
+                    'documented machinery change', 'documented product mix shift',
+                    'documented longer operating hours', 'documented seasonal stock build'))
+            emit('truth', fid, month, int(live), scenario, intensity, evasive,
+                 expected_class, explanation, taxpayer_explanation)
             opening = closing
     for h in handles.values():
         h.close()
     manifest = {'seed':seed, 'factories':count, 'months':12, 'rows':counts,
-                'raw_evidence_rows':sum(v for k,v in counts.items() if k not in ('truth','factories','suppliers','machines'))}
+                'raw_evidence_rows':sum(v for k,v in counts.items() if k not in ('truth','factories','suppliers','machines')),
+                'noise_multiplier':noise_multiplier,
+                'missing_documents_rate':missing_documents_rate,
+                'fake_explanations':fake_explanations}
     (out_dir/'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
     print(json.dumps(manifest))
     return manifest
@@ -132,5 +148,9 @@ if __name__ == '__main__':
     p.add_argument('--out', default='data/generated')
     p.add_argument('--seed', type=int, default=20261020)
     p.add_argument('--factories', type=int)
+    p.add_argument('--noise-multiplier', type=float, default=1.0)
+    p.add_argument('--missing-documents-rate', type=float, default=0.0)
+    p.add_argument('--fake-explanations', action='store_true')
     a=p.parse_args()
-    generate(a.scale, a.out, a.seed, a.factories)
+    generate(a.scale, a.out, a.seed, a.factories, a.noise_multiplier,
+             a.missing_documents_rate, a.fake_explanations)

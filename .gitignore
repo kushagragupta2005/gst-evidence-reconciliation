@@ -7,4 +7,6 @@ data/generated/
 .DS_Store
 data/train/
 data/full/
+data/seed_c/
+data/robust_*/
 .pitch_build/

@@ -44,7 +44,7 @@ else:
     demo=presets[mode];fid=demo['factory_id'];month=demo['period_month']
 if not re.fullmatch(r'F\d{6}',fid):st.error('Use F followed by six digits.');st.stop()
 
-case_tab,ask_tab,results_tab,problem_tab=st.tabs(['Factory case','Ask a follow-up','Evaluation & scale','Problem & limits'])
+case_tab,cleared_tab,ask_tab,results_tab,problem_tab=st.tabs(['Factory case','Cleared','Ask a follow-up','Evaluation & scale','Problem & limits'])
 try:
     timeline=query(f"SELECT PERIOD_MONTH,SIGNAL_COUNT,TOTAL_ABSOLUTE_GAP,STATUS FROM GST_EVIDENCE.V_RANKED_CASES WHERE FACTORY_ID='{fid}' ORDER BY PERIOD_MONTH LIMIT 12")
     evidence=query(f"SELECT FACTORY_ID,PERIOD_MONTH,CHECK_FAMILY,SOURCE_FAMILY,EXPECTED,OBSERVED,GAP,SEVERITY,EVIDENCE,DISCREPANCY_CLASS FROM GST_EVIDENCE.V_ALL_EVIDENCE WHERE FACTORY_ID='{fid}' AND PERIOD_MONTH='{month}' ORDER BY CHECK_FAMILY LIMIT 20")
@@ -97,6 +97,18 @@ with case_tab:
     with st.expander('Ranked monthly queue (up to 50 factories)'):
         st.dataframe(query(f"SELECT FACTORY_ID,PERIOD_MONTH,SIGNAL_COUNT,TOTAL_ABSOLUTE_GAP,STATUS FROM GST_EVIDENCE.V_RANKED_CASES WHERE PERIOD_MONTH='{month}' AND STATUS='prioritise' ORDER BY TOTAL_ABSOLUTE_GAP DESC,FACTORY_ID LIMIT 50"),hide_index=True,width='stretch')
 
+with cleared_tab:
+    st.subheader('Cleared with a documented reason')
+    st.caption('Single-source months are never promoted by this screen. A disposition uses only operational evidence in Exasol; taxpayer explanations and synthetic labels are not queried.')
+    disposition=query("SELECT FACTORY_ID,PERIOD_MONTH,SOURCE_FAMILY,DISPOSITION FROM GST_EVIDENCE.V_SINGLE_SIGNAL_DISPOSITIONS WHERE SIGNAL_COUNT=1 ORDER BY PERIOD_MONTH,FACTORY_ID LIMIT 200")
+    choice=st.radio('View',('Cleared','Review-only'),horizontal=True)
+    token='Cleared:' if choice=='Cleared' else 'Review-only:'
+    shown=disposition[disposition.disposition.str.startswith(token)]
+    if shown.empty:
+        st.info('No matching single-signal months in the first 200 rows. They remain outside the priority queue.')
+    else:
+        st.dataframe(shown,hide_index=True,width='stretch')
+
 with ask_tab:
     st.subheader('Ask a follow-up')
     st.caption('Guarded read-only Exasol SQL tool · fixed SELECT templates · allow-listed views · maximum 200 rows')
@@ -121,12 +133,12 @@ with ask_tab:
 with results_tab:
     st.subheader('Held-out results, including errors')
     x,y,z=st.columns(3);x.metric('Monthly recall',f"{results['factory_month']['recall']:.2%}");y.metric('Monthly FPR',f"{results['factory_month']['fpr']:.2%}");z.metric('Missed cheat months',results['misses']['factory_months'])
-    st.warning(f"Annual factory FPR is {results['factory']['fpr']:.2%}. This operating point is unsuitable for operational taxpayer targeting. Results are synthetic scenario recovery only.")
-    st.caption('Threshold selected on seed A; results reported on seed B. Monthly review queues approximate a weekly workload. Confidence intervals do not capture generator bias.')
+    st.warning(f"Factory-queue FPR is {results['factory_queue']['seed_c']['fpr']:.2%} after {results['factory_queue']['k']} prioritised months. Results are synthetic scenario recovery only.")
+    st.caption('Threshold and K were selected on seed A; results are reported on fresh seed C. Monthly review queues approximate a weekly workload. Confidence intervals do not capture generator bias.')
     full=results.get('performance',{}).get('full')
     if full:
         st.metric('Raw evidence rows measured in Exasol',f"{full['manifest']['raw_evidence_rows']:,}")
-        st.caption(f"CSV import: {sum(full.get('load_seconds',{}).values()):.2f} s. Scale run is separate from the held-out evaluation; demo database has been restored to seed B.")
+        st.caption(f"CSV import: {sum(full.get('load_seconds',{}).values()):.2f} s. Scale run is separate from the held-out evaluation; demo database has been restored to seed C.")
         st.dataframe([{'view':k,'raw_seconds':v['seconds'],'ledger_seconds':full['optimised'][k][0]['seconds']} for k,v in full['unoptimised'].items()],hide_index=True,width='stretch')
     st.image('reports/recall_fpr.png');st.dataframe(pd.DataFrame(results['misses']['examples']),hide_index=True)
     with st.expander('All recorded metrics and confidence intervals'):st.json(results)

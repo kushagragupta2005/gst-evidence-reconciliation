@@ -1,0 +1,81 @@
+{
+  "manifest": {
+    "seed": 20261022,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 25760,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 24541,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 223101,
+    "noise_multiplier": 1.0,
+    "missing_documents_rate": 0.1,
+    "fake_explanations": true
+  },
+  "load_seconds": {
+    "factories": 0.09741162499994971,
+    "suppliers": 0.062736459003645,
+    "factory_month": 0.1476586659991881,
+    "invoices": 0.1589933750074124,
+    "purchase_invoices": 0.2414547089865664,
+    "eway_bills": 0.21022554200317245,
+    "supplier_returns": 0.11131145800754894,
+    "bank_entries": 0.18156012499821372,
+    "machines": 0.0935010829998646
+  },
+  "views": {
+    "V_MATERIAL_OUTPUT": {
+      "seconds": 0.19821345798845869,
+      "rows": 6992,
+      "checksum": 1410924.46338
+    },
+    "V_DISPATCH_INVOICE": {
+      "seconds": 0.17291154200211167,
+      "rows": 4588,
+      "checksum": 3430311.1811
+    },
+    "V_STOCK_ROLLFORWARD": {
+      "seconds": 0.17529083300905768,
+      "rows": 0,
+      "checksum": 0.0
+    },
+    "V_SUPPLIER_LOOP": {
+      "seconds": 0.18448462500236928,
+      "rows": 5333,
+      "checksum": 6818287.4699
+    },
+    "V_RANKED_CASES": {
+      "seconds": 0.18457225000020117,
+      "rows": 28800,
+      "checksum": 13809.07556997368
+    },
+    "V_SINGLE_SIGNAL_DISPOSITIONS": {
+      "seconds": 0.2730088340031216,
+      "rows": 28800,
+      "checksum": 23275.0
+    }
+  },
+  "actual_rows": {
+    "factories": 2400,
+    "suppliers": 2400,
+    "factory_month": 28800,
+    "invoices": 25760,
+    "purchase_invoices": 28800,
+    "eway_bills": 57600,
+    "supplier_returns": 24541,
+    "bank_entries": 57600,
+    "machines": 2560
+  },
+  "join_sanity": {
+    "duplicate_months": 0,
+    "orphan_months": 0
+  }
+}

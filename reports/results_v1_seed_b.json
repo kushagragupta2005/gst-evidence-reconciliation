@@ -1,0 +1,2049 @@
+{
+  "protocol": {
+    "train_seed": 20261019,
+    "held_out_seed": 20261020,
+    "months_per_factory": 12,
+    "threshold": 0.025,
+    "objective": "minimum factory-month balanced error on A; larger threshold on ties",
+    "calibration": [
+      {
+        "threshold": 0.025,
+        "tp": 3271,
+        "fp": 4154,
+        "fn": 685,
+        "tn": 20690,
+        "recall": 0.826845298281092,
+        "fpr": 0.16720334889711802,
+        "precision": 0.44053872053872056,
+        "balanced_error": 0.17017902530801302
+      },
+      {
+        "threshold": 0.05,
+        "tp": 2450,
+        "fp": 551,
+        "fn": 1506,
+        "tn": 24293,
+        "recall": 0.6193124368048534,
+        "fpr": 0.02217839317340203,
+        "precision": 0.8163945351549483,
+        "balanced_error": 0.20143297818427433
+      },
+      {
+        "threshold": 0.075,
+        "tp": 2011,
+        "fp": 414,
+        "fn": 1945,
+        "tn": 24430,
+        "recall": 0.5083417593528817,
+        "fpr": 0.01666398325551441,
+        "precision": 0.829278350515464,
+        "balanced_error": 0.25416111195131635
+      },
+      {
+        "threshold": 0.1,
+        "tp": 1981,
+        "fp": 294,
+        "fn": 1975,
+        "tn": 24550,
+        "recall": 0.5007583417593529,
+        "fpr": 0.011833843181452261,
+        "precision": 0.8707692307692307,
+        "balanced_error": 0.2555377507110497
+      },
+      {
+        "threshold": 0.125,
+        "tp": 1943,
+        "fp": 184,
+        "fn": 2013,
+        "tn": 24660,
+        "recall": 0.49115267947421637,
+        "fpr": 0.007406214780228627,
+        "precision": 0.9134931828866949,
+        "balanced_error": 0.25812676765300613
+      },
+      {
+        "threshold": 0.15,
+        "tp": 1426,
+        "fp": 86,
+        "fn": 2530,
+        "tn": 24758,
+        "recall": 0.36046511627906974,
+        "fpr": 0.003461600386411206,
+        "precision": 0.9431216931216931,
+        "balanced_error": 0.3214982420536707
+      },
+      {
+        "threshold": 0.2,
+        "tp": 986,
+        "fp": 6,
+        "fn": 2970,
+        "tn": 24838,
+        "recall": 0.24924165824064712,
+        "fpr": 0.0002415070037031074,
+        "precision": 0.9939516129032258,
+        "balanced_error": 0.37549992438152796
+      },
+      {
+        "threshold": 0.25,
+        "tp": 979,
+        "fp": 0,
+        "fn": 2977,
+        "tn": 24844,
+        "recall": 0.2474721941354904,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "balanced_error": 0.3762639029322548
+      },
+      {
+        "threshold": 0.3,
+        "tp": 512,
+        "fp": 0,
+        "fn": 3444,
+        "tn": 24844,
+        "recall": 0.12942366026289182,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "balanced_error": 0.4352881698685541
+      },
+      {
+        "threshold": 0.4,
+        "tp": 95,
+        "fp": 0,
+        "fn": 3861,
+        "tn": 24844,
+        "recall": 0.024014155712841254,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "balanced_error": 0.48799292214357937
+      },
+      {
+        "threshold": 0.55,
+        "tp": 94,
+        "fp": 0,
+        "fn": 3862,
+        "tn": 24844,
+        "recall": 0.023761375126390292,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "balanced_error": 0.48811931243680484
+      }
+    ],
+    "bootstrap": "1000 factory-cluster resamples; percentile 95% intervals, seed 721; conditional on fixed threshold",
+    "warning": "B shares the same synthetic generator as A. Not evidence of real-world accuracy. Features do not use truth labels."
+  },
+  "dataset": {
+    "seed": 20261020,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 28694,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 27360,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 228854
+  },
+  "factory_month": {
+    "tp": 3409,
+    "fp": 4151,
+    "fn": 629,
+    "tn": 20611,
+    "recall": 0.8442298167409609,
+    "fpr": 0.1676358937081011,
+    "precision": 0.45092592592592595,
+    "ci95": {
+      "recall": [
+        0.8250583935607041,
+        0.8646017425005867
+      ],
+      "fpr": [
+        0.16190746295299033,
+        0.17363244393253796
+      ],
+      "precision": [
+        0.42768652847424415,
+        0.47488713796803034
+      ]
+    }
+  },
+  "factory": {
+    "tp": 715,
+    "fp": 1414,
+    "fn": 5,
+    "tn": 266,
+    "recall": 0.9930555555555556,
+    "fpr": 0.8416666666666667,
+    "precision": 0.3358384217942696,
+    "ci95": {
+      "recall": [
+        0.9860908242697222,
+        0.9985978645056247
+      ],
+      "fpr": [
+        0.8251170392372079,
+        0.8588988206492659
+      ],
+      "precision": [
+        0.31787962811831977,
+        0.3545428372870186
+      ]
+    }
+  },
+  "recall_by_type_intensity": {
+    "factory_month": {
+      "eway_reuse/5%": {
+        "tp": 354,
+        "fp": 0,
+        "fn": 54,
+        "tn": 0,
+        "recall": 0.8676470588235294,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8097560975609757,
+            0.9202793353191986
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eway_reuse/15%": {
+        "tp": 394,
+        "fp": 0,
+        "fn": 75,
+        "tn": 0,
+        "recall": 0.8400852878464818,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7768758486580726,
+            0.8993736616702356
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eway_reuse/30%": {
+        "tp": 395,
+        "fp": 0,
+        "fn": 76,
+        "tn": 0,
+        "recall": 0.8386411889596603,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7777717782577394,
+            0.8941963480322672
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/5%": {
+        "tp": 434,
+        "fp": 0,
+        "fn": 58,
+        "tn": 0,
+        "recall": 0.8821138211382114,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8214544708077413,
+            0.9369941952684688
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/15%": {
+        "tp": 393,
+        "fp": 0,
+        "fn": 81,
+        "tn": 0,
+        "recall": 0.8291139240506329,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7602548229262679,
+            0.8939818700688267
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/30%": {
+        "tp": 292,
+        "fp": 0,
+        "fn": 83,
+        "tn": 0,
+        "recall": 0.7786666666666666,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.6923076923076923,
+            0.8549795388368615
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/5%": {
+        "tp": 379,
+        "fp": 0,
+        "fn": 73,
+        "tn": 0,
+        "recall": 0.838495575221239,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.7775155633161251,
+            0.8888950480413894
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/15%": {
+        "tp": 282,
+        "fp": 0,
+        "fn": 54,
+        "tn": 0,
+        "recall": 0.8392857142857143,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.760470181133061,
+            0.9091037493579867
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/30%": {
+        "tp": 486,
+        "fp": 0,
+        "fn": 75,
+        "tn": 0,
+        "recall": 0.8663101604278075,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.8079487302808773,
+            0.9155840462322533
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "factory": {
+      "eway_reuse/5%": {
+        "tp": 69,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "recall": 1.0,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eway_reuse/15%": {
+        "tp": 82,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "recall": 1.0,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eway_reuse/30%": {
+        "tp": 88,
+        "fp": 0,
+        "fn": 1,
+        "tn": 0,
+        "recall": 0.9887640449438202,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.9662921348314607,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/5%": {
+        "tp": 83,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "recall": 1.0,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/15%": {
+        "tp": 82,
+        "fp": 0,
+        "fn": 2,
+        "tn": 0,
+        "recall": 0.9761904761904762,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.9404761904761905,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "hidden_production/30%": {
+        "tp": 72,
+        "fp": 0,
+        "fn": 1,
+        "tn": 0,
+        "recall": 0.9863013698630136,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.958904109589041,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/5%": {
+        "tp": 80,
+        "fp": 0,
+        "fn": 1,
+        "tn": 0,
+        "recall": 0.9876543209876543,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            0.9629629629629629,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/15%": {
+        "tp": 62,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "recall": 1.0,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "itc_inflation/30%": {
+        "tp": 97,
+        "fp": 0,
+        "fn": 0,
+        "tn": 0,
+        "recall": 1.0,
+        "fpr": null,
+        "precision": 1.0,
+        "ci95": {
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "precision": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "fpr_by_decoy": {
+    "factory_month": {
+      "longer_hours": {
+        "tp": 0,
+        "fp": 477,
+        "fn": 0,
+        "tn": 1443,
+        "recall": null,
+        "fpr": 0.2484375,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.23125,
+            0.2671875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "lumpy_bank_flows": {
+        "tp": 0,
+        "fp": 505,
+        "fn": 0,
+        "tn": 1415,
+        "recall": null,
+        "fpr": 0.2630208333333333,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.24373697916666667,
+            0.28229166666666666
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "machinery_upgrade": {
+        "tp": 0,
+        "fp": 485,
+        "fn": 0,
+        "tn": 1435,
+        "recall": null,
+        "fpr": 0.2526041666666667,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.23384114583333335,
+            0.2713671875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "new_supplier_onboarding": {
+        "tp": 0,
+        "fp": 599,
+        "fn": 0,
+        "tn": 1321,
+        "recall": null,
+        "fpr": 0.31197916666666664,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.2906119791666667,
+            0.33229166666666665
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "product_mix_shift": {
+        "tp": 0,
+        "fp": 470,
+        "fn": 0,
+        "tn": 1450,
+        "recall": null,
+        "fpr": 0.24479166666666666,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.22604166666666667,
+            0.2635416666666667
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "seasonal_stock_build": {
+        "tp": 0,
+        "fp": 486,
+        "fn": 0,
+        "tn": 1434,
+        "recall": null,
+        "fpr": 0.253125,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.2328125,
+            0.27292968749999996
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "factory": {
+      "longer_hours": {
+        "tp": 0,
+        "fp": 158,
+        "fn": 0,
+        "tn": 2,
+        "recall": null,
+        "fpr": 0.9875,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.96875,
+            1.0
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "lumpy_bank_flows": {
+        "tp": 0,
+        "fp": 156,
+        "fn": 0,
+        "tn": 4,
+        "recall": null,
+        "fpr": 0.975,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.95,
+            0.99375
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "machinery_upgrade": {
+        "tp": 0,
+        "fp": 153,
+        "fn": 0,
+        "tn": 7,
+        "recall": null,
+        "fpr": 0.95625,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.91875,
+            0.9875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "new_supplier_onboarding": {
+        "tp": 0,
+        "fp": 156,
+        "fn": 0,
+        "tn": 4,
+        "recall": null,
+        "fpr": 0.975,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.95,
+            0.99375
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "product_mix_shift": {
+        "tp": 0,
+        "fp": 154,
+        "fn": 0,
+        "tn": 6,
+        "recall": null,
+        "fpr": 0.9625,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.93125,
+            0.9875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "seasonal_stock_build": {
+        "tp": 0,
+        "fp": 154,
+        "fn": 0,
+        "tn": 6,
+        "recall": null,
+        "fpr": 0.9625,
+        "precision": 0.0,
+        "ci95": {
+          "fpr": [
+            0.93125,
+            0.9875
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "evasive": {
+    "factory_month": {
+      "tp": 376,
+      "fp": 0,
+      "fn": 587,
+      "tn": 0,
+      "recall": 0.3904465212876428,
+      "fpr": null,
+      "precision": 1.0,
+      "ci95": {
+        "recall": [
+          0.3614574079949239,
+          0.4192978534887823
+        ],
+        "precision": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "factory": {
+      "tp": 166,
+      "fp": 0,
+      "fn": 5,
+      "tn": 0,
+      "recall": 0.9707602339181286,
+      "fpr": null,
+      "precision": 1.0,
+      "ci95": {
+        "recall": [
+          0.9415204678362573,
+          0.9941520467836257
+        ],
+        "precision": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "confusion": {
+    "unit": "factory-month; strongest non-financial evidence; includes unprioritised single-signal cases; clean months excluded",
+    "rows_truth": [
+      "mismatch",
+      "missing documents",
+      "supplier issue",
+      "contradicting evidence",
+      "needs human review"
+    ],
+    "columns_predicted": [
+      "mismatch",
+      "missing documents",
+      "supplier issue",
+      "contradicting evidence",
+      "needs human review",
+      "no signal"
+    ],
+    "counts": [
+      [
+        1242,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1546,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1295,
+        15,
+        35,
+        4
+      ],
+      [
+        241,
+        0,
+        6,
+        722,
+        372,
+        0
+      ],
+      [
+        0,
+        0,
+        155,
+        2935,
+        4110,
+        0
+      ]
+    ]
+  },
+  "precision_at_k": {
+    "50": {
+      "macro_precision": 0.18166666666666667,
+      "ci95": [
+        0.13829166666666667,
+        0.21675000000000005
+      ],
+      "bootstrap_replicates": 200,
+      "monthly_queues": [
+        {
+          "month": "2026-01",
+          "returned": 50,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-02",
+          "returned": 50,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-03",
+          "returned": 50,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-04",
+          "returned": 50,
+          "true_cheats": 6,
+          "precision": 0.12
+        },
+        {
+          "month": "2026-05",
+          "returned": 50,
+          "true_cheats": 13,
+          "precision": 0.26
+        },
+        {
+          "month": "2026-06",
+          "returned": 50,
+          "true_cheats": 14,
+          "precision": 0.28
+        },
+        {
+          "month": "2026-07",
+          "returned": 50,
+          "true_cheats": 6,
+          "precision": 0.12
+        },
+        {
+          "month": "2026-08",
+          "returned": 50,
+          "true_cheats": 12,
+          "precision": 0.24
+        },
+        {
+          "month": "2026-09",
+          "returned": 50,
+          "true_cheats": 18,
+          "precision": 0.36
+        },
+        {
+          "month": "2026-10",
+          "returned": 50,
+          "true_cheats": 13,
+          "precision": 0.26
+        },
+        {
+          "month": "2026-11",
+          "returned": 50,
+          "true_cheats": 17,
+          "precision": 0.34
+        },
+        {
+          "month": "2026-12",
+          "returned": 50,
+          "true_cheats": 10,
+          "precision": 0.2
+        }
+      ],
+      "definition": "monthly snapshot proxy for weekly review; return up to k prioritised distinct factories each month; empty queues excluded; never pad with cleared cases"
+    },
+    "200": {
+      "macro_precision": 0.5158333333333333,
+      "ci95": [
+        0.4758020833333333,
+        0.5475729166666666
+      ],
+      "bootstrap_replicates": 200,
+      "monthly_queues": [
+        {
+          "month": "2026-01",
+          "returned": 200,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-02",
+          "returned": 200,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-03",
+          "returned": 200,
+          "true_cheats": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2026-04",
+          "returned": 200,
+          "true_cheats": 140,
+          "precision": 0.7
+        },
+        {
+          "month": "2026-05",
+          "returned": 200,
+          "true_cheats": 136,
+          "precision": 0.68
+        },
+        {
+          "month": "2026-06",
+          "returned": 200,
+          "true_cheats": 131,
+          "precision": 0.655
+        },
+        {
+          "month": "2026-07",
+          "returned": 200,
+          "true_cheats": 131,
+          "precision": 0.655
+        },
+        {
+          "month": "2026-08",
+          "returned": 200,
+          "true_cheats": 144,
+          "precision": 0.72
+        },
+        {
+          "month": "2026-09",
+          "returned": 200,
+          "true_cheats": 131,
+          "precision": 0.655
+        },
+        {
+          "month": "2026-10",
+          "returned": 200,
+          "true_cheats": 145,
+          "precision": 0.725
+        },
+        {
+          "month": "2026-11",
+          "returned": 200,
+          "true_cheats": 144,
+          "precision": 0.72
+        },
+        {
+          "month": "2026-12",
+          "returned": 200,
+          "true_cheats": 136,
+          "precision": 0.68
+        }
+      ],
+      "definition": "monthly snapshot proxy for weekly review; return up to k prioritised distinct factories each month; empty queues excluded; never pad with cleared cases"
+    }
+  },
+  "single_signal_decoy_months": 6924,
+  "misses": {
+    "factory_months": 629,
+    "factories_never_caught": 5,
+    "reasons": {
+      "only one independent source family exceeded threshold": 625,
+      "all independent source ratios below threshold": 4
+    },
+    "examples": [
+      {
+        "factory_id": "F000006",
+        "period_month": "2026-05",
+        "is_cheat": 1,
+        "scenario": "eway_reuse",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "mismatch",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.5,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000006",
+        "period_month": "2026-06",
+        "is_cheat": 1,
+        "scenario": "eway_reuse",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "mismatch",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.5,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000006",
+        "period_month": "2026-09",
+        "is_cheat": 1,
+        "scenario": "eway_reuse",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "mismatch",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.5,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000006",
+        "period_month": "2026-10",
+        "is_cheat": 1,
+        "scenario": "eway_reuse",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "mismatch",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.5,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000020",
+        "period_month": "2026-10",
+        "is_cheat": 1,
+        "scenario": "itc_inflation",
+        "intensity": 0.05,
+        "evasive": 0,
+        "discrepancy_class": "supplier issue",
+        "explanation": "concealment may remain below the calibrated threshold",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.040304433519771,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000020",
+        "period_month": "2026-12",
+        "is_cheat": 1,
+        "scenario": "itc_inflation",
+        "intensity": 0.05,
+        "evasive": 0,
+        "discrepancy_class": "supplier issue",
+        "explanation": "concealment may remain below the calibrated threshold",
+        "signals": 0,
+        "flagged": false,
+        "score": 0.0,
+        "reason": "all independent source ratios below threshold"
+      },
+      {
+        "factory_id": "F000023",
+        "period_month": "2026-09",
+        "is_cheat": 1,
+        "scenario": "itc_inflation",
+        "intensity": 0.05,
+        "evasive": 0,
+        "discrepancy_class": "supplier issue",
+        "explanation": "concealment may remain below the calibrated threshold",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.058619175668067,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000032",
+        "period_month": "2026-07",
+        "is_cheat": 1,
+        "scenario": "itc_inflation",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "supplier issue",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.065147071887849,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000032",
+        "period_month": "2026-12",
+        "is_cheat": 1,
+        "scenario": "itc_inflation",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "supplier issue",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.052289001878561,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000061",
+        "period_month": "2026-04",
+        "is_cheat": 1,
+        "scenario": "itc_inflation",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "supplier issue",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.04464577060922,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000061",
+        "period_month": "2026-05",
+        "is_cheat": 1,
+        "scenario": "itc_inflation",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "supplier issue",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.043775404879738,
+        "reason": "only one independent source family exceeded threshold"
+      },
+      {
+        "factory_id": "F000061",
+        "period_month": "2026-07",
+        "is_cheat": 1,
+        "scenario": "itc_inflation",
+        "intensity": 0.05,
+        "evasive": 1,
+        "discrepancy_class": "supplier issue",
+        "explanation": "only one independent source family exposed",
+        "signals": 1,
+        "flagged": false,
+        "score": 0.036593772649414,
+        "reason": "only one independent source family exceeded threshold"
+      }
+    ]
+  },
+  "threshold_curve": [
+    {
+      "threshold": 0.025,
+      "tp": 3409,
+      "fp": 4151,
+      "fn": 629,
+      "tn": 20611,
+      "recall": 0.8442298167409609,
+      "fpr": 0.1676358937081011,
+      "precision": 0.45092592592592595
+    },
+    {
+      "threshold": 0.05,
+      "tp": 2541,
+      "fp": 529,
+      "fn": 1497,
+      "tn": 24233,
+      "recall": 0.6292719167904903,
+      "fpr": 0.0213633793716178,
+      "precision": 0.8276872964169381
+    },
+    {
+      "threshold": 0.075,
+      "tp": 2066,
+      "fp": 408,
+      "fn": 1972,
+      "tn": 24354,
+      "recall": 0.5116394254581476,
+      "fpr": 0.01647685970438575,
+      "precision": 0.8350848827809216
+    },
+    {
+      "threshold": 0.1,
+      "tp": 2028,
+      "fp": 304,
+      "fn": 2010,
+      "tn": 24458,
+      "recall": 0.5022288261515602,
+      "fpr": 0.012276875858169776,
+      "precision": 0.869639794168096
+    },
+    {
+      "threshold": 0.125,
+      "tp": 1997,
+      "fp": 196,
+      "fn": 2041,
+      "tn": 24566,
+      "recall": 0.49455175829618625,
+      "fpr": 0.007915354171714723,
+      "precision": 0.9106247150022799
+    },
+    {
+      "threshold": 0.15,
+      "tp": 1529,
+      "fp": 100,
+      "fn": 2509,
+      "tn": 24662,
+      "recall": 0.37865279841505695,
+      "fpr": 0.0040384460059769,
+      "precision": 0.9386126457949663
+    },
+    {
+      "threshold": 0.2,
+      "tp": 1107,
+      "fp": 7,
+      "fn": 2931,
+      "tn": 24755,
+      "recall": 0.27414561664190196,
+      "fpr": 0.000282691220418383,
+      "precision": 0.9937163375224417
+    },
+    {
+      "threshold": 0.25,
+      "tp": 1099,
+      "fp": 0,
+      "fn": 2939,
+      "tn": 24762,
+      "recall": 0.2721644378405151,
+      "fpr": 0.0,
+      "precision": 1.0
+    },
+    {
+      "threshold": 0.3,
+      "tp": 521,
+      "fp": 0,
+      "fn": 3517,
+      "tn": 24762,
+      "recall": 0.129024269440317,
+      "fpr": 0.0,
+      "precision": 1.0
+    },
+    {
+      "threshold": 0.4,
+      "tp": 107,
+      "fp": 0,
+      "fn": 3931,
+      "tn": 24762,
+      "recall": 0.026498266468548786,
+      "fpr": 0.0,
+      "precision": 1.0
+    },
+    {
+      "threshold": 0.55,
+      "tp": 106,
+      "fp": 0,
+      "fn": 3932,
+      "tn": 24762,
+      "recall": 0.026250619118375434,
+      "fpr": 0.0,
+      "precision": 1.0
+    }
+  ],
+  "provenance": {
+    "feature_sha256": "8757f278e195ef9df297925445f264483287217b4c7617fa70974cafca95849c",
+    "truth_sha256": "a1c1b65234ba9399285a6f677ddea3aa2fccae0d60e1e8150b7bfa2368d04594"
+  },
+  "performance": {
+    "small_unoptimised": {
+      "manifest": {
+        "seed": 20261020,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28694,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228854
+      },
+      "load_seconds": {
+        "factories": 0.10582520800380735,
+        "suppliers": 0.05932475000008708,
+        "factory_month": 0.2506940829989617,
+        "invoices": 0.26712320799560985,
+        "purchase_invoices": 0.3154014579995419,
+        "eway_bills": 0.388598457997432,
+        "supplier_returns": 0.12124575000052573,
+        "bank_entries": 0.44147258400334977,
+        "machines": 0.1196951669990085
+      },
+      "views": {
+        "V_MATERIAL_OUTPUT": {
+          "seconds": 0.3253586670034565,
+          "rows": 7113,
+          "checksum": 1472010.94028
+        },
+        "V_DISPATCH_INVOICE": {
+          "seconds": 0.28596829200250795,
+          "rows": 1947,
+          "checksum": 403111.6425
+        },
+        "V_STOCK_ROLLFORWARD": {
+          "seconds": 0.2729915410018293,
+          "rows": 0,
+          "checksum": 0.0
+        },
+        "V_SUPPLIER_LOOP": {
+          "seconds": 0.2755787499991129,
+          "rows": 2633,
+          "checksum": 2637425.9452
+        },
+        "V_RANKED_CASES": {
+          "seconds": 0.28673287499987055,
+          "rows": 28800,
+          "checksum": 5420.606306182403
+        }
+      },
+      "actual_rows": {
+        "factories": 2400,
+        "suppliers": 2400,
+        "factory_month": 28800,
+        "invoices": 28694,
+        "purchase_invoices": 28800,
+        "eway_bills": 57600,
+        "supplier_returns": 27360,
+        "bank_entries": 57600,
+        "machines": 2560
+      },
+      "join_sanity": {
+        "duplicate_months": 0,
+        "orphan_months": 0
+      },
+      "measurement_threshold": 0.1
+    },
+    "small": {
+      "manifest": {
+        "seed": 20261020,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28694,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228854
+      },
+      "query_result_cache": "OFF",
+      "measurement_threshold": 0.025,
+      "unoptimised": {
+        "V_MATERIAL_OUTPUT": {
+          "seconds": 0.29647212499548914,
+          "rows": [
+            [
+              11790,
+              "1616913.66882"
+            ]
+          ]
+        },
+        "V_DISPATCH_INVOICE": {
+          "seconds": 0.2755181669999729,
+          "rows": [
+            [
+              2342,
+              "424153.9876"
+            ]
+          ]
+        },
+        "V_STOCK_ROLLFORWARD": {
+          "seconds": 0.27425720800238196,
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ]
+        },
+        "V_SUPPLIER_LOOP": {
+          "seconds": 0.2752210409962572,
+          "rows": [
+            [
+              5822,
+              "2814931.8121"
+            ]
+          ]
+        },
+        "V_RANKED_CASES": {
+          "seconds": 0.3173753749942989,
+          "rows": [
+            [
+              28800,
+              5934.913238715933
+            ]
+          ]
+        }
+      },
+      "slowest": "V_RANKED_CASES",
+      "profile_rows": 51,
+      "cache_refresh_seconds": 0.32372170799499145,
+      "optimised": {
+        "V_MATERIAL_OUTPUT": [
+          {
+            "seconds": 0.022084582997194957,
+            "rows": [
+              [
+                11790,
+                "1616913.66882"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.02198737500293646,
+            "rows": [
+              [
+                11790,
+                "1616913.66882"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.022016750001057517,
+            "rows": [
+              [
+                11790,
+                "1616913.66882"
+              ]
+            ]
+          }
+        ],
+        "V_DISPATCH_INVOICE": [
+          {
+            "seconds": 0.02055300000210991,
+            "rows": [
+              [
+                2342,
+                "424153.9876"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.021257874999719206,
+            "rows": [
+              [
+                2342,
+                "424153.9876"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.019738082999538165,
+            "rows": [
+              [
+                2342,
+                "424153.9876"
+              ]
+            ]
+          }
+        ],
+        "V_STOCK_ROLLFORWARD": [
+          {
+            "seconds": 0.020389040997542907,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          },
+          {
+            "seconds": 0.020584625002811663,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          },
+          {
+            "seconds": 0.019932208000682294,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          }
+        ],
+        "V_SUPPLIER_LOOP": [
+          {
+            "seconds": 0.0210862919993815,
+            "rows": [
+              [
+                5822,
+                "2814931.8121"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.02043437500105938,
+            "rows": [
+              [
+                5822,
+                "2814931.8121"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.020287542000005487,
+            "rows": [
+              [
+                5822,
+                "2814931.8121"
+              ]
+            ]
+          }
+        ],
+        "V_RANKED_CASES": [
+          {
+            "seconds": 0.10170199999993201,
+            "rows": [
+              [
+                28800,
+                5934.913238715933
+              ]
+            ]
+          },
+          {
+            "seconds": 0.09800254099536687,
+            "rows": [
+              [
+                28800,
+                5934.913238715933
+              ]
+            ]
+          },
+          {
+            "seconds": 0.0989272919978248,
+            "rows": [
+              [
+                28800,
+                5934.913238715933
+              ]
+            ]
+          }
+        ]
+      },
+      "udf": {
+        "available": false,
+        "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488701077520384)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488701077520384\n    code        =>  42000\n    "
+      },
+      "pandas": {
+        "V_MATERIAL_OUTPUT": {
+          "csv_read_seconds": 0.0238385839984403,
+          "compute_seconds": 0.0017130409978562966,
+          "total_seconds": 0.025551624996296596,
+          "rows": 11790,
+          "checksum": 1616913.6688200005,
+          "exasol_raw_seconds": 0.29647212499548914,
+          "equivalent_counts_and_gaps": true
+        },
+        "V_DISPATCH_INVOICE": {
+          "csv_read_seconds": 0.05453812499763444,
+          "compute_seconds": 0.023836583000957035,
+          "total_seconds": 0.07837470799859148,
+          "rows": 2342,
+          "checksum": 424153.9876,
+          "exasol_raw_seconds": 0.2755181669999729,
+          "equivalent_counts_and_gaps": true
+        }
+      },
+      "load_seconds": {
+        "factories": 0.10582520800380735,
+        "suppliers": 0.05932475000008708,
+        "factory_month": 0.2506940829989617,
+        "invoices": 0.26712320799560985,
+        "purchase_invoices": 0.3154014579995419,
+        "eway_bills": 0.388598457997432,
+        "supplier_returns": 0.12124575000052573,
+        "bank_entries": 0.44147258400334977,
+        "machines": 0.1196951669990085
+      }
+    },
+    "full": {
+      "manifest": {
+        "seed": 20261021,
+        "factories": 220000,
+        "months": 12,
+        "rows": {
+          "factories": 220000,
+          "suppliers": 220000,
+          "factory_month": 2640000,
+          "invoices": 2630948,
+          "purchase_invoices": 2640000,
+          "eway_bills": 5280000,
+          "supplier_returns": 2507997,
+          "bank_entries": 5280000,
+          "machines": 234667,
+          "truth": 2640000
+        },
+        "raw_evidence_rows": 20978945
+      },
+      "load_seconds": {
+        "factories": 0.9107891249950626,
+        "suppliers": 0.9998852499993518,
+        "factory_month": 13.482804458995815,
+        "invoices": 9.2517402079975,
+        "purchase_invoices": 9.342883334000362,
+        "eway_bills": 7.6860414590046275,
+        "supplier_returns": 3.672330832996522,
+        "bank_entries": 10.600145666998287,
+        "machines": 0.47646824999537785
+      },
+      "actual_rows": {
+        "factories": 220000,
+        "suppliers": 220000,
+        "factory_month": 2640000,
+        "invoices": 2630948,
+        "purchase_invoices": 2640000,
+        "eway_bills": 5280000,
+        "supplier_returns": 2507997,
+        "bank_entries": 5280000,
+        "machines": 234667
+      },
+      "join_sanity": {
+        "duplicate_months": 0,
+        "orphan_months": 0
+      },
+      "query_result_cache": "OFF",
+      "measurement_threshold": 0.025,
+      "unoptimised": {
+        "V_MATERIAL_OUTPUT": {
+          "seconds": 14.174167332996149,
+          "rows": [
+            [
+              1079795,
+              "146535283.00388"
+            ]
+          ]
+        },
+        "V_DISPATCH_INVOICE": {
+          "seconds": 27.609198958001798,
+          "rows": [
+            [
+              211801,
+              "39786989.7839"
+            ]
+          ]
+        },
+        "V_STOCK_ROLLFORWARD": {
+          "seconds": 32.376357792003546,
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ]
+        },
+        "V_SUPPLIER_LOOP": {
+          "seconds": 29.850972000000183,
+          "rows": [
+            [
+              525203,
+              "256722238.7552"
+            ]
+          ]
+        },
+        "V_RANKED_CASES": {
+          "seconds": 48.94639983300294,
+          "rows": [
+            [
+              2640000,
+              541527.2112754667
+            ]
+          ]
+        }
+      },
+      "slowest": "V_RANKED_CASES",
+      "profile_rows": 51,
+      "cache_refresh_seconds": 16.262825333993533,
+      "optimised": {
+        "V_MATERIAL_OUTPUT": [
+          {
+            "seconds": 0.42536024999571964,
+            "rows": [
+              [
+                1079795,
+                "146535283.00388"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.4133452500027488,
+            "rows": [
+              [
+                1079795,
+                "146535283.00388"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.41060154200386023,
+            "rows": [
+              [
+                1079795,
+                "146535283.00388"
+              ]
+            ]
+          }
+        ],
+        "V_DISPATCH_INVOICE": [
+          {
+            "seconds": 0.2904049999997369,
+            "rows": [
+              [
+                211801,
+                "39786989.7839"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.2858514160034247,
+            "rows": [
+              [
+                211801,
+                "39786989.7839"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.28610129200387746,
+            "rows": [
+              [
+                211801,
+                "39786989.7839"
+              ]
+            ]
+          }
+        ],
+        "V_STOCK_ROLLFORWARD": [
+          {
+            "seconds": 0.28648187500220956,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          },
+          {
+            "seconds": 0.28068458300549537,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          },
+          {
+            "seconds": 0.28083199999673525,
+            "rows": [
+              [
+                0,
+                null
+              ]
+            ]
+          }
+        ],
+        "V_SUPPLIER_LOOP": [
+          {
+            "seconds": 0.3037700839995523,
+            "rows": [
+              [
+                525203,
+                "256722238.7552"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.3054856250018929,
+            "rows": [
+              [
+                525203,
+                "256722238.7552"
+              ]
+            ]
+          },
+          {
+            "seconds": 0.30846324999583885,
+            "rows": [
+              [
+                525203,
+                "256722238.7552"
+              ]
+            ]
+          }
+        ],
+        "V_RANKED_CASES": [
+          {
+            "seconds": 6.141385875002015,
+            "rows": [
+              [
+                2640000,
+                541527.2112754667
+              ]
+            ]
+          },
+          {
+            "seconds": 6.085765709001862,
+            "rows": [
+              [
+                2640000,
+                541527.2112754667
+              ]
+            ]
+          },
+          {
+            "seconds": 6.231265665999672,
+            "rows": [
+              [
+                2640000,
+                541527.2112754667
+              ]
+            ]
+          }
+        ]
+      },
+      "udf": {
+        "available": false,
+        "error": "\n(\n    message     =>  No usable script language container is installed for the requested language. Install the required script language package and try again. (Session: 1879488455936704512)\n    dsn         =>  localhost:8563\n    user        =>  sys\n    schema      =>  \n    session_id  =>  1879488455936704512\n    code        =>  42000\n    "
+      },
+      "pandas": {
+        "V_STOCK_ROLLFORWARD": {
+          "csv_read_seconds": 1.9064317080046749,
+          "compute_seconds": 0.3809479999981704,
+          "total_seconds": 2.2873797080028453,
+          "rows": 0,
+          "checksum": 0.0,
+          "exasol_raw_seconds": 32.376357792003546,
+          "equivalent_counts_and_gaps": true
+        },
+        "V_SUPPLIER_LOOP": {
+          "csv_read_seconds": 2.10230112499994,
+          "compute_seconds": 1.4015684170008171,
+          "total_seconds": 3.503869542000757,
+          "rows": 525203,
+          "checksum": 256722238.75519997,
+          "exasol_raw_seconds": 29.850972000000183,
+          "equivalent_counts_and_gaps": true
+        }
+      }
+    }
+  },
+  "demo_examples": {
+    "cheat": {
+      "factory_id": "F000012",
+      "period_month": "2026-05",
+      "is_cheat": 1,
+      "scenario": "hidden_production",
+      "intensity": 0.3,
+      "evasive": 0,
+      "discrepancy_class": "contradicting evidence",
+      "explanation": "concealment may remain below the calibrated threshold",
+      "signals": 3,
+      "flagged": true,
+      "score": 0.9183383811920393,
+      "evidence": [
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "bank_sales",
+          "source_family": "financial",
+          "expected": "126125.8138",
+          "observed": "180189.6273",
+          "gap": "54063.8135",
+          "severity": 0.30003843345537573,
+          "evidence": "invoice value compared with receipts",
+          "discrepancy_class": "needs human review"
+        },
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "dispatch_invoice",
+          "source_family": "movement",
+          "expected": "1501.4978",
+          "observed": "1051.0484",
+          "gap": "450.4494",
+          "severity": 0.3000000399600985,
+          "evidence": "document reuse fraction=0",
+          "discrepancy_class": "mismatch"
+        },
+        {
+          "factory_id": "F000012",
+          "period_month": "2026-05",
+          "check_family": "material_output",
+          "source_family": "production",
+          "expected": "1850.98288",
+          "observed": "1261.8152",
+          "gap": "589.16768",
+          "severity": 0.31829990777656464,
+          "evidence": "material kg=2313.7286, power kWh=7124.2641, hours=160, raw stock change=0",
+          "discrepancy_class": "contradicting evidence"
+        }
+      ]
+    },
+    "decoy": {
+      "factory_id": "F000142",
+      "period_month": "2026-04",
+      "is_cheat": 0,
+      "scenario": "product_mix_shift",
+      "intensity": 0.0,
+      "evasive": 0,
+      "discrepancy_class": "needs human review",
+      "explanation": "product mix shift: legitimate timing or operating change; not proof of wrongdoing",
+      "signals": 1,
+      "flagged": false,
+      "score": 0.233752423280222,
+      "evidence": [
+        {
+          "factory_id": "F000142",
+          "period_month": "2026-04",
+          "check_family": "material_output",
+          "source_family": "production",
+          "expected": "1751.84032",
+          "observed": "1342.3434",
+          "gap": "409.49692",
+          "severity": 0.23375242328022225,
+          "evidence": "material kg=2189.8004, power kWh=5417.4021, hours=160, raw stock change=0",
+          "discrepancy_class": "needs human review"
+        }
+      ]
+    },
+    "miss": {
+      "factory_id": "F000006",
+      "period_month": "2026-05",
+      "is_cheat": 1,
+      "scenario": "eway_reuse",
+      "intensity": 0.05,
+      "evasive": 1,
+      "discrepancy_class": "mismatch",
+      "explanation": "only one independent source family exposed",
+      "signals": 1,
+      "flagged": false,
+      "score": 0.5,
+      "evidence": [
+        {
+          "factory_id": "F000006",
+          "period_month": "2026-05",
+          "check_family": "dispatch_invoice",
+          "source_family": "movement",
+          "expected": "762.6496",
+          "observed": "762.6497",
+          "gap": "-0.0001",
+          "severity": 0.5,
+          "evidence": "document reuse fraction=0.5",
+          "discrepancy_class": "mismatch"
+        }
+      ]
+    }
+  }
+}

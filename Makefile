@@ -5,7 +5,7 @@ all: reproduce dashboard
 bootstrap:
 	sh scripts/bootstrap.sh
 reproduce: bootstrap
-	sh scripts/evaluate.sh
+	sh scripts/evaluate_v2.sh
 	$(PY) -m scripts.export_demo_examples
 	$(PY) scripts/performance_report.py
 

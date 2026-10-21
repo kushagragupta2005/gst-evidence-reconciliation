@@ -6,7 +6,7 @@ from pathlib import Path
 from src.db import connect, execute_file
 from src.generate import TABLES
 
-VIEWS = ('V_MATERIAL_OUTPUT','V_DISPATCH_INVOICE','V_STOCK_ROLLFORWARD','V_SUPPLIER_LOOP','V_RANKED_CASES')
+VIEWS = ('V_MATERIAL_OUTPUT','V_DISPATCH_INVOICE','V_STOCK_ROLLFORWARD','V_SUPPLIER_LOOP','V_RANKED_CASES','V_SINGLE_SIGNAL_DISPOSITIONS')
 
 def load(data, features=None):
     data=Path(data)
@@ -26,7 +26,7 @@ def load(data, features=None):
         for view in VIEWS:
             start=time.perf_counter()
             # Aggregate values as well as COUNT so optimizer cannot skip computations.
-            column='TOTAL_ABSOLUTE_GAP' if view=='V_RANKED_CASES' else 'GAP'
+            column='TOTAL_ABSOLUTE_GAP' if view=='V_RANKED_CASES' else ('SIGNAL_COUNT' if view=='V_SINGLE_SIGNAL_DISPOSITIONS' else 'GAP')
             row=conn.execute(f'SELECT COUNT(*),SUM(ABS({column})) FROM GST_EVIDENCE.{view}').fetchone()
             report['views'][view]={'seconds':time.perf_counter()-start,'rows':row[0],'checksum':float(row[1] or 0)}
         if features:

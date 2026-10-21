@@ -1,10 +1,11 @@
 {
-  "factory_month_recall": "84.42%",
-  "factory_month_fpr": "16.76%",
-  "factory_recall": "99.31%",
-  "factory_fpr": "84.17%",
-  "misses": 629,
+  "factory_month_recall": "84.01%",
+  "factory_month_fpr": "16.58%",
+  "factory_recall": "74.72%",
+  "factory_fpr": "22.56%",
+  "misses": 625,
   "factories": 2400,
-  "raw_evidence_rows": 228854,
-  "single_signal_decoys": 6924
+  "raw_evidence_rows": 228867,
+  "single_signal_decoys": 6898,
+  "queue_k": 4
 }
