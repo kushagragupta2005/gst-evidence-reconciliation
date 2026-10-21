@@ -1,0 +1,84 @@
+{
+  "manifest": {
+    "seed": 51003,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 28695,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 27360,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "supporting_documents": 12590,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 241445,
+    "noise_multiplier": 1.0,
+    "missing_documents_rate": 0.0,
+    "fake_explanations": true
+  },
+  "load_seconds": {
+    "factories": 0.04617608297849074,
+    "suppliers": 0.06017295899800956,
+    "factory_month": 0.16103504100465216,
+    "invoices": 0.15052904200274497,
+    "purchase_invoices": 0.18636754201725125,
+    "eway_bills": 0.2147495829849504,
+    "supplier_returns": 0.06390133299282752,
+    "bank_entries": 0.16127645800588652,
+    "machines": 0.06578770800842904,
+    "supporting_documents": 0.10468608301016502
+  },
+  "views": {
+    "V_MATERIAL_OUTPUT": {
+      "seconds": 0.19031379200168885,
+      "rows": 7136,
+      "checksum": 1465270.23074
+    },
+    "V_DISPATCH_INVOICE": {
+      "seconds": 0.16460687498329207,
+      "rows": 1940,
+      "checksum": 411743.5058
+    },
+    "V_STOCK_ROLLFORWARD": {
+      "seconds": 0.17307379099656828,
+      "rows": 2731,
+      "checksum": 758950.5458
+    },
+    "V_SUPPLIER_LOOP": {
+      "seconds": 0.16261266698711552,
+      "rows": 2646,
+      "checksum": 2599106.8744
+    },
+    "V_RANKED_CASES": {
+      "seconds": 0.18037620800896548,
+      "rows": 28800,
+      "checksum": 5877.435898482039
+    },
+    "V_SINGLE_SIGNAL_DISPOSITIONS": {
+      "seconds": 0.28175633400678635,
+      "rows": 28800,
+      "checksum": 17523.0
+    }
+  },
+  "actual_rows": {
+    "factories": 2400,
+    "suppliers": 2400,
+    "factory_month": 28800,
+    "invoices": 28695,
+    "purchase_invoices": 28800,
+    "eway_bills": 57600,
+    "supplier_returns": 27360,
+    "bank_entries": 57600,
+    "machines": 2560,
+    "supporting_documents": 12590
+  },
+  "join_sanity": {
+    "duplicate_months": 0,
+    "orphan_months": 0
+  }
+}

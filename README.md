@@ -8,7 +8,7 @@
 
 This is a synthetic-data decision-support prototype for ExaThon India 2026, Track 03: **Factories, Fleets & Supply Chains**. It uses Exasol Personal as its primary analytical database and is licensed under MIT.
 
-`submit-candidate-1` will contain a clean, traceable baseline. Existing V2 seed artefacts are **DEV**, because their seed suite and attribution analysis have already been seen during development. They are retained for audit, not presented as a new held-out headline. A separate preregistration must be committed before a new held-out suite is generated.
+`submit-candidate-1` is not yet tagged because separate-machine database reproduction remains open. V2 seed artefacts are **DEV**, because their seed suite and attribution analysis have already been seen during development. V3 is separately preregistered and reports the current held-out evaluation below.
 
 ## What it does
 
@@ -85,14 +85,20 @@ The project will add a post-change held-out command only after its seed configur
 
 ## Evaluation evidence
 
-Historical artefacts remain available so claims can be checked:
+V3-A selected a threshold of **0.05** and a factory queue rule of **K=3**. On primary held-out V3-B, factory-month recall was **81.14%**, false-positive rate **2.20%**, and precision **85.56%**. Confirmation holdback V3-C recorded **81.24%** recall, **2.28%** false-positive rate, and **85.01%** precision. These are synthetic scenario-recovery results, not real-world accuracy estimates. V3-B recorded **zero** active-cheat wrong clears among **3,981** active cheat months; V3-C recorded **zero** among **3,950**.
+
+Current and historical artefacts remain available so claims can be checked:
+
+- [`results.json`](results.json) and [`reports/v3_b_results.json`](reports/v3_b_results.json) — **HELDOUT** V3-B primary report.
+- [`reports/v3_c_results.json`](reports/v3_c_results.json) — **HELDOUT** V3-C confirmation report.
+- [`reports/v3_b_dispositions.json`](reports/v3_b_dispositions.json) and [`reports/v3_c_dispositions.json`](reports/v3_c_dispositions.json) — **HELDOUT** disposition outcomes, including planted fake explanations.
 
 - [`reports/v2_seed_b_results.json`](reports/v2_seed_b_results.json) — **DEV** frozen-seed run.
 - [`reports/v2_seed_c_results.json`](reports/v2_seed_c_results.json) — **DEV** frozen-seed run; no longer a new held-out result after subsequent development and analysis.
 - [`reports/attribution.json`](reports/attribution.json) and [`docs/ATTRIBUTION.md`](docs/ATTRIBUTION.md) — **DEV** fixed-seed attribution study; it shows the earlier false-positive-rate change came from threshold selection, while the revised planted stock mechanism affected recall.
 - [`reports/v2_threshold_tradeoff.json`](reports/v2_threshold_tradeoff.json) — **DEV** calibration trade-off.
 
-No current submission headline uses these development metrics. The post-change held-out report must include factory-month and factory-level recall, false-positive rate, precision, clustered bootstrap confidence intervals, honest misses, decoy breakdowns, ranking precision at fixed review capacity, and the confusion matrix of discrepancy class versus ground truth.
+The V3 reports include factory-month and factory-level recall, false-positive rate, precision, clustered bootstrap confidence intervals, honest misses, decoy breakdowns, ranking precision at fixed review capacity, and a discrepancy-class confusion matrix. The document disposition rate is limited to synthetic metadata verification and must not be interpreted as operational document validation.
 
 ## Data, dependencies and licences
 
@@ -122,5 +128,5 @@ No current submission headline uses these development metrics. The post-change h
 - [x] Synthetic generator, Exasol schema, SQL checks, label isolation and dashboard
 - [x] Offline regression tests and GitHub Actions
 - [ ] Separate-machine database installation and full end-to-end reproduction
-- [ ] Fresh preregistered post-change held-out evaluation
+- [x] Fresh preregistered V3-B primary and V3-C confirmation evaluations
 - [ ] Final screen-recorded demo and portal submission

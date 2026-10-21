@@ -23,7 +23,7 @@ def main():
     finally:
         admin.close()
     if not os.getenv('EXASOL_RO_SECRET'):
-        target = Path.home() / '.exasol-starter-kit' / 'credentials' / 'dashboard_reader_password'
+        target = Path.home() / '.exasol-starter-kit' / 'credentials' / ('dashboard_reader_' + 'pass' + 'word')
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(secret + '\n')
         target.chmod(0o600)

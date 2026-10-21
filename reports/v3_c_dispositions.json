@@ -1,0 +1,11 @@
+{
+  "result_status": "HELDOUT",
+  "result_scope": "V3-C disposition confirmation under docs/preregistration_v3.md.",
+  "query": "SELECT FACTORY_ID, PERIOD_MONTH, DISPOSITION FROM GST_EVIDENCE.V_SINGLE_SIGNAL_DISPOSITIONS",
+  "cleared_months": 4795,
+  "cleared_honest_decoy_months": 4795,
+  "wrong_clears_active_cheat_months": 0,
+  "active_cheat_months": 3950,
+  "wrong_clear_rate_active_cheat_months": 0.0,
+  "rejected_fake_explanation_documents": 3950
+}
