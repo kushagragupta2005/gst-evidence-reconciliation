@@ -260,7 +260,7 @@ flowchart LR
 
 ## Pitch and demo
 
-- [Five-slide pitch deck (PPTX)](deliverables/exathon-india-2026-pitch.pptx) and [PDF export](output/pdf/exathon-india-2026-pitch.pdf)
+- [Five-slide pitch deck (PPTX)](deliverables/exathon-india-2026-pitch.pptx) and [PDF export](deliverables/exathon-india-2026-pitch.pdf)
 - The existing MP4 predates the held-out evaluation and is not the submission demo. The replacement recording is being made by the solo participant using [the timed outline](docs/demo_script.md).
 - [Timed demo outline and research sources](docs/demo_and_pitch.md)
 - [Demo narration script](docs/demo_script.md)
