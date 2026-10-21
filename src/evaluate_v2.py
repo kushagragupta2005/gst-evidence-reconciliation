@@ -12,6 +12,19 @@ from src.evaluate import (CLASSES, FAMILIES, GRID, clustered_metrics, prepare,
 from src.generate import DECOYS
 
 
+def json_safe(value):
+    """Use JSON null for undefined subgroup metrics, never non-standard NaN."""
+    if isinstance(value, dict):
+        return {str(key): json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_safe(item) for item in value]
+    if isinstance(value, (float, np.floating)):
+        return float(value) if np.isfinite(value) else None
+    if isinstance(value, np.integer):
+        return int(value)
+    return value
+
+
 def choose_threshold(train_truth, train_matrix):
     rows = []
     for threshold in GRID:
@@ -92,7 +105,21 @@ def class_confusion(frame, fired):
             'rows_truth':CLASSES,'columns_predicted':CLASSES+['no signal'],'counts':matrix.to_numpy().tolist()}
 
 
-def evaluate(train_dir, test_dir, v1_path='results.json', output='results.json'):
+def check_metrics(frame, features, threshold):
+    """Detection rate of each individual SQL check before family combination."""
+    labels = frame[['factory_id','period_month','is_cheat']]
+    joined = features.merge(labels, on=['factory_id','period_month'], validate='many_to_one')
+    result = {}
+    for check, group in joined.groupby('check_family'):
+        group = group.copy()
+        group['flagged'] = group.severity > threshold
+        result[check] = clustered_metrics(group)
+    return result
+
+
+def evaluate(train_dir, test_dir, v1_path='results.json', output='results.json', reports_dir='reports'):
+    reports = Path(reports_dir)
+    reports.mkdir(parents=True, exist_ok=True)
     train, train_matrix, _ = prepare(train_dir)
     threshold, calibration = choose_threshold(train, train_matrix)
     a_frame, _ = monthly_frame(train, train_matrix, prepare(train_dir)[2], threshold)
@@ -149,7 +176,7 @@ def evaluate(train_dir, test_dir, v1_path='results.json', output='results.json')
         'warning':'Synthetic scenario recovery only. Truth and taxpayer explanations are excluded from detector SQL.'},
       'dataset':json.loads((Path(test_dir)/'manifest.json').read_text()),
       'factory_month':monthly_metrics,'factory':factory_metrics,
-      'recall_by_type_intensity':by_type,'fpr_by_decoy':fpr_by_decoy,
+      'recall_by_type_intensity':by_type,'per_check':check_metrics(frame,features,threshold),'evasive':{},'fpr_by_decoy':fpr_by_decoy,
       'fpr_clean_vs_decoy':fpr_clean_decoy,'decoy_signal_pairs':decoy_pairs.to_dict('records'),
       'factory_queue':{'k':queue_k,'seed_a_calibration':queue_calibration,'seed_c':factory_metrics,
                        'queue_size':int(fac.flagged.sum()),'definition':'factory enters queue after K prioritised months; monthly SQL flag remains unchanged'},
@@ -170,14 +197,17 @@ def evaluate(train_dir, test_dir, v1_path='results.json', output='results.json')
                    'v2_seed_c':{'seed':json.loads((Path(test_dir)/'manifest.json').read_text())['seed'],
                       'factory_month':monthly_metrics,'factory':factory_metrics}}
     }
+    for level, data in [('factory_month',frame),('factory',fac)]:
+        result['evasive'][level] = clustered_metrics(data[(data.is_cheat==1)&(data.evasive==1)])
     if 'performance' in v1: result['performance'] = v1['performance']
-    if 'demo_examples' in v1: result['demo_examples'] = v1['demo_examples']
+    result = json_safe(result)
     Path(output).write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
-    Path('reports/calibration.json').write_text(json.dumps({'threshold':threshold,'calibration':calibration,
-                                                             'factory_queue':queue_calibration},indent=2)+'\n')
-    frame.to_csv('reports/held_out_predictions.csv',index=False)
-    misses.to_csv('reports/misses.csv',index=False)
-    fac.to_csv('reports/factory_queue.csv',index=False)
+    calibration_report = json_safe({'threshold':threshold,'calibration':calibration,
+                                    'factory_queue':queue_calibration})
+    (reports/'calibration.json').write_text(json.dumps(calibration_report, indent=2, allow_nan=False)+'\n')
+    frame.to_csv(reports/'held_out_predictions.csv',index=False)
+    misses.to_csv(reports/'misses.csv',index=False)
+    fac.to_csv(reports/'factory_queue.csv',index=False)
     return result
 
 
@@ -185,6 +215,7 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--train',default='data/train'); parser.add_argument('--test',default='data/seed_c')
     parser.add_argument('--v1',default='results.json'); parser.add_argument('--output',default='results.json')
-    args=parser.parse_args(); output=evaluate(args.train,args.test,args.v1,args.output)
+    parser.add_argument('--reports-dir',default='reports')
+    args=parser.parse_args(); output=evaluate(args.train,args.test,args.v1,args.output,args.reports_dir)
     print(json.dumps({'threshold':output['protocol']['threshold'],'factory_month':output['factory_month'],
                       'factory_queue':output['factory_queue']},indent=2))

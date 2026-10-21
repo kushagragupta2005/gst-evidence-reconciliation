@@ -67,6 +67,7 @@ def generate(scale, out_dir, seed, count=None, noise_multiplier=1.0,
             purchases = output / .8
             dispatch = output * rng.uniform(.78, .97)
             declared = output * (1-intensity if live and scenario == 'hidden_production' else 1)
+            declared_dispatch = dispatch * (1-intensity if live and scenario == 'eway_reuse' else 1)
             invoice = dispatch * (1-intensity if live and scenario in ('hidden_production', 'eway_reuse') and not evasive else 1)
             if live and scenario == 'hidden_production' and evasive:
                 invoice = dispatch
@@ -82,7 +83,18 @@ def generate(scale, out_dir, seed, count=None, noise_multiplier=1.0,
                 return max(0, v * (1+rng.gauss(0,.015*noise_multiplier)+
                                    (rng.uniform(-.18,.18)*noise_multiplier if rng.random()<.025 else 0)))
             purchases, power, incoming, outgoing = map(measure, (purchases, power, incoming, outgoing))
-            closing = opening + declared - dispatch
+            # Stock is an independent physical record. V2 deliberately breaks
+            # its identity for each active fraud type without using labels in
+            # detector SQL: concealed output remains in stock, ITC cases report
+            # a falsified closing balance, and re-used e-way cases physically
+            # dispatch more than the declared dispatch.
+            closing = opening + declared - declared_dispatch
+            if live and scenario == 'hidden_production':
+                closing = opening + output - dispatch
+            elif live and scenario == 'itc_inflation':
+                closing -= purchases * intensity
+            elif live and scenario == 'eway_reuse':
+                closing = opening + declared - dispatch
             expected_class = 'clean'
             explanation = 'ordinary measurement and booking noise'
             if live:
@@ -106,7 +118,7 @@ def generate(scale, out_dir, seed, count=None, noise_multiplier=1.0,
                 elif scenario == 'lumpy_bank_flows':
                     incoming *= 1.45 if m%2 else .55
             product = 'sheet' if scenario == 'product_mix_shift' and m>=3 else 'steel_rod'
-            emit('factory_month', fid, month, product, opening, purchases, 0, declared, dispatch, closing, power, hours, raw_change)
+            emit('factory_month', fid, month, product, opening, purchases, 0, declared, declared_dispatch, closing, power, hours, raw_change)
             # Robustness variants remove one ordinary document at a declared rate.  The
             # truth label remains independent from whether the document is available.
             missing_document = rng.random() < missing_documents_rate

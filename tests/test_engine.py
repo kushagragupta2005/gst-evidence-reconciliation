@@ -1,4 +1,5 @@
 import contextlib
+import csv
 import hashlib
 import io
 import json
@@ -33,6 +34,22 @@ class GeneratorTests(unittest.TestCase):
         fields=TABLES['factories'].upper()
         self.assertNotIn('GROUND_TRUTH',fields)
         self.assertNotIn('SCENARIO',fields)
+    def test_active_cheats_break_a_stock_identity(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)
+            with contextlib.redirect_stdout(io.StringIO()):
+                generate('small',path,31001,120)
+            with (path/'truth.csv').open() as handle:
+                truth={(r['factory_id'],r['period_month']):r for r in csv.DictReader(handle)}
+            detected=set()
+            with (path/'factory_month.csv').open() as handle:
+                for row in csv.DictReader(handle):
+                    label=truth[(row['factory_id'],row['period_month'])]
+                    if label['is_cheat']=='1':
+                        expected=float(row['opening_stock'])+float(row['purchases_finished'])+float(row['declared_output'])-float(row['declared_dispatch'])
+                        if abs(expected-float(row['closing_stock']))>1e-3:
+                            detected.add(label['scenario'])
+            self.assertEqual(detected,{'hidden_production','itc_inflation','eway_reuse'})
     def test_dashboard_source_does_not_read_evaluation_labels(self):
         dashboard=Path('app.py').read_text().upper()
         for token in ['HELD_OUT_PREDICTIONS','IS_CHEAT','.SCENARIO','GST_EVALUATION','TRUTH.CSV']:

@@ -1,0 +1,81 @@
+{
+  "manifest": {
+    "seed": 31002,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 28710,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 27360,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 228870,
+    "noise_multiplier": 1.0,
+    "missing_documents_rate": 0.0,
+    "fake_explanations": false
+  },
+  "load_seconds": {
+    "factories": 0.05910008298815228,
+    "suppliers": 0.06195412500528619,
+    "factory_month": 0.15499279199866578,
+    "invoices": 0.17630875000031665,
+    "purchase_invoices": 0.25752487499266863,
+    "eway_bills": 0.19451854200451635,
+    "supplier_returns": 0.10292754200054333,
+    "bank_entries": 0.18502204198739491,
+    "machines": 0.06630224999389611
+  },
+  "views": {
+    "V_MATERIAL_OUTPUT": {
+      "seconds": 0.19706920799217187,
+      "rows": 7064,
+      "checksum": 1434882.87624
+    },
+    "V_DISPATCH_INVOICE": {
+      "seconds": 0.16623324999818578,
+      "rows": 1942,
+      "checksum": 404951.2979
+    },
+    "V_STOCK_ROLLFORWARD": {
+      "seconds": 0.1744213329802733,
+      "rows": 2575,
+      "checksum": 702606.1433
+    },
+    "V_SUPPLIER_LOOP": {
+      "seconds": 0.16865145799238235,
+      "rows": 2602,
+      "checksum": 2512538.8145
+    },
+    "V_RANKED_CASES": {
+      "seconds": 0.19176904199412093,
+      "rows": 28800,
+      "checksum": 5777.9924026607505
+    },
+    "V_SINGLE_SIGNAL_DISPOSITIONS": {
+      "seconds": 0.25473958399379626,
+      "rows": 28800,
+      "checksum": 17275.0
+    }
+  },
+  "actual_rows": {
+    "factories": 2400,
+    "suppliers": 2400,
+    "factory_month": 28800,
+    "invoices": 28710,
+    "purchase_invoices": 28800,
+    "eway_bills": 57600,
+    "supplier_returns": 27360,
+    "bank_entries": 57600,
+    "machines": 2560
+  },
+  "join_sanity": {
+    "duplicate_months": 0,
+    "orphan_months": 0
+  }
+}

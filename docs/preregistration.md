@@ -74,3 +74,23 @@ deleted or replaced.
 | Date | Dataset | Purpose | Calibration changed? | Result artifact |
 |---|---|---|---|---|
 | 2026-10-21 | No new run | Protocol committed before rebuild | No | This file |
+| 2026-10-21 | V2-A `31001` | Stock-integrity calibration dataset. | Yes: threshold 0.05; K=2 | `reports/v2_seed_b/calibration.json` |
+| 2026-10-21 | V2-B `31002` | First frozen held-out stock-integrity evaluation. | No | `reports/v2_seed_b_results.json` |
+| 2026-10-21 | V2-C `31003` | Second frozen held-out stock-integrity evaluation. | No | `reports/v2_seed_c_results.json` |
+
+## V2 stock-integrity revision
+
+The original generator preserved every stock identity, so its stock view could
+not fire. The V2 generator will introduce three predeclared, scenario-linked
+mechanisms while keeping the same three named cheat types:
+
+- hidden production: physical closing stock includes concealed output;
+- ITC inflation: a falsified closing stock amount is recorded during active
+  months;
+- e-way reuse: physical dispatch exceeds declared dispatch during active
+  months, creating a phantom-dispatch stock inconsistency.
+
+The detector continues to use observed stock fields only. Decoy seasonal stock
+builds retain internally consistent roll-forwards and any documented raw-stock
+change is a tolerance, not a fraud label. No V2 threshold, K, or ranking choice
+will be selected using V2-B or V2-C.

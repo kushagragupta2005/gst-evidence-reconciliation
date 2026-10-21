@@ -18,3 +18,28 @@ evaluation result.
 - **Metrics:** not rerun. This changes label handling and permissions only;
   detector inputs, views, threshold, and held-out predictions are unchanged.
   The prior Seed C metrics remain historical until a preregistered rerun.
+
+## 2026-10-21 — stock-integrity generator revision
+
+- **Pre-registration:** V2-A/Seed 31001 was calibration only; V2-B/31002 and
+  V2-C/31003 were registered as frozen held-out datasets before generation in
+  `docs/preregistration.md`. Original Seeds B/C and their artifacts remain
+  unchanged.
+- **Change:** active hidden-production cases retain concealed physical output in
+  closing stock; active ITC cases falsify the closing balance; active e-way
+  reuse cases physically dispatch more than they declare. The stock SQL now
+  deducts a documented raw-stock-change tolerance from stock severity.
+- **Tests:** 19 offline tests passed, including a generator test that all three
+  active cheat types break a stock identity. V2-C load produced 2,627 stock
+  evidence rows; original Seed C had zero.
+- **V2-B held-out:** threshold 0.05, K=2. Monthly recall 82.74% (95% CI
+  80.46%–84.88%), FPR 2.22% (2.04%–2.43%), precision 85.29%
+  (83.66%–86.75%). Stock-check recall 88.95%. Evasive monthly recall 57.24%.
+- **V2-C held-out replication:** threshold 0.05, K=2. Monthly recall 79.71%
+  (77.22%–82.18%), FPR 2.18% (1.98%–2.39%), precision 85.51%
+  (83.79%–87.08%). Factory queue: 711 factories, recall 85.69%, FPR 5.60%,
+  precision 86.78%. Stock-check recall 88.09%; evasive monthly recall 49.14%.
+- **Interpretation:** this is a new synthetic-generator version, not an
+  improvement over the original Seed C experiment. The stronger metrics follow
+  from a new observable stock mechanism and must not be compared as a
+  like-for-like gain. Full-scale timing has not yet been rerun for V2.

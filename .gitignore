@@ -10,4 +10,5 @@ data/train/
 data/full/
 data/seed_c/
 data/robust_*/
+data/v2_*/
 .pitch_build/
