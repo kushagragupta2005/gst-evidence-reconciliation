@@ -293,6 +293,10 @@ The fresh-checkout run reused the Exasol Personal installation already on this M
 
 These are workload timings on the project author's MacBook, using Exasol Personal locally. Raw checks aggregate count and absolute gap, forcing evaluation. Optimised queries use a batch-materialised monthly ledger, then run three sequential repetitions (median below, all samples in results.json). Query-result caching was disabled for the comparison. Data pages can be warm; neither cold-page control nor concurrency isolation was enforced. The cache build is reported separately and must rerun after every source update.
 
+### Concurrent follow-up workload
+
+Eight simultaneous guarded, read-only “dispatch gap by month” queries returned 12 rows each. The observed p50 was 0.714 s and p95 was 0.804 s, including connection setup, query and result fetch. This is a local workload timing on the project author’s MacBook, not an isolated server benchmark. The exact queries and latencies are in [concurrency.json](reports/concurrency.json) and `results.json`.
+
 | Dataset | Factories | Raw evidence rows | CSV load seconds | Ledger refresh seconds |
 |---|---:|---:|---:|---:|
 | small | 2,400 | 228,854 | 2.069 | 0.324 |
@@ -321,7 +325,7 @@ The two slowest individual checks in each raw SQL run are reproduced in pandas u
 
 Saved session profiles: [small](reports/profile_small.json), [full](reports/profile_full.json). The profile exposes repeated grouping, joining and sorting through the shared ledger. Materialising that ledger once amortises this work across the six signals and case ranking. Counts and absolute-gap checksums are asserted unchanged before reporting any timings. [Exasol profiling documentation](https://docs.exasol.com/db/latest/database_concepts/profiling.htm).
 
-Window functions implement prior-closing continuity and a trailing power baseline. A historical-only median/MAD Python UDF is included in sql/30_baseline_udf.sql, but execution failed because this Exasol installation lacks a Python script-language container. It is optional, not used for flagging, and no UDF speedup is claimed.
+Window functions implement prior-closing continuity and a trailing power baseline. The local Exasol Personal configuration used for the workload has 2 CPUs and 8,192 MB memory. Amounts and quantities use `DECIMAL(20,4)`; identifiers and months use UTF-8 `VARCHAR` columns. Python 3.12 SLC was installed on 21 October 2026, but the database restart had not completed during this run, so the optional median/MAD UDF is excluded from the submission and no UDF result or speedup is claimed.
 
 ### Why an in-memory analytic database
 

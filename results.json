@@ -3342,5 +3342,63 @@
         }
       }
     }
+  },
+  "concurrency": {
+    "queries": 8,
+    "parallel_workers": 8,
+    "intent": "dispatch gap by month",
+    "latencies_seconds": [
+      {
+        "factory_id": "F000001",
+        "seconds": 0.7997883330099285,
+        "rows": 12,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000001' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000002",
+        "seconds": 0.803842249995796,
+        "rows": 12,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000002' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000003",
+        "seconds": 0.658789583001635,
+        "rows": 12,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000003' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000004",
+        "seconds": 0.16623120800068136,
+        "rows": 12,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000004' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000005",
+        "seconds": 0.7907419999974081,
+        "rows": 12,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000005' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000006",
+        "seconds": 0.6552962500136346,
+        "rows": 12,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000006' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000007",
+        "seconds": 0.7690139159967657,
+        "rows": 12,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000007' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000008",
+        "seconds": 0.6560215830104426,
+        "rows": 12,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000008' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      }
+    ],
+    "p50_seconds": 0.7139017494992004,
+    "p95_seconds": 0.803842249995796,
+    "definition": "One simultaneous guarded SELECT per connection, including connect, query and result fetch. Local workload timing on a MacBook; not an isolated server benchmark."
   }
 }
