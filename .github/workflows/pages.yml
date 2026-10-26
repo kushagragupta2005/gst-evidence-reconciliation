@@ -6,6 +6,9 @@ on:
     paths:
       - 'website/**'
       - 'scripts/site_browser_smoke.mjs'
+      - 'scripts/build_metrics.py'
+      - 'scripts/build_pages.py'
+      - 'data/metrics.json'
       - 'package*.json'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
@@ -27,6 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build pages from audited artifacts
+        run: python3 scripts/build_metrics.py && python3 scripts/build_pages.py
       - uses: actions/configure-pages@v5
         with:
           # This repository has no pre-existing Pages site. Enable the

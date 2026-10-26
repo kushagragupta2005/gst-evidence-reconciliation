@@ -8,7 +8,7 @@
 - The 20.98 million-row performance record predates the current detector. It is a development workload timing on the author's MacBook, not a production benchmark or speed claim.
 - A real deployment would require lawful, proportionate access to tax, power and bank records, controls for privacy and retention, and human review before any action affecting a taxpayer.
 
-- The single-page site includes post-hoc leave-one-check-out point estimates in `reports/site_ablation.json`. Both complete-check confusion matrices reproduce the frozen held-out artifacts. Ablation confidence intervals remain unmeasured. Recorded cases are selected using offline evaluation labels; API queries themselves have no truth access.
+- The Results page includes post-hoc leave-one-check-out point estimates in `reports/site_ablation.json`. Both complete-check confusion matrices reproduce the frozen held-out artifacts. Ablation confidence intervals remain unmeasured. Recorded cases are selected using offline evaluation labels; API queries themselves have no truth access.
 
 - `reports/wrong_clear_bounds.json` gives an approximate one-sided 95% rule-of-three bound over active-cheat factories after zero observed wrong-clear factories. Factory months are not treated as independent trials. Independent factory outcomes are assumed; this is conditional on generated verification status and is not a real-world safety guarantee or cluster-bootstrap interval.
 - The new full-scale run remains pending: the authorised restricted account cannot load a new dataset or rewrite views. The existing 20.98-million-row run remains historical. A second-machine reproduction remains unverified.

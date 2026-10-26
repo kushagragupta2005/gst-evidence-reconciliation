@@ -18,6 +18,8 @@ reproduce-dev: bootstrap
 
 export-site-data:
 	$(PY) scripts/export_site_data.py
+	$(PY) scripts/build_metrics.py
+	$(PY) scripts/build_pages.py
 
 site: export-site-data
 	$(PY) scripts/serve_site.py

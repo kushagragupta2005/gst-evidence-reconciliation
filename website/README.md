@@ -1,14 +1,15 @@
-# Judge-facing single-page site
+# Static judge site
 
-Run `make site` and open http://127.0.0.1:8081. Run `make api` separately for
-restricted-account live follow-ups. Metrics and selected cases are recorded.
-The local API probe expires after 1.5 seconds; unavailable API means Snapshot.
+Eight pages share `style.css`, `site.js` and `metrics.js`. The only active numeric
+source is repository `data/metrics.json`; the browser script wraps exactly that
+JSON for file-URL and offline use. `scripts/build_metrics.py` attaches artifact
+hashes, commit dates and recorded run dates without inventing missing timestamps.
+`scripts/build_pages.py` creates the shared navigation, metadata and page content.
 
-`data.js` embeds the committed results and reports through a plain script tag.
-No snapshot fetch is needed, including on file URLs and Pages subpaths.
-`scripts/export_site_data.py` rebuilds it without a database connection.
-`reports/site_examples.json` records real restricted-API responses and explicitly
-separates offline evaluation labels used to select the three examples.
+Run `npm run site:build` to rebuild from committed artifacts or `make site` to
+rebuild and serve at http://127.0.0.1:8081. Run `make api` separately for guarded
+local live queries on Cases. Every public page works without a backend.
 
-`npm run site:smoke` checks localhost and file URLs at both requested widths.
-The Pages workflow runs the same checks against the deployed public URL.
+`npm run site:smoke` checks all pages, responsive layouts, light/dark themes,
+internal links and file-URL use. `npm run site:lighthouse` measures each page.
+Pages CI builds first, deploys, then checks the actual public pages.

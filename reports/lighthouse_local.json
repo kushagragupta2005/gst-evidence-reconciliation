@@ -1,0 +1,1015 @@
+{
+  "time_utc": "2026-10-26T15:56:39.769Z",
+  "git_sha": "dad159603dddc7371610e00342de646aac75ac2c",
+  "lighthouse_version": "13.5.0",
+  "environment": "Headless Chromium; Lighthouse default simulated mobile throttling; one run per page.",
+  "pages": [
+    {
+      "page": "home",
+      "url": "http://127.0.0.1:8081/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1502.4949,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/metrics.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 66182,
+              "wastedBytes": 66182
+            },
+            {
+              "url": "http://127.0.0.1:8081/site.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 17681,
+              "wastedBytes": 17681
+            },
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 12822,
+              "wastedBytes": 12822
+            }
+          ]
+        },
+        {
+          "id": "document-latency-insight",
+          "score": 0.5,
+          "title": "Document request latency",
+          "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression."
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "1044052870DAE7684C70E55448ED9440": {
+                    "url": "http://127.0.0.1:8081/index.html",
+                    "navStartToEndTime": 8,
+                    "transferSize": 5344,
+                    "isLongest": true,
+                    "children": {
+                      "28244.2": {
+                        "url": "http://127.0.0.1:8081/style.css",
+                        "navStartToEndTime": 14,
+                        "transferSize": 12822,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 14
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "totalBytes": 12822,
+              "wastedMs": 151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "problem",
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1501.3338,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "mainthread-work-breakdown",
+          "score": 0.5,
+          "title": "Minimize main-thread work",
+          "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn how to minimize main-thread work](https://developer.chrome.com/docs/lighthouse/performance/mainthread-work-breakdown/)",
+          "details": [
+            {
+              "group": "scriptEvaluation",
+              "groupLabel": "Script Evaluation",
+              "duration": 3928.383999999952
+            },
+            {
+              "group": "styleLayout",
+              "groupLabel": "Style & Layout",
+              "duration": 198.62
+            },
+            {
+              "group": "other",
+              "groupLabel": "Other",
+              "duration": 153.41599999999977
+            }
+          ]
+        },
+        {
+          "id": "bootup-time",
+          "score": 0.5,
+          "title": "Reduce JavaScript execution time",
+          "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn how to reduce Javascript execution time](https://developer.chrome.com/docs/lighthouse/performance/bootup-time/).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/problem/index.html",
+              "total": 4301.163999999955,
+              "scripting": 3876.9439999999536,
+              "scriptParseCompile": 3.992
+            },
+            {
+              "url": "Unattributable",
+              "total": 125.32399999999969,
+              "scripting": 37.108,
+              "scriptParseCompile": 0
+            }
+          ]
+        },
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/metrics.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 66182,
+              "wastedBytes": 66182
+            },
+            {
+              "url": "http://127.0.0.1:8081/site.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 17681,
+              "wastedBytes": 17681
+            },
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 12822,
+              "wastedBytes": 12822
+            }
+          ]
+        },
+        {
+          "id": "document-latency-insight",
+          "score": 0.5,
+          "title": "Document request latency",
+          "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression."
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "66BA4AF75A07AE9223009D8E6497155E": {
+                    "url": "http://127.0.0.1:8081/problem/index.html",
+                    "navStartToEndTime": 6,
+                    "transferSize": 5552,
+                    "isLongest": true,
+                    "children": {
+                      "28265.2": {
+                        "url": "http://127.0.0.1:8081/style.css",
+                        "navStartToEndTime": 6,
+                        "transferSize": 12822,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 6
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "totalBytes": 12822,
+              "wastedMs": 151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "how-it-works",
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1501.222,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.99,
+          "title": "First Contentful Paint",
+          "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+        },
+        {
+          "id": "max-potential-fid",
+          "score": 0.95,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/metrics.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 66182,
+              "wastedBytes": 66182
+            },
+            {
+              "url": "http://127.0.0.1:8081/site.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 17681,
+              "wastedBytes": 17681
+            },
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 12822,
+              "wastedBytes": 12822
+            }
+          ]
+        },
+        {
+          "id": "document-latency-insight",
+          "score": 0.5,
+          "title": "Document request latency",
+          "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression."
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "FA561FF0B1489BACB043EF3F3079C91B": {
+                    "url": "http://127.0.0.1:8081/how-it-works/index.html",
+                    "navStartToEndTime": 6,
+                    "transferSize": 6023,
+                    "isLongest": true,
+                    "children": {
+                      "28268.2": {
+                        "url": "http://127.0.0.1:8081/style.css",
+                        "navStartToEndTime": 7,
+                        "transferSize": 12822,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 7
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "totalBytes": 12822,
+              "wastedMs": 151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "cases",
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1651.478,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "score": 0.99,
+          "title": "Largest Contentful Paint",
+          "description": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
+        },
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/metrics.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 66182,
+              "wastedBytes": 66182
+            },
+            {
+              "url": "http://127.0.0.1:8081/site.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 17681,
+              "wastedBytes": 17681
+            },
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 12822,
+              "wastedBytes": 12822
+            }
+          ]
+        },
+        {
+          "id": "document-latency-insight",
+          "score": 0.5,
+          "title": "Document request latency",
+          "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression."
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "4A810F4B93D5C3CEA29C2D1A4849E0D5": {
+                    "url": "http://127.0.0.1:8081/cases/index.html",
+                    "navStartToEndTime": 7,
+                    "transferSize": 4370,
+                    "isLongest": true,
+                    "children": {
+                      "28269.2": {
+                        "url": "http://127.0.0.1:8081/style.css",
+                        "navStartToEndTime": 8,
+                        "transferSize": 12822,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 8
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "totalBytes": 12822,
+              "wastedMs": 151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "results",
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1501.0944,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.99,
+          "title": "First Contentful Paint",
+          "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+        },
+        {
+          "id": "total-blocking-time",
+          "score": 0.99,
+          "title": "Total Blocking Time",
+          "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
+        },
+        {
+          "id": "max-potential-fid",
+          "score": 0.93,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/metrics.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 66182,
+              "wastedBytes": 66182
+            },
+            {
+              "url": "http://127.0.0.1:8081/site.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 17681,
+              "wastedBytes": 17681
+            },
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 12822,
+              "wastedBytes": 12822
+            }
+          ]
+        },
+        {
+          "id": "document-latency-insight",
+          "score": 0.5,
+          "title": "Document request latency",
+          "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression."
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "3A091A79D12C30C0316416C65F41B528": {
+                    "url": "http://127.0.0.1:8081/results/index.html",
+                    "navStartToEndTime": 6,
+                    "transferSize": 5630,
+                    "isLongest": true,
+                    "children": {
+                      "28272.2": {
+                        "url": "http://127.0.0.1:8081/style.css",
+                        "navStartToEndTime": 7,
+                        "transferSize": 12822,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 7
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "totalBytes": 12822,
+              "wastedMs": 151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "system",
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1501.3381,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.99,
+          "title": "First Contentful Paint",
+          "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+        },
+        {
+          "id": "max-potential-fid",
+          "score": 0.94,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/metrics.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 66182,
+              "wastedBytes": 66182
+            },
+            {
+              "url": "http://127.0.0.1:8081/site.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 17681,
+              "wastedBytes": 17681
+            },
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 12822,
+              "wastedBytes": 12822
+            }
+          ]
+        },
+        {
+          "id": "document-latency-insight",
+          "score": 0.5,
+          "title": "Document request latency",
+          "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression."
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "A37A1C1D3597F0142EDEEB31F3F58FB7": {
+                    "url": "http://127.0.0.1:8081/system/index.html",
+                    "navStartToEndTime": 7,
+                    "transferSize": 6723,
+                    "isLongest": true,
+                    "children": {
+                      "28277.2": {
+                        "url": "http://127.0.0.1:8081/style.css",
+                        "navStartToEndTime": 7,
+                        "transferSize": 12822,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 7
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "totalBytes": 12822,
+              "wastedMs": 151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "data",
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1501.2998,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/metrics.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 66182,
+              "wastedBytes": 66182
+            },
+            {
+              "url": "http://127.0.0.1:8081/site.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 17681,
+              "wastedBytes": 17681
+            },
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 12822,
+              "wastedBytes": 12822
+            }
+          ]
+        },
+        {
+          "id": "document-latency-insight",
+          "score": 0.5,
+          "title": "Document request latency",
+          "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression."
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "1C643D8D56D31999CF18B377FC99E9DF": {
+                    "url": "http://127.0.0.1:8081/data/index.html",
+                    "navStartToEndTime": 6,
+                    "transferSize": 6127,
+                    "isLongest": true,
+                    "children": {
+                      "28280.2": {
+                        "url": "http://127.0.0.1:8081/style.css",
+                        "navStartToEndTime": 7,
+                        "transferSize": 12822,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 7
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "totalBytes": 12822,
+              "wastedMs": 151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "limits",
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1500.7921,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.99,
+          "title": "First Contentful Paint",
+          "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+        },
+        {
+          "id": "max-potential-fid",
+          "score": 0.96,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/metrics.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 66182,
+              "wastedBytes": 66182
+            },
+            {
+              "url": "http://127.0.0.1:8081/site.js",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 17681,
+              "wastedBytes": 17681
+            },
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 12822,
+              "wastedBytes": 12822
+            }
+          ]
+        },
+        {
+          "id": "document-latency-insight",
+          "score": 0.5,
+          "title": "Document request latency",
+          "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression."
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "568AB53620330F5D15843AABAE4D1D2D": {
+                    "url": "http://127.0.0.1:8081/limits/index.html",
+                    "navStartToEndTime": 6,
+                    "transferSize": 5800,
+                    "isLongest": true,
+                    "children": {
+                      "28286.2": {
+                        "url": "http://127.0.0.1:8081/style.css",
+                        "navStartToEndTime": 7,
+                        "transferSize": 12822,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 7
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "http://127.0.0.1:8081/style.css",
+              "totalBytes": 12822,
+              "wastedMs": 150
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meets_95": true
+}

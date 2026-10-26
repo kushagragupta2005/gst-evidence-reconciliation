@@ -31,7 +31,7 @@ class SiteDataTests(unittest.TestCase):
             self.assertEqual(bundle['evaluation']['heldout_v3_b'],json.loads(Path('results.json').read_text()))
             self.assertEqual(bundle['performance'],json.loads((output/'performance.json').read_text()))
         index=Path('website/index.html').read_text()
-        self.assertLess(index.index('src="data.js"'),index.index('src="site.js"'))
+        self.assertLess(index.index('src="./metrics.js"'),index.index('src="./site.js"'))
         self.assertNotIn('data/${n}.json',Path('website/site.js').read_text())
 
     def test_api_factory_ids_and_followup_remain_bounded(self):
@@ -55,7 +55,7 @@ class SiteDataTests(unittest.TestCase):
         import colorsys
         import hashlib
         import re
-        page=Path('website/index.html').read_text()
+        page=Path('website/problem/index.html').read_text()
         statement=re.search(r'<p id="problem-statement">(.*?)</p>',page).group(1)
         self.assertEqual(hashlib.sha256(statement.encode()).hexdigest(),'d5b711f68044bdd8079701b61916870971a76d3a20104649a4bd0035c870ba33')
         css=Path('website/style.css').read_text()
@@ -106,3 +106,23 @@ class SiteDataTests(unittest.TestCase):
             self.assertGreater(check['duckdb_median_seconds'],0)
         bundle=json.loads(Path('website/data.js').read_text().removeprefix('window.__SNAPSHOT__ = ').removesuffix(';\n'))
         self.assertEqual(bundle['performance']['current_reader'],report)
+
+    def test_canonical_metrics_are_the_only_page_data_bundle(self):
+        import hashlib
+        canonical=json.loads(Path('data/metrics.json').read_text())
+        self.assertEqual(canonical,json.loads(Path('website/data/metrics.json').read_text()))
+        self.assertEqual(canonical,json.loads(Path('website/metrics.js').read_text().removeprefix('window.__METRICS__ = ').removesuffix(';\n')))
+        for seed,file in [('v3_b','results.json'),('v3_c','reports/v3_c_results.json')]:
+            result=json.loads(Path(file).read_text())
+            self.assertEqual(canonical['results'][seed]['factory_month'],result['factory_month'])
+            self.assertEqual(canonical['results'][seed]['factory'],result['factory'])
+            prevalence=canonical['results'][seed]['prevalence_sorted']
+            self.assertEqual(prevalence,sorted(prevalence,key=lambda x:x['assumed_prevalence']))
+        for source in canonical['sources'].values():
+            self.assertEqual(source['sha256'],hashlib.sha256(Path(source['file']).read_bytes()).hexdigest())
+        for slug in ['', 'problem','how-it-works','cases','results','system','data','limits']:
+            page=(Path('website')/slug/'index.html').read_text()
+            self.assertIn('metrics.js',page)
+            self.assertNotIn('src="data.js"',page)
+            self.assertIn('og:image',page)
+            self.assertIn('meta name="description"',page)

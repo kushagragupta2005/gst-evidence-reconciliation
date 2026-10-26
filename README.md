@@ -143,18 +143,18 @@ The V3 reports include factory-month and factory-level recall, false-positive ra
 - [x] Fresh preregistered V3-B primary and V3-C confirmation evaluations
 - [ ] Final screen-recorded demo and portal submission
 
-## Judge-facing single-page site
+## Judge-facing multi-page site
 
 `make site` serves the page at http://127.0.0.1:8081. Run `make api` separately for live guarded follow-ups. The page probes the local API for at most 1.5 seconds and keeps its bundled snapshot if unavailable. Metrics and example cases remain recorded even when the API is live.
 
-The plain `website/data.js` script also works by opening `website/index.html` directly, offline, or under the Pages subpath. It makes no snapshot-data fetch requests. Case examples, notes, SQL and answers were recorded through the restricted API in [`reports/site_examples.json`](reports/site_examples.json); notes use the labeled deterministic fallback. The UI includes a caught cheat, a documented honest decoy, and a single-family miss.
+The plain `website/metrics.js` script also works by opening any page’s `index.html` directly, offline, or under the Pages subpath. It makes no snapshot-data fetch requests. Case examples, notes, SQL and answers were recorded through the restricted API in [`reports/site_examples.json`](reports/site_examples.json); notes use the labeled deterministic fallback. The UI includes a caught cheat, a documented honest decoy, and a single-family miss.
 
 The new ablation chart is a post-hoc replay of the frozen feature files, with source hashes and exact baseline confusion-matrix checks in [`reports/site_ablation.json`](reports/site_ablation.json). Its confidence intervals are not measured. Current API concurrency and historical scale measurements are labeled separately.
 
 Browser verification: `npm ci`, `npx playwright install chromium`, then `npm run site:smoke` with the local site running. This checks localhost and file URLs at desktop/mobile widths, both held-out seeds, every case and follow-up, metric provenance, accessibility, console/network errors and overflow. Pages CI repeats the checks on the actual deployed URL. `npm run site:smoke -- --url <public-url>` runs the public check independently.
 
-![Desktop site](docs/screenshots/site-desktop.png)
-![Mobile site](docs/screenshots/site-mobile.png)
+![Desktop site](docs/screenshots/home-1440-light.png)
+![Mobile site](docs/screenshots/home-375-light.png)
 
 ## Current presentation and measurement update
 
@@ -165,3 +165,15 @@ A fresh, stamped read-only comparison of the currently loaded V3-C detector is r
 To repeat the comparison, install `requirements-benchmark.txt` into the project venv after the normal lockfile, then run `PYTHONPATH=. .venv/bin/python scripts/benchmark_current_reader.py` with the V3-C dataset loaded. It uses only the restricted Exasol account. `PYTHONPATH=. .venv/bin/python scripts/export_site_data.py` refreshes the public snapshot. The report records the date, commit, input hashes, detector/script hashes, hardware, repeated timings and equivalence checks.
 
 Open gaps remain explicit: ablation confidence intervals, a sophisticated-forger test, and a second-machine reproduction. The refreshed palette, larger case buttons, two-decimal evidence, timeline legend and default question are verified by the browser checks; the problem-statement hash is unchanged.
+
+## Judge quick-start: 3 links to open
+
+- [Home — what the product does](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)
+- [Cases — caught, cleared and missed](https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/)
+- [Results — held-out metrics and source links](https://kushagragupta2005.github.io/gst-evidence-reconciliation/results/)
+
+The site has dedicated Problem, How it works, System & Stack, Data & Ethics and Limits pages. Every page uses the same audited [`data/metrics.json`](data/metrics.json). The build copies it to `website/data/metrics.json` and wraps the identical object in `website/metrics.js` for reliable offline/file-URL use. There are no separately authored page statistics. Legacy export JSON remains available for regression checks but is not loaded by the new pages.
+
+[`docs/NUMBERS_AUDIT.md`](docs/NUMBERS_AUDIT.md) inventories the previously displayed numeric values and explains the denominator, rounding, prevalence-order and provenance corrections. Run `PYTHONPATH=. .venv/bin/python scripts/audit_site_numbers.py` to repeat the numeric audit when local V3 prediction CSVs are available. `npm run site:build` rebuilds all pages from committed artifacts without Exasol. `make site` also rebuilds before serving.
+
+`npm run site:smoke` checks every page at 375, 768 and 1440 px in light and dark themes, including internal links, source-linked metrics, accessibility, case/seed controls and offline file URLs. Public Pages runs the same HTTP checks after deployment. `npm run site:lighthouse -- --url <site-root>` records the actual Lighthouse scores. Scores are measurements of the tested environment, not a guarantee for every connection.
