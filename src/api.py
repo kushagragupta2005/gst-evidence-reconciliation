@@ -68,8 +68,19 @@ def require_factory(value: str) -> str:
 
 def queue(params: dict[str, list[str]]) -> dict:
     view = params.get("view", ["monthly"])[0]
-    if view not in {"monthly", "factory"}:
-        raise ValueError("view must be monthly or factory")
+    if view not in {"monthly", "factory", "disposition"}:
+        raise ValueError("view must be monthly, factory or disposition")
+    if view == "disposition":
+        disposition = params.get("disposition", ["cleared"])[0]
+        prefix = "Cleared:%" if disposition == "cleared" else "Review-only:%" if disposition == "review" else None
+        if prefix is None:
+            raise ValueError("disposition must be cleared or review")
+        return {"view": view, "rows": query("""
+          SELECT FACTORY_ID, PERIOD_MONTH, SOURCE_FAMILY, DISPOSITION
+          FROM GST_EVIDENCE.V_SINGLE_SIGNAL_DISPOSITIONS
+          WHERE SIGNAL_COUNT=1 AND DISPOSITION LIKE '%s'
+          ORDER BY PERIOD_MONTH, FACTORY_ID LIMIT 200
+        """ % prefix)}
     if view == "monthly":
         return {"view": view, "k": 3, "rows": query("""
           SELECT FACTORY_ID, PERIOD_MONTH, SIGNAL_COUNT, WEAKEST_LINK_NORMALISED_GAP,
