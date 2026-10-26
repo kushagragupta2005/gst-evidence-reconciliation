@@ -83,9 +83,12 @@ def live_snapshot() -> dict:
 
 
 def main() -> None:
+    global OUT
     parser = argparse.ArgumentParser()
     parser.add_argument("--live", action="store_true", help="also snapshot label-free live Exasol views")
+    parser.add_argument("--out", type=Path, default=OUT, help="directory for generated JSON")
     args = parser.parse_args()
+    OUT = args.out
     primary = load("results.json")
     dev = load("reports/v3_a_calibration.json")
     confirmation = load("reports/v3_c_results.json")
