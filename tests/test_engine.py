@@ -109,7 +109,13 @@ class GeneratorTests(unittest.TestCase):
                 continue
             text=path.read_text(errors='ignore').lower()
             for token in forbidden:
-                with self.subTest(path=path,token=token):self.assertNotIn(token,text)
+                # A numeric substring in exported measurement precision is
+                # not a retired UI port. Standalone port references still fail.
+                with self.subTest(path=path,token=token):
+                    if token.isdigit():
+                        self.assertIsNone(re.search(r'(?<![\d.])'+token+r'(?!\d)',text))
+                    else:
+                        self.assertNotIn(token,text)
 
 class SQLTests(unittest.TestCase):
     def setUp(self):

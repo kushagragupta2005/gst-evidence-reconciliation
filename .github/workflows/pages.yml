@@ -35,3 +35,18 @@ jobs:
           path: website
       - id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Verify deployed snapshot with Playwright
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: npm run site:smoke -- --url "$SITE_URL" --report reports/pages_browser_smoke.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pages-browser-smoke
+          path: reports/pages_browser_smoke.json

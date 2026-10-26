@@ -21,6 +21,19 @@ class SiteDataTests(unittest.TestCase):
         self.assertEqual(evaluation['heldout_v3_c']['result_status'],'HELDOUT')
         self.assertIn('not_measured',evaluation)
 
+    def test_plain_script_bundle_matches_the_json_sources(self):
+        with tempfile.TemporaryDirectory() as folder:
+            output=Path(folder)/'data'
+            subprocess.run([sys.executable,'scripts/export_site_data.py','--out',str(output)],check=True)
+            text=(output.parent/'data.js').read_text()
+            self.assertTrue(text.startswith('window.__SNAPSHOT__ = '))
+            bundle=json.loads(text.removeprefix('window.__SNAPSHOT__ = ').removesuffix(';\n'))
+            self.assertEqual(bundle['evaluation']['heldout_v3_b'],json.loads(Path('results.json').read_text()))
+            self.assertEqual(bundle['performance'],json.loads((output/'performance.json').read_text()))
+        index=Path('website/index.html').read_text()
+        self.assertLess(index.index('src="data.js"'),index.index('src="site.js"'))
+        self.assertNotIn('data/${n}.json',Path('website/site.js').read_text())
+
     def test_api_factory_ids_and_followup_remain_bounded(self):
         self.assertEqual(require_factory('F000001'),'F000001')
         for invalid in ['F1',"F000001' OR 1=1",'truth']:

@@ -20,7 +20,7 @@ export-site-data:
 	$(PY) scripts/export_site_data.py
 
 site: export-site-data
-	$(PY) -m http.server 8081 --bind 127.0.0.1 --directory website
+	$(PY) scripts/serve_site.py
 
 api:
 	$(PY) -m src.api

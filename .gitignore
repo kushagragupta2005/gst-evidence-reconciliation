@@ -17,3 +17,7 @@ reports/v3_*/held_out_predictions.csv
 reports/v3_*/misses.csv
 reports/attribution/*_features.csv
 .pitch_build/
+
+node_modules/
+test-results/
+playwright-report/

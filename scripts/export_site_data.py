@@ -130,6 +130,9 @@ def main() -> None:
         dump("snapshot.json", live_snapshot())
         manifest["live_snapshot"] = True
         dump("manifest.json", manifest)
+    bundle = {name: json.loads((OUT / (name + ".json")).read_text()) for name in ("manifest", "evaluation", "performance", "snapshot")}
+    bundle["manifest"]["repo_url"] = subprocess.check_output(["git", "remote", "get-url", "origin"], cwd=ROOT, text=True).strip().removesuffix(".git")
+    (OUT.parent / "data.js").write_text("window.__SNAPSHOT__ = " + json.dumps(bundle, default=str).replace("<", "\\u003c") + ";\n")
 
 
 if __name__ == "__main__":

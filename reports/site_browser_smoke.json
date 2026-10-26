@@ -1,0 +1,22 @@
+{
+  "time_utc": "2026-10-26T07:29:39.740Z",
+  "checks": [
+    {
+      "url": "http://127.0.0.1:8081/",
+      "status": "passed",
+      "console_errors": [],
+      "http_errors": [],
+      "failed_requests": [],
+      "snapshot_fetches": []
+    },
+    {
+      "url": "file://website/index.html",
+      "status": "passed",
+      "console_errors": [],
+      "http_errors": [],
+      "failed_requests": [],
+      "snapshot_fetches": []
+    }
+  ],
+  "status": "passed"
+}
