@@ -17,3 +17,10 @@
 
 - After the supported stop/start repair and a narrow local CORS policy, the browser displayed `Live verified` for Queue, factory queue, Cleared, Review-only, Case, Results, Scale, and Method.
 - The browser Ask form returned its fixed SQL template, and Activity displayed the executed-query buffer. No console errors were reported.
+
+## Final Live browser verification
+
+- On 2026-10-26, source `f76345bc4f1670a2e6c68db6418f9a9b800f02d6` served Live mode through the restricted account.
+- Browser-checked Queue, factory queue, Cleared, Review-only, Case, Ask, Results, Scale, Activity, and Method.
+- The Ask form returned 12 dispatch rows and displayed the fixed `SELECT` template; Activity displayed executed local requests.
+- Browser console error log was empty.

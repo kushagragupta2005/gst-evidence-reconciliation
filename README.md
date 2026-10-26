@@ -8,7 +8,7 @@
 
 This is a synthetic-data decision-support prototype for ExaThon India 2026, Track 03: **Factories, Fleets & Supply Chains**. It uses Exasol Personal as its primary analytical database and is licensed under MIT.
 
-`submit-candidate-1` is not yet tagged because separate-machine database reproduction remains open. V2 seed artefacts are **DEV**, because their seed suite and attribution analysis have already been seen during development. V3 is separately preregistered and reports the current held-out evaluation below.
+`submit-candidate-1` tags the author-machine fresh-clone verification at `f76345bc4f1670a2e6c68db6418f9a9b800f02d6`; separate-machine database reproduction remains open. V2 seed artefacts are **DEV**, because their seed suite and attribution analysis have already been seen during development. V3 is separately preregistered and reports the current held-out evaluation below.
 
 **Public URL: not yet deployed.**
 
@@ -72,9 +72,11 @@ Start the static site:
 make site
 ```
 
-Open `http://127.0.0.1:8081`. It starts in Snapshot mode from committed artifacts. For label-free Exasol evidence and guarded follow-ups, run `make api` in another terminal; the site will show Live mode when that restricted-account API is reachable. It accepts no arbitrary SQL. In a third terminal, run `make live-smoke` to verify the guarded Live API after the site is reachable.
+Open `http://127.0.0.1:8081`. It starts in Snapshot mode from committed artifacts. For label-free Exasol evidence and guarded follow-ups, run `make api` in another terminal; the site shows **Live verified** only after it reaches the restricted-account API and displays that API’s UTC time and Git SHA. It accepts no arbitrary SQL. In a third terminal, run `make live-smoke` to verify the guarded Live API after the site is reachable.
 
-**Fresh-clone reproduction is not yet complete: the recorded attempt failed while downloading dependencies.**
+**Live verified on 2026-10-26 at `f76345bc4f1670a2e6c68db6418f9a9b800f02d6`: `make live-smoke` passed.**
+
+**Reproduced from a fresh clone on the author’s machine at `f76345bc4f1670a2e6c68db6418f9a9b800f02d6`; not yet tested on a second machine.**
 
 ## Reproduction commands
 

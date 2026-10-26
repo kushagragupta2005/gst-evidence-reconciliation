@@ -1,6 +1,6 @@
 # Demo outline (2:45 target)
 
-Solo participant: Kushagra Gupta. Live mode is unverified until the live smoke test passes; use Snapshot mode until then and keep the exact metrics below in sync with results.json. The existing MP4 predates this evaluation and should not be submitted as the replacement demo.
+Solo participant: Kushagra Gupta. Live mode was verified on 2026-10-26 at `f76345bc4f1670a2e6c68db6418f9a9b800f02d6`; keep the exact metrics below in sync with results.json. The existing MP4 predates this evaluation and should not be submitted as the replacement demo.
 
 ## 0:00–0:15 — Problem
 
