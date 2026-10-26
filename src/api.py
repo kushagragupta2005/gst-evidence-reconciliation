@@ -28,6 +28,7 @@ MAX_ROWS = 200
 TIMEOUT_SECONDS = 30
 RATE_LIMIT = 60
 RATE_WINDOW_SECONDS = 60
+SITE_ORIGIN = "http://127.0.0.1:8081"
 FACTORY_ID = re.compile(r"F\d{6}")
 ACTIVITY: deque[dict] = deque(maxlen=100)
 REQUESTS: dict[str, deque[float]] = defaultdict(deque)
@@ -148,6 +149,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(encoded)))
         self.send_header("Cache-Control", "no-store")
+        if self.headers.get("Origin") == SITE_ORIGIN:
+            self.send_header("Access-Control-Allow-Origin", SITE_ORIGIN)
         self.end_headers()
         self.wfile.write(encoded)
 
@@ -208,6 +211,17 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         self.dispatch("POST")
+
+    def do_OPTIONS(self):
+        if self.headers.get("Origin") != SITE_ORIGIN:
+            self.response(HTTPStatus.FORBIDDEN, {"error": "origin not allowed"})
+            return
+        self.send_response(HTTPStatus.NO_CONTENT)
+        self.send_header("Access-Control-Allow-Origin", SITE_ORIGIN)
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Max-Age", "600")
+        self.end_headers()
 
 
 def main() -> None:

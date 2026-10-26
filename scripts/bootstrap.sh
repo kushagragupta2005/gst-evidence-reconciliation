@@ -9,4 +9,4 @@ if ! valid "$PY"; then
 fi
 if ! valid "$PY";then echo 'Python 3.12+ required. Set PYTHON=/path/to/python3.12';exit 1;fi
 if [ ! -x .venv/bin/python ];then "$PY" -m venv .venv;fi
-.venv/bin/python -m pip install -r requirements-lock.txt
+.venv/bin/python -m pip install --retries 10 --timeout 60 -r requirements-lock.txt

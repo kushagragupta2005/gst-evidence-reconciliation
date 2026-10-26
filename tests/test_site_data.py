@@ -36,3 +36,4 @@ class SiteDataTests(unittest.TestCase):
         self.assertNotIn('connect(readonly=False)',api)
         self.assertIn('RATE_LIMIT = 60',api)
         self.assertIn('TIMEOUT_SECONDS = 30',api)
+        self.assertIn('SITE_ORIGIN = "http://127.0.0.1:8081"',api)

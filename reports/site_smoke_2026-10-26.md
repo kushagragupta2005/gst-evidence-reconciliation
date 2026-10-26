@@ -11,5 +11,9 @@
 
 ## Not verified
 
-- Live-mode browser routes, case evidence, note generation, activity, and read-only database access were not verified because the local Exasol endpoint reset the restricted-account connection.
 - The static API is local only and does not run on GitHub Pages.
+
+## Live verification
+
+- After the supported stop/start repair and a narrow local CORS policy, the browser displayed `Live verified` for Queue, factory queue, Cleared, Review-only, Case, Results, Scale, and Method.
+- The browser Ask form returned its fixed SQL template, and Activity displayed the executed-query buffer. No console errors were reported.
