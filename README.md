@@ -62,6 +62,7 @@ sh scripts/bootstrap.sh
 make provision-reader
 make test
 make reproduce
+make live-smoke
 ```
 
 `make provision-reader` creates the local `DASHBOARD_READER` account, grants only the four label-free views, and stores a generated secret in the local database credential directory with owner-only permissions. Set `EXASOL_RO_SECRET` first to provide the secret yourself.
@@ -87,6 +88,7 @@ Open `http://127.0.0.1:8081`. It starts in Snapshot mode from committed artifact
 | `make scale-dev` | Generate the legacy synthetic performance workload | Development only; must not be used as a V2 accuracy claim |
 | `make site` | Start the static interface at `127.0.0.1:8081` | Snapshot mode works offline |
 | `make api` | Start the local label-free API at `127.0.0.1:8765` | Requires the restricted account |
+| `make live-smoke` | Exercise all guarded Live API endpoints and eight parallel asks | Skips clearly if Exasol is unavailable |
 | `make export-site-data` | Refresh committed snapshot JSON | Reads results and reports only |
 
 The project will add a post-change held-out command only after its seed configuration is committed. See [`docs/preregistration.md`](docs/preregistration.md) for the immutable original protocol and [`docs/PREREGISTRATION_SCORECARD.md`](docs/PREREGISTRATION_SCORECARD.md) for the current gap register.
