@@ -1,4 +1,131 @@
 {
+  "ablation": {
+    "scope": "Post-hoc diagnostic; frozen threshold and two-family rule, no retuning. Point estimates only; no ablation confidence intervals.",
+    "seeds": {
+      "v3_b": {
+        "checks": {
+          "all_checks": {
+            "fn": 751,
+            "fp": 545,
+            "fpr": 0.02195898303718925,
+            "recall": 0.8113539311730721,
+            "tn": 24274,
+            "tp": 3230
+          },
+          "bank_purchases": {
+            "fn": 853,
+            "fp": 394,
+            "fpr": 0.01587493452596801,
+            "recall": 0.7857322280833962,
+            "tn": 24425,
+            "tp": 3128
+          },
+          "bank_sales": {
+            "fn": 1023,
+            "fp": 314,
+            "fpr": 0.012651597566380596,
+            "recall": 0.7430293896006028,
+            "tn": 24505,
+            "tp": 2958
+          },
+          "dispatch_invoice": {
+            "fn": 1225,
+            "fp": 545,
+            "fpr": 0.02195898303718925,
+            "recall": 0.6922883697563427,
+            "tn": 24274,
+            "tp": 2756
+          },
+          "material_output": {
+            "fn": 765,
+            "fp": 99,
+            "fpr": 0.003988879487489424,
+            "recall": 0.8078372268274303,
+            "tn": 24720,
+            "tp": 3216
+          },
+          "stock_rollforward": {
+            "fn": 1366,
+            "fp": 545,
+            "fpr": 0.02195898303718925,
+            "recall": 0.6568701331323789,
+            "tn": 24274,
+            "tp": 2615
+          },
+          "supplier_chain": {
+            "fn": 1062,
+            "fp": 299,
+            "fpr": 0.012047221886457956,
+            "recall": 0.7332328560663149,
+            "tn": 24520,
+            "tp": 2919
+          }
+        },
+        "feature_sha256": "fe2de3c19659804602df7bbeaa43460409b7009ac4043948ae074523d7a9c60c"
+      },
+      "v3_c": {
+        "checks": {
+          "all_checks": {
+            "fn": 741,
+            "fp": 566,
+            "fpr": 0.02277665995975855,
+            "recall": 0.8124050632911393,
+            "tn": 24284,
+            "tp": 3209
+          },
+          "bank_purchases": {
+            "fn": 839,
+            "fp": 429,
+            "fpr": 0.017263581488933602,
+            "recall": 0.7875949367088607,
+            "tn": 24421,
+            "tp": 3111
+          },
+          "bank_sales": {
+            "fn": 953,
+            "fp": 336,
+            "fpr": 0.013521126760563381,
+            "recall": 0.7587341772151899,
+            "tn": 24514,
+            "tp": 2997
+          },
+          "dispatch_invoice": {
+            "fn": 1178,
+            "fp": 566,
+            "fpr": 0.02277665995975855,
+            "recall": 0.7017721518987342,
+            "tn": 24284,
+            "tp": 2772
+          },
+          "material_output": {
+            "fn": 752,
+            "fp": 96,
+            "fpr": 0.00386317907444668,
+            "recall": 0.809620253164557,
+            "tn": 24754,
+            "tp": 3198
+          },
+          "stock_rollforward": {
+            "fn": 1377,
+            "fp": 566,
+            "fpr": 0.02277665995975855,
+            "recall": 0.6513924050632911,
+            "tn": 24284,
+            "tp": 2573
+          },
+          "supplier_chain": {
+            "fn": 1104,
+            "fp": 285,
+            "fpr": 0.011468812877263581,
+            "recall": 0.7205063291139241,
+            "tn": 24565,
+            "tp": 2846
+          }
+        },
+        "feature_sha256": "3ef3274c6b698c2dd0f6add1173d4a125760f4bd2ea1c199a3c10e94b03534ca"
+      }
+    }
+  },
   "dev_v3_a": {
     "confusion": {
       "columns_predicted": [
@@ -7311,8 +7438,8 @@
     }
   },
   "not_measured": {
+    "ablation_confidence_intervals": "Post-hoc replay supplies point estimates only.",
     "evasive_recall_with_without_stock_aware": "No committed paired artifact exists.",
-    "leave_one_check_out_ablation": "No committed ablation artifact exists.",
     "per_decoy_fpr_before_after_verified_clearing": "No committed paired artifact exists.",
     "prevalence_2_percent": "No committed 2% prevalence artifact exists.",
     "sophisticated_forger_scenario": "Not implemented or evaluated in a preregistered suite."

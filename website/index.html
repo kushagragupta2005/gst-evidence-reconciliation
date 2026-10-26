@@ -1,30 +1,11 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Evidence reconciliation for synthetic GST fraud scenarios.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27/%3E">
-  <title>GST Evidence Reconciliation</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <a class="skip-link" href="#app">Skip to content</a>
-  <nav aria-label="Primary navigation">
-    <a class="brand" href="#/queue">GST <span>RECONCILE</span></a>
-    <div class="nav-links">
-      <a href="#/queue">Queue</a><a href="#/ask">Ask</a><a href="#/results">Results</a>
-      <a href="#/scale">Scale</a><a href="#/activity">Activity</a><a href="#/method">Method</a>
-      <a class="nav-cta" data-repo href="https://github.com/kushagragupta2005/gst-evidence-reconciliation">Repository</a>
-    </div>
-  </nav>
-  <main id="app" tabindex="-1" aria-live="polite"><p class="loading">Loading audited snapshot…</p></main>
-  <footer>
-    <span>GST Evidence Reconciliation</span>
-    <span>Kushagra Gupta · Solo project · ExaThon India 2026</span>
-    <a data-repo href="https://github.com/kushagragupta2005/gst-evidence-reconciliation">Repository documentation ↗</a>
-  </footer>
-  <script src="data.js"></script>
-  <script src="site.js"></script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="GST evidence reconciliation. An honest, synthetic demonstration of independent evidence checks."><title>GST Evidence Reconciliation</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27/%3E"><link rel="stylesheet" href="style.css"></head>
+<body><a class="skip-link" href="#overview">Skip to content</a>
+<nav class="pill" aria-label="Primary"><a class="brand" href="#overview">GST Evidence</a><span class="tag">Synthetic data</span><span id="mode-pill" role="status">Snapshot</span><a class="button" href="#case">Explore</a><div class="anchors"><a href="#overview">Overview</a><a href="#case">Case</a><a href="#results">Results</a><a href="#scale">Scale</a><a href="#method">Method</a></div></nav>
+<main><section id="overview" class="hero"><p class="eyebrow">Evidence reconciliation for GST</p><h1>Paperwork says one thing.<br><span>Evidence says another.</span></h1><p class="lead">Compare factory declarations with independent evidence.<br><strong>Give officers a reason to look closer.</strong></p><div id="hero-stats" class="stats"></div><p id="provenance" class="caption"></p></section>
+<section class="problem reveal"><p class="eyebrow">The problem</p><h2>Start with reality.</h2><p id="problem-statement">A GST officer can’t tell which factories are hiding production or inflating tax credits, because every document she checks is declared by the factory itself, while the independent evidence (power use, goods movement, supplier records, bank flows) sits in separate places and is never compared. If this worked, she would start each week with a short list of units whose paperwork contradicts physical reality, each contradiction spelled out, and honest-but-unusual factories cleared.</p></section>
+<section id="case" class="reveal"><p class="eyebrow">See it work</p><h2>Follow the evidence.</h2><p class="lead">A caught cheat. An honest exception. A miss.<br><strong>Every outcome has a trail.</strong></p><label class="select-label" for="factory">Compare with <select id="factory"><option value="0">A caught cheat</option><option value="1">An honest decoy</option><option value="2">A missed cheat</option></select></label><div id="case-content" class="card" aria-live="polite"></div></section>
+<section id="method" class="reveal"><p class="eyebrow">How it works</p><h2>Different sources.<br>One clearer picture.</h2><div class="family-grid"><article class="card"><h3>Production</h3><p>Material balance, power proxies and stock movement test the declared output.</p></article><article class="card"><h3>Movement</h3><p>Dispatch records are reconciled against invoices, including repeated e-way bills.</p></article><article class="card"><h3>Supplier</h3><p>Supplier returns and invoice chains expose unsupported purchases and loops.</p></article><article class="card"><h3>Financial</h3><p>Bank flows are compared with declared sales and purchases.</p></article></div><p class="rule">A month is prioritised only when <strong>at least two source families</strong> fire.</p><p>SQL rules make the decision. The note explains evidence. An officer makes the judgment.</p></section>
+<section id="results" class="reveal"><p class="eyebrow">Held-out results · synthetic data</p><h2>Measured. Including misses.</h2><div class="seed-control" role="group" aria-label="Held-out seed"><button data-seed="v3_b" aria-pressed="true">V3-B</button><button data-seed="v3_c" aria-pressed="false">V3-C</button></div><div id="result-stats" class="stats" aria-live="polite"></div><div class="card"><h3>What changes when a check is removed?</h3><p>Recall after removing each check. Frozen threshold; no retuning. Post-hoc diagnostic, point estimates only.</p><div id="ablation" role="img" aria-label="Leave-one-check-out recall chart"></div></div><h3 class="subheading">What it doesn’t do yet.</h3><div class="family-grid limits"><article class="card"><h3>False positives happen.</h3><p>Honest factories can be prioritised. Alerts support human review; they are not findings of fraud.</p></article><article class="card"><h3>Evasive cheats can escape.</h3><p>A cheat visible in only one family is not prioritised. The example above shows that trade-off.</p></article><article class="card"><h3>Synthetic only.</h3><p>Verification status is generated. Sophisticated forgers and real taxpayer data have not been evaluated. Zero observed wrong-clears does not prove safety; its confidence interval is not measured.</p></article></div><details><summary>More evaluation and limitations</summary><div id="more-results"></div><p>Paired decoy FPR before and after clearing, a regenerated low-prevalence dataset, and wrong-clear uncertainty bounds remain unmeasured. Power and bank data require lawful access.</p></details></section>
+<section id="scale" class="reveal"><p class="eyebrow">Ask and scale</p><h2>Ask a question.<br>See the query.</h2><p class="lead">Fixed read-only templates. Restricted database access.<br><strong>The answer never changes who gets flagged.</strong></p><div id="questions" class="chips"></div><div id="answer" class="card" aria-live="polite"><p>Choose a question to inspect its SQL and evidence.</p></div><h3 class="subheading">Built on Exasol Personal.</h3><div id="scale-stats" class="stats"></div><p class="lead">Workload timings on a MacBook.</p><p>The scale record is a historical development workload that predates the current detector. Pandas was faster on the recorded raw checks; cached SQL timings are a different workload. DuckDB has not been measured. These are workload observations, not a general speed claim.</p><p id="scale-provenance" class="caption"></p><details id="activity-panel" hidden><summary>Live query activity</summary><button id="activity-refresh">Refresh executed queries</button><div id="activity"></div></details></section>
+</main><footer><p>Kushagra Gupta · Solo project</p><p>MIT · All data synthetic</p><a data-repo href="https://github.com/kushagragupta2005/gst-evidence-reconciliation">Repository ↗</a></footer><script src="data.js"></script><script src="site.js"></script></body></html>

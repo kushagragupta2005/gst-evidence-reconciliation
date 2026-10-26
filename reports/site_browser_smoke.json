@@ -1,8 +1,22 @@
 {
-  "time_utc": "2026-10-26T07:29:39.740Z",
+  "time_utc": "2026-10-26T07:43:06.203Z",
   "checks": [
     {
       "url": "http://127.0.0.1:8081/",
+      "width": 1440,
+      "mode": "Live",
+      "accessibility": "AA passed",
+      "status": "passed",
+      "console_errors": [],
+      "http_errors": [],
+      "failed_requests": [],
+      "snapshot_fetches": []
+    },
+    {
+      "url": "http://127.0.0.1:8081/",
+      "width": 390,
+      "mode": "Live",
+      "accessibility": "AA passed",
       "status": "passed",
       "console_errors": [],
       "http_errors": [],
@@ -11,6 +25,20 @@
     },
     {
       "url": "file://website/index.html",
+      "width": 1440,
+      "mode": "Snapshot",
+      "accessibility": "tested on identical HTTP page; axe fetches CSS on file URLs",
+      "status": "passed",
+      "console_errors": [],
+      "http_errors": [],
+      "failed_requests": [],
+      "snapshot_fetches": []
+    },
+    {
+      "url": "file://website/index.html",
+      "width": 390,
+      "mode": "Snapshot",
+      "accessibility": "tested on identical HTTP page; axe fetches CSS on file URLs",
       "status": "passed",
       "console_errors": [],
       "http_errors": [],

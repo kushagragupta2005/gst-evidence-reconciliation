@@ -99,9 +99,11 @@ def main() -> None:
         "benchmark_full": load("reports/benchmark_full.json"),
         "pandas_full": load("reports/pandas_full.json"),
         "concurrency": load("reports/concurrency.json"),
+        "live_smoke": load("reports/live_smoke.json"),
         "duckdb": {"status": "not measured", "reason": "No committed DuckDB benchmark artifact exists."},
     }
     evaluation = {
+        "ablation": load("reports/site_ablation.json"),
         "dev_v3_a": dev,
         "heldout_v3_b": primary,
         "heldout_v3_c": confirmation,
@@ -110,7 +112,7 @@ def main() -> None:
             "per_decoy_fpr_before_after_verified_clearing": "No committed paired artifact exists.",
             "sophisticated_forger_scenario": "Not implemented or evaluated in a preregistered suite.",
             "evasive_recall_with_without_stock_aware": "No committed paired artifact exists.",
-            "leave_one_check_out_ablation": "No committed ablation artifact exists.",
+            "ablation_confidence_intervals": "Post-hoc replay supplies point estimates only.",
             "prevalence_2_percent": "No committed 2% prevalence artifact exists.",
         },
     }
@@ -131,6 +133,7 @@ def main() -> None:
         manifest["live_snapshot"] = True
         dump("manifest.json", manifest)
     bundle = {name: json.loads((OUT / (name + ".json")).read_text()) for name in ("manifest", "evaluation", "performance", "snapshot")}
+    bundle["examples"] = load("reports/site_examples.json")
     bundle["manifest"]["repo_url"] = subprocess.check_output(["git", "remote", "get-url", "origin"], cwd=ROOT, text=True).strip().removesuffix(".git")
     (OUT.parent / "data.js").write_text("window.__SNAPSHOT__ = " + json.dumps(bundle, default=str).replace("<", "\\u003c") + ";\n")
 

@@ -142,3 +142,16 @@ The V3 reports include factory-month and factory-level recall, false-positive ra
 - [ ] Separate-machine database installation and full end-to-end reproduction
 - [x] Fresh preregistered V3-B primary and V3-C confirmation evaluations
 - [ ] Final screen-recorded demo and portal submission
+
+## Judge-facing single-page site
+
+`make site` serves the page at http://127.0.0.1:8081. Run `make api` separately for live guarded follow-ups. The page probes the local API for at most 1.5 seconds and keeps its bundled snapshot if unavailable. Metrics and example cases remain recorded even when the API is live.
+
+The plain `website/data.js` script also works by opening `website/index.html` directly, offline, or under the Pages subpath. It makes no snapshot-data fetch requests. Case examples, notes, SQL and answers were recorded through the restricted API in [`reports/site_examples.json`](reports/site_examples.json); notes use the labeled deterministic fallback. The UI includes a caught cheat, a documented honest decoy, and a single-family miss.
+
+The new ablation chart is a post-hoc replay of the frozen feature files, with source hashes and exact baseline confusion-matrix checks in [`reports/site_ablation.json`](reports/site_ablation.json). Its confidence intervals are not measured. Current API concurrency and historical scale measurements are labeled separately.
+
+Browser verification: `npm ci`, `npx playwright install chromium`, then `npm run site:smoke` with the local site running. This checks localhost and file URLs at desktop/mobile widths, both held-out seeds, every case and follow-up, metric provenance, accessibility, console/network errors and overflow. Pages CI repeats the checks on the actual deployed URL. `npm run site:smoke -- --url <public-url>` runs the public check independently.
+
+![Desktop site](docs/screenshots/site-desktop.png)
+![Mobile site](docs/screenshots/site-mobile.png)

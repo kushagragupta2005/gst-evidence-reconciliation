@@ -50,3 +50,32 @@ class SiteDataTests(unittest.TestCase):
         self.assertIn('RATE_LIMIT = 60',api)
         self.assertIn('TIMEOUT_SECONDS = 30',api)
         self.assertIn('SITE_ORIGIN = "http://127.0.0.1:8081"',api)
+
+    def test_page_preserves_problem_and_has_no_forbidden_hues(self):
+        import colorsys
+        import hashlib
+        import re
+        page=Path('website/index.html').read_text()
+        statement=re.search(r'<p id="problem-statement">(.*?)</p>',page).group(1)
+        self.assertEqual(hashlib.sha256(statement.encode()).hexdigest(),'d5b711f68044bdd8079701b61916870971a76d3a20104649a4bd0035c870ba33')
+        css=Path('website/style.css').read_text()
+        self.assertNotRegex(css.lower(),r'pink|magenta|lime|monospace')
+        for token in re.findall(r'#[0-9a-fA-F]{3,6}\b',css):
+            h=token[1:]; h=''.join(c*2 for c in h) if len(h)==3 else h
+            rgb=[int(h[i:i+2],16)/255 for i in (0,2,4)]
+            hue,saturation,_=colorsys.rgb_to_hsv(*rgb)
+            self.assertFalse(saturation>.25 and (60<=hue*360<=100 or 270<=hue*360<=345),token)
+
+    def test_bundle_measurements_match_committed_evidence(self):
+        bundle=json.loads(Path('website/data.js').read_text().removeprefix('window.__SNAPSHOT__ = ').removesuffix(';\n'))
+        for key,file in [('heldout_v3_b','results.json'),('heldout_v3_c','reports/v3_c_results.json'),('ablation','reports/site_ablation.json')]:
+            self.assertEqual(bundle['evaluation'][key],json.loads(Path(file).read_text()))
+        self.assertEqual(bundle['examples'],json.loads(Path('reports/site_examples.json').read_text()))
+        self.assertEqual(bundle['performance']['live_smoke'],json.loads(Path('reports/live_smoke.json').read_text()))
+        self.assertEqual(bundle['performance']['benchmark_full'],json.loads(Path('reports/benchmark_full.json').read_text()))
+        from src.case_notes import validate_note
+        for case in bundle['examples']['examples']:
+            self.assertTrue(validate_note(case['note'],case['evidence']))
+        for seed in ['v3_b','v3_c']:
+            for key in ['tp','fp','tn','fn']:
+                self.assertEqual(bundle['evaluation']['ablation']['seeds'][seed]['checks']['all_checks'][key],bundle['evaluation']['heldout_'+seed]['factory_month'][key])
