@@ -7,6 +7,7 @@
 - Each route rendered its expected heading. The browser reported no console errors.
 - The Snapshot Results page rendered V3-B and V3-C held-out metrics from `website/data/evaluation.json`.
 - The source-level regression test rejects the retired UI framework token and former port outside `legacy/` and the result changelog.
+- `src.api` bound locally on `127.0.0.1:8765`; its health endpoint returned HTTP 503 with a generic `ExaConnectionFailedError` detail when the restricted Exasol connection reset. It did not expose credentials or database details.
 
 ## Not verified
 
