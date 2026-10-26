@@ -22,10 +22,12 @@ try {
     page.on('request',r=>{if(['fetch','xhr'].includes(r.resourceType()) && /data\/(manifest|evaluation|performance|snapshot)\.json/.test(r.url())) snapshotFetches.push(r.url())});
     await page.goto(url,{waitUntil:'networkidle'});
     await page.locator('.status, #mode-pill').first().waitFor();
+    await page.locator('#answer .sql').waitFor();
+    assert.ok(await page.evaluate(()=>{const nav=document.querySelector('.pill');return getComputedStyle(nav).flexWrap==='nowrap';}),'single row navigation');
     assert.ok(await page.evaluate(()=>Boolean(window.__SNAPSHOT__?.evaluation?.heldout_v3_b)));
     for (const seed of ['v3_c','v3_b']) {await page.locator(`[data-seed="${seed}"]`).click();assert.equal(await page.locator('#result-stats .value').first().textContent(), await page.evaluate(s=>(window.__SNAPSHOT__.evaluation['heldout_'+s].factory_month.recall*100).toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})+'%',seed));}
-    for(const i of ['0','1','2']){await page.locator('#factory').selectOption(i);assert.match(await page.locator('#case-content').innerText(),/Validator: passed/);}
-    await page.locator('#factory').selectOption('0');
+    for(const i of ['0','1','2']){await page.locator(`[data-case="${i}"]`).click();assert.match(await page.locator('#case-content').innerText(),/Validator: passed/);}
+    await page.locator('[data-case="0"]').click();
     for(const i of ['0','1','2']){await page.locator(`[data-question="${i}"]`).click();await page.locator('#answer .sql').waitFor();assert.match(await page.locator('#answer .sql').innerText(),/^SELECT .* LIMIT 200$/);}
     assert.ok(await page.evaluate(()=>{const values=new Set();function walk(x){if(typeof x==='number')values.add(x);else if(x&&typeof x==='object')Object.values(x).forEach(walk);}walk(window.__SNAPSHOT__);return [...document.querySelectorAll('[data-value]')].every(e=>values.has(Number(e.dataset.value)));}),'displayed metric provenance');
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no horizontal overflow');

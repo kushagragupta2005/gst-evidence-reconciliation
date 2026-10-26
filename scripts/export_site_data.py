@@ -100,9 +100,11 @@ def main() -> None:
         "pandas_full": load("reports/pandas_full.json"),
         "concurrency": load("reports/concurrency.json"),
         "live_smoke": load("reports/live_smoke.json"),
-        "duckdb": {"status": "not measured", "reason": "No committed DuckDB benchmark artifact exists."},
+        "current_reader": load("reports/benchmark_current_reader.json"),
+        "duckdb": {"status": "measured on current V3-C; full-scale pending", "source": "reports/benchmark_current_reader.json"},
     }
     evaluation = {
+        "wrong_clear_bounds": load("reports/wrong_clear_bounds.json"),
         "ablation": load("reports/site_ablation.json"),
         "dev_v3_a": dev,
         "heldout_v3_b": primary,

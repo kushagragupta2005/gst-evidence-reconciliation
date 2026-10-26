@@ -79,3 +79,30 @@ class SiteDataTests(unittest.TestCase):
         for seed in ['v3_b','v3_c']:
             for key in ['tp','fp','tn','fn']:
                 self.assertEqual(bundle['evaluation']['ablation']['seeds'][seed]['checks']['all_checks'][key],bundle['evaluation']['heldout_'+seed]['factory_month'][key])
+
+    def test_wrong_clear_bound_uses_factories_not_correlated_months(self):
+        report=json.loads(Path('reports/wrong_clear_bounds.json').read_text())
+        self.assertIn('independent factory outcomes',report['method'])
+        for seed,value in report['seeds'].items():
+            self.assertEqual(value['wrong_clear_factories'],0)
+            self.assertLess(value['active_cheat_factories'],value['active_cheat_months'])
+            self.assertAlmostEqual(value['approximate_upper_95'],3/value['active_cheat_factories'])
+            dispositions=json.loads(Path(f'reports/{seed}_dispositions.json').read_text())
+            self.assertEqual(dispositions['wrong_clears_active_cheat_months'],0)
+        bundle=json.loads(Path('website/data.js').read_text().removeprefix('window.__SNAPSHOT__ = ').removesuffix(';\n'))
+        self.assertEqual(bundle['evaluation']['wrong_clear_bounds'],report)
+
+    def test_current_benchmark_is_stamped_and_count_checked(self):
+        import hashlib
+        report=json.loads(Path('reports/benchmark_current_reader.json').read_text())
+        self.assertEqual(report['detector_sql_sha256'],hashlib.sha256(Path('sql/10_checks.sql').read_bytes()).hexdigest())
+        self.assertIn('not a new full-scale run',report['scope'])
+        self.assertIn('time_utc',report)
+        self.assertIn('git_sha',report)
+        for check in report['checks'].values():
+            self.assertTrue(check['equivalent_counts_and_gaps'])
+            self.assertEqual(len(check['exasol_seconds']),len(check['duckdb_seconds']))
+            self.assertGreater(check['exasol_median_seconds'],0)
+            self.assertGreater(check['duckdb_median_seconds'],0)
+        bundle=json.loads(Path('website/data.js').read_text().removeprefix('window.__SNAPSHOT__ = ').removesuffix(';\n'))
+        self.assertEqual(bundle['performance']['current_reader'],report)

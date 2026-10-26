@@ -7443,5 +7443,24 @@
     "per_decoy_fpr_before_after_verified_clearing": "No committed paired artifact exists.",
     "prevalence_2_percent": "No committed 2% prevalence artifact exists.",
     "sophisticated_forger_scenario": "Not implemented or evaluated in a preregistered suite."
+  },
+  "wrong_clear_bounds": {
+    "method": "Approximate one-sided 95% rule-of-three upper bound (3/N) after zero wrong-clear factories. Unit: factory with at least one active cheat month. Assumes independent factory outcomes; conditional on this synthetic generator, not a real-world safety bound. Not a cluster-bootstrap confidence interval.",
+    "seeds": {
+      "v3_b": {
+        "active_cheat_factories": 720,
+        "active_cheat_months": 3981,
+        "approximate_upper_95": 0.004166666666666667,
+        "predictions_sha256": "f9a5b58847210cb93d1fdb094307e8274a9746aaff991862b440f562ae06cc36",
+        "wrong_clear_factories": 0
+      },
+      "v3_c": {
+        "active_cheat_factories": 720,
+        "active_cheat_months": 3950,
+        "approximate_upper_95": 0.004166666666666667,
+        "predictions_sha256": "b4e96514ada2ffef42f06b78d26a697139ae0efd25e6c6be70dc0f24a1dc95a3",
+        "wrong_clear_factories": 0
+      }
+    }
   }
 }

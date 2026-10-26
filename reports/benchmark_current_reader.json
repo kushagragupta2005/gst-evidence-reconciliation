@@ -1,0 +1,92 @@
+{
+  "time_utc": "2026-10-26T07:57:31.202160+00:00",
+  "git_sha": "b051094ac74eded7dcccb334845865578b85dd7d",
+  "detector_sql_sha256": "7ef655db722482bb8505fa6e3d2ca004605aec7802aad5fe8378d97c5eaaab01",
+  "hardware": {
+    "platform": "macOS-15.8-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "Apple M2",
+    "memory_bytes": 17179869184
+  },
+  "scope": "Current V3-C dataset, not a new full-scale run. Read-only Exasol view execution vs equivalent DuckDB checks on CSV-loaded tables; includes client execution/fetch, excludes Exasol ingestion. Three sequential warm-capable repeats; no cold-cache claim.",
+  "threshold": 0.05,
+  "duckdb_version": "2.0.0",
+  "data_manifest": {
+    "seed": 51003,
+    "factories": 2400,
+    "months": 12,
+    "rows": {
+      "factories": 2400,
+      "suppliers": 2400,
+      "factory_month": 28800,
+      "invoices": 28695,
+      "purchase_invoices": 28800,
+      "eway_bills": 57600,
+      "supplier_returns": 27360,
+      "bank_entries": 57600,
+      "machines": 2560,
+      "supporting_documents": 12590,
+      "truth": 28800
+    },
+    "raw_evidence_rows": 241445,
+    "noise_multiplier": 1.0,
+    "missing_documents_rate": 0.0,
+    "fake_explanations": true
+  },
+  "csv_sha256": {
+    "factory_month": "07c9a6561b7c0fdce69507f3c918759e3a52170dd4a55cd8c9092178beb90323",
+    "purchase_invoices": "52a79b03914d65bf9f5dd9f22d4cab962fdaa950d2699df65b7cf605e616ec74",
+    "suppliers": "e19a6d2f4971b939c7bf49256116ccbbef72d1d93022eef95faa5ddd84e1a311",
+    "supplier_returns": "89120492f370f6c392f26fb6a62c5cdf4bda8b3f634aef7b43364b689733cb32"
+  },
+  "checks": {
+    "stock_rollforward": {
+      "exasol_sql": "SELECT COUNT(*),SUM(ABS(GAP)) FROM GST_EVIDENCE.V_FEATURES WHERE CHECK_FAMILY='stock_rollforward' AND SEVERITY>0.05",
+      "duckdb_sql": "WITH m AS (SELECT *, LAG(closing_stock) OVER(PARTITION BY factory_id ORDER BY period_month) previous_closing FROM factory_month), f AS (SELECT opening_stock+purchases_finished+declared_output-declared_dispatch-closing_stock gap, GREATEST(ABS(opening_stock+purchases_finished+declared_output-declared_dispatch-closing_stock)-ABS(raw_stock_change),ABS(opening_stock-COALESCE(previous_closing,opening_stock))-ABS(raw_stock_change),0)/NULLIF(declared_output,0) severity FROM m) SELECT COUNT(*),SUM(ABS(gap)) FROM f WHERE severity>0.05",
+      "exasol_seconds": [
+        0.16160758399928454,
+        0.17117145800148137,
+        0.1685958330053836
+      ],
+      "duckdb_seconds": [
+        0.0122445839951979,
+        0.006147291998786386,
+        0.004778750000696164
+      ],
+      "exasol_median_seconds": 0.1685958330053836,
+      "duckdb_median_seconds": 0.006147291998786386,
+      "matched_flagged_rows": 3577,
+      "matched_abs_gap_sum": 814801.8772,
+      "equivalent_counts_and_gaps": true
+    },
+    "supplier_chain": {
+      "exasol_sql": "SELECT COUNT(*),SUM(ABS(GAP)) FROM GST_EVIDENCE.V_FEATURES WHERE CHECK_FAMILY='supplier_chain' AND SEVERITY>0.05",
+      "duckdb_sql": "WITH p AS (SELECT buyer_factory_id,period_month,SUM(quantity) qty FROM purchase_invoices GROUP BY buyer_factory_id,period_month), f AS (SELECT p.qty-COALESCE(r.declared_sales_kg,0) gap, ABS(p.qty-COALESCE(r.declared_sales_kg,0))/NULLIF(p.qty,0) severity FROM p JOIN suppliers s ON s.owner_factory_id=p.buyer_factory_id LEFT JOIN supplier_returns r ON r.supplier_id=s.supplier_id AND r.period_month=p.period_month) SELECT COUNT(*),SUM(ABS(gap)) FROM f WHERE severity>0.05",
+      "exasol_seconds": [
+        0.15710454100189963,
+        0.15301341700251214,
+        0.1543232080002781
+      ],
+      "duckdb_seconds": [
+        0.009320958000898827,
+        0.005950334001681767,
+        0.005594332993496209
+      ],
+      "exasol_median_seconds": 0.1543232080002781,
+      "duckdb_median_seconds": 0.005950334001681767,
+      "matched_flagged_rows": 3059,
+      "matched_abs_gap_sum": 2641161.4699,
+      "equivalent_counts_and_gaps": true
+    }
+  },
+  "benchmark_script_sha256": "176bf2a2dfa4d2c257c7f4d0ed82024da64f405a16c456bddb107d977bf8576d",
+  "working_tree_dirty": true,
+  "duckdb_threads": 4,
+  "duckdb_memory_limit": "1GB",
+  "duckdb_csv_load_seconds": 0.14328008399752434,
+  "exasol_query_result_cache": "OFF",
+  "current_factory_months": 28800,
+  "current_factories": 2400,
+  "current_feature_rows": 172800,
+  "full_scale_status": "Not run: current restricted Exasol account cannot load a new full-scale dataset. Existing full-scale artifact remains historical."
+}

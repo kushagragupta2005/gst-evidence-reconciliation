@@ -155,3 +155,13 @@ Browser verification: `npm ci`, `npx playwright install chromium`, then `npm run
 
 ![Desktop site](docs/screenshots/site-desktop.png)
 ![Mobile site](docs/screenshots/site-mobile.png)
+
+## Current presentation and measurement update
+
+The site now shows zero wrong-clears as **0 of 720 active-cheat factories**, with an approximate **0.42% one-sided 95% upper bound** in each held-out seed. This is the rule of three, using factories rather than correlated months. It assumes independent factory outcomes and generated verification status; it is not a real-world safety guarantee or a cluster-bootstrap interval. See [`reports/wrong_clear_bounds.json`](reports/wrong_clear_bounds.json).
+
+A fresh, stamped read-only comparison of the currently loaded V3-C detector is recorded in [`reports/benchmark_current_reader.json`](reports/benchmark_current_reader.json): 2,400 factories and 172,800 feature rows. Equivalent stock and supplier checks match flagged counts and gap checksums in Exasol and DuckDB. DuckDB was faster in this run. CSV-loading time is separate, Exasol ingestion is excluded, and physical plans differ. This is **not a fresh full-scale run**. The restricted account cannot load a new full-scale dataset; the previous scale record remains historical.
+
+To repeat the comparison, install `requirements-benchmark.txt` into the project venv after the normal lockfile, then run `PYTHONPATH=. .venv/bin/python scripts/benchmark_current_reader.py` with the V3-C dataset loaded. It uses only the restricted Exasol account. `PYTHONPATH=. .venv/bin/python scripts/export_site_data.py` refreshes the public snapshot. The report records the date, commit, input hashes, detector/script hashes, hardware, repeated timings and equivalence checks.
+
+Open gaps remain explicit: ablation confidence intervals, a sophisticated-forger test, and a second-machine reproduction. The refreshed palette, larger case buttons, two-decimal evidence, timeline legend and default question are verified by the browser checks; the problem-statement hash is unchanged.

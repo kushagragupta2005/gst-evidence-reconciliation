@@ -1,0 +1,2 @@
+# Optional, isolated comparison dependency; install after requirements-lock.txt.
+duckdb==2.0.0

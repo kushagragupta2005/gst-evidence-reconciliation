@@ -1,0 +1,9 @@
+# Navy presentation and current-data measurement
+
+- Replaced the misleading zero-rate headline with zero observed wrong-clear factories, the active-cheat-factory denominator and an approximate rule-of-three upper bound. The factory independence assumption and synthetic verification limitation are visible. See wrong_clear_bounds.json.
+- Kept the page structure and immutable problem statement. Added navy panels, semantic outcome tints, readable footnotes, a single-row navigation pill, three large case buttons, a preselected recorded question, plain evidence labels, separated two-decimal quantities, a timeline legend and IST commit stamps.
+- Measured current V3-C Exasol views through the restricted account and equivalent DuckDB stock/supplier checks on CSV-loaded tables. Counts and gap checksums match. DuckDB was faster in this run; ingestion and physical-plan differences are disclosed. Exact timings, repeat vectors, source hashes, hardware and timestamp are in benchmark_current_reader.json.
+- The current database contains 2,400 factories, 28,800 factory-months and 172,800 feature rows. A fresh full-scale run was not performed: the existing restricted-account-only rule excludes loading a new dataset or rewriting views. The historical full-scale run is retained as historical evidence.
+- Ablation confidence intervals, the sophisticated-forger test and second-machine reproduction remain open.
+- The licence inventory generator now reads the project's pinned dependency lists rather than unrelated packages left in a reused virtualenv.
+- Python verification: 32 tests and 123 subtests passed. Desktop/mobile Live and offline Snapshot Chromium checks pass, including accessibility on HTTP, metric provenance, single-row navigation, all case controls and guarded questions. Public deployment verification is retained in the Pages workflow artifact.

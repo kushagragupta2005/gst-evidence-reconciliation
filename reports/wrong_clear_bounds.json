@@ -1,0 +1,19 @@
+{
+  "method": "Approximate one-sided 95% rule-of-three upper bound (3/N) after zero wrong-clear factories. Unit: factory with at least one active cheat month. Assumes independent factory outcomes; conditional on this synthetic generator, not a real-world safety bound. Not a cluster-bootstrap confidence interval.",
+  "seeds": {
+    "v3_b": {
+      "wrong_clear_factories": 0,
+      "active_cheat_factories": 720,
+      "approximate_upper_95": 0.004166666666666667,
+      "active_cheat_months": 3981,
+      "predictions_sha256": "f9a5b58847210cb93d1fdb094307e8274a9746aaff991862b440f562ae06cc36"
+    },
+    "v3_c": {
+      "wrong_clear_factories": 0,
+      "active_cheat_factories": 720,
+      "approximate_upper_95": 0.004166666666666667,
+      "active_cheat_months": 3950,
+      "predictions_sha256": "b4e96514ada2ffef42f06b78d26a697139ae0efd25e6c6be70dc0f24a1dc95a3"
+    }
+  }
+}
