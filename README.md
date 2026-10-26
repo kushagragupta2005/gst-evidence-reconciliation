@@ -62,7 +62,6 @@ sh scripts/bootstrap.sh
 make provision-reader
 make test
 make reproduce
-make live-smoke
 ```
 
 `make provision-reader` creates the local `DASHBOARD_READER` account, grants only the four label-free views, and stores a generated secret in the local database credential directory with owner-only permissions. Set `EXASOL_RO_SECRET` first to provide the secret yourself.
@@ -73,7 +72,7 @@ Start the static site:
 make site
 ```
 
-Open `http://127.0.0.1:8081`. It starts in Snapshot mode from committed artifacts. For label-free Exasol evidence and guarded follow-ups, run `make api` in another terminal; the site will show Live mode when that restricted-account API is reachable. It accepts no arbitrary SQL.
+Open `http://127.0.0.1:8081`. It starts in Snapshot mode from committed artifacts. For label-free Exasol evidence and guarded follow-ups, run `make api` in another terminal; the site will show Live mode when that restricted-account API is reachable. It accepts no arbitrary SQL. In a third terminal, run `make live-smoke` to verify the guarded Live API after the site is reachable.
 
 **Fresh-clone reproduction is not yet complete: the recorded attempt failed while downloading dependencies.**
 
