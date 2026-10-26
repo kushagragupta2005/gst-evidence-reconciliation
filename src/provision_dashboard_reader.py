@@ -19,7 +19,13 @@ def main():
             if 'already exists' not in str(exc).lower():
                 raise
         admin.execute(f'GRANT CREATE SESSION TO {USER}')
-        execute_file(admin, 'sql/02_readonly_grants.sql')
+        try:
+            execute_file(admin, 'sql/02_readonly_grants.sql')
+        except Exception as exc:
+            # A fresh database has no reconciliation views yet. The loader
+            # applies these same grants after it creates the views.
+            if 'object' not in str(exc).lower() or 'exist' not in str(exc).lower():
+                raise
     finally:
         admin.close()
     if not os.getenv('EXASOL_RO_SECRET'):
@@ -27,7 +33,7 @@ def main():
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(secret + '\n')
         target.chmod(0o600)
-    print(f'{USER} configured with explicit label-free view grants. Secret was not printed.')
+    print(f'{USER} configured; label-free view grants are applied after reconciliation views exist. Secret was not printed.')
 
 
 if __name__ == '__main__':

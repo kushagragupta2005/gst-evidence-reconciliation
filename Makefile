@@ -7,6 +7,7 @@ bootstrap:
 provision-reader: bootstrap
 	$(PY) -m src.provision_dashboard_reader
 reproduce: bootstrap provision-reader
+	$(PY) -c "from src.db import connect; c=connect(); c.execute('DROP SCHEMA IF EXISTS GST_EVIDENCE CASCADE'); c.close()"
 	$(PY) -m src.generate --scale medium --seed 51003 --out data/v3_c --fake-explanations
 	$(PY) -m src.load_and_score --data data/v3_c --features data/v3_c/features.csv --report reports/reproduction_v3_c_load.json
 	$(PY) -c "from src.db import connect; c=connect(readonly=True); assert c.execute('SELECT COUNT(*) FROM GST_EVIDENCE.V_RANKED_CASES').fetchval()==28800; c.close()"
