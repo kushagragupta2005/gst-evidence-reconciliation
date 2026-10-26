@@ -24,9 +24,8 @@ class SiteDataTests(unittest.TestCase):
             with self.subTest(invalid=invalid):
                 with self.assertRaises(ValueError):
                     require_factory(invalid)
-        compiled=plan_question('show evidence; DROP TABLE GST_EVALUATION','F000001')
-        self.assertNotIn('DROP',compiled)
-        self.assertTrue(compiled.endswith('LIMIT 200'))
+        with self.assertRaises(ValueError):
+            plan_question('show evidence; DROP TABLE GST_EVALUATION','F000001')
 
     def test_api_uses_only_the_restricted_connection(self):
         api=Path('src/api.py').read_text()

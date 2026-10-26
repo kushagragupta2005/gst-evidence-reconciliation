@@ -24,6 +24,8 @@ def guard_sql(sql):
 
 def plan_question(question,factory_id,use_llm=False):
     if len(question)>1000:raise ValueError('Question too long.')
+    if any(token in question.upper() for token in (';','--','/*','*/','SELECT','INSERT','UPDATE','DELETE','DROP','UNION')):
+        raise ValueError('SQL is not accepted. Ask for dispatch, timeline, or evidence in plain language.')
     if use_llm:
         from openai import OpenAI
         response=OpenAI().responses.create(model=os.getenv('OPENAI_MODEL','gpt-6-astra'),store=False,
