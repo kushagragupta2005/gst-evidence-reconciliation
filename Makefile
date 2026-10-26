@@ -1,5 +1,5 @@
 .NOTPARALLEL:
-.PHONY: all bootstrap provision-reader reproduce reproduce-dev site api export-site-data test scale-dev verify-clean
+.PHONY: all bootstrap provision-reader reproduce reproduce-dev site api export-site-data live-smoke test scale-dev verify-clean
 PY = .venv/bin/python
 all: test
 bootstrap:
@@ -23,6 +23,9 @@ site: export-site-data
 
 api:
 	$(PY) -m src.api
+
+live-smoke: bootstrap
+	$(PY) scripts/live_smoke.py
 
 test: bootstrap
 	$(PY) -m unittest discover -s tests -v
