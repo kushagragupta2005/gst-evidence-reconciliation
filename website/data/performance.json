@@ -1,0 +1,552 @@
+{
+  "benchmark_full": {
+    "actual_rows": {
+      "bank_entries": 5280000,
+      "eway_bills": 5280000,
+      "factories": 220000,
+      "factory_month": 2640000,
+      "invoices": 2630948,
+      "machines": 234667,
+      "purchase_invoices": 2640000,
+      "supplier_returns": 2507997,
+      "suppliers": 220000
+    },
+    "cache_refresh_seconds": 16.262825333993533,
+    "join_sanity": {
+      "duplicate_months": 0,
+      "orphan_months": 0
+    },
+    "load_seconds": {
+      "bank_entries": 10.600145666998287,
+      "eway_bills": 7.6860414590046275,
+      "factories": 0.9107891249950626,
+      "factory_month": 13.482804458995815,
+      "invoices": 9.2517402079975,
+      "machines": 0.47646824999537785,
+      "purchase_invoices": 9.342883334000362,
+      "supplier_returns": 3.672330832996522,
+      "suppliers": 0.9998852499993518
+    },
+    "manifest": {
+      "factories": 220000,
+      "months": 12,
+      "raw_evidence_rows": 20978945,
+      "rows": {
+        "bank_entries": 5280000,
+        "eway_bills": 5280000,
+        "factories": 220000,
+        "factory_month": 2640000,
+        "invoices": 2630948,
+        "machines": 234667,
+        "purchase_invoices": 2640000,
+        "supplier_returns": 2507997,
+        "suppliers": 220000,
+        "truth": 2640000
+      },
+      "seed": 20261021
+    },
+    "measurement_threshold": 0.025,
+    "optimised": {
+      "V_DISPATCH_INVOICE": [
+        {
+          "rows": [
+            [
+              211801,
+              "39786989.7839"
+            ]
+          ],
+          "seconds": 0.2904049999997369
+        },
+        {
+          "rows": [
+            [
+              211801,
+              "39786989.7839"
+            ]
+          ],
+          "seconds": 0.2858514160034247
+        },
+        {
+          "rows": [
+            [
+              211801,
+              "39786989.7839"
+            ]
+          ],
+          "seconds": 0.28610129200387746
+        }
+      ],
+      "V_MATERIAL_OUTPUT": [
+        {
+          "rows": [
+            [
+              1079795,
+              "146535283.00388"
+            ]
+          ],
+          "seconds": 0.42536024999571964
+        },
+        {
+          "rows": [
+            [
+              1079795,
+              "146535283.00388"
+            ]
+          ],
+          "seconds": 0.4133452500027488
+        },
+        {
+          "rows": [
+            [
+              1079795,
+              "146535283.00388"
+            ]
+          ],
+          "seconds": 0.41060154200386023
+        }
+      ],
+      "V_RANKED_CASES": [
+        {
+          "rows": [
+            [
+              2640000,
+              541527.2112754667
+            ]
+          ],
+          "seconds": 6.141385875002015
+        },
+        {
+          "rows": [
+            [
+              2640000,
+              541527.2112754667
+            ]
+          ],
+          "seconds": 6.085765709001862
+        },
+        {
+          "rows": [
+            [
+              2640000,
+              541527.2112754667
+            ]
+          ],
+          "seconds": 6.231265665999672
+        }
+      ],
+      "V_STOCK_ROLLFORWARD": [
+        {
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ],
+          "seconds": 0.28648187500220956
+        },
+        {
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ],
+          "seconds": 0.28068458300549537
+        },
+        {
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ],
+          "seconds": 0.28083199999673525
+        }
+      ],
+      "V_SUPPLIER_LOOP": [
+        {
+          "rows": [
+            [
+              525203,
+              "256722238.7552"
+            ]
+          ],
+          "seconds": 0.3037700839995523
+        },
+        {
+          "rows": [
+            [
+              525203,
+              "256722238.7552"
+            ]
+          ],
+          "seconds": 0.3054856250018929
+        },
+        {
+          "rows": [
+            [
+              525203,
+              "256722238.7552"
+            ]
+          ],
+          "seconds": 0.30846324999583885
+        }
+      ]
+    },
+    "profile_rows": 51,
+    "query_result_cache": "OFF",
+    "result_scope": "DEV legacy workload record that predates the current detector.",
+    "result_status": "DEV",
+    "slowest": "V_RANKED_CASES",
+    "unoptimised": {
+      "V_DISPATCH_INVOICE": {
+        "rows": [
+          [
+            211801,
+            "39786989.7839"
+          ]
+        ],
+        "seconds": 27.609198958001798
+      },
+      "V_MATERIAL_OUTPUT": {
+        "rows": [
+          [
+            1079795,
+            "146535283.00388"
+          ]
+        ],
+        "seconds": 14.174167332996149
+      },
+      "V_RANKED_CASES": {
+        "rows": [
+          [
+            2640000,
+            541527.2112754667
+          ]
+        ],
+        "seconds": 48.94639983300294
+      },
+      "V_STOCK_ROLLFORWARD": {
+        "rows": [
+          [
+            0,
+            null
+          ]
+        ],
+        "seconds": 32.376357792003546
+      },
+      "V_SUPPLIER_LOOP": {
+        "rows": [
+          [
+            525203,
+            "256722238.7552"
+          ]
+        ],
+        "seconds": 29.850972000000183
+      }
+    }
+  },
+  "benchmark_small": {
+    "cache_refresh_seconds": 0.32372170799499145,
+    "manifest": {
+      "factories": 2400,
+      "months": 12,
+      "raw_evidence_rows": 228854,
+      "rows": {
+        "bank_entries": 57600,
+        "eway_bills": 57600,
+        "factories": 2400,
+        "factory_month": 28800,
+        "invoices": 28694,
+        "machines": 2560,
+        "purchase_invoices": 28800,
+        "supplier_returns": 27360,
+        "suppliers": 2400,
+        "truth": 28800
+      },
+      "seed": 20261020
+    },
+    "measurement_threshold": 0.025,
+    "optimised": {
+      "V_DISPATCH_INVOICE": [
+        {
+          "rows": [
+            [
+              2342,
+              "424153.9876"
+            ]
+          ],
+          "seconds": 0.02055300000210991
+        },
+        {
+          "rows": [
+            [
+              2342,
+              "424153.9876"
+            ]
+          ],
+          "seconds": 0.021257874999719206
+        },
+        {
+          "rows": [
+            [
+              2342,
+              "424153.9876"
+            ]
+          ],
+          "seconds": 0.019738082999538165
+        }
+      ],
+      "V_MATERIAL_OUTPUT": [
+        {
+          "rows": [
+            [
+              11790,
+              "1616913.66882"
+            ]
+          ],
+          "seconds": 0.022084582997194957
+        },
+        {
+          "rows": [
+            [
+              11790,
+              "1616913.66882"
+            ]
+          ],
+          "seconds": 0.02198737500293646
+        },
+        {
+          "rows": [
+            [
+              11790,
+              "1616913.66882"
+            ]
+          ],
+          "seconds": 0.022016750001057517
+        }
+      ],
+      "V_RANKED_CASES": [
+        {
+          "rows": [
+            [
+              28800,
+              5934.913238715933
+            ]
+          ],
+          "seconds": 0.10170199999993201
+        },
+        {
+          "rows": [
+            [
+              28800,
+              5934.913238715933
+            ]
+          ],
+          "seconds": 0.09800254099536687
+        },
+        {
+          "rows": [
+            [
+              28800,
+              5934.913238715933
+            ]
+          ],
+          "seconds": 0.0989272919978248
+        }
+      ],
+      "V_STOCK_ROLLFORWARD": [
+        {
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ],
+          "seconds": 0.020389040997542907
+        },
+        {
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ],
+          "seconds": 0.020584625002811663
+        },
+        {
+          "rows": [
+            [
+              0,
+              null
+            ]
+          ],
+          "seconds": 0.019932208000682294
+        }
+      ],
+      "V_SUPPLIER_LOOP": [
+        {
+          "rows": [
+            [
+              5822,
+              "2814931.8121"
+            ]
+          ],
+          "seconds": 0.0210862919993815
+        },
+        {
+          "rows": [
+            [
+              5822,
+              "2814931.8121"
+            ]
+          ],
+          "seconds": 0.02043437500105938
+        },
+        {
+          "rows": [
+            [
+              5822,
+              "2814931.8121"
+            ]
+          ],
+          "seconds": 0.020287542000005487
+        }
+      ]
+    },
+    "profile_rows": 51,
+    "query_result_cache": "OFF",
+    "result_scope": "DEV legacy workload record that predates the current detector.",
+    "result_status": "DEV",
+    "slowest": "V_RANKED_CASES",
+    "unoptimised": {
+      "V_DISPATCH_INVOICE": {
+        "rows": [
+          [
+            2342,
+            "424153.9876"
+          ]
+        ],
+        "seconds": 0.2755181669999729
+      },
+      "V_MATERIAL_OUTPUT": {
+        "rows": [
+          [
+            11790,
+            "1616913.66882"
+          ]
+        ],
+        "seconds": 0.29647212499548914
+      },
+      "V_RANKED_CASES": {
+        "rows": [
+          [
+            28800,
+            5934.913238715933
+          ]
+        ],
+        "seconds": 0.3173753749942989
+      },
+      "V_STOCK_ROLLFORWARD": {
+        "rows": [
+          [
+            0,
+            null
+          ]
+        ],
+        "seconds": 0.27425720800238196
+      },
+      "V_SUPPLIER_LOOP": {
+        "rows": [
+          [
+            5822,
+            "2814931.8121"
+          ]
+        ],
+        "seconds": 0.2752210409962572
+      }
+    }
+  },
+  "concurrency": {
+    "definition": "One simultaneous guarded SELECT per connection, including connect, query and result fetch. Local workload timing on a MacBook; not an isolated server benchmark.",
+    "intent": "dispatch gap by month",
+    "latencies_seconds": [
+      {
+        "factory_id": "F000001",
+        "rows": 12,
+        "seconds": 0.7997883330099285,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000001' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000002",
+        "rows": 12,
+        "seconds": 0.803842249995796,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000002' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000003",
+        "rows": 12,
+        "seconds": 0.658789583001635,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000003' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000004",
+        "rows": 12,
+        "seconds": 0.16623120800068136,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000004' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000005",
+        "rows": 12,
+        "seconds": 0.7907419999974081,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000005' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000006",
+        "rows": 12,
+        "seconds": 0.6552962500136346,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000006' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000007",
+        "rows": 12,
+        "seconds": 0.7690139159967657,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000007' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      },
+      {
+        "factory_id": "F000008",
+        "rows": 12,
+        "seconds": 0.6560215830104426,
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000008' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+      }
+    ],
+    "p50_seconds": 0.7139017494992004,
+    "p95_seconds": 0.803842249995796,
+    "parallel_workers": 8,
+    "queries": 8
+  },
+  "duckdb": {
+    "reason": "No committed DuckDB benchmark artifact exists.",
+    "status": "not measured"
+  },
+  "pandas_full": {
+    "V_STOCK_ROLLFORWARD": {
+      "checksum": 0.0,
+      "compute_seconds": 0.3809479999981704,
+      "csv_read_seconds": 1.9064317080046749,
+      "equivalent_counts_and_gaps": true,
+      "exasol_raw_seconds": 32.376357792003546,
+      "rows": 0,
+      "total_seconds": 2.2873797080028453
+    },
+    "V_SUPPLIER_LOOP": {
+      "checksum": 256722238.75519997,
+      "compute_seconds": 1.4015684170008171,
+      "csv_read_seconds": 2.10230112499994,
+      "equivalent_counts_and_gaps": true,
+      "exasol_raw_seconds": 29.850972000000183,
+      "rows": 525203,
+      "total_seconds": 3.503869542000757
+    }
+  }
+}
