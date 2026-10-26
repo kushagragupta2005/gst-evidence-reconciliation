@@ -22,7 +22,7 @@ lines = [
     f'| V3-B factory-month result | HELDOUT | {metrics(b)}. |',
     f'| V3-C confirmation result | HELDOUT | {metrics(c)}. |',
     f'| Frozen calibration | DEV | threshold {b["protocol"]["threshold"]:.3f}; K={b["factory_queue"]["k"]}; selected on V3-A only. |',
-    '| Label isolation | VERIFIED | Offline tests block detector and dashboard outcome-label references. |',
+    '| Label isolation | VERIFIED | Offline tests block detector and officer-interface outcome-label references. |',
     '| Ranking matches evaluation | VERIFIED | Source-level rank-order test passes. |',
     '| Single-signal clear requires verified metadata | VERIFIED | SQL contract test covers rejected and verified records. |',
     '| Wrong-clear outcome | HELDOUT | V3 disposition reports record zero active-cheat wrong clears; this is synthetic metadata verification only. |',

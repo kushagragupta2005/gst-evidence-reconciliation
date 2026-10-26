@@ -165,6 +165,7 @@ class Handler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         try:
             if method == "GET" and parsed.path == "/health":
+                query("SELECT 1 AS READY LIMIT 1")
                 body = {"mode": "Live", "time_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                         "git_sha": git_sha(), "query_timeout_seconds": TIMEOUT_SECONDS, "row_limit": MAX_ROWS}
             elif method == "GET" and parsed.path == "/queue":

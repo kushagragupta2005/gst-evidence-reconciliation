@@ -1,4 +1,4 @@
--- Run after every CREATE OR REPLACE VIEW in sql/10_checks.sql. The dashboard
+-- Run after every CREATE OR REPLACE VIEW in sql/10_checks.sql. The local API
 -- can read only these label-free views, while labels stay in GST_EVALUATION.
 GRANT USAGE ON GST_EVIDENCE TO DASHBOARD_READER;
 GRANT SELECT ON GST_EVIDENCE.V_FEATURES TO DASHBOARD_READER;

@@ -1,6 +1,6 @@
 # Demo outline (2:45 target)
 
-Solo participant: Kushagra Gupta. Use the live dashboard and keep the exact metrics below in sync with results.json. The existing MP4 predates this evaluation and should not be submitted as the replacement demo.
+Solo participant: Kushagra Gupta. Use the Live static site and keep the exact metrics below in sync with results.json. The existing MP4 predates this evaluation and should not be submitted as the replacement demo.
 
 ## 0:00–0:15 — Problem
 

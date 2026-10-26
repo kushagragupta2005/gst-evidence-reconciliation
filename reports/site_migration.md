@@ -1,16 +1,16 @@
 # Static site migration inventory
 
 **Recorded:** 2026-10-26  
-**Scope:** tracked references to `streamlit`, `8501`, `app.py`, or `dashboard` in the README, docs, deck sources, scripts, CI, dependency files, Makefile, and existing site.
+**Scope:** tracked references to the retired UI package, its former local port, `app.py`, or the previous application name in the README, docs, deck sources, scripts, CI, dependency files, Makefile, and existing site.
 
 ## Findings
 
 | Location | Reference | Migration action |
 |---|---|---|
-| `app.py` | Current Streamlit front end | Move to `legacy/app.py`; retain only as historical implementation. |
+| `app.py` | Current Python UI front end | Move to `legacy/app.py`; retain only as historical implementation. |
 | `Makefile` | `dashboard`, `provision-dashboard` targets | Replace the UI target with `site` and add `api`; retain only account provisioning under a neutral name. |
-| `README.md` | Dashboard setup, command, dependency, architecture and release-checklist references | Describe the static site and local API; remove Streamlit. |
-| `requirements.txt` / `requirements-lock.txt` | `streamlit==1.66.0` | Remove it and its unused UI dependency chain. |
+| `README.md` | Previous UI setup, command, dependency, architecture and release-checklist references | Describe the static site and local API; remove the retired UI dependency. |
+| `requirements.txt` / `requirements-lock.txt` | Retired UI dependency | Remove it and its unused UI dependency chain. |
 | `.github/workflows/tests.yml` | Compiles root `app.py` | Compile the API and site export instead. |
 | `scripts/verify_clean_setup.sh` | Compiles root `app.py` | Compile the API and export script instead. |
 | `scripts/evaluate_v2.sh` | Historical dashboard-artifact comment | Rename wording; keep its development-only status. |
@@ -20,7 +20,7 @@
 | `website/` | Existing static landing page has no old UI links | Extend this design into the sole front end. |
 | `deliverables/*.pptx`, `.pitch_build/*.pptx` | No matching old-UI strings found in slide XML | Keep under review when the deck is refreshed. |
 
-The initial grep did not find a `:8501` literal. It found no old-UI string in the scanned PowerPoint slide XML.
+The initial grep found no former local-port literal. It found no old-UI string in the scanned PowerPoint slide XML.
 
 ## `app.py` parity checklist
 

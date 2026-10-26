@@ -25,7 +25,7 @@ tar -xf "$SCRATCH/source.tar" -C "$SCRATCH/project"
 cd "$SCRATCH/project"
 PYTHON="$PYTHON_BIN" sh scripts/bootstrap.sh > "$SCRATCH/setup.log" 2>&1
 .venv/bin/python -m unittest discover -s tests -v >> "$SCRATCH/setup.log" 2>&1
-.venv/bin/python -m compileall -q src scripts app.py >> "$SCRATCH/setup.log" 2>&1
+.venv/bin/python -m compileall -q src scripts >> "$SCRATCH/setup.log" 2>&1
 
 OFFLINE=false
 if [ "${1:-}" = '--offline' ]; then

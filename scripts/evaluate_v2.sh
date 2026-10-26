@@ -24,7 +24,7 @@ fi
 "$PY" -m src.load_and_score --data data/robust_missing_documents_10pct --features data/robust_missing_documents_10pct/features.csv --report reports/load_robust_missing_documents_10pct.json
 "$PY" -m src.evaluate_v2 --train data/train --test data/robust_missing_documents_10pct --v1 reports/results_v1_seed_b.json --output reports/robustness_missing_documents_10pct.json
 
-# Restore seed C in Exasol and in the dashboard artifacts after the variants.
+# Restore seed C in Exasol and in the static-site artifacts after the variants.
 "$PY" -m src.load_and_score --data data/seed_c --features data/seed_c/features.csv --report reports/load_seed_c_restore.json
 "$PY" -m src.evaluate_v2 --train data/train --test data/seed_c --v1 reports/results_v1_seed_b.json --output results.json
 "$PY" scripts/build_robustness.py

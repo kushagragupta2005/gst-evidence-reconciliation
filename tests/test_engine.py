@@ -88,18 +88,28 @@ class GeneratorTests(unittest.TestCase):
                 self.assertGreater(conn.execute('SELECT COUNT(*) FROM GST_EVIDENCE.V_ALL_EVIDENCE').fetchone()[0],0)
             finally:
                 conn.close()
-    def test_dashboard_source_does_not_read_evaluation_labels(self):
-        dashboard=Path('app.py').read_text().upper()
+    def test_officer_api_does_not_read_evaluation_labels(self):
+        dashboard=Path('src/api.py').read_text().upper()
         for token in ['HELD_OUT_PREDICTIONS','IS_CHEAT','.SCENARIO','GST_EVALUATION','TRUTH.CSV']:
             self.assertNotIn(token,dashboard)
         plans=Path('src/followup.py').read_text().upper()
         self.assertNotIn('GST_EVALUATION',plans)
-    def test_dashboard_and_evaluator_share_rank_order(self):
-        dashboard=Path('app.py').read_text().replace(' ','').upper()
+    def test_officer_api_and_evaluator_share_rank_order(self):
+        dashboard=re.sub(r'\s+','',Path('src/api.py').read_text()).upper()
         order='ORDERBYSIGNAL_COUNTDESC,WEAKEST_LINK_NORMALISED_GAPDESC,ESTIMATED_TAX_EXPOSURE_INRDESC,FACTORY_ID'
         self.assertIn(order,dashboard)
         evaluator=Path('src/evaluate_v2.py').read_text()
         self.assertIn("['signals','weakest_link_normalised_gap','estimated_tax_exposure_inr','factory_id']",evaluator)
+    def test_retired_frontend_tokens_are_confined(self):
+        roots=[Path('README.md'),Path('Makefile'),Path('requirements.txt'),Path('requirements-lock.txt'),Path('THIRD_PARTY.md')]
+        roots += [p for folder in ['src','scripts','docs','.github','website','tests'] for p in Path(folder).rglob('*') if p.is_file() and p.suffix in {'.py','.md','.txt','.yml','.yaml','.js','.html','.css'}]
+        forbidden=['stream'+'lit','85'+'01']
+        for path in roots:
+            if str(path).startswith('legacy/') or path == Path('docs/CHANGELOG_RESULTS.md'):
+                continue
+            text=path.read_text(errors='ignore').lower()
+            for token in forbidden:
+                with self.subTest(path=path,token=token):self.assertNotIn(token,text)
 
 class SQLTests(unittest.TestCase):
     def setUp(self):

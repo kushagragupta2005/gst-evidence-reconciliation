@@ -1,5 +1,5 @@
 -- Evaluation labels are physically separate from GST_EVIDENCE. This script is
--- run only by the evaluator loader, never by the detector or dashboard.
+-- run only by the evaluator loader, never by the detector or officer interface.
 CREATE SCHEMA IF NOT EXISTS GST_EVALUATION;
 
 CREATE OR REPLACE TABLE GST_EVALUATION.TRUTH (

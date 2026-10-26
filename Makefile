@@ -1,12 +1,12 @@
 .NOTPARALLEL:
-.PHONY: all bootstrap provision-dashboard reproduce reproduce-dev dashboard test scale-dev verify-clean
+.PHONY: all bootstrap provision-reader reproduce reproduce-dev site api export-site-data test scale-dev verify-clean
 PY = .venv/bin/python
 all: test
 bootstrap:
 	sh scripts/bootstrap.sh
-provision-dashboard: bootstrap
+provision-reader: bootstrap
 	$(PY) -m src.provision_dashboard_reader
-reproduce: bootstrap provision-dashboard
+reproduce: bootstrap provision-reader
 	$(PY) -m src.generate --scale medium --seed 51003 --out data/v3_c --fake-explanations
 	$(PY) -m src.load_and_score --data data/v3_c --features data/v3_c/features.csv --report reports/reproduction_v3_c_load.json
 	$(PY) -c "from src.db import connect; c=connect(readonly=True); assert c.execute('SELECT COUNT(*) FROM GST_EVIDENCE.V_RANKED_CASES').fetchval()==28800; c.close()"
@@ -15,8 +15,14 @@ reproduce-dev: bootstrap
 	$(PY) -m scripts.export_demo_examples
 	$(PY) scripts/performance_report.py
 
-dashboard:
-	.venv/bin/streamlit run app.py --server.address 127.0.0.1
+export-site-data:
+	$(PY) scripts/export_site_data.py
+
+site: export-site-data
+	$(PY) -m http.server 8081 --bind 127.0.0.1 --directory website
+
+api:
+	$(PY) -m src.api
 
 test: bootstrap
 	$(PY) -m unittest discover -s tests -v

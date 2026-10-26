@@ -36,7 +36,7 @@ Each set will contain 2,400 factories and 12 months. The generator keeps its dec
 
 ## Integrity gates
 
-- Truth labels, scenario, intensity, evasive flag and taxpayer explanation remain outside detection views and dashboard queries.
+- Truth labels, scenario, intensity, evasive flag and taxpayer explanation remain outside detection views and officer-interface queries.
 - Generated document metadata may be used only by the disposition view; the priority SQL must not reference it.
 - V3 report generation must label V3-B and V3-C `HELDOUT`; V3-A is `DEV` calibration.
 - If a protocol or detector change is needed after V3-B inspection, V3-C becomes development evidence and a new preregistration is required before another held-out result.

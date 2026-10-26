@@ -1,4 +1,4 @@
-"""Batch refresh for dashboard views. Run after loading updated source tables."""
+"""Batch refresh for label-free views. Run after loading updated source tables."""
 from pathlib import Path
 from src.db import connect
 

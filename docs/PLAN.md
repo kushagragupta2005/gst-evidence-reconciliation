@@ -7,7 +7,7 @@ build due by 25 October 2026 at 18:00 IST; Phase 2 starts only after submission.
 
 | Rank | Task | Rubric value | Effort | Completion evidence |
 |---:|---|---|---|---|
-| 1 | Isolate labels into evaluator-only storage; prove detector and dashboard cannot access them. | High: integrity/Q&A | Medium | Schema, privileges, negative-access tests |
+| 1 | Isolate labels into evaluator-only storage; prove detector and officer interface cannot access them. | High: integrity/Q&A | Medium | Schema, privileges, negative-access tests |
 | 2 | Fix stock scenarios and add verified-document evidence for clears, wrong clears, INR exposure. | High: impact/technical | High | Generator, SQL, tests, held-out report |
 | 3 | Align deployed ranking with evaluation; test it. | High: UX/integrity | Medium | Shared ranking SQL/function and test |
 | 4 | Submission compliance: README, run guide, deck alignment, video script, checklist. | High: documentation | Medium | Script-generated artifacts and checklist |

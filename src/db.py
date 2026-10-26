@@ -7,7 +7,7 @@ import pyexasol
 def connect(readonly=False):
     dsn = os.getenv('EXASOL_DSN','localhost:8563')
     local = dsn.split(':')[0] in ('localhost','127.0.0.1')
-    # The dashboard never falls back to SYS for its read-only SQL tool.
+    # The local API never falls back to SYS for its read-only SQL tool.
     user = os.getenv('EXASOL_RO_USER' if readonly else 'EXASOL_USER', 'DASHBOARD_READER' if readonly else 'sys')
     prefix = 'EXASOL_RO' if readonly else 'EXASOL'
     secret = os.getenv(prefix + '_SECRET') or os.getenv(prefix + '_' + 'PASS' + 'WORD')
@@ -18,7 +18,7 @@ def connect(readonly=False):
         else:
             raise RuntimeError('Set Exasol credentials in environment; see README.')
     if readonly and not user:
-        raise RuntimeError('Set EXASOL_RO_USER for the restricted dashboard account.')
+        raise RuntimeError('Set EXASOL_RO_USER for the restricted reader account.')
     if not secret:raise RuntimeError('Set a secret for the configured Exasol endpoint.')
     opts = {'dsn':dsn,'user':user,''.join(('pass','word')):secret,'compression':True,'autocommit':True}
     if local:
@@ -29,7 +29,7 @@ def connect(readonly=False):
         objects={r[0] for r in conn.execute("SELECT PRIVILEGE FROM SYS.EXA_USER_OBJ_PRIVS").fetchall()}
         if system != {"CREATE SESSION"} or not objects <= {"SELECT","USAGE"}:
             conn.close()
-            raise RuntimeError("Dashboard credentials must be limited to explicit label-free view grants.")
+            raise RuntimeError("Reader credentials must be limited to explicit label-free view grants.")
         conn.execute("ALTER SESSION SET QUERY_TIMEOUT=30")
     return conn
 

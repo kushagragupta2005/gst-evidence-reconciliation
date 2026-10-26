@@ -10,6 +10,8 @@ This is a synthetic-data decision-support prototype for ExaThon India 2026, Trac
 
 `submit-candidate-1` is not yet tagged because separate-machine database reproduction remains open. V2 seed artefacts are **DEV**, because their seed suite and attribution analysis have already been seen during development. V3 is separately preregistered and reports the current held-out evaluation below.
 
+**Public URL: not yet deployed.**
+
 ## What it does
 
 The project creates seeded synthetic evidence for factories, suppliers, invoices, e-way bills, power readings, stock, machines and bank entries. It loads that evidence into Exasol and produces monthly evidence rows for four conservation checks:
@@ -19,7 +21,7 @@ The project creates seeded synthetic evidence for factories, suppliers, invoices
 3. stock roll-forward; and
 4. supplier-chain and invoice-loop evidence.
 
-An alert is prioritised only when at least two independent source families support it. A single-family month is shown as cleared with a documented reason when available, or review-only when it remains unexplained. Ground truth is stored separately for scoring and is not available to the detection views or dashboard account.
+An alert is prioritised only when at least two independent source families support it. A single-family month is shown as cleared with a documented reason when available, or review-only when it remains unexplained. Ground truth is stored separately for scoring and is not available to the detection views or restricted reader account.
 
 The checks are deterministic SQL rules. No machine-learning model decides whether a factory is flagged. An optional language-model layer writes an evidence-only case note and never changes the decision.
 
@@ -51,28 +53,28 @@ flowchart LR
 
 - Python 3.12 or later
 - Exasol Personal installed and running locally, with `SELECT 1;` succeeding
-- A restricted database account configured through `EXASOL_RO_USER` and `EXASOL_RO_SECRET` for the dashboard. It must have only `CREATE SESSION`, `USAGE`, and explicit `SELECT` grants on the four dashboard views in [`sql/02_readonly_grants.sql`](sql/02_readonly_grants.sql).
+- A restricted database account configured through `EXASOL_RO_USER` and `EXASOL_RO_SECRET` for Live mode. It must have only `CREATE SESSION`, `USAGE`, and explicit `SELECT` grants on the four label-free views in [`sql/02_readonly_grants.sql`](sql/02_readonly_grants.sql).
 
 Install the database by following the [official Exasol Personal installation instructions](https://github.com/exasol/exasol-personal#-get-started). Do not put credentials in the repository.
 
 ```sh
 sh scripts/bootstrap.sh
-make provision-dashboard
+make provision-reader
 make test
 make reproduce
 ```
 
-`make provision-dashboard` creates the local `DASHBOARD_READER` account, grants only the four label-free views, and stores a generated secret in the local database credential directory with owner-only permissions. Set `EXASOL_RO_SECRET` first to provide the secret yourself.
+`make provision-reader` creates the local `DASHBOARD_READER` account, grants only the four label-free views, and stores a generated secret in the local database credential directory with owner-only permissions. Set `EXASOL_RO_SECRET` first to provide the secret yourself.
 
-Start the dashboard:
+Start the static site:
 
 ```sh
-make dashboard
+make site
 ```
 
-The dashboard shows a ranked factory queue, evidence timeline, signal contributions, clear/review-only dispositions, deterministic case-note fallback, and three guarded follow-up templates. It accepts no arbitrary SQL.
+Open `http://127.0.0.1:8081`. It starts in Snapshot mode from committed artifacts. For label-free Exasol evidence and guarded follow-ups, run `make api` in another terminal; the site will show Live mode when that restricted-account API is reachable. It accepts no arbitrary SQL.
 
-**Reproduced from a fresh clone on the author's machine; not yet tested on a second machine.**
+**Fresh-clone reproduction is not yet complete: the recorded attempt failed while downloading dependencies.**
 
 ## Reproduction commands
 
@@ -83,7 +85,9 @@ The dashboard shows a ranked factory queue, evidence timeline, signal contributi
 | `make reproduce-dev` | Regenerate the historical V2 development suite | Development only; overwrites local database/demo artefacts |
 | `make reproduce` | Regenerate and load the V3-C confirmation dataset | Recreates `GST_EVIDENCE` schemas and verifies 28,800 ranked monthly rows |
 | `make scale-dev` | Generate the legacy synthetic performance workload | Development only; must not be used as a V2 accuracy claim |
-| `make dashboard` | Start the local Streamlit application | Requires the restricted account |
+| `make site` | Start the static interface at `127.0.0.1:8081` | Snapshot mode works offline |
+| `make api` | Start the local label-free API at `127.0.0.1:8765` | Requires the restricted account |
+| `make export-site-data` | Refresh committed snapshot JSON | Reads results and reports only |
 
 The project will add a post-change held-out command only after its seed configuration is committed. See [`docs/preregistration.md`](docs/preregistration.md) for the immutable original protocol and [`docs/PREREGISTRATION_SCORECARD.md`](docs/PREREGISTRATION_SCORECARD.md) for the current gap register.
 
@@ -110,7 +114,7 @@ The V3 reports include factory-month and factory-level recall, false-positive ra
 |---|---|---|
 | Synthetic evidence | [`src/generate.py`](src/generate.py) | Generated by this project |
 | Database client | [PyExasol](https://github.com/exasol/pyexasol) | MIT |
-| Dashboard | [Streamlit](https://github.com/streamlit/streamlit) | Apache-2.0 |
+| Static interface | Vanilla HTML, CSS and JavaScript in [`website/`](website/) | Project source |
 | Optional case-note SDK | [OpenAI Python SDK](https://github.com/openai/openai-python) | MIT |
 | Optional case-note service | OpenAI API | Service terms and usage charges apply |
 | Analytics database | [Exasol Personal](https://github.com/exasol/exasol-personal) | Exasol EULA |
@@ -125,11 +129,12 @@ The V3 reports include factory-month and factory-level recall, false-positive ra
 - [Demo script](docs/demo_script.md) — recording will be made by Kushagra Gupta
 - [Audit register](docs/AUDIT_VERIFICATION.md)
 - [Result change log](docs/CHANGELOG_RESULTS.md)
+- [Limitations](LIMITATIONS.md)
 
 ## Current release checklist
 
 - [x] Public repository and MIT licence
-- [x] Synthetic generator, Exasol schema, SQL checks, label isolation and dashboard
+- [x] Synthetic generator, Exasol schema, SQL checks, label isolation and static officer interface
 - [x] Offline regression tests and GitHub Actions
 - [ ] Separate-machine database installation and full end-to-end reproduction
 - [x] Fresh preregistered V3-B primary and V3-C confirmation evaluations

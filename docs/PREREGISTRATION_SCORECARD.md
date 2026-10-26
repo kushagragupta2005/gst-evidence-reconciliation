@@ -8,7 +8,7 @@ V3 was preregistered in `docs/preregistration_v3.md` before generation. V3-A is 
 | V3-B factory-month result | HELDOUT | recall 81.14%, FPR 2.20%, precision 85.56%. |
 | V3-C confirmation result | HELDOUT | recall 81.24%, FPR 2.28%, precision 85.01%. |
 | Frozen calibration | DEV | threshold 0.050; K=3; selected on V3-A only. |
-| Label isolation | VERIFIED | Offline tests block detector and dashboard outcome-label references. |
+| Label isolation | VERIFIED | Offline tests block detector and officer-interface outcome-label references. |
 | Ranking matches evaluation | VERIFIED | Source-level rank-order test passes. |
 | Single-signal clear requires verified metadata | VERIFIED | SQL contract test covers rejected and verified records. |
 | Wrong-clear outcome | HELDOUT | V3 disposition reports record zero active-cheat wrong clears; this is synthetic metadata verification only. |

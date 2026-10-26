@@ -1,4 +1,4 @@
-"""Evaluator-only selection of label-free IDs for the dashboard demo."""
+"""Evaluator-only selection of label-free IDs for the static-site demo."""
 import json
 from pathlib import Path
 import pandas as pd
@@ -14,7 +14,7 @@ for kind,frame in candidates.items():
     row=frame.iloc[0].to_dict();fid,month=row['factory_id'],row['period_month']
     statement=c.execute(f"SELECT * FROM GST_EVIDENCE.V_ALL_EVIDENCE WHERE FACTORY_ID='{fid}' AND PERIOD_MONTH='{month}' ORDER BY CHECK_FAMILY LIMIT 20")
     evidence=[dict(zip([x.lower() for x in statement.column_names()],r)) for r in statement.fetchall()]
-    # The dashboard receives identifiers and SQL evidence only. Evaluation labels
+    # The officer interface receives identifiers and SQL evidence only. Evaluation labels
     # used to select these cases remain in this evaluator process.
     examples[kind]={'factory_id':fid,'period_month':month,'evidence':evidence}
 c.close()
