@@ -1,0 +1,1071 @@
+{
+  "time_utc": "2026-10-26T16:02:29.998Z",
+  "git_sha": "34998cde8742ed0aa40851508fd6a37c5716c37b",
+  "lighthouse_version": "13.5.0",
+  "environment": "Headless Chromium; Lighthouse default simulated mobile throttling; one run per page.",
+  "pages": [
+    {
+      "page": "home",
+      "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/index.html",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1343.171,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.99,
+          "title": "First Contentful Paint",
+          "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+        },
+        {
+          "id": "speed-index",
+          "score": 0.79,
+          "title": "Speed Index",
+          "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
+        },
+        {
+          "id": "max-potential-fid",
+          "score": 0.81,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/metrics.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 12876,
+              "wastedBytes": 11803
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/site.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 6928,
+              "wastedBytes": 6350.666666666666
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 3998,
+              "wastedBytes": 3664.833333333333
+            }
+          ]
+        },
+        {
+          "id": "lcp-breakdown-insight",
+          "score": 0,
+          "title": "LCP breakdown",
+          "description": "Each [subpart has specific improvement strategies](https://developer.chrome.com/docs/performance/insights/lcp-breakdown). Ideally, most of the LCP time should be spent on loading the resources, not within delays.",
+          "details": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 328.921
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 2211.209
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-H1",
+              "path": "1,HTML,1,BODY,2,MAIN,0,HEADER,1,H1",
+              "selector": "body.js-motion > main#main > header.page-hero > h1",
+              "boundingRect": {
+                "top": 209,
+                "bottom": 375,
+                "left": 22,
+                "right": 390,
+                "width": 368,
+                "height": 165
+              },
+              "snippet": "<h1>",
+              "nodeLabel": "Paperwork meets\na reality check."
+            }
+          ]
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "6E773639BC245C824775DFEC71B3683E": {
+                    "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/index.html",
+                    "navStartToEndTime": 335,
+                    "transferSize": 2310,
+                    "isLongest": true,
+                    "children": {
+                      "28577.2": {
+                        "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+                        "navStartToEndTime": 652,
+                        "transferSize": 3998,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 652
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0.5,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "totalBytes": 3998
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "problem",
+      "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/problem/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 951.5708,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "mainthread-work-breakdown",
+          "score": 0.5,
+          "title": "Minimize main-thread work",
+          "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn how to minimize main-thread work](https://developer.chrome.com/docs/lighthouse/performance/mainthread-work-breakdown/)",
+          "details": [
+            {
+              "group": "scriptEvaluation",
+              "groupLabel": "Script Evaluation",
+              "duration": 3928.647999999949
+            },
+            {
+              "group": "styleLayout",
+              "groupLabel": "Style & Layout",
+              "duration": 264.22400000000005
+            },
+            {
+              "group": "other",
+              "groupLabel": "Other",
+              "duration": 246.13999999999956
+            }
+          ]
+        },
+        {
+          "id": "bootup-time",
+          "score": 0.5,
+          "title": "Reduce JavaScript execution time",
+          "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn how to reduce Javascript execution time](https://developer.chrome.com/docs/lighthouse/performance/bootup-time/).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/problem/index.html",
+              "total": 4376.143999999953,
+              "scripting": 3878.8279999999518,
+              "scriptParseCompile": 3.92
+            },
+            {
+              "url": "Unattributable",
+              "total": 211.8879999999994,
+              "scripting": 34.859999999999985,
+              "scriptParseCompile": 0
+            }
+          ]
+        },
+        {
+          "id": "cache-insight",
+          "score": 0.5,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/metrics.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 13060,
+              "wastedBytes": 11971.666666666666
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/site.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 6927,
+              "wastedBytes": 6349.75
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 4002,
+              "wastedBytes": 3668.5
+            }
+          ]
+        },
+        {
+          "id": "forced-reflow-insight",
+          "score": 0,
+          "title": "Forced reflow",
+          "description": "A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about [forced reflows](https://developer.chrome.com/docs/performance/insights/forced-reflow) and possible mitigations.",
+          "details": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "source",
+                  "valueType": "source-location",
+                  "label": "Source"
+                },
+                {
+                  "key": "reflowTime",
+                  "valueType": "ms",
+                  "granularity": 1,
+                  "label": "Total reflow time"
+                }
+              ],
+              "items": [
+                {
+                  "source": {
+                    "type": "text",
+                    "value": "[unattributed]"
+                  },
+                  "reflowTime": 62.823
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "A2126FAFCE3334B974CCEC5E9C25AF09": {
+                    "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/problem/index.html",
+                    "navStartToEndTime": 308,
+                    "transferSize": 2227,
+                    "isLongest": true,
+                    "children": {
+                      "28595.2": {
+                        "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+                        "navStartToEndTime": 368,
+                        "transferSize": 4002,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 368
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0.5,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "totalBytes": 4002
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "how-it-works",
+      "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/how-it-works/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 973.8373,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "max-potential-fid",
+          "score": 0.88,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0.5,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/metrics.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 12913,
+              "wastedBytes": 11836.916666666666
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/site.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 7068,
+              "wastedBytes": 6479
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 3997,
+              "wastedBytes": 3663.9166666666665
+            }
+          ]
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "F05728A8F9FAC99511BFE9FE6E15CF82": {
+                    "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/how-it-works/index.html",
+                    "navStartToEndTime": 254,
+                    "transferSize": 2526,
+                    "isLongest": true,
+                    "children": {
+                      "28599.2": {
+                        "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+                        "navStartToEndTime": 284,
+                        "transferSize": 3997,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 284
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0.5,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "totalBytes": 3997
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "cases",
+      "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 971.1403,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "max-potential-fid",
+          "score": 0.88,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0.5,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/metrics.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 13042,
+              "wastedBytes": 11955.166666666666
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/site.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 6941,
+              "wastedBytes": 6362.583333333333
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 4020,
+              "wastedBytes": 3685
+            }
+          ]
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "90768D15E0F2323263DD77864D2BC61B": {
+                    "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/index.html",
+                    "navStartToEndTime": 272,
+                    "transferSize": 1708,
+                    "isLongest": true,
+                    "children": {
+                      "28600.2": {
+                        "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+                        "navStartToEndTime": 308,
+                        "transferSize": 4020,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 308
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0.5,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "totalBytes": 4020
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "results",
+      "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/results/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1017.9926,
+        "cls": 0.004761220354302301
+      },
+      "findings": [
+        {
+          "id": "max-potential-fid",
+          "score": 0.87,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0.5,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/metrics.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 12912,
+              "wastedBytes": 11836
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/site.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 6917,
+              "wastedBytes": 6340.583333333333
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 4163,
+              "wastedBytes": 3816.083333333333
+            }
+          ]
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "55FF40CB9D79A745495B880FD2D1B98B": {
+                    "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/results/index.html",
+                    "navStartToEndTime": 264,
+                    "transferSize": 2394,
+                    "isLongest": true,
+                    "children": {
+                      "28607.2": {
+                        "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+                        "navStartToEndTime": 318,
+                        "transferSize": 4163,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 318
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0.5,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "totalBytes": 4163
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "system",
+      "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/system/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 1219.1494,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.99,
+          "title": "First Contentful Paint",
+          "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+        },
+        {
+          "id": "speed-index",
+          "score": 0.97,
+          "title": "Speed Index",
+          "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
+        },
+        {
+          "id": "max-potential-fid",
+          "score": 0.82,
+          "title": "Max Potential First Input Delay",
+          "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+        },
+        {
+          "id": "cache-insight",
+          "score": 0.5,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/metrics.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 12915,
+              "wastedBytes": 11838.75
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/site.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 7071,
+              "wastedBytes": 6481.75
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 4023,
+              "wastedBytes": 3687.75
+            }
+          ]
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "F0B904C64B368C1D376DAE9370648FBC": {
+                    "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/system/index.html",
+                    "navStartToEndTime": 272,
+                    "transferSize": 2888,
+                    "isLongest": true,
+                    "children": {
+                      "28612.2": {
+                        "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+                        "navStartToEndTime": 533,
+                        "transferSize": 4023,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 533
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0.5,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "totalBytes": 4023
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "data",
+      "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/data/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 935.3496,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "cache-insight",
+          "score": 0.5,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/metrics.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 13039,
+              "wastedBytes": 11952.416666666666
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/site.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 6954,
+              "wastedBytes": 6374.5
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 4009,
+              "wastedBytes": 3674.9166666666665
+            }
+          ]
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "9B1F7CBCC6FCD27F9DAD3BCE60E17EA2": {
+                    "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/data/index.html",
+                    "navStartToEndTime": 264,
+                    "transferSize": 2497,
+                    "isLongest": true,
+                    "children": {
+                      "28619.2": {
+                        "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+                        "navStartToEndTime": 299,
+                        "transferSize": 4009,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 299
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0.5,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "totalBytes": 4009
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "limits",
+      "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/limits/index.html",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcp_ms": 944.8744,
+        "cls": 0
+      },
+      "findings": [
+        {
+          "id": "cache-insight",
+          "score": 0.5,
+          "title": "Use efficient cache lifetimes",
+          "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/metrics.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 12983,
+              "wastedBytes": 11901.083333333332
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/site.js",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 6997,
+              "wastedBytes": 6413.916666666666
+            },
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "cacheLifetimeMs": 600000,
+              "totalBytes": 4012,
+              "wastedBytes": 3677.6666666666665
+            }
+          ]
+        },
+        {
+          "id": "forced-reflow-insight",
+          "score": 0,
+          "title": "Forced reflow",
+          "description": "A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about [forced reflows](https://developer.chrome.com/docs/performance/insights/forced-reflow) and possible mitigations.",
+          "details": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "source",
+                  "valueType": "source-location",
+                  "label": "Source"
+                },
+                {
+                  "key": "reflowTime",
+                  "valueType": "ms",
+                  "granularity": 1,
+                  "label": "Total reflow time"
+                }
+              ],
+              "items": [
+                {
+                  "source": {
+                    "type": "text",
+                    "value": "[unattributed]"
+                  },
+                  "reflowTime": 63.817
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree",
+          "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.",
+          "details": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "DEB4AE079EAB26000D3124F432255879": {
+                    "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/limits/index.html",
+                    "navStartToEndTime": 280,
+                    "transferSize": 2483,
+                    "isLongest": true,
+                    "children": {
+                      "28623.2": {
+                        "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+                        "navStartToEndTime": 325,
+                        "transferSize": 4012,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 325
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "no origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0.5,
+          "title": "Render-blocking requests",
+          "description": "Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+          "details": [
+            {
+              "url": "https://kushagragupta2005.github.io/gst-evidence-reconciliation/style.css",
+              "totalBytes": 4012
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meets_95": true
+}
