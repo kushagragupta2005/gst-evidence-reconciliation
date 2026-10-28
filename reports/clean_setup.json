@@ -1,1 +1,9 @@
-{"status":"passed","elapsed_seconds":111,"scope":"fresh source tree and venv; offline SQL compatibility smoke only","offline":true}
+{
+  "status": "passed",
+  "source_commit": "91b53c51b0ff0344f8c51204f9b6a7c87323a4c3",
+  "elapsed_seconds": 22,
+  "mode": "--offline",
+  "time_utc": "2026-10-28T15:57:56.155510+00:00",
+  "scope": "Real local Git clone, new venv, locked dependency install, tests, archived-evidence restoration, numeric audit, ablation replay, static build. Database/runtime installation and second-machine reproduction excluded.",
+  "dependency_installation": "Pinned versions installed into a fresh isolated venv from OS/Python-compatible local cached wheels; live PyPI availability not claimed."
+}

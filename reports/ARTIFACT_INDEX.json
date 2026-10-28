@@ -96,8 +96,8 @@
       "path": "reports/clean_setup.json",
       "classification": "CLONE_CHECK_READ_SCOPE",
       "embedded_status": null,
-      "bytes": 132,
-      "sha256": "82afa8f99bc47dc0dbbe17c4b0dd02ded7f1a39d9e9828319bbd3dcabce1d324"
+      "bytes": 583,
+      "sha256": "b257fb9509b88881761463ba2522a0bde7be3d9bc676470289ee6e457c86d840"
     },
     {
       "path": "reports/concurrency.json",
@@ -149,11 +149,25 @@
       "sha256": "d12dc1faec2c80cdb7d2dabd3d4889001b8f0fb681f691432091b4131b8772f6"
     },
     {
+      "path": "reports/fresh_clone_2026-10-28.md",
+      "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
+      "embedded_status": null,
+      "bytes": 1606,
+      "sha256": "44ed4daf097a8a5aa8a3b967ffcd0064c6222c9b087b7addc9fa51017bc3cf33"
+    },
+    {
       "path": "reports/held_out_predictions.csv",
       "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
       "embedded_status": null,
       "bytes": 4621370,
       "sha256": "5361ccac326e60210eacd01e9ba6313c7b17c5a2377f9d1c29b3c32cc3d16576"
+    },
+    {
+      "path": "reports/judge_browser_smoke.json",
+      "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
+      "embedded_status": null,
+      "bytes": 18071,
+      "sha256": "35e1db66b0ffe8cc13d9396cc5ec681c5927eddeeedfcd7ea31796d4e28281ab"
     },
     {
       "path": "reports/judge_database_audit.json",
@@ -167,7 +181,7 @@
       "classification": "CURRENT_AUDIT_TESTS",
       "embedded_status": null,
       "bytes": 402,
-      "sha256": "cc3521f640340ac87400bfdc9e3bc66508474e10fa4ac8feb54acc2c002ae845"
+      "sha256": "3532946dbce3ca8f66cfd16f7fb286407aa009eba40416c593e34ae7d1792248"
     },
     {
       "path": "reports/licence_review.json",

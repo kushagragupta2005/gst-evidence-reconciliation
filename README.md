@@ -208,3 +208,7 @@ The current API's new protocol validation adds work; use the p50/p95 in the late
 ## AI and authoring disclosure
 
 OpenAI Codex coding assistants helped write and audit the project. Exact model identities for earlier sessions were not consistently recorded; no model comparison or model-backed detection is claimed. The optional OpenAI note SDK/API path is implemented but the demonstrated case notes use the labeled deterministic fallback. The LLM never decides alerts. The pitch was edited with the supplied Artifact Tool runtime; export details and its PDF fallback are in deliverables/README.md. Browser verification uses Playwright, axe and Lighthouse; these are development tools, not runtime dependencies of the static site.
+
+**Latest author-machine offline clone:** passed at `91b53c51b0ff0344f8c51204f9b6a7c87323a4c3` in 22 seconds using cached pinned wheels and a new isolated venv. Tests, archived-evidence restoration, V3-A selection replay, B/C audit, ablation and static build passed. This did not install or replace Exasol; current live database parity was verified separately. No second-machine claim.
+
+[Submission manifest](SUBMISSION_MANIFEST.json) hashes the uploadable files. [Report index](reports/ARTIFACT_INDEX.json) marks current versus historical/dev artifacts. Current author-facing audit findings are in PROJECT_STATUS.md and docs/JUDGE_AUDIT.md; those status pages take precedence over historical notes.

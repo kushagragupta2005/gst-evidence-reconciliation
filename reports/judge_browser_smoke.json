@@ -1,0 +1,784 @@
+{
+  "time_utc": "2026-10-28T15:57:38.217Z",
+  "checks": [
+    {
+      "page": "home",
+      "url": "http://127.0.0.1:8081/index.html",
+      "width": 375,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "problem",
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "width": 375,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "how-it-works",
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "width": 375,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "cases",
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "width": 375,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Live",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "results",
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "width": 375,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "system",
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "width": 375,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "data",
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "width": 375,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "limits",
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "width": 375,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "home",
+      "url": "http://127.0.0.1:8081/index.html",
+      "width": 375,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "problem",
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "width": 375,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "how-it-works",
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "width": 375,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "cases",
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "width": 375,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Live",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "results",
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "width": 375,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "system",
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "width": 375,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "data",
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "width": 375,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "limits",
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "width": 375,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "home",
+      "url": "http://127.0.0.1:8081/index.html",
+      "width": 768,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "problem",
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "width": 768,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "how-it-works",
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "width": 768,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "cases",
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "width": 768,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Live",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "results",
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "width": 768,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "system",
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "width": 768,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "data",
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "width": 768,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "limits",
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "width": 768,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "home",
+      "url": "http://127.0.0.1:8081/index.html",
+      "width": 768,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "problem",
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "width": 768,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "how-it-works",
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "width": 768,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "cases",
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "width": 768,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Live",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "results",
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "width": 768,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "system",
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "width": 768,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "data",
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "width": 768,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "limits",
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "width": 768,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "home",
+      "url": "http://127.0.0.1:8081/index.html",
+      "width": 1440,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "problem",
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "width": 1440,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "how-it-works",
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "width": 1440,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "cases",
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "width": 1440,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Live",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "results",
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "width": 1440,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "system",
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "width": 1440,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "data",
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "width": 1440,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "limits",
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "width": 1440,
+      "theme": "light",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "home",
+      "url": "http://127.0.0.1:8081/index.html",
+      "width": 1440,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "problem",
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "width": 1440,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "how-it-works",
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "width": 1440,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "cases",
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "width": 1440,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Live",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "results",
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "width": 1440,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "system",
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "width": 1440,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "data",
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "width": 1440,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "limits",
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "width": 1440,
+      "theme": "dark",
+      "status": "passed",
+      "mode": "Snapshot",
+      "console_errors": [],
+      "http_errors": []
+    },
+    {
+      "page": "home",
+      "mode": "file Snapshot",
+      "status": "passed"
+    },
+    {
+      "page": "problem",
+      "mode": "file Snapshot",
+      "status": "passed"
+    },
+    {
+      "page": "how-it-works",
+      "mode": "file Snapshot",
+      "status": "passed"
+    },
+    {
+      "page": "cases",
+      "mode": "file Snapshot",
+      "status": "passed"
+    },
+    {
+      "page": "results",
+      "mode": "file Snapshot",
+      "status": "passed"
+    },
+    {
+      "page": "system",
+      "mode": "file Snapshot",
+      "status": "passed"
+    },
+    {
+      "page": "data",
+      "mode": "file Snapshot",
+      "status": "passed"
+    },
+    {
+      "page": "limits",
+      "mode": "file Snapshot",
+      "status": "passed"
+    }
+  ],
+  "links": [
+    {
+      "url": "http://127.0.0.1:8081/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/cases/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/results/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/system/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/problem/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/how-it-works/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/data/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8081/limits/index.html",
+      "status": 200
+    }
+  ],
+  "status": "passed"
+}

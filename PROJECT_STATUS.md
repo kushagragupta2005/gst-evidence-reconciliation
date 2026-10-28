@@ -25,7 +25,7 @@
 | Current concurrency | LIVE VERIFIED, EIGHT REQUESTS | reports/live_smoke.json; includes frozen-protocol check overhead; no 50-session result |
 | Eight-page site | DEPLOYED SNAPSHOT | GitHub Pages; recorded cases/answers/metrics; local API can execute follow-ups live |
 | Reproducible audit evidence | PACKAGED | data/audit/*/*.gz + manifest; exact synthetic features/predictions restored and verified |
-| Fresh-clone setup | CURRENT RUN PENDING | Prior author-machine run belongs to its original commit; a new offline clone is checked by this audit; no second machine claim |
+| Fresh-clone setup | OFFLINE CLONE VERIFIED | Source 91b53c51b0ff0344f8c51204f9b6a7c87323a4c3; real clone, new venv, pinned cached wheels, tests, calibration/metric replay and static build; 22 seconds; no runtime installation or second machine |
 | Current PPTX/PDF/script/Q&A | UPDATED V3 | deliverables/ and docs/; previous V2 deck moved to legacy/submission/ |
 | Demo video | USER ACTION REQUIRED | Kushagra chose to record it; no current MP4 or public video URL supplied |
 | Portal submission | USER ACTION REQUIRED | No form submission is claimed |
