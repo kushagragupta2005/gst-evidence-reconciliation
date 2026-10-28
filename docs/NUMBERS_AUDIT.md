@@ -307,16 +307,16 @@ Source file | JSON field | Exact value | Verification scope
 `reports/live_smoke.json` | `/outcomes/injection/status` | 400 | Artifact value; no new timing run
 `reports/live_smoke.json` | `/outcomes/unknown_intent/status` | 400 | Artifact value; no new timing run
 `reports/live_smoke.json` | `/parallel_ask/queries` | 8 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/0` | 2.95874087500124 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/1` | 3.1774352919965168 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/2` | 3.74642108399712 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/3` | 3.758142749997205 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/4` | 3.7824448750034207 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/5` | 3.8089818750013364 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/6` | 3.8140431659994647 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/7` | 3.863338916002249 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/p50_seconds` | 3.770293812500313 | Artifact value; no new timing run
-`reports/live_smoke.json` | `/parallel_ask/p95_seconds` | 3.8460854035012746 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/0` | 3.265304542001104 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/1` | 3.6471585830004187 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/2` | 3.8033571670021047 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/3` | 3.8337444999997388 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/4` | 3.8695605840039207 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/5` | 3.9672855409953627 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/6` | 4.026664165998227 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/latencies_seconds/7` | 4.133848707999277 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/p50_seconds` | 3.8516525420018297 | Artifact value; no new timing run
+`reports/live_smoke.json` | `/parallel_ask/p95_seconds` | 4.09633411829891 | Artifact value; no new timing run
 `reports/live_smoke.json` | `/parallel_ask/rows_each/0` | 12 | Artifact value; no new timing run
 `reports/live_smoke.json` | `/parallel_ask/rows_each/1` | 12 | Artifact value; no new timing run
 `reports/live_smoke.json` | `/parallel_ask/rows_each/2` | 12 | Artifact value; no new timing run
@@ -454,7 +454,7 @@ Source file | JSON field | Exact value | Verification scope
 `reports/site_examples.json` | `/questions/0/response/rows/11/severity` | 0.5 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/0/response/row_limit` | 200 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/0/response/timeout_seconds` | 30 | Artifact value; no new timing run
-`reports/site_examples.json` | `/questions/0/latency_ms` | 526.6138340011821 | Artifact value; no new timing run
+`reports/site_examples.json` | `/questions/0/latency_ms` | 526.9946670014178 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/1/response/rows/0/signal_count` | 0 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/1/response/rows/0/total_severity` | 0.0 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/1/response/rows/0/weakest_link_normalised_gap` | 0.0 | Artifact value; no new timing run
@@ -493,7 +493,7 @@ Source file | JSON field | Exact value | Verification scope
 `reports/site_examples.json` | `/questions/1/response/rows/11/weakest_link_normalised_gap` | 0.24071686905958603 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/1/response/row_limit` | 200 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/1/response/timeout_seconds` | 30 | Artifact value; no new timing run
-`reports/site_examples.json` | `/questions/1/latency_ms` | 431.3006660013343 | Artifact value; no new timing run
+`reports/site_examples.json` | `/questions/1/latency_ms` | 434.52816699573305 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/2/response/rows/0/severity` | 0.12717311971477258 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/2/response/rows/1/severity` | 0.1361976567851831 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/2/response/rows/2/severity` | 0.2785582050114638 | Artifact value; no new timing run
@@ -518,7 +518,7 @@ Source file | JSON field | Exact value | Verification scope
 `reports/site_examples.json` | `/questions/2/response/rows/21/severity` | 0.24071686905958603 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/2/response/row_limit` | 200 | Artifact value; no new timing run
 `reports/site_examples.json` | `/questions/2/response/timeout_seconds` | 30 | Artifact value; no new timing run
-`reports/site_examples.json` | `/questions/2/latency_ms` | 413.5758749980596 | Artifact value; no new timing run
+`reports/site_examples.json` | `/questions/2/latency_ms` | 425.5353339976864 | Artifact value; no new timing run
 `reports/benchmark_full.json` | `/manifest/raw_evidence_rows` | 20978945 | Historical DEV manifest only; not a fresh scale run
 `reports/site_examples.json` | `/examples/0/evidence/0/expected` | 112302.0817 | Recorded decimal string; original value preserved
 `reports/site_examples.json` | `/examples/0/evidence/0/observed` | 155663.3986 | Recorded decimal string; original value preserved

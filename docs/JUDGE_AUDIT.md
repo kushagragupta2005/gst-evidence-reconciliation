@@ -234,7 +234,7 @@ Top-50 monthly macro precision: 75.00%. This averages months without weighting t
 
 Zero wrong-clears span 720 active-cheat factories in each held-out seed; B has 3,981 active cheat months and C has 3,950. The approximate factory-level rule-of-three upper bound is 3/720 = 0.4167%, assuming independent factory outcomes. It is not a measured cluster-bootstrap interval and does not validate an external document verifier.
 
-Ablation comes from replaying the frozen A/B/C features with one check removed and no retuning. Baselines reproduce the published confusion matrices. It measures conditional contribution while other checks remain; a small material-check effect does not prove that physical evidence is unnecessary. Intervals remain unmeasured.
+Ablation comes from replaying the frozen B/C features with one check removed and no retuning. Baselines reproduce the published confusion matrices. It measures conditional contribution while other checks remain; a small material-check effect does not prove that physical evidence is unnecessary. Intervals remain unmeasured.
 
 The saved noise ×1.5, noise ×2 and 10% missing-document reports are historical DEV artifacts from a different protocol, not current V3 robustness evidence. They show substantial false-positive failures in that older setup; they cannot be relabelled as current tests or silently mixed with current accuracy. A fresh V3 robustness sweep remains open. Full values remain accessible in reports/robustness_*.json and the artifact index.
 

@@ -17,8 +17,10 @@ cleanup() {
  else rm -rf "$SCRATCH"; fi
 }
 trap cleanup EXIT
+PUBLIC_REMOTE=$(git remote get-url origin)
 git clone --quiet --no-hardlinks "$ROOT" "$SCRATCH/project"
 cd "$SCRATCH/project"
+git remote set-url origin "$PUBLIC_REMOTE"
 REVISION=$(git rev-parse HEAD)
 PYTHON="$PYTHON_BIN" sh scripts/bootstrap.sh > "$SCRATCH/setup.log" 2>&1
 .venv/bin/python -m unittest discover -s tests -v >> "$SCRATCH/setup.log" 2>&1

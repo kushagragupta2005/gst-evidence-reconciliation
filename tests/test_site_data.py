@@ -126,3 +126,11 @@ class SiteDataTests(unittest.TestCase):
             self.assertNotIn('src="data.js"',page)
             self.assertIn('og:image',page)
             self.assertIn('meta name="description"',page)
+
+    def test_canonical_source_links_point_to_the_hashed_artifact(self):
+        import hashlib
+        canonical=json.loads(Path('data/metrics.json').read_text())
+        for source in canonical['sources'].values():
+            with self.subTest(source=source['file']):
+                raw=subprocess.check_output(['git','show',source['commit']+':'+source['file']])
+                self.assertEqual(hashlib.sha256(raw).hexdigest(),source['sha256'])
