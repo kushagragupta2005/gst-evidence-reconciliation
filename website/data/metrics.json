@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-10-26T15:50:31.132539+00:00",
-    "commit": "03c881cace8c2704b105934a64b65e1d96f1f19d",
+    "generated_at": "2026-10-28T15:41:09.391455+00:00",
+    "commit": "d52f5e6e8c8f65b4d19653d22b1e649e696d6f5f",
     "repo": "https://github.com/kushagragupta2005/gst-evidence-reconciliation",
     "data_scope": "All evidence and outcomes are synthetic."
   },
@@ -64,11 +64,11 @@
     },
     "concurrency": {
       "file": "reports/live_smoke.json",
-      "sha256": "d2c069b786fe756faa13c9ce90f85cc304ab86527c6e965ce0cbd1dacc76cd7d",
+      "sha256": "b9d660dd316a191209bf0c229a11c4597e34c20c3ae42e8f4cbb853681294db1",
       "commit": "a9531bc9d0c8e66483ca8e5ca92cf805a16b5086",
       "committed_at": "2026-10-26T10:10:13+05:30",
       "url": "https://github.com/kushagragupta2005/gst-evidence-reconciliation/blob/a9531bc9d0c8e66483ca8e5ca92cf805a16b5086/reports/live_smoke.json",
-      "run_time": "2026-10-26T04:39:17Z"
+      "run_time": "2026-10-28T15:23:06Z"
     },
     "historical": {
       "file": "reports/benchmark_full.json",
@@ -80,11 +80,11 @@
     },
     "examples": {
       "file": "reports/site_examples.json",
-      "sha256": "eef9781d0f5ca65fa25f1b234f47d81228b663c72ad74afc0fc69221cbc2d193",
+      "sha256": "c82d187eb76a36f7efda2df2c7c4f493a038c2f501e6dadd8368096d0647f180",
       "commit": "b051094ac74eded7dcccb334845865578b85dd7d",
       "committed_at": "2026-10-26T13:13:26+05:30",
       "url": "https://github.com/kushagragupta2005/gst-evidence-reconciliation/blob/b051094ac74eded7dcccb334845865578b85dd7d/reports/site_examples.json",
-      "run_time": "2026-10-26T07:41:54.065737+00:00"
+      "run_time": "2026-10-28T15:23:01.817299+00:00"
     }
   },
   "results": {
@@ -2238,13 +2238,15 @@
     "full_scale_status": "Not run: current restricted Exasol account cannot load a new full-scale dataset. Existing full-scale artifact remains historical."
   },
   "concurrency": {
-    "time_utc": "2026-10-26T04:39:17Z",
+    "time_utc": "2026-10-28T15:23:06Z",
     "base_url": "http://127.0.0.1:8876",
     "status": "passed",
     "health": {
       "mode": "Live",
-      "time_utc": "2026-10-26T04:39:17Z",
-      "git_sha": "f76345bc4f1670a2e6c68db6418f9a9b800f02d6",
+      "time_utc": "2026-10-28T15:23:06Z",
+      "git_sha": "d52f5e6e8c8f65b4d19653d22b1e649e696d6f5f",
+      "threshold": 0.05,
+      "view_decisions_match_frozen_protocol": true,
       "query_timeout_seconds": 30,
       "row_limit": 200
     },
@@ -2286,17 +2288,17 @@
     "parallel_ask": {
       "queries": 8,
       "latencies_seconds": [
-        1.0108876670019527,
-        1.0141684999980498,
-        1.1294232920008653,
-        1.2135044169990579,
-        1.2173131249983271,
-        1.2181531249989348,
-        1.2252434999973048,
-        1.2475797909974062
+        2.95874087500124,
+        3.1774352919965168,
+        3.74642108399712,
+        3.758142749997205,
+        3.7824448750034207,
+        3.8089818750013364,
+        3.8140431659994647,
+        3.863338916002249
       ],
-      "p50_seconds": 1.2154087709986925,
-      "p95_seconds": 1.2397620891473706,
+      "p50_seconds": 3.770293812500313,
+      "p95_seconds": 3.8460854035012746,
       "rows_each": [
         12,
         12,
@@ -2558,8 +2560,8 @@
     }
   },
   "examples": {
-    "time_utc": "2026-10-26T07:41:54.065737+00:00",
-    "git_sha": "ca1c69743db85665517260d82e6104c23ba4fa79",
+    "time_utc": "2026-10-28T15:23:01.817299+00:00",
+    "git_sha": "d52f5e6e8c8f65b4d19653d22b1e649e696d6f5f",
     "selection_source": "reports/v3_c/held_out_predictions.csv",
     "examples": [
       {
@@ -3076,7 +3078,7 @@
           "row_limit": 200,
           "timeout_seconds": 30
         },
-        "latency_ms": 217.40083399345167
+        "latency_ms": 526.6138340011821
       },
       {
         "question": "show timeline for factory F000902",
@@ -3185,7 +3187,7 @@
           "row_limit": 200,
           "timeout_seconds": 30
         },
-        "latency_ms": 132.53779099613894
+        "latency_ms": 431.3006660013343
       },
       {
         "question": "show evidence for factory F000902",
@@ -3418,7 +3420,7 @@
           "row_limit": 200,
           "timeout_seconds": 30
         },
-        "latency_ms": 124.9666250005248
+        "latency_ms": 413.5758749980596
       }
     ],
     "selection_sha256": "b4e96514ada2ffef42f06b78d26a697139ae0efd25e6c6be70dc0f24a1dc95a3"

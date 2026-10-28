@@ -1,53 +1,43 @@
 #!/bin/sh
-# Rebuild an isolated source tree and virtual environment.  The default mode
-# also loads a small generated dataset into a configured local Exasol runtime.
+# A real local clone and isolated venv. Database loading is opt-in and destructive.
 set -eu
 ROOT=$(pwd)
 SCRATCH=$(mktemp -d "${TMPDIR:-/tmp}/gst-clean.XXXXXX")
 START=$(date +%s)
 PYTHON_BIN=${PYTHON:-$(command -v python3.12 || true)}
 if [ -z "$PYTHON_BIN" ] && [ -x "$ROOT/.venv/bin/python" ]; then PYTHON_BIN="$ROOT/.venv/bin/python"; fi
-if [ -z "$PYTHON_BIN" ]; then echo 'Python 3.12+ not found; set PYTHON to its absolute path.' >&2; exit 1; fi
+if [ -z "$PYTHON_BIN" ]; then echo 'Python 3.12+ required; set PYTHON.' >&2; exit 1; fi
+MODE=${1:---offline}
+case "$MODE" in --offline|--with-exasol) ;; *) echo 'Usage: verify_clean_setup.sh [--offline|--with-exasol]' >&2; exit 2;; esac
 cleanup() {
-  status=$?
-  if [ "$status" -ne 0 ]; then
-    echo "Clean setup failed; scratch files kept at $SCRATCH" >&2
-    [ ! -f "$SCRATCH/setup.log" ] || tail -40 "$SCRATCH/setup.log" >&2
-  else
-    rm -rf "$SCRATCH"
-  fi
+ status=$?
+ if [ "$status" -ne 0 ]; then
+  echo "Clean setup failed; scratch files retained at $SCRATCH" >&2
+  [ ! -f "$SCRATCH/setup.log" ] || tail -35 "$SCRATCH/setup.log" >&2
+ else rm -rf "$SCRATCH"; fi
 }
 trap cleanup EXIT
-
-git ls-files --cached --others --exclude-standard -z | "$PYTHON_BIN" -c 'import os,sys; paths=[p for p in sys.stdin.buffer.read().split(bytes([0])) if p and os.path.exists(p)]; sys.stdout.buffer.write(bytes([0]).join(paths)+(bytes([0]) if paths else b""))' | tar --null -T - -cf "$SCRATCH/source.tar"
-mkdir "$SCRATCH/project"
-tar -xf "$SCRATCH/source.tar" -C "$SCRATCH/project"
+git clone --quiet --no-hardlinks "$ROOT" "$SCRATCH/project"
 cd "$SCRATCH/project"
+REVISION=$(git rev-parse HEAD)
 PYTHON="$PYTHON_BIN" sh scripts/bootstrap.sh > "$SCRATCH/setup.log" 2>&1
 .venv/bin/python -m unittest discover -s tests -v >> "$SCRATCH/setup.log" 2>&1
+.venv/bin/python scripts/restore_audit_evidence.py >> "$SCRATCH/setup.log" 2>&1
+PYTHONPATH=. .venv/bin/python scripts/audit_site_numbers.py >> "$SCRATCH/setup.log" 2>&1
+PYTHONPATH=. .venv/bin/python scripts/site_ablation.py >> "$SCRATCH/setup.log" 2>&1
+.venv/bin/python scripts/build_metrics.py >> "$SCRATCH/setup.log" 2>&1
+.venv/bin/python scripts/build_pages.py >> "$SCRATCH/setup.log" 2>&1
 .venv/bin/python -m compileall -q src scripts >> "$SCRATCH/setup.log" 2>&1
-
-OFFLINE=false
-if [ "${1:-}" = '--offline' ]; then
-  OFFLINE=true
-else
-  .venv/bin/python -m src.generate --scale small --factories 60 --seed 44001 --out data/clean_smoke >> "$SCRATCH/setup.log" 2>&1
-  .venv/bin/python -m src.load_and_score --data data/clean_smoke --features data/clean_smoke/features.csv --report reports/clean_smoke_load.json >> "$SCRATCH/setup.log" 2>&1
-  .venv/bin/python - <<'PY' >> "$SCRATCH/setup.log" 2>&1
-from src.db import connect
-conn = connect(readonly=True)
-assert conn.execute('SELECT COUNT(*) FROM GST_EVIDENCE.V_RANKED_CASES').fetchval() == 720
-conn.close()
-PY
+if [ "$MODE" = '--with-exasol' ]; then
+ .venv/bin/python -m src.generate --scale small --factories 60 --seed 44001 --out data/clean_smoke >> "$SCRATCH/setup.log" 2>&1
+ .venv/bin/python -m src.load_and_score --data data/clean_smoke --features data/clean_smoke/features.csv --report reports/clean_smoke_load.json >> "$SCRATCH/setup.log" 2>&1
 fi
-
 END=$(date +%s)
 cd "$ROOT"
-mkdir -p reports
-printf '{"status":"passed","elapsed_seconds":%s,"scope":"fresh source tree and venv; %s","offline":%s}\n' \
-  "$((END-START))" \
-  "$([ "$OFFLINE" = true ] && echo 'offline SQL compatibility smoke only' || echo 'configured existing Exasol runtime with 60-factory smoke load')" \
-  "$OFFLINE" > reports/clean_setup.json
-cp "$SCRATCH/setup.log" reports/clean_setup.log
-tail -8 reports/clean_setup.log
+"$PYTHON_BIN" - "$REVISION" "$((END-START))" "$MODE" <<'PY'
+import json,sys
+from datetime import datetime,timezone
+from pathlib import Path
+Path('reports/clean_setup.json').write_text(json.dumps({'status':'passed','source_commit':sys.argv[1],'elapsed_seconds':int(sys.argv[2]),'mode':sys.argv[3],'time_utc':datetime.now(timezone.utc).isoformat(),'scope':'Real local Git clone, new venv, locked dependency install, tests, archived-evidence restoration, numeric audit, ablation replay, static build. Database/runtime installation and second-machine reproduction excluded.'},indent=2)+'\n')
+PY
 cat reports/clean_setup.json

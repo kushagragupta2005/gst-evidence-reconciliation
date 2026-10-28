@@ -1,0 +1,30 @@
+{
+  "time_utc": "2026-10-28T15:14:16.388751+00:00",
+  "account": "restricted reader",
+  "runtime_remediation": "Supported exakit stop/start of a stale launcher on port 8563; no data repair/rebuild.",
+  "factory_months": 28800,
+  "factories": 2400,
+  "feature_rows": 172800,
+  "status_counts": [
+    [
+      "prioritise",
+      3775
+    ],
+    [
+      "review only",
+      10274
+    ],
+    [
+      "clear",
+      14751
+    ]
+  ],
+  "truth_access_denied": true,
+  "status": "passed after approved repair",
+  "signal_and_flag_mismatches_vs_v3_c": 0,
+  "threshold": 0.05,
+  "prioritised_months": 3775,
+  "verification_source": "reports/v3_c/held_out_predictions.csv",
+  "repair_report": "reports/threshold_repair.json",
+  "verified_at_utc": "2026-10-28T15:29:29.909776+00:00"
+}

@@ -1,6 +1,6 @@
 {
-  "time_utc": "2026-10-26T07:41:54.065737+00:00",
-  "git_sha": "ca1c69743db85665517260d82e6104c23ba4fa79",
+  "time_utc": "2026-10-28T15:23:01.817299+00:00",
+  "git_sha": "d52f5e6e8c8f65b4d19653d22b1e649e696d6f5f",
   "selection_source": "reports/v3_c/held_out_predictions.csv",
   "examples": [
     {
@@ -517,7 +517,7 @@
         "row_limit": 200,
         "timeout_seconds": 30
       },
-      "latency_ms": 217.40083399345167
+      "latency_ms": 526.6138340011821
     },
     {
       "question": "show timeline for factory F000902",
@@ -626,7 +626,7 @@
         "row_limit": 200,
         "timeout_seconds": 30
       },
-      "latency_ms": 132.53779099613894
+      "latency_ms": 431.3006660013343
     },
     {
       "question": "show evidence for factory F000902",
@@ -859,7 +859,7 @@
         "row_limit": 200,
         "timeout_seconds": 30
       },
-      "latency_ms": 124.9666250005248
+      "latency_ms": 413.5758749980596
     }
   ],
   "selection_sha256": "b4e96514ada2ffef42f06b78d26a697139ae0efd25e6c6be70dc0f24a1dc95a3"

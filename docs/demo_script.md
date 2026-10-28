@@ -1,36 +1,35 @@
-# Demo outline (2:45 target)
+# Demo recording script — owner: Kushagra Gupta
 
-Solo participant: Kushagra Gupta. Live mode was verified on 2026-10-26 at `f76345bc4f1670a2e6c68db6418f9a9b800f02d6`; keep the exact metrics below in sync with results.json. The existing MP4 predates this evaluation and should not be submitted as the replacement demo.
+**Status: video not recorded by this assistant; user will create it. Required maximum: three minutes.** This script targets 2:45. All quantities below come from the current artifact files. Public Pages uses recorded examples; a local API can execute the guarded follow-ups live. Always state which mode is shown.
 
-## 0:00–0:15 — Problem
+## 0:00–0:20 — Problem
 
-Show this exact problem statement as the opening card:
+Display the exact statement; do not try to read every word at speed:
 
 > A GST officer can’t tell which factories are hiding production or inflating tax credits, because every document she checks is declared by the factory itself, while the independent evidence (power use, goods movement, supplier records, bank flows) sits in separate places and is never compared. If this worked, she would start each week with a short list of units whose paperwork contradicts physical reality, each contradiction spelled out, and honest-but-unusual factories cleared.
 
-## 0:15–1:05 — Planted cheat and evidence note
+Say: “GST Evidence gives an officer a review list when declarations contradict evidence from other sources.”
 
-Open a prioritised held-out case. Show the independent source families, the evidence timeline, and its validated case note. State that SQL flags the case and the note only summarizes evidence rows.
+## 0:20–1:00 — Caught cheat
 
-## 1:05–1:35 — Honest decoy
+Open Cases, choose Caught cheat: F000902, 2026-05. Show the source families, expected/observed/gap rows and validated deterministic note. Explain that SQL determines priority and the note explains evidence. Every record is synthetic.
 
-Open product-mix decoy F000142 for 2026-04. Show its one-source-family signal and explain why it stays outside the priority queue. This is review routing, not legal clearance.
+## 1:00–1:25 — Honest exception and a miss
 
-## 1:35–2:00 — Follow-up question
+Choose Honest exception: F000016, 2026-04. Show the generated verification record supporting its machinery change. Choose Miss: F000025, 2026-08; only movement fires, so the planted cheat is review-only. Verification itself is simulated.
 
-Ask for the selected factory's dispatch gap by month. Show the guarded SELECT and the actual result table. State that the example runs in deterministic query mode; the LLM does not make flags.
+## 1:25–1:50 — Ask and inspect SQL
 
-## 2:00–2:30 — Held-out results and scale
+Choose “Dispatch gap by month”. Show the fixed SELECT and returned evidence. Public site: say “recorded response”. Local verified API: say “executed now through the restricted reader”. Do not claim an MCP or LLM live demo.
 
-Seed A selected the threshold; seed B was held out. Show 84.42% factory-month recall, 16.76% factory-month false-positive rate, 99.31% factory recall, 84.17% factory false-positive rate, and 629 missed cheat months. Open one miss and its reason. For the separate scale run, show 20,978,945 raw evidence rows loaded in 56.42 seconds. Counts and gap checksums matched before and after ledger materialisation; query-result caching was disabled for the query comparison.
+## 1:50–2:20 — Results and actual performance
 
-## 2:30–2:45 — Limits and Germany
+Choose V3-C. Monthly recall 81.24%; false-positive rate 2.28%. V3-A froze threshold 0.05 and K=3. C missed 741 active cheat months. Wrong-clears are zero of 720 active-cheat factories, with approximate upper bound 0.42% under an independence assumption, using generated verification labels. System shows 172,800 current feature rows and an honest DuckDB comparison; the large historical workload is not a fresh run.
 
-State that data is synthetic, the observed false-positive rate rules out operational targeting, and real bank and power data need lawful access and privacy controls. Germany is a possible adaptation requiring local validation; this prototype does not implement German VAT rules.
+## 2:20–2:45 — Limits and close
 
-### Recording checks
+Synthetic only. Human review, not an enforcement decision. Forger testing, ablation/wrong-clear intervals, second-machine reproduction and a fresh full-scale load remain open. Lawful access to tax, power and bank data is future work. Germany is only an unvalidated possible adaptation, with no figures or deployment claimed.
 
-- Keep the finished recording at or below 2:50.
-- Do not present the old static-screen MP4 as a live walkthrough.
-- Use the problem statement verbatim and check every number against results.json before recording.
-- No Germany-specific statistics are used. If a future version adds them, cite the source on the slide or remove them.
+## Before uploading
+
+Use a screen recording of the actual public or local site; keep the mode label visible. Check duration, sound and source figures. Do not use a stale MP4 or simulate a query. Put the final user-recorded video URL in SUBMISSION_CHECKLIST.md and confirm its access permissions. The assistant has not submitted the portal form.

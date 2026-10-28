@@ -1,0 +1,73 @@
+{
+  "time_utc": "2026-10-26T04:39:17Z",
+  "base_url": "http://127.0.0.1:8876",
+  "status": "passed",
+  "health": {
+    "mode": "Live",
+    "time_utc": "2026-10-26T04:39:17Z",
+    "git_sha": "f76345bc4f1670a2e6c68db6418f9a9b800f02d6",
+    "query_timeout_seconds": 30,
+    "row_limit": 200
+  },
+  "factory_id": "F000902",
+  "outcomes": {
+    "/case/F000902": {
+      "status": 200,
+      "evidence_rows": 22
+    },
+    "/note/F000902": {
+      "status": 200,
+      "validated": true,
+      "evidence_rows": 22
+    },
+    "ask_dispatch": {
+      "status": 200,
+      "rows": 12,
+      "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000902' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200"
+    },
+    "ask_timeline": {
+      "status": 200,
+      "rows": 12,
+      "sql": "SELECT PERIOD_MONTH,SIGNAL_COUNT,TOTAL_SEVERITY,WEAKEST_LINK_NORMALISED_GAP,ESTIMATED_TAX_EXPOSURE_INR,STATUS FROM GST_EVIDENCE.V_RANKED_CASES WHERE FACTORY_ID='F000902' ORDER BY PERIOD_MONTH LIMIT 200"
+    },
+    "ask_evidence": {
+      "status": 200,
+      "rows": 22,
+      "sql": "SELECT PERIOD_MONTH,CHECK_FAMILY,SOURCE_FAMILY,EXPECTED,OBSERVED,GAP,SEVERITY,DISCREPANCY_CLASS FROM GST_EVIDENCE.V_ALL_EVIDENCE WHERE FACTORY_ID='F000902' ORDER BY PERIOD_MONTH,CHECK_FAMILY LIMIT 200"
+    },
+    "injection": {
+      "status": 400,
+      "error": "SQL is not accepted. Ask for dispatch, timeline, or evidence in plain language."
+    },
+    "unknown_intent": {
+      "status": 400,
+      "error": "Fallback supports dispatch gap, timeline, or evidence questions. Try: show the dispatch gap by month."
+    }
+  },
+  "parallel_ask": {
+    "queries": 8,
+    "latencies_seconds": [
+      1.0108876670019527,
+      1.0141684999980498,
+      1.1294232920008653,
+      1.2135044169990579,
+      1.2173131249983271,
+      1.2181531249989348,
+      1.2252434999973048,
+      1.2475797909974062
+    ],
+    "p50_seconds": 1.2154087709986925,
+    "p95_seconds": 1.2397620891473706,
+    "rows_each": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "activity_rows": 15
+}

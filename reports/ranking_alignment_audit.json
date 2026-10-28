@@ -1,0 +1,247 @@
+{
+  "time_utc": "2026-10-28T15:50:21.293831+00:00",
+  "scope": "Diagnostic replay after threshold repair, not a new held-out evaluation. Truth read only from local evaluator CSV, not database.",
+  "formula_finding": "SQL uses sum of maxima among firing source families; frozen evaluator uses maximum exposure across all feature rows. Primary family-count and weakest-link keys agree, but tertiary ranking semantics are not unified.",
+  "comparisons": [
+    {
+      "month": "2026-01",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 4,
+      "offline_returned": 4,
+      "live_returned": 4,
+      "offline_true_cheats": 0,
+      "live_true_cheats": 0
+    },
+    {
+      "month": "2026-01",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 4,
+      "offline_returned": 4,
+      "live_returned": 4,
+      "offline_true_cheats": 0,
+      "live_true_cheats": 0
+    },
+    {
+      "month": "2026-02",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 5,
+      "offline_returned": 5,
+      "live_returned": 5,
+      "offline_true_cheats": 0,
+      "live_true_cheats": 0
+    },
+    {
+      "month": "2026-02",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 5,
+      "offline_returned": 5,
+      "live_returned": 5,
+      "offline_true_cheats": 0,
+      "live_true_cheats": 0
+    },
+    {
+      "month": "2026-03",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 6,
+      "offline_returned": 6,
+      "live_returned": 6,
+      "offline_true_cheats": 0,
+      "live_true_cheats": 0
+    },
+    {
+      "month": "2026-03",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 6,
+      "offline_returned": 6,
+      "live_returned": 6,
+      "offline_true_cheats": 0,
+      "live_true_cheats": 0
+    },
+    {
+      "month": "2026-04",
+      "k": 50,
+      "same_order": false,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-04",
+      "k": 200,
+      "same_order": false,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 200,
+      "live_true_cheats": 200
+    },
+    {
+      "month": "2026-05",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-05",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 200,
+      "live_true_cheats": 200
+    },
+    {
+      "month": "2026-06",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-06",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 200,
+      "live_true_cheats": 200
+    },
+    {
+      "month": "2026-07",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-07",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 199,
+      "live_true_cheats": 199
+    },
+    {
+      "month": "2026-08",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-08",
+      "k": 200,
+      "same_order": false,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 200,
+      "live_true_cheats": 200
+    },
+    {
+      "month": "2026-09",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-09",
+      "k": 200,
+      "same_order": false,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 199,
+      "live_true_cheats": 199
+    },
+    {
+      "month": "2026-10",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-10",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 200,
+      "live_true_cheats": 200
+    },
+    {
+      "month": "2026-11",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-11",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 200,
+      "live_true_cheats": 200
+    },
+    {
+      "month": "2026-12",
+      "k": 50,
+      "same_order": true,
+      "common_ids": 50,
+      "offline_returned": 50,
+      "live_returned": 50,
+      "offline_true_cheats": 50,
+      "live_true_cheats": 50
+    },
+    {
+      "month": "2026-12",
+      "k": 200,
+      "same_order": true,
+      "common_ids": 200,
+      "offline_returned": 200,
+      "live_returned": 200,
+      "offline_true_cheats": 200,
+      "live_true_cheats": 200
+    }
+  ]
+}

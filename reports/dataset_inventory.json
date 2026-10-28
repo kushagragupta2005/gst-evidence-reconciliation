@@ -1,0 +1,958 @@
+{
+  "scope": "Current V3 CSV headers, counts and hashes inspected locally; historical entries are manifests only, not freshly executed. Every dataset is synthetic.",
+  "current": {
+    "v3_a": {
+      "manifest": {
+        "seed": 51001,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28709,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "supporting_documents": 12610,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 241479,
+        "noise_multiplier": 1.0,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": true
+      },
+      "tables": {
+        "factories": {
+          "rows": 2400,
+          "columns": [
+            "factory_id",
+            "name",
+            "address",
+            "phone",
+            "vehicle_plate"
+          ],
+          "column_count": 5,
+          "sha256": "2cd5f5f36d1bb8581bdadd5f98566c72ed5dc43bbd44fa41491d4268ed6025aa",
+          "bytes": 212937
+        },
+        "suppliers": {
+          "rows": 2400,
+          "columns": [
+            "supplier_id",
+            "name",
+            "address",
+            "phone",
+            "linked_factory_id",
+            "owner_factory_id"
+          ],
+          "column_count": 6,
+          "sha256": "e8dd08e37630c0379a73c6bd0f2954afae3eb6ffed019e7b040c0b39bd4f9fe1",
+          "bytes": 184146
+        },
+        "factory_month": {
+          "rows": 28800,
+          "columns": [
+            "factory_id",
+            "period_month",
+            "product",
+            "opening_stock",
+            "purchases_kg",
+            "purchases_finished",
+            "declared_output",
+            "declared_dispatch",
+            "closing_stock",
+            "power_kwh",
+            "operating_hours",
+            "raw_stock_change"
+          ],
+          "column_count": 12,
+          "sha256": "b50522024323acccc42ec813dacbbcf618fc96ebe91c010a7344887a388fd422",
+          "bytes": 2659168
+        },
+        "invoices": {
+          "rows": 28709,
+          "columns": [
+            "invoice_id",
+            "factory_id",
+            "period_month",
+            "quantity",
+            "invoice_value"
+          ],
+          "column_count": 5,
+          "sha256": "9d6ba23c94a5ff3fba32660a9e765669d293b355858a55b893944a6281fa41fe",
+          "bytes": 1378634
+        },
+        "purchase_invoices": {
+          "rows": 28800,
+          "columns": [
+            "purchase_invoice_id",
+            "buyer_factory_id",
+            "period_month",
+            "supplier_id",
+            "quantity",
+            "invoice_value"
+          ],
+          "column_count": 6,
+          "sha256": "8efaf9e6c2bfb5b0f876d353285cf8edc36aba1e0320ac83d793c29249d21e00",
+          "bytes": 1626687
+        },
+        "eway_bills": {
+          "rows": 57600,
+          "columns": [
+            "eway_id",
+            "factory_id",
+            "period_month",
+            "quantity",
+            "vehicle_plate"
+          ],
+          "column_count": 5,
+          "sha256": "ae08c73a73babd498e23024ddebac8d08b33858b5f6b110b27d1b98bfb928537",
+          "bytes": 2816101
+        },
+        "supplier_returns": {
+          "rows": 27360,
+          "columns": [
+            "supplier_id",
+            "period_month",
+            "declared_sales_kg"
+          ],
+          "column_count": 3,
+          "sha256": "e58b46de933ae798725f7d344c80ee75a5283b407133d1eb04eaa5e2ee005dad",
+          "bytes": 705328
+        },
+        "bank_entries": {
+          "rows": 57600,
+          "columns": [
+            "transaction_id",
+            "factory_id",
+            "period_month",
+            "amount",
+            "direction"
+          ],
+          "column_count": 5,
+          "sha256": "a7930f6b22e4bf2b5675bf7f24767a73cc43c2b8ff4ab779cde466c59368b5c9",
+          "bytes": 2485526
+        },
+        "machines": {
+          "rows": 2560,
+          "columns": [
+            "machine_id",
+            "factory_id",
+            "installed_month",
+            "rated_units_month"
+          ],
+          "column_count": 4,
+          "sha256": "80b16e0cdaf07e8132f8e0aedc238e7efa4d3f951708b56ecefc3d77b1146284",
+          "bytes": 74456
+        },
+        "supporting_documents": {
+          "rows": 12610,
+          "columns": [
+            "document_id",
+            "factory_id",
+            "period_month",
+            "document_type",
+            "verification_status",
+            "verified_by"
+          ],
+          "column_count": 6,
+          "sha256": "7d180d15a499d56abcc66cb50765bbc2cc86c4017760272df3aa4af4ee36e534",
+          "bytes": 915202
+        },
+        "truth": {
+          "rows": 28800,
+          "columns": [
+            "factory_id",
+            "period_month",
+            "is_cheat",
+            "scenario",
+            "intensity",
+            "evasive",
+            "discrepancy_class",
+            "explanation",
+            "taxpayer_explanation"
+          ],
+          "column_count": 9,
+          "sha256": "3fdba36825936ba2e0882bb032c99cd298e2f08612e925ea0638961b05785142",
+          "bytes": 3318445
+        }
+      },
+      "distributions": {
+        "factory_month.scenario": {
+          "hidden_production": 2880,
+          "honest": 8640,
+          "machinery_upgrade": 1920,
+          "itc_inflation": 2880,
+          "seasonal_stock_build": 1920,
+          "lumpy_bank_flows": 1920,
+          "product_mix_shift": 1920,
+          "new_supplier_onboarding": 1920,
+          "longer_hours": 1920,
+          "eway_reuse": 2880
+        },
+        "factory_month.intensity": {
+          "0.05": 3108,
+          "0": 20160,
+          "0.3": 2712,
+          "0.15": 2820
+        },
+        "factory_month.evasive": {
+          "0": 26640,
+          "1": 2160
+        },
+        "factory.scenario": {
+          "hidden_production": 240,
+          "honest": 720,
+          "machinery_upgrade": 160,
+          "itc_inflation": 240,
+          "seasonal_stock_build": 160,
+          "lumpy_bank_flows": 160,
+          "product_mix_shift": 160,
+          "new_supplier_onboarding": 160,
+          "longer_hours": 160,
+          "eway_reuse": 240
+        },
+        "factory.intensity": {
+          "0.05": 259,
+          "0": 1680,
+          "0.3": 226,
+          "0.15": 235
+        },
+        "factory.evasive": {
+          "0": 2220,
+          "1": 180
+        }
+      },
+      "active_cheat_months_by_period": {
+        "2026-01": 0,
+        "2026-02": 0,
+        "2026-03": 0,
+        "2026-04": 467,
+        "2026-05": 446,
+        "2026-06": 461,
+        "2026-07": 426,
+        "2026-08": 451,
+        "2026-09": 408,
+        "2026-10": 423,
+        "2026-11": 435,
+        "2026-12": 453
+      }
+    },
+    "v3_b": {
+      "manifest": {
+        "seed": 51002,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28711,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "supporting_documents": 12621,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 241492,
+        "noise_multiplier": 1.0,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": true
+      },
+      "tables": {
+        "factories": {
+          "rows": 2400,
+          "columns": [
+            "factory_id",
+            "name",
+            "address",
+            "phone",
+            "vehicle_plate"
+          ],
+          "column_count": 5,
+          "sha256": "2cd5f5f36d1bb8581bdadd5f98566c72ed5dc43bbd44fa41491d4268ed6025aa",
+          "bytes": 212937
+        },
+        "suppliers": {
+          "rows": 2400,
+          "columns": [
+            "supplier_id",
+            "name",
+            "address",
+            "phone",
+            "linked_factory_id",
+            "owner_factory_id"
+          ],
+          "column_count": 6,
+          "sha256": "af18e4a11d4df494f634834a8e817feeb5941590e882da701046bcdd0e5145a3",
+          "bytes": 184146
+        },
+        "factory_month": {
+          "rows": 28800,
+          "columns": [
+            "factory_id",
+            "period_month",
+            "product",
+            "opening_stock",
+            "purchases_kg",
+            "purchases_finished",
+            "declared_output",
+            "declared_dispatch",
+            "closing_stock",
+            "power_kwh",
+            "operating_hours",
+            "raw_stock_change"
+          ],
+          "column_count": 12,
+          "sha256": "f1503c7e760a5d18ecede29a393d78ae3d9bec75f3a093ba627f5d775213b364",
+          "bytes": 2658876
+        },
+        "invoices": {
+          "rows": 28711,
+          "columns": [
+            "invoice_id",
+            "factory_id",
+            "period_month",
+            "quantity",
+            "invoice_value"
+          ],
+          "column_count": 5,
+          "sha256": "038f54cfe7b1ab483e84f446ae8a0e85e5d846983bf45d8d4c87ee5a6cbc43ad",
+          "bytes": 1378439
+        },
+        "purchase_invoices": {
+          "rows": 28800,
+          "columns": [
+            "purchase_invoice_id",
+            "buyer_factory_id",
+            "period_month",
+            "supplier_id",
+            "quantity",
+            "invoice_value"
+          ],
+          "column_count": 6,
+          "sha256": "ba9114c2c6732fc858a69289358502fb4e4baddb7fe83f754cbbb362d169b455",
+          "bytes": 1626473
+        },
+        "eway_bills": {
+          "rows": 57600,
+          "columns": [
+            "eway_id",
+            "factory_id",
+            "period_month",
+            "quantity",
+            "vehicle_plate"
+          ],
+          "column_count": 5,
+          "sha256": "307aa3b421477e6246aeae15a1b41149799acdd76b29133cabb1163807a88f64",
+          "bytes": 2816157
+        },
+        "supplier_returns": {
+          "rows": 27360,
+          "columns": [
+            "supplier_id",
+            "period_month",
+            "declared_sales_kg"
+          ],
+          "column_count": 3,
+          "sha256": "9cdc33d60f90ccf0c79c88b0b5872bee8a90af7f00016cd5559bdacdd800d638",
+          "bytes": 705313
+        },
+        "bank_entries": {
+          "rows": 57600,
+          "columns": [
+            "transaction_id",
+            "factory_id",
+            "period_month",
+            "amount",
+            "direction"
+          ],
+          "column_count": 5,
+          "sha256": "15ca444840bef64675cb573a470c8e17bbe8fd79f07efb5bd5bfff78eb9f0e72",
+          "bytes": 2485310
+        },
+        "machines": {
+          "rows": 2560,
+          "columns": [
+            "machine_id",
+            "factory_id",
+            "installed_month",
+            "rated_units_month"
+          ],
+          "column_count": 4,
+          "sha256": "fa02e8d6c6cd83bc85dc07c65305d51806a64c6d23c20e84bcb0d66ddfa366b9",
+          "bytes": 74456
+        },
+        "supporting_documents": {
+          "rows": 12621,
+          "columns": [
+            "document_id",
+            "factory_id",
+            "period_month",
+            "document_type",
+            "verification_status",
+            "verified_by"
+          ],
+          "column_count": 6,
+          "sha256": "a931be513787f267797dd3b2e712bf8247561f5b41f4a40f1ce269192a592e0f",
+          "bytes": 915994
+        },
+        "truth": {
+          "rows": 28800,
+          "columns": [
+            "factory_id",
+            "period_month",
+            "is_cheat",
+            "scenario",
+            "intensity",
+            "evasive",
+            "discrepancy_class",
+            "explanation",
+            "taxpayer_explanation"
+          ],
+          "column_count": 9,
+          "sha256": "ca2afadf9d018d457bd296571f275400a06ce3969a9c87c02335187d98ea134d",
+          "bytes": 3318623
+        }
+      },
+      "distributions": {
+        "factory_month.scenario": {
+          "eway_reuse": 2880,
+          "machinery_upgrade": 1920,
+          "new_supplier_onboarding": 1920,
+          "honest": 8640,
+          "longer_hours": 1920,
+          "seasonal_stock_build": 1920,
+          "hidden_production": 2880,
+          "itc_inflation": 2880,
+          "product_mix_shift": 1920,
+          "lumpy_bank_flows": 1920
+        },
+        "factory_month.intensity": {
+          "0.3": 2952,
+          "0": 20160,
+          "0.05": 2808,
+          "0.15": 2880
+        },
+        "factory_month.evasive": {
+          "0": 26856,
+          "1": 1944
+        },
+        "factory.scenario": {
+          "eway_reuse": 240,
+          "machinery_upgrade": 160,
+          "new_supplier_onboarding": 160,
+          "honest": 720,
+          "longer_hours": 160,
+          "seasonal_stock_build": 160,
+          "hidden_production": 240,
+          "itc_inflation": 240,
+          "product_mix_shift": 160,
+          "lumpy_bank_flows": 160
+        },
+        "factory.intensity": {
+          "0.3": 246,
+          "0": 1680,
+          "0.05": 234,
+          "0.15": 240
+        },
+        "factory.evasive": {
+          "0": 2238,
+          "1": 162
+        }
+      },
+      "active_cheat_months_by_period": {
+        "2026-01": 0,
+        "2026-02": 0,
+        "2026-03": 0,
+        "2026-04": 465,
+        "2026-05": 461,
+        "2026-06": 452,
+        "2026-07": 427,
+        "2026-08": 429,
+        "2026-09": 432,
+        "2026-10": 448,
+        "2026-11": 427,
+        "2026-12": 440
+      }
+    },
+    "v3_c": {
+      "manifest": {
+        "seed": 51003,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28695,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "supporting_documents": 12590,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 241445,
+        "noise_multiplier": 1.0,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": true
+      },
+      "tables": {
+        "factories": {
+          "rows": 2400,
+          "columns": [
+            "factory_id",
+            "name",
+            "address",
+            "phone",
+            "vehicle_plate"
+          ],
+          "column_count": 5,
+          "sha256": "2cd5f5f36d1bb8581bdadd5f98566c72ed5dc43bbd44fa41491d4268ed6025aa",
+          "bytes": 212937
+        },
+        "suppliers": {
+          "rows": 2400,
+          "columns": [
+            "supplier_id",
+            "name",
+            "address",
+            "phone",
+            "linked_factory_id",
+            "owner_factory_id"
+          ],
+          "column_count": 6,
+          "sha256": "e19a6d2f4971b939c7bf49256116ccbbef72d1d93022eef95faa5ddd84e1a311",
+          "bytes": 184146
+        },
+        "factory_month": {
+          "rows": 28800,
+          "columns": [
+            "factory_id",
+            "period_month",
+            "product",
+            "opening_stock",
+            "purchases_kg",
+            "purchases_finished",
+            "declared_output",
+            "declared_dispatch",
+            "closing_stock",
+            "power_kwh",
+            "operating_hours",
+            "raw_stock_change"
+          ],
+          "column_count": 12,
+          "sha256": "07c9a6561b7c0fdce69507f3c918759e3a52170dd4a55cd8c9092178beb90323",
+          "bytes": 2659389
+        },
+        "invoices": {
+          "rows": 28695,
+          "columns": [
+            "invoice_id",
+            "factory_id",
+            "period_month",
+            "quantity",
+            "invoice_value"
+          ],
+          "column_count": 5,
+          "sha256": "2eaf2a2849dd798b0bd88ac912630025213d10969f60a5c17ab3357469ef9bd0",
+          "bytes": 1377972
+        },
+        "purchase_invoices": {
+          "rows": 28800,
+          "columns": [
+            "purchase_invoice_id",
+            "buyer_factory_id",
+            "period_month",
+            "supplier_id",
+            "quantity",
+            "invoice_value"
+          ],
+          "column_count": 6,
+          "sha256": "52a79b03914d65bf9f5dd9f22d4cab962fdaa950d2699df65b7cf605e616ec74",
+          "bytes": 1626881
+        },
+        "eway_bills": {
+          "rows": 57600,
+          "columns": [
+            "eway_id",
+            "factory_id",
+            "period_month",
+            "quantity",
+            "vehicle_plate"
+          ],
+          "column_count": 5,
+          "sha256": "2c037bc060315a86af920e665f37b784591f51ee5eb618cd06dab34c9180a0b9",
+          "bytes": 2816167
+        },
+        "supplier_returns": {
+          "rows": 27360,
+          "columns": [
+            "supplier_id",
+            "period_month",
+            "declared_sales_kg"
+          ],
+          "column_count": 3,
+          "sha256": "89120492f370f6c392f26fb6a62c5cdf4bda8b3f634aef7b43364b689733cb32",
+          "bytes": 705288
+        },
+        "bank_entries": {
+          "rows": 57600,
+          "columns": [
+            "transaction_id",
+            "factory_id",
+            "period_month",
+            "amount",
+            "direction"
+          ],
+          "column_count": 5,
+          "sha256": "e1870c21ca22b1ff60589a4d72defd9096772114d3d58ee8d96cdfc9a78f6c85",
+          "bytes": 2485691
+        },
+        "machines": {
+          "rows": 2560,
+          "columns": [
+            "machine_id",
+            "factory_id",
+            "installed_month",
+            "rated_units_month"
+          ],
+          "column_count": 4,
+          "sha256": "4962b25db828ca46926c7381b74d88cfe5fa5fd7e554b0d3cf0c75154a933698",
+          "bytes": 74456
+        },
+        "supporting_documents": {
+          "rows": 12590,
+          "columns": [
+            "document_id",
+            "factory_id",
+            "period_month",
+            "document_type",
+            "verification_status",
+            "verified_by"
+          ],
+          "column_count": 6,
+          "sha256": "e2e1542ca3118245f8de8340006fe4a6017a5caa001513e471ebd2ef445e8681",
+          "bytes": 913762
+        },
+        "truth": {
+          "rows": 28800,
+          "columns": [
+            "factory_id",
+            "period_month",
+            "is_cheat",
+            "scenario",
+            "intensity",
+            "evasive",
+            "discrepancy_class",
+            "explanation",
+            "taxpayer_explanation"
+          ],
+          "column_count": 9,
+          "sha256": "55457407b35528f8d6ec9a3bb4580e7c035e4b38cd274fba4f91a3199ae4adb9",
+          "bytes": 3317784
+        }
+      },
+      "distributions": {
+        "factory_month.scenario": {
+          "honest": 8640,
+          "hidden_production": 2880,
+          "seasonal_stock_build": 1920,
+          "longer_hours": 1920,
+          "product_mix_shift": 1920,
+          "itc_inflation": 2880,
+          "new_supplier_onboarding": 1920,
+          "eway_reuse": 2880,
+          "lumpy_bank_flows": 1920,
+          "machinery_upgrade": 1920
+        },
+        "factory_month.intensity": {
+          "0": 20160,
+          "0.15": 3156,
+          "0.3": 2676,
+          "0.05": 2808
+        },
+        "factory_month.evasive": {
+          "0": 26640,
+          "1": 2160
+        },
+        "factory.scenario": {
+          "honest": 720,
+          "hidden_production": 240,
+          "seasonal_stock_build": 160,
+          "longer_hours": 160,
+          "product_mix_shift": 160,
+          "itc_inflation": 240,
+          "new_supplier_onboarding": 160,
+          "eway_reuse": 240,
+          "lumpy_bank_flows": 160,
+          "machinery_upgrade": 160
+        },
+        "factory.intensity": {
+          "0": 1680,
+          "0.15": 263,
+          "0.3": 223,
+          "0.05": 234
+        },
+        "factory.evasive": {
+          "0": 2220,
+          "1": 180
+        }
+      },
+      "active_cheat_months_by_period": {
+        "2026-01": 0,
+        "2026-02": 0,
+        "2026-03": 0,
+        "2026-04": 436,
+        "2026-05": 428,
+        "2026-06": 441,
+        "2026-07": 410,
+        "2026-08": 449,
+        "2026-09": 456,
+        "2026-10": 439,
+        "2026-11": 448,
+        "2026-12": 443
+      }
+    }
+  },
+  "historical": {
+    "generated": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 20261020,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28694,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228854
+      }
+    },
+    "robust_missing_documents_10pct": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 20261022,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 25760,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 24541,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 223101,
+        "noise_multiplier": 1.0,
+        "missing_documents_rate": 0.1,
+        "fake_explanations": true
+      }
+    },
+    "full": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 20261021,
+        "factories": 220000,
+        "months": 12,
+        "rows": {
+          "factories": 220000,
+          "suppliers": 220000,
+          "factory_month": 2640000,
+          "invoices": 2630948,
+          "purchase_invoices": 2640000,
+          "eway_bills": 5280000,
+          "supplier_returns": 2507997,
+          "bank_entries": 5280000,
+          "machines": 234667,
+          "truth": 2640000
+        },
+        "raw_evidence_rows": 20978945
+      }
+    },
+    "robust_noise_2x": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 20261022,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28707,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228867,
+        "noise_multiplier": 2.0,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": true
+      }
+    },
+    "v2_seed_b": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 31002,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28710,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228870,
+        "noise_multiplier": 1.0,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": false
+      }
+    },
+    "v2_seed_c": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 31003,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28699,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228859,
+        "noise_multiplier": 1.0,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": true
+      }
+    },
+    "seed_c": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 20261022,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28707,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228867,
+        "noise_multiplier": 1.0,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": true
+      }
+    },
+    "train": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 20261019,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28706,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228866
+      }
+    },
+    "robust_noise_1_5x": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 20261022,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28707,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228867,
+        "noise_multiplier": 1.5,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": true
+      }
+    },
+    "v2_train": {
+      "status": "historical/dev manifest only",
+      "manifest": {
+        "seed": 31001,
+        "factories": 2400,
+        "months": 12,
+        "rows": {
+          "factories": 2400,
+          "suppliers": 2400,
+          "factory_month": 28800,
+          "invoices": 28692,
+          "purchase_invoices": 28800,
+          "eway_bills": 57600,
+          "supplier_returns": 27360,
+          "bank_entries": 57600,
+          "machines": 2560,
+          "truth": 28800
+        },
+        "raw_evidence_rows": 228852,
+        "noise_multiplier": 1.0,
+        "missing_documents_rate": 0.0,
+        "fake_explanations": false
+      }
+    }
+  }
+}

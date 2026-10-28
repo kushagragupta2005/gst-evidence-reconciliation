@@ -2,7 +2,17 @@
 
 > A GST officer can’t tell which factories are hiding production or inflating tax credits, because every document she checks is declared by the factory itself, while the independent evidence (power use, goods movement, supplier records, bank flows) sits in separate places and is never compared. If this worked, she would start each week with a short list of units whose paperwork contradicts physical reality, each contradiction spelled out, and honest-but-unusual factories cleared.
 
-**Author:** Kushagra Gupta, sole participant. AI coding assistants helped with implementation and documentation; Kushagra reviewed the work and its reported artefacts.
+**Author:** Kushagra Gupta, sole participant. AI coding assistants helped with implementation and documentation. Kushagra is responsible for final human review and submission.
+
+## Judge entry points — audit of 28 October 2026
+
+- [Live website](https://kushagragupta2005.github.io/gst-evidence-reconciliation/) · [Cases](https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/) · [Results](https://kushagragupta2005.github.io/gst-evidence-reconciliation/results/)
+- [Feature status](PROJECT_STATUS.md) · [Full judge audit](docs/JUDGE_AUDIT.md) · [Required submission checklist](SUBMISSION_CHECKLIST.md)
+- [Current V3 deck: PPTX](deliverables/exathon-india-2026-pitch.pptx) / [PDF](deliverables/exathon-india-2026-pitch.pdf) · [User recording script](docs/demo_script.md)
+
+**Working synthetic prototype; required video and portal submission still outstanding.** Official deadline: **31 October 2026, 11:59 pm IST**, per the [organiser](https://www.exasol.com/events/exathon-india-2026/). Solo entry is allowed.
+
+**Audit repair:** the live schema had defaulted to 0.10 while published evaluation used 0.05. The user approved a settings-only repair to the frozen 0.05. All 28,800 V3-C monthly live signals/flags now match the published predictions; the reader cannot access database truth. Loader defaults and the API protocol guard now prevent silently presenting mismatched decisions. [Repair evidence](reports/threshold_repair.json). The older connectivity/fresh-clone checks did not detect that drift and are historical evidence only.
 
 ## Submission status
 
@@ -72,18 +82,19 @@ Start the static site:
 make site
 ```
 
-Open `http://127.0.0.1:8081`. It starts in Snapshot mode from committed artifacts. For label-free Exasol evidence and guarded follow-ups, run `make api` in another terminal; the site shows **Live verified** only after it reaches the restricted-account API and displays that API’s UTC time and Git SHA. It accepts no arbitrary SQL. In a third terminal, run `make live-smoke` to verify the guarded Live API after the site is reachable.
+Open `http://127.0.0.1:8081`. It starts in Snapshot mode from committed artifacts. A local Live health check also verifies the frozen source-family rule before enabling Live mode. For label-free Exasol evidence and guarded follow-ups, run `make api` in another terminal; the site shows **Live verified** only after it reaches the restricted-account API and displays that API’s UTC time and Git SHA. It accepts no arbitrary SQL. In a third terminal, run `make live-smoke` to verify the guarded Live API after the site is reachable.
 
-**Live verified on 2026-10-26 at `f76345bc4f1670a2e6c68db6418f9a9b800f02d6`: `make live-smoke` passed.**
+**Current Live verification:** see [reports/live_smoke.json](reports/live_smoke.json) and [reports/judge_database_audit.json](reports/judge_database_audit.json) for actual dates, source commits, guard checks and measured latency. Earlier connectivity results do not establish current rule alignment.
 
-**Reproduced from a fresh clone on the author’s machine at `f76345bc4f1670a2e6c68db6418f9a9b800f02d6`; not yet tested on a second machine.**
+**Reproduction scopes:** the older author-machine database clone test is retained at its original commit. Current offline-clone verification is recorded separately in [reports/clean_setup.json](reports/clean_setup.json); it does not install Exasol or replace its schemas. Not yet tested on a second machine.
 
 ## Reproduction commands
 
 | Command | Purpose | Status |
 |---|---|---|
+| `make all` | Tests, restore/verify synthetic audit inputs, number audit, ablation and static build | Offline readiness pipeline; no implicit database replacement |
 | `make test` | Offline unit and SQL-contract tests | Required for every change |
-| `sh scripts/verify_clean_setup.sh --offline` | Fresh source tree and Python environment, then offline tests | Measured locally |
+| `sh scripts/verify_clean_setup.sh --offline` | Actual local Git clone, new venv, locked install, tests, evidence replay and static build | Measured locally |
 | `make reproduce-dev` | Regenerate the historical V2 development suite | Development only; overwrites local database/demo artefacts |
 | `make reproduce` | Regenerate and load the V3-C confirmation dataset | Recreates `GST_EVIDENCE` schemas and verifies 28,800 ranked monthly rows |
 | `make scale-dev` | Generate the legacy synthetic performance workload | Development only; must not be used as a V2 accuracy claim |
@@ -179,3 +190,21 @@ The site has dedicated Problem, How it works, System & Stack, Data & Ethics and 
 `npm run site:smoke` checks every page at 375, 768 and 1440 px in light and dark themes, including internal links, source-linked metrics, accessibility, case/seed controls and offline file URLs. Public Pages runs the same HTTP checks after deployment. `npm run site:lighthouse -- --url <site-root>` records the actual Lighthouse scores. Scores are measurements of the tested environment, not a guarantee for every connection.
 
 Public deployment verification: all eight pages return HTTP 200, with 48 responsive/theme configurations and 64 internal-link checks passing in Pages workflow [40354940723](https://github.com/kushagragupta2005/gst-evidence-reconciliation/actions/runs/40354940723). Recorded public Lighthouse scores: Home Performance 98; all other pages Performance 100; Accessibility, Best Practices and SEO 100 throughout. See [`reports/lighthouse_public.json`](reports/lighthouse_public.json) and [`reports/pages_browser_smoke.json`](reports/pages_browser_smoke.json) for run dates and scope.
+
+## Reproduce the published audit without a database
+
+```sh
+sh scripts/bootstrap.sh
+make all
+make site
+```
+
+`data/audit/` contains compressed, hash-verified synthetic A/B/C feature exports and evaluator predictions so the audit and bootstrap intervals work from a clone. Restore only: `make restore-audit`. Detailed recheck: `make audit`. Raw databases and millions of generated CSV rows are regenerated from the source; credentials, venvs and database images are excluded from Git.
+
+For flaky package-network access, build an OS/Python-compatible wheelhouse with `pip download --retries 10 --timeout 60 -r requirements-lock.txt -d wheelhouse`, then use `PIP_NO_INDEX=1 PIP_FIND_LINKS=/absolute/path/to/wheelhouse sh scripts/verify_clean_setup.sh --offline`. The helper uses a real local clone and a fresh isolated venv. Wheels are local build caches, not submission data, and are not uploaded.
+
+The current API's new protocol validation adds work; use the p50/p95 in the latest `reports/live_smoke.json`, not a historical latency quoted elsewhere. `make reproduce` is the explicit database replacement path; `verify_clean_setup.sh --with-exasol` is opt-in and also replaces the evidence schema.
+
+## AI and authoring disclosure
+
+OpenAI Codex coding assistants helped write and audit the project. Exact model identities for earlier sessions were not consistently recorded; no model comparison or model-backed detection is claimed. The optional OpenAI note SDK/API path is implemented but the demonstrated case notes use the labeled deterministic fallback. The LLM never decides alerts. The pitch was edited with the supplied Artifact Tool runtime; export details and its PDF fallback are in deliverables/README.md. Browser verification uses Playwright, axe and Lighthouse; these are development tools, not runtime dependencies of the static site.

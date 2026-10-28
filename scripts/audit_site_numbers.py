@@ -4,8 +4,10 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 from src.evaluate import clustered_metrics
-from src.evaluate_v2 import factory_queue
+from src.evaluate_v2 import factory_queue,choose_threshold,monthly_frame,calibration_queue
 ROOT=Path(__file__).resolve().parents[1]
+from scripts.restore_audit_evidence import restore
+restore()
 def load(p):return json.loads((ROOT/p).read_text())
 rows=[];checks=[]
 def walk(x,source,pointer='',status='Artifact value; no new timing run'):
@@ -16,6 +18,17 @@ def walk(x,source,pointer='',status='Artifact value; no new timing run'):
   for k,v in x.items():walk(v,source,pointer+'/'+str(k),status)
  elif isinstance(x,list):
   for i,v in enumerate(x):walk(v,source,pointer+'/'+str(i),status)
+a_result=load('reports/v3_a_calibration.json')
+a_frame=pd.read_csv(ROOT/'reports/v3_a/held_out_predictions.csv').set_index(['factory_id','period_month'])
+a_features=pd.read_csv(ROOT/'data/v3_a/features.csv');a_features.columns=a_features.columns.str.lower()
+a_matrix=a_features.pivot_table(index=['factory_id','period_month'],columns='source_family',values='severity',aggfunc='max').fillna(0).reindex(a_frame.index)
+selected,curve=choose_threshold(a_frame,a_matrix)
+assert selected==a_result['protocol']['threshold'] and curve==a_result['protocol']['calibration']
+a_truth=a_frame[['is_cheat','scenario','intensity','evasive','discrepancy_class','explanation','taxpayer_explanation']]
+a_monthly,_=monthly_frame(a_truth,a_matrix,a_features,selected)
+selected_k,k_curve=calibration_queue(a_monthly)
+assert selected_k==a_result['factory_queue']['k'] and k_curve==a_result['factory_queue']['seed_a_calibration']
+checks.append('v3_a: threshold 0.05 and K=3 recomputed from calibration inputs only; B/C were not used to choose them.')
 for seed,path in [('v3_b','results.json'),('v3_c','reports/v3_c_results.json')]:
  r=load(path);frame=pd.read_csv(ROOT/f'reports/{seed}/held_out_predictions.csv')
  for level,df in [('factory_month',frame),('factory',factory_queue(frame,r['factory_queue']['k']))]:
@@ -53,7 +66,7 @@ live=load('reports/live_smoke.json')['parallel_ask']
 for name,q in [('p50_seconds',.5),('p95_seconds',.95)]:assert math.isclose(float(np.quantile(live['latencies_seconds'],q)),live[name],rel_tol=1e-12)
 intro='''# Site numbers audit
 
-Scope: the previously published single-page site at db0e649, both seed selections, all case and follow-up records, and every numeric value reachable in its displayed evidence. The inventory below preserves original precision; page formatting is a separate concern. Numeric strings in recorded SQL rows are listed too. Layout dimensions and dates are not measurements.
+Scope: current displayed metrics, both seed selections, all recorded case/follow-up evidence and measured API artifacts. The single-page-to-multi-page audit began at db0e649; sources refreshed by the later threshold-repair audit are inventoried at their current values. The inventory below preserves original precision; page formatting is a separate concern. Numeric strings in recorded SQL rows are listed too. Layout dimensions and dates are not measurements.
 
 ## Findings and corrections
 

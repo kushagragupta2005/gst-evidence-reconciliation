@@ -61,6 +61,31 @@ def query(sql: str) -> list[dict]:
         connection.close()
 
 
+
+class FrozenProtocolMismatch(RuntimeError):
+    """Live view decisions must agree with the already-published protocol."""
+
+
+def verify_frozen_protocol() -> dict:
+    threshold=json.loads((ROOT/'results.json').read_text())['protocol']['threshold']
+    if not isinstance(threshold,(int,float)) or not 0<threshold<1:
+        raise FrozenProtocolMismatch('Invalid frozen protocol')
+    checked=query(f"""
+      SELECT COUNT(*) MISMATCHED_MONTHS FROM GST_EVIDENCE.V_RANKED_CASES r
+      LEFT JOIN (
+        SELECT FACTORY_ID, PERIOD_MONTH, COUNT(DISTINCT SOURCE_FAMILY) FAMILIES
+        FROM GST_EVIDENCE.V_FEATURES WHERE SEVERITY>{threshold}
+        GROUP BY FACTORY_ID, PERIOD_MONTH
+      ) f ON r.FACTORY_ID=f.FACTORY_ID AND r.PERIOD_MONTH=f.PERIOD_MONTH
+      WHERE r.SIGNAL_COUNT<>COALESCE(f.FAMILIES,0)
+         OR r.STATUS<>CASE WHEN COALESCE(f.FAMILIES,0)>=2 THEN 'prioritise'
+                          WHEN COALESCE(f.FAMILIES,0)=1 THEN 'review only' ELSE 'clear' END
+    """)
+    if checked[0]['mismatched_months']:
+        raise FrozenProtocolMismatch('Live view rules differ from the frozen evaluation')
+    return {'threshold':threshold,'view_decisions_match_frozen_protocol':True}
+
+
 def require_factory(value: str) -> str:
     if not FACTORY_ID.fullmatch(value):
         raise ValueError("Factory ID must have form F followed by six digits.")
@@ -167,10 +192,11 @@ class Handler(BaseHTTPRequestHandler):
         started = time.monotonic()
         parsed = urlparse(self.path)
         try:
+            protocol=verify_frozen_protocol() if parsed.path!="/activity" else {}
             if method == "GET" and parsed.path == "/health":
                 query("SELECT 1 AS READY LIMIT 1")
                 body = {"mode": "Live", "time_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-                        "git_sha": git_sha(), "query_timeout_seconds": TIMEOUT_SECONDS, "row_limit": MAX_ROWS}
+                        "git_sha": git_sha(), **protocol, "query_timeout_seconds": TIMEOUT_SECONDS, "row_limit": MAX_ROWS}
             elif method == "GET" and parsed.path == "/queue":
                 body = queue(parse_qs(parsed.query))
             elif method == "GET" and parsed.path.startswith("/case/"):
@@ -201,6 +227,8 @@ class Handler(BaseHTTPRequestHandler):
                 return
             self.record(parsed.path, started, None, len(body.get("rows", [])) if isinstance(body, dict) else None)
             self.response(HTTPStatus.OK, body)
+        except FrozenProtocolMismatch:
+            self.response(HTTPStatus.SERVICE_UNAVAILABLE, {"mode":"Snapshot", "available":False, "error":"live views do not match the published frozen protocol"})
         except (ValueError, json.JSONDecodeError) as error:
             self.response(HTTPStatus.BAD_REQUEST, {"error": str(error)})
         except Exception as error:  # Never leak credential or driver details to the browser.

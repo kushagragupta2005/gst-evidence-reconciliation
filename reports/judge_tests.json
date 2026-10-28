@@ -1,0 +1,12 @@
+{
+  "time_utc": "2026-10-28T15:51:24.426243+00:00",
+  "source_commit": "d52f5e6e8c8f65b4d19653d22b1e649e696d6f5f",
+  "working_tree_dirty": true,
+  "tests_run": 36,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 1.1082667079972452,
+  "status": "passed",
+  "scope": "Offline Python regression tests; SQL compatibility smoke uses SQLite, not a replacement for live Exasol checks."
+}

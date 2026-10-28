@@ -3,6 +3,8 @@ import hashlib,json
 from pathlib import Path
 import pandas as pd
 ROOT=Path(__file__).resolve().parents[1]
+from scripts.restore_audit_evidence import restore
+restore()
 out={'scope':'Post-hoc diagnostic; frozen threshold and two-family rule, no retuning. Point estimates only; no ablation confidence intervals.','seeds':{}}
 for seed,path in [('v3_b','results.json'),('v3_c','reports/v3_c_results.json')]:
  r=json.loads((ROOT/path).read_text()); f=ROOT/f'data/{seed}/features.csv'

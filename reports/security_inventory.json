@@ -1,0 +1,5 @@
+{
+  "scope": "Tracked text files; heuristic patterns, no credential contents logged.",
+  "hits": [],
+  "possible_secret_hits": 0
+}

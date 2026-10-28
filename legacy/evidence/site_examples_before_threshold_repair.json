@@ -1,0 +1,866 @@
+{
+  "time_utc": "2026-10-26T07:41:54.065737+00:00",
+  "git_sha": "ca1c69743db85665517260d82e6104c23ba4fa79",
+  "selection_source": "reports/v3_c/held_out_predictions.csv",
+  "examples": [
+    {
+      "factory_id": "F000902",
+      "month": "2026-05",
+      "kind": "caught",
+      "evidence": [
+        {
+          "factory_id": "F000902",
+          "period_month": "2026-05",
+          "check_family": "bank_sales",
+          "source_family": "financial",
+          "expected": "112302.0817",
+          "observed": "155663.3986",
+          "gap": "43361.3169",
+          "severity": 0.2785582050114638,
+          "estimated_tax_exposure_inr": "7805.037042",
+          "evidence": "invoice value compared with receipts",
+          "discrepancy_class": "needs human review"
+        },
+        {
+          "factory_id": "F000902",
+          "period_month": "2026-05",
+          "check_family": "dispatch_invoice",
+          "source_family": "movement",
+          "expected": "1336.9296",
+          "observed": "935.8507",
+          "gap": "401.0789",
+          "severity": 0.5,
+          "estimated_tax_exposure_inr": "8663.30424",
+          "evidence": "document reuse fraction=0.5",
+          "discrepancy_class": "mismatch"
+        },
+        {
+          "factory_id": "F000902",
+          "period_month": "2026-05",
+          "check_family": "stock_rollforward",
+          "source_family": "production",
+          "expected": "2313.6512",
+          "observed": "1912.5724",
+          "gap": "401.0788",
+          "severity": 0.2738096603461148,
+          "estimated_tax_exposure_inr": "8663.30208",
+          "evidence": "previous closing=1784.6931, documented raw stock change=0",
+          "discrepancy_class": "mismatch"
+        },
+        {
+          "factory_id": "F000902",
+          "period_month": "2026-05",
+          "check_family": "supplier_chain",
+          "source_family": "supplier",
+          "expected": "1831.011",
+          "observed": "1496.6267",
+          "gap": "334.3843",
+          "severity": 0.18262276960651794,
+          "estimated_tax_exposure_inr": "5417.02566",
+          "evidence": "three-party cycle=0",
+          "discrepancy_class": "supplier issue"
+        }
+      ],
+      "dispositions": [],
+      "timeline": [
+        {
+          "period_month": "2026-01",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-02",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-03",
+          "signal_count": 2,
+          "total_severity": 0.26337077649995566,
+          "weakest_link_normalised_gap": 0.12717311971477258,
+          "estimated_tax_exposure_inr": "10012.610772",
+          "status": "prioritise"
+        },
+        {
+          "period_month": "2026-04",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-05",
+          "signal_count": 4,
+          "total_severity": 1.2349906349640964,
+          "weakest_link_normalised_gap": 0.18262276960651794,
+          "estimated_tax_exposure_inr": "30548.669022",
+          "status": "prioritise"
+        },
+        {
+          "period_month": "2026-06",
+          "signal_count": 3,
+          "total_severity": 1.0455243041650597,
+          "weakest_link_normalised_gap": 0.2539159903532607,
+          "estimated_tax_exposure_inr": "29996.26659",
+          "status": "prioritise"
+        },
+        {
+          "period_month": "2026-07",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-08",
+          "signal_count": 3,
+          "total_severity": 1.0357734887359968,
+          "weakest_link_normalised_gap": 0.2437289147402798,
+          "estimated_tax_exposure_inr": "27594.390816",
+          "status": "prioritise"
+        },
+        {
+          "period_month": "2026-09",
+          "signal_count": 3,
+          "total_severity": 1.0598114916690535,
+          "weakest_link_normalised_gap": 0.26454925700138066,
+          "estimated_tax_exposure_inr": "23409.853074",
+          "status": "prioritise"
+        },
+        {
+          "period_month": "2026-10",
+          "signal_count": 3,
+          "total_severity": 1.051572453216578,
+          "weakest_link_normalised_gap": 0.2487406029962557,
+          "estimated_tax_exposure_inr": "29873.773098",
+          "status": "prioritise"
+        },
+        {
+          "period_month": "2026-11",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-12",
+          "signal_count": 3,
+          "total_severity": 1.0442102009916157,
+          "weakest_link_normalised_gap": 0.24071686905958603,
+          "estimated_tax_exposure_inr": "25707.279114",
+          "status": "prioritise"
+        }
+      ],
+      "note": "Evidence summary for factory F000902. bank_sales: expected 112302.0817, observed 155663.3986, gap 43361.3169. dispatch_invoice: expected 1336.9296, observed 935.8507, gap 401.0789. stock_rollforward: expected 2313.6512, observed 1912.5724, gap 401.0788. supplier_chain: expected 1831.011, observed 1496.6267, gap 334.3843. Human review is required; these discrepancies do not establish fraud.",
+      "validated": true,
+      "note_mode": "deterministic fallback"
+    },
+    {
+      "factory_id": "F000016",
+      "month": "2026-04",
+      "kind": "cleared",
+      "evidence": [
+        {
+          "factory_id": "F000016",
+          "period_month": "2026-04",
+          "check_family": "material_output",
+          "source_family": "production",
+          "expected": "1410.4144",
+          "observed": "1419.0091",
+          "gap": "-8.5947",
+          "severity": 0.24190376510835304,
+          "estimated_tax_exposure_inr": "0",
+          "evidence": "material kg=1763.018, power kWh=7487.2241, hours=160, raw stock change=0",
+          "discrepancy_class": "contradicting evidence"
+        }
+      ],
+      "dispositions": [
+        {
+          "period_month": "2026-04",
+          "source_family": "production",
+          "disposition": "Cleared: verified machinery change"
+        }
+      ],
+      "timeline": [
+        {
+          "period_month": "2026-01",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-02",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-03",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-04",
+          "signal_count": 1,
+          "total_severity": 0.24190376510835304,
+          "weakest_link_normalised_gap": 0.24190376510835304,
+          "estimated_tax_exposure_inr": "0",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-05",
+          "signal_count": 1,
+          "total_severity": 0.26873068704511627,
+          "weakest_link_normalised_gap": 0.26873068704511627,
+          "estimated_tax_exposure_inr": "271.363824",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-06",
+          "signal_count": 1,
+          "total_severity": 0.2678982356084832,
+          "weakest_link_normalised_gap": 0.2678982356084832,
+          "estimated_tax_exposure_inr": "0",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-07",
+          "signal_count": 1,
+          "total_severity": 0.25245770665694395,
+          "weakest_link_normalised_gap": 0.25245770665694395,
+          "estimated_tax_exposure_inr": "0",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-08",
+          "signal_count": 1,
+          "total_severity": 0.2630604668793421,
+          "weakest_link_normalised_gap": 0.2630604668793421,
+          "estimated_tax_exposure_inr": "401.027328",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-09",
+          "signal_count": 1,
+          "total_severity": 0.25062758930554274,
+          "weakest_link_normalised_gap": 0.25062758930554274,
+          "estimated_tax_exposure_inr": "32.774976",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-10",
+          "signal_count": 1,
+          "total_severity": 0.2766216142775409,
+          "weakest_link_normalised_gap": 0.2766216142775409,
+          "estimated_tax_exposure_inr": "0",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-11",
+          "signal_count": 1,
+          "total_severity": 0.243723490955938,
+          "weakest_link_normalised_gap": 0.243723490955938,
+          "estimated_tax_exposure_inr": "429.893568",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-12",
+          "signal_count": 1,
+          "total_severity": 0.24703349723961848,
+          "weakest_link_normalised_gap": 0.24703349723961848,
+          "estimated_tax_exposure_inr": "0",
+          "status": "review only"
+        }
+      ],
+      "note": "Evidence summary for factory F000016. material_output: expected 1410.4144, observed 1419.0091, gap -8.5947. Human review is required; these discrepancies do not establish fraud.",
+      "validated": true,
+      "note_mode": "deterministic fallback"
+    },
+    {
+      "factory_id": "F000025",
+      "month": "2026-08",
+      "kind": "missed",
+      "evidence": [
+        {
+          "factory_id": "F000025",
+          "period_month": "2026-08",
+          "check_family": "dispatch_invoice",
+          "source_family": "movement",
+          "expected": "1121.3356",
+          "observed": "1065.2688",
+          "gap": "56.0668",
+          "severity": 0.5,
+          "estimated_tax_exposure_inr": "1211.04288",
+          "evidence": "document reuse fraction=0.5",
+          "discrepancy_class": "mismatch"
+        }
+      ],
+      "dispositions": [
+        {
+          "period_month": "2026-08",
+          "source_family": "movement",
+          "disposition": "Review-only: unexplained"
+        }
+      ],
+      "timeline": [
+        {
+          "period_month": "2026-01",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-02",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-03",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-04",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-05",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-06",
+          "signal_count": 2,
+          "total_severity": 2.0,
+          "weakest_link_normalised_gap": 1.0,
+          "estimated_tax_exposure_inr": "65020.947048",
+          "status": "prioritise"
+        },
+        {
+          "period_month": "2026-07",
+          "signal_count": 1,
+          "total_severity": 0.10174902184619065,
+          "weakest_link_normalised_gap": 0.10174902184619065,
+          "estimated_tax_exposure_inr": "3328.879248",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-08",
+          "signal_count": 1,
+          "total_severity": 0.5,
+          "weakest_link_normalised_gap": 0.5,
+          "estimated_tax_exposure_inr": "1211.04288",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-09",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-10",
+          "signal_count": 1,
+          "total_severity": 0.5,
+          "weakest_link_normalised_gap": 0.5,
+          "estimated_tax_exposure_inr": "1847.6964",
+          "status": "review only"
+        },
+        {
+          "period_month": "2026-11",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        },
+        {
+          "period_month": "2026-12",
+          "signal_count": 0,
+          "total_severity": 0.0,
+          "weakest_link_normalised_gap": 0.0,
+          "estimated_tax_exposure_inr": "0",
+          "status": "clear"
+        }
+      ],
+      "note": "Evidence summary for factory F000025. dispatch_invoice: expected 1121.3356, observed 1065.2688, gap 56.0668. Human review is required; these discrepancies do not establish fraud.",
+      "validated": true,
+      "note_mode": "deterministic fallback"
+    }
+  ],
+  "questions": [
+    {
+      "question": "show dispatch for factory F000902",
+      "intent": "dispatch",
+      "response": {
+        "intent": "dispatch",
+        "sql": "SELECT PERIOD_MONTH,EXPECTED,OBSERVED,GAP,SEVERITY FROM GST_EVIDENCE.V_FEATURES WHERE FACTORY_ID='F000902' AND CHECK_FAMILY='dispatch_invoice' ORDER BY PERIOD_MONTH LIMIT 200",
+        "rows": [
+          {
+            "period_month": "2026-01",
+            "expected": "1527.203",
+            "observed": "1527.203",
+            "gap": "0",
+            "severity": 0.0
+          },
+          {
+            "period_month": "2026-02",
+            "expected": "1417.3832",
+            "observed": "1417.3832",
+            "gap": "0",
+            "severity": 0.0
+          },
+          {
+            "period_month": "2026-03",
+            "expected": "1622.2822",
+            "observed": "1622.2823",
+            "gap": "-0.0001",
+            "severity": 6.164155656765513e-08
+          },
+          {
+            "period_month": "2026-04",
+            "expected": "1564.5162",
+            "observed": "1564.5162",
+            "gap": "0",
+            "severity": 0.0
+          },
+          {
+            "period_month": "2026-05",
+            "expected": "1336.9296",
+            "observed": "935.8507",
+            "gap": "401.0789",
+            "severity": 0.5
+          },
+          {
+            "period_month": "2026-06",
+            "expected": "1563.5984",
+            "observed": "1094.5188",
+            "gap": "469.0796",
+            "severity": 0.5
+          },
+          {
+            "period_month": "2026-07",
+            "expected": "1222.4688",
+            "observed": "1222.4687",
+            "gap": "0.0001",
+            "severity": 8.180167870132964e-08
+          },
+          {
+            "period_month": "2026-08",
+            "expected": "1437.4118",
+            "observed": "1006.1883",
+            "gap": "431.2235",
+            "severity": 0.5
+          },
+          {
+            "period_month": "2026-09",
+            "expected": "1213.2734",
+            "observed": "849.2914",
+            "gap": "363.982",
+            "severity": 0.5
+          },
+          {
+            "period_month": "2026-10",
+            "expected": "1529.8122",
+            "observed": "1070.8685",
+            "gap": "458.9437",
+            "severity": 0.5
+          },
+          {
+            "period_month": "2026-11",
+            "expected": "1400.7058",
+            "observed": "1400.7059",
+            "gap": "-0.0001",
+            "severity": 7.139257936962922e-08
+          },
+          {
+            "period_month": "2026-12",
+            "expected": "1315.0624",
+            "observed": "920.5437",
+            "gap": "394.5187",
+            "severity": 0.5
+          }
+        ],
+        "row_limit": 200,
+        "timeout_seconds": 30
+      },
+      "latency_ms": 217.40083399345167
+    },
+    {
+      "question": "show timeline for factory F000902",
+      "intent": "timeline",
+      "response": {
+        "intent": "timeline",
+        "sql": "SELECT PERIOD_MONTH,SIGNAL_COUNT,TOTAL_SEVERITY,WEAKEST_LINK_NORMALISED_GAP,ESTIMATED_TAX_EXPOSURE_INR,STATUS FROM GST_EVIDENCE.V_RANKED_CASES WHERE FACTORY_ID='F000902' ORDER BY PERIOD_MONTH LIMIT 200",
+        "rows": [
+          {
+            "period_month": "2026-01",
+            "signal_count": 0,
+            "total_severity": 0.0,
+            "weakest_link_normalised_gap": 0.0,
+            "estimated_tax_exposure_inr": "0",
+            "status": "clear"
+          },
+          {
+            "period_month": "2026-02",
+            "signal_count": 0,
+            "total_severity": 0.0,
+            "weakest_link_normalised_gap": 0.0,
+            "estimated_tax_exposure_inr": "0",
+            "status": "clear"
+          },
+          {
+            "period_month": "2026-03",
+            "signal_count": 2,
+            "total_severity": 0.26337077649995566,
+            "weakest_link_normalised_gap": 0.12717311971477258,
+            "estimated_tax_exposure_inr": "10012.610772",
+            "status": "prioritise"
+          },
+          {
+            "period_month": "2026-04",
+            "signal_count": 0,
+            "total_severity": 0.0,
+            "weakest_link_normalised_gap": 0.0,
+            "estimated_tax_exposure_inr": "0",
+            "status": "clear"
+          },
+          {
+            "period_month": "2026-05",
+            "signal_count": 4,
+            "total_severity": 1.2349906349640964,
+            "weakest_link_normalised_gap": 0.18262276960651794,
+            "estimated_tax_exposure_inr": "30548.669022",
+            "status": "prioritise"
+          },
+          {
+            "period_month": "2026-06",
+            "signal_count": 3,
+            "total_severity": 1.0455243041650597,
+            "weakest_link_normalised_gap": 0.2539159903532607,
+            "estimated_tax_exposure_inr": "29996.26659",
+            "status": "prioritise"
+          },
+          {
+            "period_month": "2026-07",
+            "signal_count": 0,
+            "total_severity": 0.0,
+            "weakest_link_normalised_gap": 0.0,
+            "estimated_tax_exposure_inr": "0",
+            "status": "clear"
+          },
+          {
+            "period_month": "2026-08",
+            "signal_count": 3,
+            "total_severity": 1.0357734887359968,
+            "weakest_link_normalised_gap": 0.2437289147402798,
+            "estimated_tax_exposure_inr": "27594.390816",
+            "status": "prioritise"
+          },
+          {
+            "period_month": "2026-09",
+            "signal_count": 3,
+            "total_severity": 1.0598114916690535,
+            "weakest_link_normalised_gap": 0.26454925700138066,
+            "estimated_tax_exposure_inr": "23409.853074",
+            "status": "prioritise"
+          },
+          {
+            "period_month": "2026-10",
+            "signal_count": 3,
+            "total_severity": 1.051572453216578,
+            "weakest_link_normalised_gap": 0.2487406029962557,
+            "estimated_tax_exposure_inr": "29873.773098",
+            "status": "prioritise"
+          },
+          {
+            "period_month": "2026-11",
+            "signal_count": 0,
+            "total_severity": 0.0,
+            "weakest_link_normalised_gap": 0.0,
+            "estimated_tax_exposure_inr": "0",
+            "status": "clear"
+          },
+          {
+            "period_month": "2026-12",
+            "signal_count": 3,
+            "total_severity": 1.0442102009916157,
+            "weakest_link_normalised_gap": 0.24071686905958603,
+            "estimated_tax_exposure_inr": "25707.279114",
+            "status": "prioritise"
+          }
+        ],
+        "row_limit": 200,
+        "timeout_seconds": 30
+      },
+      "latency_ms": 132.53779099613894
+    },
+    {
+      "question": "show evidence for factory F000902",
+      "intent": "evidence",
+      "response": {
+        "intent": "evidence",
+        "sql": "SELECT PERIOD_MONTH,CHECK_FAMILY,SOURCE_FAMILY,EXPECTED,OBSERVED,GAP,SEVERITY,DISCREPANCY_CLASS FROM GST_EVIDENCE.V_ALL_EVIDENCE WHERE FACTORY_ID='F000902' ORDER BY PERIOD_MONTH,CHECK_FAMILY LIMIT 200",
+        "rows": [
+          {
+            "period_month": "2026-03",
+            "check_family": "material_output",
+            "source_family": "production",
+            "expected": "1942.61272",
+            "observed": "1695.5646",
+            "gap": "247.04812",
+            "severity": 0.12717311971477258,
+            "discrepancy_class": "needs human review"
+          },
+          {
+            "period_month": "2026-03",
+            "check_family": "supplier_chain",
+            "source_family": "supplier",
+            "expected": "2119.4557",
+            "observed": "1830.7908",
+            "gap": "288.6649",
+            "severity": 0.1361976567851831,
+            "discrepancy_class": "supplier issue"
+          },
+          {
+            "period_month": "2026-05",
+            "check_family": "bank_sales",
+            "source_family": "financial",
+            "expected": "112302.0817",
+            "observed": "155663.3986",
+            "gap": "43361.3169",
+            "severity": 0.2785582050114638,
+            "discrepancy_class": "needs human review"
+          },
+          {
+            "period_month": "2026-05",
+            "check_family": "dispatch_invoice",
+            "source_family": "movement",
+            "expected": "1336.9296",
+            "observed": "935.8507",
+            "gap": "401.0789",
+            "severity": 0.5,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-05",
+            "check_family": "stock_rollforward",
+            "source_family": "production",
+            "expected": "2313.6512",
+            "observed": "1912.5724",
+            "gap": "401.0788",
+            "severity": 0.2738096603461148,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-05",
+            "check_family": "supplier_chain",
+            "source_family": "supplier",
+            "expected": "1831.011",
+            "observed": "1496.6267",
+            "gap": "334.3843",
+            "severity": 0.18262276960651794,
+            "discrepancy_class": "supplier issue"
+          },
+          {
+            "period_month": "2026-06",
+            "check_family": "bank_sales",
+            "source_family": "financial",
+            "expected": "131342.2613",
+            "observed": "185409.0948",
+            "gap": "54066.8335",
+            "severity": 0.2916083138117991,
+            "discrepancy_class": "needs human review"
+          },
+          {
+            "period_month": "2026-06",
+            "check_family": "dispatch_invoice",
+            "source_family": "movement",
+            "expected": "1563.5984",
+            "observed": "1094.5188",
+            "gap": "469.0796",
+            "severity": 0.5,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-06",
+            "check_family": "stock_rollforward",
+            "source_family": "production",
+            "expected": "2665.4343",
+            "observed": "2196.3548",
+            "gap": "469.0795",
+            "severity": 0.2539159903532607,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-08",
+            "check_family": "bank_sales",
+            "source_family": "financial",
+            "expected": "120742.5957",
+            "observed": "170551.1269",
+            "gap": "49808.5312",
+            "severity": 0.29204457399571715,
+            "discrepancy_class": "needs human review"
+          },
+          {
+            "period_month": "2026-08",
+            "check_family": "dispatch_invoice",
+            "source_family": "movement",
+            "expected": "1437.4118",
+            "observed": "1006.1883",
+            "gap": "431.2235",
+            "severity": 0.5,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-08",
+            "check_family": "stock_rollforward",
+            "source_family": "production",
+            "expected": "3200.1542",
+            "observed": "2768.9307",
+            "gap": "431.2235",
+            "severity": 0.2437289147402798,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-09",
+            "check_family": "bank_sales",
+            "source_family": "financial",
+            "expected": "101914.9627",
+            "observed": "144614.022",
+            "gap": "42699.0593",
+            "severity": 0.2952622346676728,
+            "discrepancy_class": "needs human review"
+          },
+          {
+            "period_month": "2026-09",
+            "check_family": "dispatch_invoice",
+            "source_family": "movement",
+            "expected": "1213.2734",
+            "observed": "849.2914",
+            "gap": "363.982",
+            "severity": 0.5,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-09",
+            "check_family": "stock_rollforward",
+            "source_family": "production",
+            "expected": "3295.4965",
+            "observed": "2931.5145",
+            "gap": "363.982",
+            "severity": 0.26454925700138066,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-10",
+            "check_family": "bank_sales",
+            "source_family": "financial",
+            "expected": "128504.2238",
+            "observed": "184323.1419",
+            "gap": "55818.9181",
+            "severity": 0.3028318502203222,
+            "discrepancy_class": "needs human review"
+          },
+          {
+            "period_month": "2026-10",
+            "check_family": "dispatch_invoice",
+            "source_family": "movement",
+            "expected": "1529.8122",
+            "observed": "1070.8685",
+            "gap": "458.9437",
+            "severity": 0.5,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-10",
+            "check_family": "material_output",
+            "source_family": "production",
+            "expected": "1831.54112",
+            "observed": "1845.0695",
+            "gap": "-13.52838",
+            "severity": 0.10864439514016845,
+            "discrepancy_class": "contradicting evidence"
+          },
+          {
+            "period_month": "2026-10",
+            "check_family": "stock_rollforward",
+            "source_family": "production",
+            "expected": "3705.7155",
+            "observed": "3246.7718",
+            "gap": "458.9437",
+            "severity": 0.2487406029962557,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-12",
+            "check_family": "bank_sales",
+            "source_family": "financial",
+            "expected": "110465.2389",
+            "observed": "158598.9682",
+            "gap": "48133.7293",
+            "severity": 0.30349333193202954,
+            "discrepancy_class": "needs human review"
+          },
+          {
+            "period_month": "2026-12",
+            "check_family": "dispatch_invoice",
+            "source_family": "movement",
+            "expected": "1315.0624",
+            "observed": "920.5437",
+            "gap": "394.5187",
+            "severity": 0.5,
+            "discrepancy_class": "mismatch"
+          },
+          {
+            "period_month": "2026-12",
+            "check_family": "stock_rollforward",
+            "source_family": "production",
+            "expected": "4276.0413",
+            "observed": "3881.5226",
+            "gap": "394.5187",
+            "severity": 0.24071686905958603,
+            "discrepancy_class": "mismatch"
+          }
+        ],
+        "row_limit": 200,
+        "timeout_seconds": 30
+      },
+      "latency_ms": 124.9666250005248
+    }
+  ],
+  "selection_sha256": "b4e96514ada2ffef42f06b78d26a697139ae0efd25e6c6be70dc0f24a1dc95a3"
+}

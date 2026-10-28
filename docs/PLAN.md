@@ -1,3 +1,5 @@
+> HISTORICAL DOCUMENT. Current status: [PROJECT_STATUS.md](../PROJECT_STATUS.md); current audit: [JUDGE_AUDIT.md](JUDGE_AUDIT.md). Old dates, metrics and completeness statements below are retained for traceability and are not current submission claims.
+
 # Submission plan — 21 October 2026
 
 Ordered by expected judging value divided by effort. Phase 1 is the submission

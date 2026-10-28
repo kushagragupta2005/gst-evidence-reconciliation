@@ -1,0 +1,59 @@
+{
+  "scope": "Synthetic A calibration and B/C held-out features and evaluator predictions only; no taxpayer data or credentials. Features are detector outputs; labels remain evaluator-only.",
+  "files": [
+    {
+      "source": "data/v3_a/features.csv",
+      "archive": "data/audit/v3_a/features.csv.gz",
+      "sha256": "0e9d12fe08c42a31cd2103eed81c38a205c8f469768165e8da34ba709a0bc959",
+      "archive_sha256": "e2d9ae714e857eb3d4730ce12bfb7aa8b6c9cfc8021c4a1bb1f593fce4d7b161",
+      "rows": 172800,
+      "bytes": 26164249,
+      "compressed_bytes": 5277696
+    },
+    {
+      "source": "reports/v3_a/held_out_predictions.csv",
+      "archive": "data/audit/v3_a/held_out_predictions.csv.gz",
+      "sha256": "31c5503c0d81b17b8ab88888b81627d7d3dc24cab9df0f92f7fdc2d8eddc6b50",
+      "archive_sha256": "13d2f2729f9bcc4b59ff7055edd84686a27d783727a2fe92c45bbb7ce107cc07",
+      "rows": 28800,
+      "bytes": 4459474,
+      "compressed_bytes": 464449
+    },
+    {
+      "source": "data/v3_b/features.csv",
+      "archive": "data/audit/v3_b/features.csv.gz",
+      "sha256": "fe2de3c19659804602df7bbeaa43460409b7009ac4043948ae074523d7a9c60c",
+      "archive_sha256": "1740d408ac8959dd52430b4f08bb81d201fdd7b87e939ba0f67ebd397f7511a6",
+      "rows": 172800,
+      "bytes": 26165642,
+      "compressed_bytes": 5278503
+    },
+    {
+      "source": "reports/v3_b/held_out_predictions.csv",
+      "archive": "data/audit/v3_b/held_out_predictions.csv.gz",
+      "sha256": "f9a5b58847210cb93d1fdb094307e8274a9746aaff991862b440f562ae06cc36",
+      "archive_sha256": "f4e67171d6f45e94fb80832a97c17a3ab8a3eb72561d051764addd7e437ff405",
+      "rows": 28800,
+      "bytes": 4459419,
+      "compressed_bytes": 462911
+    },
+    {
+      "source": "data/v3_c/features.csv",
+      "archive": "data/audit/v3_c/features.csv.gz",
+      "sha256": "3ef3274c6b698c2dd0f6add1173d4a125760f4bd2ea1c199a3c10e94b03534ca",
+      "archive_sha256": "8f71fbb64d84462403c1c313e5a4657253b6118bb3946204f3009f63644d5e6d",
+      "rows": 172800,
+      "bytes": 26164584,
+      "compressed_bytes": 5276964
+    },
+    {
+      "source": "reports/v3_c/held_out_predictions.csv",
+      "archive": "data/audit/v3_c/held_out_predictions.csv.gz",
+      "sha256": "b4e96514ada2ffef42f06b78d26a697139ae0efd25e6c6be70dc0f24a1dc95a3",
+      "archive_sha256": "7574e046340996c07e0f8cf4e977f0cafba492dd2cccd19e7775f24e0cff4b1a",
+      "rows": 28800,
+      "bytes": 4459234,
+      "compressed_bytes": 461919
+    }
+  ]
+}

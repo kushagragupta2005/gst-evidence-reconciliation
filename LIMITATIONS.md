@@ -14,3 +14,9 @@
 - The new full-scale run remains pending: the authorised restricted account cannot load a new dataset or rewrite views. The existing 20.98-million-row run remains historical. A second-machine reproduction remains unverified.
 
 - `reports/benchmark_current_reader.json` measures current V3-C Exasol views and equivalent DuckDB checks on CSV-loaded tables. Counts and gap checksums agree; execution stages and physical plans differ. DuckDB load time is separate; Exasol ingestion was not measured. It is not a full-scale run, and no general speed advantage is claimed.
+
+- The 28 October audit found a live default threshold of 0.10 while published V3 evaluation used 0.05. The authorised settings-only repair restored 0.05 and all monthly live flags/signal counts matched V3-C. Source defaults and a fail-closed API guard now check rule consistency. Earlier connectivity/count-only checks did not establish that consistency; see reports/threshold_repair.json.
+- The new guard adds work to each API request. Current concurrency timing is the latest reports/live_smoke.json and is not directly comparable with the earlier unguarded timing. Historic latency artifacts are retained under legacy/evidence/.
+- The required video is an outstanding user recording task. A script or a static screenshot is not a completed video, and no portal submission is claimed.
+
+- Ranking has an open tertiary-key alignment issue: SQL sums firing-family exposure maxima, while the frozen evaluator uses a global exposure maximum. Signals and flags match; exact queue ordering is diagnosed in reports/ranking_alignment_audit.json. Historical precision is not relabelled as a new ranking evaluation.

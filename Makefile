@@ -1,7 +1,7 @@
 .NOTPARALLEL:
-.PHONY: all bootstrap provision-reader reproduce reproduce-dev site api export-site-data live-smoke test scale-dev verify-clean
+.PHONY: all bootstrap provision-reader reproduce reproduce-dev site api export-site-data live-smoke test scale-dev verify-clean audit restore-audit
 PY = .venv/bin/python
-all: test
+all: test audit export-site-data
 bootstrap:
 	sh scripts/bootstrap.sh
 provision-reader: bootstrap
@@ -44,3 +44,10 @@ scale-dev: bootstrap
 
 verify-clean:
 	sh scripts/verify_clean_setup.sh
+
+restore-audit:
+	$(PY) scripts/restore_audit_evidence.py
+
+audit: restore-audit
+	PYTHONPATH=. $(PY) scripts/audit_site_numbers.py
+	PYTHONPATH=. $(PY) scripts/site_ablation.py

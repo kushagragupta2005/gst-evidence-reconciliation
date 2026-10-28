@@ -45,6 +45,11 @@ def load(data, features=None):
             report['load_seconds'][table]=time.perf_counter()-start
             print(f'Loaded {table}: {report["load_seconds"][table]:.3f}s',flush=True)
         execute_file(conn,'sql/20_entities.sql')
+        threshold=json.loads(Path('results.json').read_text())['protocol']['threshold']
+        if not isinstance(threshold,(int,float)) or not 0<threshold<1:raise ValueError('Invalid frozen threshold')
+        conn.execute(f'UPDATE GST_EVIDENCE.SETTINGS SET THRESHOLD={threshold}')
+        assert float(conn.execute('SELECT THRESHOLD FROM GST_EVIDENCE.SETTINGS').fetchval())==threshold
+        report['frozen_threshold']=threshold
         execute_file(conn,'sql/10_checks.sql')
         execute_file(conn,'sql/02_readonly_grants.sql')
         for view in VIEWS:

@@ -15,3 +15,8 @@ jobs:
       - name: Offline unit and generated-data SQL smoke
         run: python -m unittest discover -s tests -v
       - run: python -m compileall -q src scripts
+      - name: Recompute archived synthetic evidence
+        run: |
+          python scripts/restore_audit_evidence.py
+          PYTHONPATH=. python scripts/audit_site_numbers.py
+          PYTHONPATH=. python scripts/site_ablation.py

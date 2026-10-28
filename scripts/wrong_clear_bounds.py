@@ -1,5 +1,7 @@
 import csv,hashlib,json
 from pathlib import Path
+from scripts.restore_audit_evidence import restore
+restore()
 out={'method':'Approximate one-sided 95% rule-of-three upper bound (3/N) after zero wrong-clear factories. Unit: factory with at least one active cheat month. Assumes independent factory outcomes; conditional on this synthetic generator, not a real-world safety bound. Not a cluster-bootstrap confidence interval.','seeds':{}}
 for seed in ['v3_b','v3_c']:
  p=Path(f'reports/{seed}/held_out_predictions.csv');d=json.loads(Path(f'reports/{seed}_dispositions.json').read_text())

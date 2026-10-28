@@ -1,0 +1,10 @@
+{
+  "source_page": "https://www.exasol.com/terms-and-conditions/",
+  "document_url": "https://3369268.fs1.hubspotusercontent-na1.net/hubfs/3369268/Legal/Terms%20and%20Conditions/EULA_ExasolPersonal_EN_2026-01-21.pdf",
+  "retrieved_date": "2026-10-28",
+  "sha256": "86e169d4069f64d55f1c904570c29c06906d8b5a7b76f271ace5fc67095f8bbb",
+  "pages": 3,
+  "benchmark_token_in_normalised_text": false,
+  "finding": "No explicit benchmark-results disclosure clause was found in the inspected Personal EULA text. The separately published Community Edition EULA has different terms and was not treated as the Personal licence.",
+  "limits": "Personal use/single-user and connection restrictions still apply; this is a text inspection, not a legal permission opinion. Timings remain labeled workload timings on a MacBook."
+}

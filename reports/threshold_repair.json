@@ -1,0 +1,31 @@
+{
+  "time_utc": "2026-10-28T15:17:06.170264+00:00",
+  "authorisation": "User approved one threshold repair; no schema recreation, data load, privilege change or truth read.",
+  "source": "sql/03_align_frozen_threshold.sql",
+  "before": [
+    0.1
+  ],
+  "after": [
+    0.05
+  ],
+  "restricted_verification": {
+    "threshold": 0.05,
+    "view_decisions_match_frozen_protocol": true
+  },
+  "status_counts": [
+    [
+      "prioritise",
+      3775
+    ],
+    [
+      "clear",
+      14751
+    ],
+    [
+      "review only",
+      10274
+    ]
+  ],
+  "factory_queue_size": 605,
+  "status": "passed"
+}

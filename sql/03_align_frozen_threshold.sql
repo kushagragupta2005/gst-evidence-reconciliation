@@ -1,0 +1,6 @@
+-- Audited repair only: no schema recreation and no data deletion.
+-- This is the V3-A-selected threshold already published in results.json.
+SELECT THRESHOLD FROM GST_EVIDENCE.SETTINGS;
+UPDATE GST_EVIDENCE.SETTINGS SET THRESHOLD=0.05;
+SELECT THRESHOLD FROM GST_EVIDENCE.SETTINGS;
+SELECT STATUS, COUNT(*) FROM GST_EVIDENCE.V_RANKED_CASES GROUP BY STATUS;
