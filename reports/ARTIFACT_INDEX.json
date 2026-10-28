@@ -114,6 +114,13 @@
       "sha256": "79d3e74f72be44b7665c47ce896ac205dfc5570376845bbc104f9f7481da9011"
     },
     {
+      "path": "reports/deck_export_checks.json",
+      "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
+      "embedded_status": null,
+      "bytes": 4095,
+      "sha256": "40790209cd8226f8f066d543981ee2c3cb7a751f8debc165cc1533c5e962f860"
+    },
+    {
       "path": "reports/evaluation.md",
       "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
       "embedded_status": null,
@@ -194,8 +201,8 @@
       "path": "reports/live_smoke.json",
       "classification": "CURRENT_POST_REPAIR_LIVE_SMOKE",
       "embedded_status": null,
-      "bytes": 2217,
-      "sha256": "b9d660dd316a191209bf0c229a11c4597e34c20c3ae42e8f4cbb853681294db1"
+      "bytes": 2219,
+      "sha256": "4352de51659d84391fc1e8fb6005ae1775335d41bffb235d5966b909c6425e63"
     },
     {
       "path": "reports/load_demo_restore.json",
@@ -397,8 +404,8 @@
       "path": "reports/site_examples.json",
       "classification": "CURRENT_RECORDED_EXAMPLES",
       "embedded_status": null,
-      "bytes": 29308,
-      "sha256": "c82d187eb76a36f7efda2df2c7c4f493a038c2f501e6dadd8368096d0647f180"
+      "bytes": 29309,
+      "sha256": "821fcd7e67a16308421923a523a6b165bf2131442428aa3db64cc8b7904e2556"
     },
     {
       "path": "reports/site_migration.md",

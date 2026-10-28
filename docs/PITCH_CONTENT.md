@@ -48,4 +48,4 @@ No in the current recorded comparison: stock medians Exasol 0.169s, DuckDB 0.006
 
 **What are the current Live and security results?**
 
-The current guarded API smoke passed all three intents, notes, activity, injection/unknown-intent rejection and 8 parallel questions. Measured p95 3.846s includes the new protocol validation. The reader cannot read database truth. Public Pages always uses recorded snapshots; real power/bank access would require lawful privacy controls.
+The current guarded API smoke passed all three intents, notes, activity, injection/unknown-intent rejection and 8 parallel questions. Measured p95 4.096s includes the new protocol validation. The reader cannot read database truth. Public Pages always uses recorded snapshots; real power/bank access would require lawful privacy controls.

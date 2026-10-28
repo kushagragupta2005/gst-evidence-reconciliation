@@ -247,7 +247,7 @@ The saved noise ×1.5, noise ×2 and 10% missing-document reports are historical
 
 Current comparison: 2,400 factories, 172,800 feature rows, Apple M2 / 16 GiB machine per recorded hardware metadata. DuckDB is faster in this run. Query-result cache was off; load coverage and physical plans differ. CSV load/input hashing is separately recorded; Exasol ingestion is not remeasured. This is not general database superiority evidence. The 20,978,945-row workload and raw/cache profile are historical DEV and predate the current detector.
 
-Today's actual API smoke passed health, queue, case, validated note, all intents, injection/unknown-intent rejection and activity. Eight parallel requests: p50 3.770294s; p95 3.846085s. This includes the new live protocol guard, so the older 1.240s p95 should not be treated as the current API timing. No 50-session result exists.
+Today's actual API smoke passed health, queue, case, validated note, all intents, injection/unknown-intent rejection and activity. Eight parallel requests: p50 3.851653s; p95 4.096334s. This includes the new live protocol guard, so the older 1.240s p95 should not be treated as the current API timing. No 50-session result exists.
 
 Live database verification: 28,800 monthly rows and 172,800 features. All live signal counts/flags match C after the approved repair. The restricted reader was denied truth access. Exact queries/outcomes: reports/judge_database_audit.json, reports/threshold_repair.json and reports/live_smoke.json.
 
