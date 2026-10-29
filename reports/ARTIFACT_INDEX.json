@@ -124,8 +124,8 @@
       "path": "reports/evaluation.md",
       "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
       "embedded_status": null,
-      "bytes": 9329,
-      "sha256": "ea76c1f0df47d8ea6a782e04bc95698cc3e74703e94806676088f455df03def8"
+      "bytes": 9313,
+      "sha256": "fa50053e816a4a0605392466954f31370872ca4cf01cb7604b52dab481fbffe9"
     },
     {
       "path": "reports/factory_queue.csv",
@@ -425,8 +425,8 @@
       "path": "reports/site_migration.md",
       "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
       "embedded_status": null,
-      "bytes": 3393,
-      "sha256": "e3c0b5e2d5e87937c00ecd6df5074fb7d9e655ed770a2d8302fd198541ca2b4c"
+      "bytes": 3423,
+      "sha256": "b4de39a96d28642de48fa821ff65be41640f3783ee38e5a22c41c2b0673c8e1f"
     },
     {
       "path": "reports/site_polish.md",
@@ -446,15 +446,15 @@
       "path": "reports/site_smoke_2026-10-26.md",
       "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
       "embedded_status": null,
-      "bytes": 1652,
-      "sha256": "655ed6a387c8e771c1eefbb1f24f351857427dbf5afb02bbc749c6625d352c14"
+      "bytes": 1665,
+      "sha256": "8bf563ea9d317308d0d78f624fb75f46dde58ebc5675035cb315dd4980ce986a"
     },
     {
       "path": "reports/submission_file_checks.json",
       "classification": "CURRENT_DELIVERABLE_CHECK",
       "embedded_status": null,
-      "bytes": 1038,
-      "sha256": "9ebf94aab5b33640626397d3c958d882378652a70c41143aca885c0845ad5d56"
+      "bytes": 939,
+      "sha256": "19aac1fa6f788b71b6dd9b7b99287c8fa1c87dfae4f204560bdc5aaa8cb7108f"
     },
     {
       "path": "reports/submission_readiness_2026-10-29.json",

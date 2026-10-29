@@ -33,4 +33,4 @@ lines = [
     '| Clean-machine from-scratch reproduction | NOT-IMPLEMENTED | Fresh source/venv offline smoke passed; separate-machine database installation remains unverified. |',
     '| Full-scale current-detector benchmark | NOT-IMPLEMENTED | Existing full-scale workload predates the current detector. |',
 ]
-Path('docs/PREREGISTRATION_SCORECARD.md').write_text('\n'.join(lines) + '\n')
+Path('docs/archive/PREREGISTRATION_SCORECARD.md').write_text('\n'.join(lines) + '\n')

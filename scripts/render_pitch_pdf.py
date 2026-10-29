@@ -2,7 +2,7 @@
 from pathlib import Path
 from reportlab.pdfgen import canvas
 ROOT=Path(__file__).resolve().parents[1]
-out=ROOT/'deliverables/exathon-india-2026-pitch.pdf'
+out=ROOT/'00_SUBMISSION/Pitch.pdf'
 c=canvas.Canvas(str(out),pagesize=(960,540))
 c.setTitle('GST Evidence — V3 synthetic evaluation')
 c.setAuthor('Kushagra Gupta')

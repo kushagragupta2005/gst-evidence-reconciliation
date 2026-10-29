@@ -3,14 +3,13 @@
   "required_files": [
     "LICENSE",
     "README.md",
-    "PROJECT_STATUS.md",
-    "SUBMISSION_CHECKLIST.md",
+    "docs/PROJECT_GUIDE.md",
     "docs/JUDGE_AUDIT.md",
     "docs/demo_script.md",
     "docs/judge_qa.md",
     "data/audit/manifest.json",
-    "deliverables/exathon-india-2026-pitch.pptx",
-    "deliverables/exathon-india-2026-pitch.pdf"
+    "00_SUBMISSION/Pitch.pptx",
+    "00_SUBMISSION/Pitch.pdf"
   ],
   "native_slides": 5,
   "problem_statement_hash": "matched",
@@ -20,12 +19,12 @@
   "portal_submission": "not performed",
   "files": [
     {
-      "path": "deliverables/exathon-india-2026-pitch.pptx",
+      "path": "00_SUBMISSION/Pitch.pptx",
       "bytes": 39097,
       "sha256": "0257ebd0f9d7c4f4c27760ed90a1ee369bbc5a9ae650c03d6fec5de36b7cf9b7"
     },
     {
-      "path": "deliverables/exathon-india-2026-pitch.pdf",
+      "path": "00_SUBMISSION/Pitch.pdf",
       "bytes": 373116,
       "sha256": "df1e5f336f134e1c06660858d708d88a103d579fbf92c8de92beb602c64eeb1a"
     }

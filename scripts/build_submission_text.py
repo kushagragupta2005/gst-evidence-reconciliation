@@ -54,8 +54,7 @@ Synthetic only. Human review, not an enforcement decision. Forger testing, ablat
 
 ## Before uploading
 
-Use a screen recording of the actual public or local site; keep the mode label visible. Check duration, sound and source figures. Do not use a stale MP4 or simulate a query. Put the final user-recorded video URL in SUBMISSION_CHECKLIST.md and confirm its access permissions. The assistant has not submitted the portal form.
+Use a screen recording of the actual public or local site; keep the mode label visible. Check duration, sound and source figures. Do not use a stale MP4 or simulate a query. Put the final user-recorded video URL in docs/PROJECT_GUIDE.md and confirm its access permissions. The assistant has not submitted the portal form.
 '''
 (ROOT/'docs/demo_script.md').write_text(script)
-(ROOT/'docs/PITCH_CONTENT.md').write_text('# Current deck content and sources\n\nThe editable PPTX and PDF in deliverables/ use V3-B/V3-C, threshold 0.05 and K=3. The source deck under legacy/submission/ is obsolete and must not be submitted.\n\n'+ '\n\n'.join(f'**{q}**\n\n{a}' for q,a in qa)+'\n')
 print('Updated recording script, judge Q&A and pitch source notes.')

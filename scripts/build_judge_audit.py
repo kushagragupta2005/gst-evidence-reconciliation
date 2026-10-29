@@ -7,7 +7,7 @@ A=load('reports/v3_a_calibration.json');B=load('results.json');C=load('reports/v
 pct=lambda n:'undefined' if n is None else f'{n*100:.2f}%'
 def ci(v,k):return ' – '.join(pct(x) for x in v.get('ci95',{}).get(k,[])) or 'not measured'
 def table(headers,rows):return '| '+' | '.join(headers)+' |\n| '+' | '.join(['---']*len(headers))+' |\n'+'\n'.join('| '+' | '.join(map(str,row))+' |' for row in rows)+'\n'
-parts=['''> Historical audit recorded 28 October 2026. The user uploaded the final submission video on 29 October. See [current status](../PROJECT_STATUS.md) and [submission checklist](../SUBMISSION_CHECKLIST.md) for subsequent changes; the assessment below retains its original date and scope.
+parts=['''> Historical audit recorded 28 October 2026. The user uploaded the final submission video on 29 October. See [current status](../docs/PROJECT_GUIDE.md) and [submission checklist](../docs/PROJECT_GUIDE.md) for subsequent changes; the assessment below retains its original date and scope.
 
 # Judge audit — GST Evidence, 28 October 2026
 
@@ -17,7 +17,7 @@ This is a mock judge review by the coding assistant, not an official jury score,
 
 ## 1. Official rubric and provisional assessment
 
-Official source: [Exasol event page](https://www.exasol.com/events/exathon-india-2026/), checked 28 October. Deadline: 31 October 2026, 11:59 pm IST. Solo entry is allowed. Public code, a permissive licence, a pitch deck, a short demo video, setup and run instructions are required. See SUBMISSION_CHECKLIST.md.
+Official source: [Exasol event page](https://www.exasol.com/events/exathon-india-2026/), checked 28 October. Deadline: 31 October 2026, 11:59 pm IST. Solo entry is allowed. Public code, a permissive licence, a pitch deck, a short demo video, setup and run instructions are required. See docs/PROJECT_GUIDE.md.
 
 ''',table(['Category','Maximum','Review estimate','Reason'],[
 ['Innovation / problem impact',25,20,'Clear factory/officer pain and cross-source reconciliation. No field interviews, quantified officer benefit, or validated comparison with existing fraud platforms.'],
@@ -34,7 +34,7 @@ A judge should not award production accuracy, tax recovery, time savings or gene
 Severity | Finding | Disposition
 ---|---|---
 Critical | Schema default was 0.10, but published V3 threshold is 0.05. Live priorities were 2,837 instead of 3,775. | User approved a single SETTINGS update; no data/schema recreation. Loader now reads the frozen protocol; schema default fixed; API rejects mismatched source-family counts/status. See reports/threshold_repair.json.
-High | Old deck, script and judge Q&A cited V2 metrics and K=4. | Current V3 files regenerated; old deck moved to legacy/submission/ with a do-not-submit label.
+High | Old deck, script and judge Q&A cited V2 metrics and K=4. | Current V3 files regenerated; old deck moved to docs/archive/legacy/submission/ with a do-not-submit label.
 High | Audit scripts required ignored, unshipped CSVs. | Exact compressed synthetic A/B/C features and predictions published under data/audit/ with both compressed and original hashes; restore and CI commands added.
 High | Prior clean-setup helper copied files without Git metadata, which current exporters need. | Replaced by a real local Git clone and isolated venv. Database loading is explicitly opt-in. Current result is reported separately from the older database reproduction.
 Medium | make all ran only tests. | It now runs tests, evidence restoration, numeric audit, ablation replay and static export. It deliberately does not silently replace the database; make reproduce is the explicit loader path.
@@ -170,7 +170,7 @@ What is not established: novelty over the entire GST-fraud market, taxpayer accu
 
 See docs/LICENCE_AUDIT.md and reports/licence_review.json for the actual Personal EULA inspection and tool-licence scope.
 
-See PROJECT_STATUS.md for per-feature states and SUBMISSION_CHECKLIST.md for the actual mandatory hand-in items.
+See docs/PROJECT_GUIDE.md for per-feature states and docs/PROJECT_GUIDE.md for the actual mandatory hand-in items.
 ''')
 (ROOT/'docs/JUDGE_AUDIT.md').write_text('\n'.join(parts))
 print('Wrote comprehensive judge audit with sourced evaluation tables.')

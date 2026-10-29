@@ -156,7 +156,7 @@ Rows are truth and columns are evidence classifications. The strongest non-finan
 
 ### Misses and limits
 
-Missed 625 active cheat months; 182 cheat factories did not enter the K-month factory queue. Full rows and reasons: [misses.csv](reports/misses.csv).
+Missed 625 active cheat months; 182 cheat factories did not enter the K-month factory queue. Full rows and reasons: [misses.csv](misses.csv).
 
 | Factory | Month | Scenario | Intensity | Signals | Reason |
 |---|---|---|---:|---:|---|
@@ -166,6 +166,6 @@ Missed 625 active cheat months; 182 cheat factories did not enter the K-month fa
 | F000018 | 2026-08 | itc_inflation | 15.00% | 1 | only one independent source family exceeded threshold |
 | F000047 | 2026-08 | hidden_production | 5.00% | 1 | only one independent source family exceeded threshold |
 
-![Held-out recall vs false-positive rate](reports/recall_fpr.png)
+![Held-out recall vs false-positive rate](recall_fpr.png)
 
 The curve is diagnostic on seed C and did not select the threshold. A, B and C share a deliberately limited generator. Synthetic data does not establish real-world accuracy, causal independence or legal sufficiency. Every case needs human review; access to power and bank data requires lawful authorisation and privacy safeguards.

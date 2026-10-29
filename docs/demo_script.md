@@ -32,4 +32,4 @@ Synthetic only. Human review, not an enforcement decision. Forger testing, ablat
 
 ## Before uploading
 
-Use a screen recording of the actual public or local site; keep the mode label visible. Check duration, sound and source figures. Do not use a stale MP4 or simulate a query. Put the final user-recorded video URL in SUBMISSION_CHECKLIST.md and confirm its access permissions. The assistant has not submitted the portal form.
+Use a screen recording of the actual public or local site; keep the mode label visible. Check duration, sound and source figures. Do not use a stale MP4 or simulate a query. Put the final user-recorded video URL in docs/PROJECT_GUIDE.md and confirm its access permissions. The assistant has not submitted the portal form.

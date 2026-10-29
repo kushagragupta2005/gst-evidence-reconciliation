@@ -7,7 +7,7 @@
 
 | Location | Reference | Migration action |
 |---|---|---|
-| `app.py` | Current Python UI front end | Move to `legacy/app.py`; retain only as historical implementation. |
+| `app.py` | Current Python UI front end | Move to `docs/archive/legacy/app.py`; retain only as historical implementation. |
 | `Makefile` | `dashboard`, `provision-dashboard` targets | Replace the UI target with `site` and add `api`; retain only account provisioning under a neutral name. |
 | `README.md` | Previous UI setup, command, dependency, architecture and release-checklist references | Describe the static site and local API; remove the retired UI dependency. |
 | `requirements.txt` / `requirements-lock.txt` | Retired UI dependency | Remove it and its unused UI dependency chain. |
@@ -16,9 +16,9 @@
 | `scripts/evaluate_v2.sh` | Historical dashboard-artifact comment | Rename wording; keep its development-only status. |
 | `scripts/export_demo_examples.py` | Dashboard wording | Rename wording; preserve label-isolation constraint. |
 | `scripts/render_preregistration_scorecard.py` | Dashboard wording | Rename wording; preserve the test claim. |
-| `docs/CHANGELOG_RESULTS.md`, `docs/PLAN.md`, `docs/PREREGISTRATION_SCORECARD.md`, `docs/demo_script.md`, `docs/preregistration_v3.md` | Dashboard references | Update only the product name and launch instructions; do not change evaluation claims. |
+| `docs/CHANGELOG_RESULTS.md`, `docs/archive/PLAN.md`, `docs/archive/PREREGISTRATION_SCORECARD.md`, `docs/demo_script.md`, `docs/preregistration_v3.md` | Dashboard references | Update only the product name and launch instructions; do not change evaluation claims. |
 | `website/` | Existing static landing page has no old UI links | Extend this design into the sole front end. |
-| `deliverables/*.pptx`, `.pitch_build/*.pptx` | No matching old-UI strings found in slide XML | Keep under review when the deck is refreshed. |
+| `00_SUBMISSION/*.pptx`, `.pitch_build/*.pptx` | No matching old-UI strings found in slide XML | Keep under review when the deck is refreshed. |
 
 The initial grep found no former local-port literal. It found no old-UI string in the scanned PowerPoint slide XML.
 

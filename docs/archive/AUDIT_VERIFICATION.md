@@ -1,4 +1,4 @@
-> HISTORICAL DOCUMENT. Current status: [PROJECT_STATUS.md](../PROJECT_STATUS.md); current audit: [JUDGE_AUDIT.md](JUDGE_AUDIT.md). Old dates, metrics and completeness statements below are retained for traceability and are not current submission claims.
+> HISTORICAL DOCUMENT. Current status: [docs/PROJECT_GUIDE.md](../PROJECT_GUIDE.md#implementation-status); current audit: [JUDGE_AUDIT.md](../JUDGE_AUDIT.md). Old dates, metrics and completeness statements below are retained for traceability and are not current submission claims.
 
 # Audit verification — 21 October 2026
 
@@ -8,14 +8,14 @@ This register distinguishes evidence that is implemented and tested from gaps th
 
 | Claim | Status | Evidence |
 |---|---|---|
-| Exasol Personal is the primary analytic database. | VERIFIED | [`src/load_and_score.py`](../src/load_and_score.py), [`sql/00_schema.sql`](../sql/00_schema.sql) |
-| All project data is synthetic. | VERIFIED | [`src/generate.py`](../src/generate.py) creates every input CSV. |
-| Detector SQL does not use outcome labels. | VERIFIED | `test_sql_does_not_use_truth` in [`tests/test_engine.py`](../tests/test_engine.py). |
-| Two distinct source families are required for priority. | VERIFIED | `V_RANKED_CASES` in [`sql/10_checks.sql`](../sql/10_checks.sql) and two SQL-contract tests. |
-| Case-note number validation rejects tampering. | VERIFIED | [`tests/test_notes.py`](../tests/test_notes.py). |
-| Follow-up questions are fixed read-only templates. | VERIFIED | [`src/followup.py`](../src/followup.py) and injection-rejection test. |
-| Historical full-scale workload artefacts exist. | DEV | [`reports/benchmark_full.json`](../reports/benchmark_full.json); they predate current detector changes. |
-| Historical V2 accuracy artefacts exist. | DEV | [`reports/v2_seed_b_results.json`](../reports/v2_seed_b_results.json), [`reports/v2_seed_c_results.json`](../reports/v2_seed_c_results.json). |
+| Exasol Personal is the primary analytic database. | VERIFIED | [`src/load_and_score.py`](../../src/load_and_score.py), [`sql/00_schema.sql`](../../sql/00_schema.sql) |
+| All project data is synthetic. | VERIFIED | [`src/generate.py`](../../src/generate.py) creates every input CSV. |
+| Detector SQL does not use outcome labels. | VERIFIED | `test_sql_does_not_use_truth` in [`tests/test_engine.py`](../../tests/test_engine.py). |
+| Two distinct source families are required for priority. | VERIFIED | `V_RANKED_CASES` in [`sql/10_checks.sql`](../../sql/10_checks.sql) and two SQL-contract tests. |
+| Case-note number validation rejects tampering. | VERIFIED | [`tests/test_notes.py`](../../tests/test_notes.py). |
+| Follow-up questions are fixed read-only templates. | VERIFIED | [`src/followup.py`](../../src/followup.py) and injection-rejection test. |
+| Historical full-scale workload artefacts exist. | DEV | [`reports/benchmark_full.json`](../../reports/benchmark_full.json); they predate current detector changes. |
+| Historical V2 accuracy artefacts exist. | DEV | [`reports/v2_seed_b_results.json`](../../reports/v2_seed_b_results.json), [`reports/v2_seed_c_results.json`](../../reports/v2_seed_c_results.json). |
 
 ## Measured misses
 
