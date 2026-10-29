@@ -1,6 +1,6 @@
-# Project status — audit of 28 October 2026
+# Project status — audit of 28 October 2026; video added 29 October
 
-**A working synthetic decision-support prototype. Submission is incomplete until Kushagra adds the required demo video and submits the portal form.** This register is based on code and recorded verification, not a checklist completion claim.
+**A working synthetic decision-support prototype. The final submission video has been uploaded; the portal form still needs to be submitted.** This register is based on code and recorded verification, not a checklist completion claim.
 
 | Component | Status | Evidence / limit |
 |---|---|---|
@@ -27,7 +27,7 @@
 | Reproducible audit evidence | PACKAGED | data/audit/*/*.gz + manifest; exact synthetic features/predictions restored and verified |
 | Fresh-clone setup | OFFLINE CLONE VERIFIED | Source 91b53c51b0ff0344f8c51204f9b6a7c87323a4c3; real clone, new venv, pinned cached wheels, tests, calibration/metric replay and static build; 22 seconds; no runtime installation or second machine |
 | Current PPTX/PDF/script/Q&A | UPDATED V3 | deliverables/ and docs/; previous V2 deck moved to legacy/submission/ |
-| Demo video | USER ACTION REQUIRED | Kushagra chose to record it; no current MP4 or public video URL supplied |
+| Demo video | UPLOADED | [Final submission video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29); original user-recorded MP4, unchanged |
 | Portal submission | USER ACTION REQUIRED | No form submission is claimed |
 | Real taxpayer validation | NOT DONE | No taxpayer records; lawful data access, privacy and field validation remain future work |
 

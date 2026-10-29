@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-10-28T16:01:07.641065+00:00",
-  "source_commit": "91b53c51b0ff0344f8c51204f9b6a7c87323a4c3",
-  "state": "AUDITED_PROTOTYPE_VIDEO_AND_PORTAL_PENDING",
+  "generated_at_utc": "2026-10-29T03:58:50.241155+00:00",
+  "source_commit": "8613ffa7864e3f5ac2dabf854adf95710db2aeda",
+  "state": "AUDITED_PROTOTYPE_PORTAL_PENDING",
   "author": "Kushagra Gupta",
   "licence": "MIT for project source; third-party/runtime terms documented separately.",
   "excluded": "Credentials, environments, DB images, package caches and large regenerated raw datasets.",
@@ -15,7 +15,7 @@
     "dependency_installation": "Pinned versions installed into a fresh isolated venv from OS/Python-compatible local cached wheels; live PyPI availability not claimed."
   },
   "file_count": 253,
-  "total_bytes": 43059600,
+  "total_bytes": 43060579,
   "files": [
     {
       "path": ".gitattributes",
@@ -62,20 +62,20 @@
     {
       "path": "PROJECT_STATUS.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 4327,
-      "sha256": "94d8b4adc06d7b3802193c78142209a5377e9b43560e4b884eb9cff6e3f6abd0"
+      "bytes": 4425,
+      "sha256": "c6402f4378786748a29d65449fecd1f049bdf0a5b2e3cbfad88a1ec0cc5fbd52"
     },
     {
       "path": "README.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 20886,
-      "sha256": "1487ef52169f5f2fe5efb91dfbc179613ded649c1aaff2fa62210c2387386948"
+      "bytes": 21173,
+      "sha256": "a1b1412724a50ba41c2a5e9b255e3bac2eecfbf702ba4aa77590ee3768700b90"
     },
     {
       "path": "SUBMISSION_CHECKLIST.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 2640,
-      "sha256": "794383d7fe6aefb831c1344d3c0385120766f5bde528cfd992d5ea6447428504"
+      "bytes": 2698,
+      "sha256": "e47160858ccd33092a46f4095b277343e60a974c5f5ff651e7c4b0a3126edb72"
     },
     {
       "path": "THIRD_PARTY.md",
@@ -158,8 +158,8 @@
     {
       "path": "deliverables/README.md",
       "role": "CURRENT_SUBMISSION_MATERIAL",
-      "bytes": 1153,
-      "sha256": "2e3236fe1108ba8e8f161fe2dafab4bd91133ce6f23f2538e4bd2eac9dc051e4"
+      "bytes": 1332,
+      "sha256": "40bff39e7f61c5e5a1334a28e5cd400542af04a956f4306383d3e1854892d6e9"
     },
     {
       "path": "deliverables/exathon-india-2026-pitch.pdf",
@@ -464,8 +464,8 @@
     {
       "path": "reports/ARTIFACT_INDEX.json",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 26925,
-      "sha256": "313dace5a3ff24722fd89b2878fe0da42113004a13f7e3a27db6d16ee792e882"
+      "bytes": 26926,
+      "sha256": "75eb25211acbc44cbff9b38504809ee8187d33c1d64e0e16d5222de4742df7a4"
     },
     {
       "path": "reports/attribution.json",
@@ -806,8 +806,8 @@
     {
       "path": "reports/submission_file_checks.json",
       "role": "CURRENT_DELIVERABLE_CHECK",
-      "bytes": 911,
-      "sha256": "2d031577c3c4c0e3fbf8d5a4b0b50950cebd38c3783ed85757aa324d10b28e79"
+      "bytes": 1038,
+      "sha256": "9ebf94aab5b33640626397d3c958d882378652a70c41143aca885c0845ad5d56"
     },
     {
       "path": "reports/threshold_repair.json",
@@ -1088,8 +1088,8 @@
     {
       "path": "scripts/build_submission_manifest.py",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 2051,
-      "sha256": "ac90f1f1f669b43a6acb2fb5788977207300b8bd275fcdbff431fa615fa149a9"
+      "bytes": 2041,
+      "sha256": "346c91b89a1d7fa2ba63dce09c0c4f7b211530c57faaab95bece90885975fb63"
     },
     {
       "path": "scripts/build_submission_text.py",
@@ -1238,8 +1238,8 @@
     {
       "path": "scripts/verify_submission_files.py",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 1946,
-      "sha256": "c725c485de48663fe98c45595e3cb63149803e90f902a9f571192acb6306f853"
+      "bytes": 2185,
+      "sha256": "d59ea13e6694557b3a508d94a90e76aef4e8c23ab77caf2e0c1fbc6dcf2644dd"
     },
     {
       "path": "scripts/wrong_clear_bounds.py",

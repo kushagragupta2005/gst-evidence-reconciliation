@@ -8,9 +8,9 @@
 
 - [Live website](https://kushagragupta2005.github.io/gst-evidence-reconciliation/) · [Cases](https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/) · [Results](https://kushagragupta2005.github.io/gst-evidence-reconciliation/results/)
 - [Feature status](PROJECT_STATUS.md) · [Full judge audit](docs/JUDGE_AUDIT.md) · [Required submission checklist](SUBMISSION_CHECKLIST.md)
-- [Current V3 deck: PPTX](deliverables/exathon-india-2026-pitch.pptx) / [PDF](deliverables/exathon-india-2026-pitch.pdf) · [User recording script](docs/demo_script.md)
+- [Current V3 deck: PPTX](deliverables/exathon-india-2026-pitch.pptx) / [PDF](deliverables/exathon-india-2026-pitch.pdf) · [Final submission video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Recording script](docs/demo_script.md)
 
-**Working synthetic prototype; required video and portal submission still outstanding.** Official deadline: **31 October 2026, 11:59 pm IST**, per the [organiser](https://www.exasol.com/events/exathon-india-2026/). Solo entry is allowed.
+**Working synthetic prototype; final submission video uploaded. Portal submission remains outstanding.** Official deadline: **31 October 2026, 11:59 pm IST**, per the [organiser](https://www.exasol.com/events/exathon-india-2026/). Solo entry is allowed.
 
 **Audit repair:** the live schema had defaulted to 0.10 while published evaluation used 0.05. The user approved a settings-only repair to the frozen 0.05. All 28,800 V3-C monthly live signals/flags now match the published predictions; the reader cannot access database truth. Loader defaults and the API protocol guard now prevent silently presenting mismatched decisions. [Repair evidence](reports/threshold_repair.json). The older connectivity/fresh-clone checks did not detect that drift and are historical evidence only.
 
@@ -140,7 +140,8 @@ The V3 reports include factory-month and factory-level recall, false-positive ra
 
 - [Pitch deck (PPTX)](deliverables/exathon-india-2026-pitch.pptx) and [PDF](deliverables/exathon-india-2026-pitch.pdf)
 - [Judge Q&A](docs/judge_qa.md)
-- [Demo script](docs/demo_script.md) — recording will be made by Kushagra Gupta
+- [Final submission video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) — recorded by Kushagra Gupta
+- [Demo script](docs/demo_script.md)
 - [Audit register](docs/AUDIT_VERIFICATION.md)
 - [Result change log](docs/CHANGELOG_RESULTS.md)
 - [Limitations](LIMITATIONS.md)
@@ -152,7 +153,8 @@ The V3 reports include factory-month and factory-level recall, false-positive ra
 - [x] Offline regression tests and GitHub Actions
 - [ ] Separate-machine database installation and full end-to-end reproduction
 - [x] Fresh preregistered V3-B primary and V3-C confirmation evaluations
-- [ ] Final screen-recorded demo and portal submission
+- [x] Final screen-recorded video uploaded to GitHub Releases
+- [ ] Portal submission
 
 ## Judge-facing multi-page site
 
