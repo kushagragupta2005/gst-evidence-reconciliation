@@ -16,7 +16,7 @@
 
 ## Submission status
 
-This is a synthetic-data decision-support prototype for ExaThon India 2026, Track 03: **Factories, Fleets & Supply Chains**. It uses Exasol Personal as its primary analytical database and is licensed under MIT.
+This is a synthetic-data decision-support prototype for ExaThon India 2026, Track 01: **Money, Risk & Regulation**. It uses Exasol Personal as its primary analytical database and is licensed under MIT.
 
 `submit-candidate-1` tags the author-machine fresh-clone verification at `f76345bc4f1670a2e6c68db6418f9a9b800f02d6`; separate-machine database reproduction remains open. V2 seed artefacts are **DEV**, because their seed suite and attribution analysis have already been seen during development. V3 is separately preregistered and reports the current held-out evaluation below.
 

@@ -22,7 +22,7 @@ Source checked 28 October 2026: [Exasol’s ExaThon India 2026 event page](https
 ## Submission fields
 
 - Author: **Kushagra Gupta**. Sole participant. Do not add fictional teammates.
-- Track: **03 — Factories, Fleets & Supply Chains**, as chosen in this repository.
+- Track: **01 — Money, Risk & Regulation**. The primary problem is GST fraud investigation and tax compliance; factory and supply-chain records provide supporting evidence.
 - Website: https://kushagragupta2005.github.io/gst-evidence-reconciliation/
 - Cases: https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/
 - Results: https://kushagragupta2005.github.io/gst-evidence-reconciliation/results/

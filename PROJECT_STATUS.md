@@ -5,6 +5,7 @@
 | Component | Status | Evidence / limit |
 |---|---|---|
 | Public repo, MIT, sole author | VERIFIED | GitHub PUBLIC; LICENSE; git history; author Kushagra Gupta |
+| Submission track | 01 — Money, Risk & Regulation | GST fraud investigation and tax compliance; manufacturing records supply the evidence. Updated 29 October 2026. |
 | Required problem statement | VERIFIED | Verbatim hash test; README and Problem page |
 | Synthetic generator | VERIFIED | Deterministic tests; reports/dataset_inventory.json; three cheat types, three intensities, six decoy types, twelve months |
 | Exasol Personal primary database | LIVE VERIFIED after repair | reports/judge_database_audit.json; restricted reader; 2,400 factories, 28,800 factory-months, 172,800 features |

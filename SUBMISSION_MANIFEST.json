@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-29T03:58:50.241155+00:00",
-  "source_commit": "8613ffa7864e3f5ac2dabf854adf95710db2aeda",
+  "generated_at_utc": "2026-10-29T04:02:21.636495+00:00",
+  "source_commit": "fa970671b721a117a2f6e86815ea17586dfc5a40",
   "state": "AUDITED_PROTOTYPE_PORTAL_PENDING",
   "author": "Kushagra Gupta",
   "licence": "MIT for project source; third-party/runtime terms documented separately.",
@@ -15,7 +15,7 @@
     "dependency_installation": "Pinned versions installed into a fresh isolated venv from OS/Python-compatible local cached wheels; live PyPI availability not claimed."
   },
   "file_count": 253,
-  "total_bytes": 43060579,
+  "total_bytes": 43060820,
   "files": [
     {
       "path": ".gitattributes",
@@ -62,20 +62,20 @@
     {
       "path": "PROJECT_STATUS.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 4425,
-      "sha256": "c6402f4378786748a29d65449fecd1f049bdf0a5b2e3cbfad88a1ec0cc5fbd52"
+      "bytes": 4594,
+      "sha256": "53a17dbfb8de491b12bae986fed973a7bf3842d693ebcc6b36811cd0416bb867"
     },
     {
       "path": "README.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 21173,
-      "sha256": "a1b1412724a50ba41c2a5e9b255e3bac2eecfbf702ba4aa77590ee3768700b90"
+      "bytes": 21164,
+      "sha256": "efb391c5af510ddb58100eaba25b24e7fa0279437b018650718c3a3e0ff8d0fb"
     },
     {
       "path": "SUBMISSION_CHECKLIST.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 2698,
-      "sha256": "e47160858ccd33092a46f4095b277343e60a974c5f5ff651e7c4b0a3126edb72"
+      "bytes": 2788,
+      "sha256": "c60c0ebabe59d36de467aa487b1ca927741f997a3aaf4a57e30d66a11d61aef2"
     },
     {
       "path": "THIRD_PARTY.md",
@@ -260,8 +260,8 @@
     {
       "path": "docs/demo_and_pitch.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 879,
-      "sha256": "aef035f7aeddfd5d49f0d4e7668bfe1ab71f1ce5f6c50a0a606b80b0baa5094f"
+      "bytes": 870,
+      "sha256": "7878a04b1b901fef7111f9c54bbd70efba5a3fffdc964127fbd5c6b36900853a"
     },
     {
       "path": "docs/demo_script.md",
