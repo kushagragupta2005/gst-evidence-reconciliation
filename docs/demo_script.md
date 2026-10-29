@@ -1,6 +1,6 @@
 # Demo recording script — owner: Kushagra Gupta
 
-**Status: video not recorded by this assistant; user will create it. Required maximum: three minutes.** This script targets 2:45. All quantities below come from the current artifact files. Public Pages uses recorded examples; a local API can execute the guarded follow-ups live. Always state which mode is shown.
+**Status: the user-recorded final video is uploaded; see [the release](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29). This is a reference script, not a transcript or duration certificate.** This script targets 2:45. All quantities below come from the current artifact files. Public Pages uses recorded examples; a local API can execute the guarded follow-ups live. Always state which mode is shown.
 
 ## 0:00–0:20 — Problem
 

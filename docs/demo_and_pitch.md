@@ -1,9 +1,7 @@
-> HISTORICAL DOCUMENT. Current status: [PROJECT_STATUS.md](../PROJECT_STATUS.md); current audit: [JUDGE_AUDIT.md](JUDGE_AUDIT.md). Old dates, metrics and completeness statements below are retained for traceability and are not current submission claims.
+# Pitch and demo materials
 
-# Pitch and demo handoff
+Use the [current deck and original user-recorded video](../deliverables/README.md). The chosen track is **01 — Money, Risk & Regulation**.
 
-The five-slide pitch uses the fresh held-out seed C results in `results.json`. It selects ExaThon India 2026 Track 01, Money, Risk & Regulation. The Germany slide proposes a local adaptation without unsourced figures and states that German VAT rules are not implemented.
+The [reference script](demo_script.md), [judge Q&A](judge_qa.md) and [technical audit](JUDGE_AUDIT.md) provide supporting detail. Current results are V3-B and V3-C; old V2 decks are retained only under legacy/submission/.
 
-Kushagra Gupta will record the submission demo using the timed outline in `demo_script.md`. The PDF export is under `../output/pdf/`.
-
-See `evaluation_protocol.md` for the frozen measurement protocol, `../reports/evaluation.md` for subgroup metrics and misses, and `judge_qa.md` for short answers to likely questions.
+For setup, see [RUN_GUIDE.md](RUN_GUIDE.md). For hand-in status and deadline discrepancies, see [SUBMISSION_CHECKLIST.md](../SUBMISSION_CHECKLIST.md).

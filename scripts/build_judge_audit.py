@@ -7,7 +7,9 @@ A=load('reports/v3_a_calibration.json');B=load('results.json');C=load('reports/v
 pct=lambda n:'undefined' if n is None else f'{n*100:.2f}%'
 def ci(v,k):return ' – '.join(pct(x) for x in v.get('ci95',{}).get(k,[])) or 'not measured'
 def table(headers,rows):return '| '+' | '.join(headers)+' |\n| '+' | '.join(['---']*len(headers))+' |\n'+'\n'.join('| '+' | '.join(map(str,row))+' |' for row in rows)+'\n'
-parts=['''# Judge audit — GST Evidence, 28 October 2026
+parts=['''> Historical audit recorded 28 October 2026. The user uploaded the final submission video on 29 October. See [current status](../PROJECT_STATUS.md) and [submission checklist](../SUBMISSION_CHECKLIST.md) for subsequent changes; the assessment below retains its original date and scope.
+
+# Judge audit — GST Evidence, 28 October 2026
 
 **Review opinion:** a credible, inspectable synthetic reconciliation prototype with a clear officer-facing problem and strong presentation. It is not yet a complete submission because the required user-recorded demo video and final portal submission are outstanding. Real-taxpayer validation is absent. The most important technical finding was a deployed threshold mismatch; it was repaired with explicit user approval and verified against every V3-C monthly output.
 

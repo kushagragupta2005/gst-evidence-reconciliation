@@ -29,7 +29,8 @@
 | Fresh-clone setup | OFFLINE CLONE VERIFIED | Source 91b53c51b0ff0344f8c51204f9b6a7c87323a4c3; real clone, new venv, pinned cached wheels, tests, calibration/metric replay and static build; 22 seconds; no runtime installation or second machine |
 | Current PPTX/PDF/script/Q&A | UPDATED V3 | deliverables/ and docs/; previous V2 deck moved to legacy/submission/ |
 | Demo video | UPLOADED | [Final submission video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29); original user-recorded MP4, unchanged |
-| Portal submission | USER ACTION REQUIRED | No form submission is claimed |
+| Portal submission | USER ACTION REQUIRED | No form submission is claimed; required owner declarations and consent remain pending |
+| Submission deadline | CONFLICTING OFFICIAL PAGES | Event page: 31 October; submission page: 25 October. Rechecked 29 October; acceptance requires organiser confirmation |
 | Real taxpayer validation | NOT DONE | No taxpayer records; lawful data access, privacy and field validation remain future work |
 
 See [judge audit](docs/JUDGE_AUDIT.md), [submission checklist](SUBMISSION_CHECKLIST.md), and [limits](LIMITATIONS.md). Historical reports remain for traceability. “VERIFIED” means the named check passed in the stated environment; it does not certify real-world accuracy.

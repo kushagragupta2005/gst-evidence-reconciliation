@@ -457,6 +457,13 @@
       "sha256": "9ebf94aab5b33640626397d3c958d882378652a70c41143aca885c0845ad5d56"
     },
     {
+      "path": "reports/submission_readiness_2026-10-29.json",
+      "classification": "CURRENT_MATERIAL_PRESENCE_AND_ACCESS_NOT_ELIGIBILITY",
+      "embedded_status": null,
+      "bytes": 2459,
+      "sha256": "9ce34da7af6b98932c8d0ac7ca7f77868d6624f2a87b7f84c98256da1fd89768"
+    },
+    {
       "path": "reports/threshold_repair.json",
       "classification": "AUTHORISED_CONFIG_REPAIR",
       "embedded_status": null,

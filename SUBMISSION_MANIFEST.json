@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-29T04:02:21.636495+00:00",
-  "source_commit": "fa970671b721a117a2f6e86815ea17586dfc5a40",
+  "generated_at_utc": "2026-10-29T04:12:44.968753+00:00",
+  "source_commit": "6b1671f62c32ea0287bee4e14a2b05ccf57d21e5",
   "state": "AUDITED_PROTOTYPE_PORTAL_PENDING",
   "author": "Kushagra Gupta",
   "licence": "MIT for project source; third-party/runtime terms documented separately.",
@@ -14,8 +14,8 @@
     "scope": "Real local Git clone, new venv, locked dependency install, tests, archived-evidence restoration, numeric audit, ablation replay, static build. Database/runtime installation and second-machine reproduction excluded.",
     "dependency_installation": "Pinned versions installed into a fresh isolated venv from OS/Python-compatible local cached wheels; live PyPI availability not claimed."
   },
-  "file_count": 253,
-  "total_bytes": 43060820,
+  "file_count": 256,
+  "total_bytes": 43186706,
   "files": [
     {
       "path": ".gitattributes",
@@ -50,8 +50,8 @@
     {
       "path": "LIMITATIONS.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 3909,
-      "sha256": "4b9111a4b7fd305883b3b4aab85cc65057da152c3aa471bf37ced1b0163f9b8d"
+      "bytes": 3887,
+      "sha256": "d6383eab601fbdef5d516a0ada29a14e65e3d6d3d6a0fa79c905780ab836c01e"
     },
     {
       "path": "Makefile",
@@ -62,20 +62,20 @@
     {
       "path": "PROJECT_STATUS.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 4594,
-      "sha256": "53a17dbfb8de491b12bae986fed973a7bf3842d693ebcc6b36811cd0416bb867"
+      "bytes": 4823,
+      "sha256": "b695ef1aa79fe9dc995095b72d0c941d3e82022672f0f1c7008d50063437245d"
     },
     {
       "path": "README.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 21164,
-      "sha256": "efb391c5af510ddb58100eaba25b24e7fa0279437b018650718c3a3e0ff8d0fb"
+      "bytes": 6575,
+      "sha256": "964980379d41534c61b481346574d1254daabf239a1e91f2fc168bcf40aaeb04"
     },
     {
       "path": "SUBMISSION_CHECKLIST.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 2788,
-      "sha256": "c60c0ebabe59d36de467aa487b1ca927741f997a3aaf4a57e30d66a11d61aef2"
+      "bytes": 3494,
+      "sha256": "a91fb24fe0ddbe46aa9ccf04c687a8244ce12baaace1a6d8b4b46fa8884b681e"
     },
     {
       "path": "THIRD_PARTY.md",
@@ -194,8 +194,8 @@
     {
       "path": "docs/JUDGE_AUDIT.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 27616,
-      "sha256": "afca8d0af84b72d0e9937d358a990dfe4b444ddfdbf93490d535df138a9adb47"
+      "bytes": 27902,
+      "sha256": "df27d9de8b2e1ec60896be0dd6853fd191597a1411f3ca66bc55e124e8c168ad"
     },
     {
       "path": "docs/LICENCE_AUDIT.md",
@@ -226,6 +226,12 @@
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
       "bytes": 1997,
       "sha256": "060372adf7ad7435d4a244a0506a287737bd147d47a8fab3191d616a365e9f72"
+    },
+    {
+      "path": "docs/RUN_GUIDE.md",
+      "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
+      "bytes": 6802,
+      "sha256": "ac3712db2db41d70d21c350d99e3854eeaa20fc5738913d55b8dd82d42d2751a"
     },
     {
       "path": "docs/deck/slide-01.png",
@@ -260,14 +266,14 @@
     {
       "path": "docs/demo_and_pitch.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 870,
-      "sha256": "7878a04b1b901fef7111f9c54bbd70efba5a3fffdc964127fbd5c6b36900853a"
+      "bytes": 544,
+      "sha256": "65b3789109c647d3aee17fbf17056dea641ef1b8e6bd9177ea8618ec91f9647f"
     },
     {
       "path": "docs/demo_script.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 3072,
-      "sha256": "29c677dd4641f7484053bc0bf66452f67f89a735714ca2c780b0bc23a603b510"
+      "bytes": 3214,
+      "sha256": "a489fbd1c2380850eb19c491721d5db16ee7439e527897bee58b561bca043371"
     },
     {
       "path": "docs/evaluation_protocol.md",
@@ -358,6 +364,12 @@
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
       "bytes": 308688,
       "sha256": "d58419ac2a29eccbf8193de3a5c4804518154b4a9c787392670de789637009d1"
+    },
+    {
+      "path": "docs/screenshots/judge-preview.png",
+      "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
+      "bytes": 129387,
+      "sha256": "a53721ce93755fbb45b0e6e6de6aa55304641895798b9e9b9b47f6e3663ec2bc"
     },
     {
       "path": "docs/screenshots/note.png",
@@ -464,8 +476,8 @@
     {
       "path": "reports/ARTIFACT_INDEX.json",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 26926,
-      "sha256": "75eb25211acbc44cbff9b38504809ee8187d33c1d64e0e16d5222de4742df7a4"
+      "bytes": 27216,
+      "sha256": "a74c18c0df3c7db0e486d2f03e46a1443b25755cea6c3799e5554429c5cfeb83"
     },
     {
       "path": "reports/attribution.json",
@@ -810,6 +822,12 @@
       "sha256": "9ebf94aab5b33640626397d3c958d882378652a70c41143aca885c0845ad5d56"
     },
     {
+      "path": "reports/submission_readiness_2026-10-29.json",
+      "role": "CURRENT_MATERIAL_PRESENCE_AND_ACCESS_NOT_ELIGIBILITY",
+      "bytes": 2459,
+      "sha256": "9ce34da7af6b98932c8d0ac7ca7f77868d6624f2a87b7f84c98256da1fd89768"
+    },
+    {
       "path": "reports/threshold_repair.json",
       "role": "AUTHORISED_CONFIG_REPAIR",
       "bytes": 593,
@@ -1052,14 +1070,14 @@
     {
       "path": "scripts/build_artifact_index.py",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 2409,
-      "sha256": "bcbf51cfa900373d9e7d1ff9c877ea409aea8fca92310b966dee7e69a243a6ca"
+      "bytes": 2503,
+      "sha256": "d170b64dbd2128c00c68566ee37c604bea16ca34ccfa0eb647853da0e4d3b5f6"
     },
     {
       "path": "scripts/build_judge_audit.py",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 24107,
-      "sha256": "011269068598748f3a5a89f01d6d91f96c6d2af18ce6e60d9940a3f78e423929"
+      "bytes": 24393,
+      "sha256": "07547fceffd3ba8e6ef6c3ef6b8461b7d370d3315c763aa8ade7d9bbb83b23d8"
     },
     {
       "path": "scripts/build_metrics.py",
@@ -1094,8 +1112,8 @@
     {
       "path": "scripts/build_submission_text.py",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 8177,
-      "sha256": "0d804cec0988fe7c0da2b66f4c0ca8d051af60965862bac0f31776285f3c258c"
+      "bytes": 8319,
+      "sha256": "a48b0084b62455b829fa4f5fb19a3e9bb1b84f4eee2541d0fa390838096299c5"
     },
     {
       "path": "scripts/evaluate.sh",
