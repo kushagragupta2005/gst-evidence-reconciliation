@@ -1,6 +1,6 @@
 {
-  "time_utc": "2026-10-29T04:11:05.051764+00:00",
-  "source_commit": "6b1671f62c32ea0287bee4e14a2b05ccf57d21e5",
+  "time_utc": "2026-10-29T04:21:19.632818+00:00",
+  "source_commit": "e3ac2ff39e56ceb06af090c3972d55e517c906a1",
   "working_tree_dirty": true,
   "scope": "Submission-material presence and public access; not a certification of eligibility, legal declarations, consent or organiser acceptance.",
   "public_links": [
@@ -15,12 +15,12 @@
       "curl_exit": 0
     },
     {
-      "url": "https://raw.githubusercontent.com/kushagragupta2005/gst-evidence-reconciliation/main/deliverables/exathon-india-2026-pitch.pdf",
+      "url": "https://raw.githubusercontent.com/kushagragupta2005/gst-evidence-reconciliation/main/00_SUBMISSION/Pitch.pdf",
       "http_status": 200,
       "curl_exit": 0
     },
     {
-      "url": "https://raw.githubusercontent.com/kushagragupta2005/gst-evidence-reconciliation/main/deliverables/exathon-india-2026-pitch.pptx",
+      "url": "https://raw.githubusercontent.com/kushagragupta2005/gst-evidence-reconciliation/main/00_SUBMISSION/Pitch.pptx",
       "http_status": 200,
       "curl_exit": 0
     },

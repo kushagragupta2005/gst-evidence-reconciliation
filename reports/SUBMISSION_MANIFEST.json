@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-29T04:19:43.345117+00:00",
-  "source_commit": "9acd0e6a22cae0412cb1312f5c0c359d8b51ad96",
+  "generated_at_utc": "2026-10-29T04:22:37.391048+00:00",
+  "source_commit": "e3ac2ff39e56ceb06af090c3972d55e517c906a1",
   "state": "AUDITED_PROTOTYPE_PORTAL_PENDING",
   "author": "Kushagra Gupta",
   "licence": "MIT for project source; third-party/runtime terms documented separately.",
@@ -15,7 +15,7 @@
     "dependency_installation": "Pinned versions installed into a fresh isolated venv from OS/Python-compatible local cached wheels; live PyPI availability not claimed."
   },
   "file_count": 242,
-  "total_bytes": 40825065,
+  "total_bytes": 40825029,
   "files": [
     {
       "path": ".gitattributes",
@@ -399,7 +399,7 @@
       "path": "reports/ARTIFACT_INDEX.json",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
       "bytes": 27215,
-      "sha256": "ee49c30546b48fe21d6c4520dddfa7d8ce9007ab359306b67e9b2e1a8b41e2aa"
+      "sha256": "361884dc56d7c3e4b3637a0a945497c33c7dae80c209e316622839612683e1e6"
     },
     {
       "path": "reports/attribution.json",
@@ -746,8 +746,8 @@
     {
       "path": "reports/submission_readiness_2026-10-29.json",
       "role": "CURRENT_MATERIAL_PRESENCE_AND_ACCESS_NOT_ELIGIBILITY",
-      "bytes": 2459,
-      "sha256": "9ce34da7af6b98932c8d0ac7ca7f77868d6624f2a87b7f84c98256da1fd89768"
+      "bytes": 2423,
+      "sha256": "24fa9900094afb9841093763b947f186fe324380ab857d117016937730dd4195"
     },
     {
       "path": "reports/threshold_repair.json",
