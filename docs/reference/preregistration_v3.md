@@ -1,6 +1,6 @@
 # Evaluation preregistration — V3, 21 October 2026
 
-This protocol is committed before V3 code changes are evaluated and before any V3 dataset is generated. The immutable original protocol remains in `docs/preregistration.md`. V2 and attribution outputs are development evidence only and may not be used to choose V3 settings.
+This protocol is committed before V3 code changes are evaluated and before any V3 dataset is generated. The immutable original protocol remains in `docs/reference/preregistration.md`. V2 and attribution outputs are development evidence only and may not be used to choose V3 settings.
 
 ## Purpose
 

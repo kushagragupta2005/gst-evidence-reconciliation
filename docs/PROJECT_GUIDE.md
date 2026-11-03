@@ -1,6 +1,6 @@
 # Project guide
 
-[Pitch PDF](../00_SUBMISSION/Pitch.pdf) · [Pitch PPTX](../00_SUBMISSION/Pitch.pptx) · [Video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Demo](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)
+[Pitch PDF](submission/Pitch.pdf) · [Pitch PPTX](submission/Pitch.pptx) · [Video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Demo](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)
 
 [Setup](#run-and-reproduce) · [Implementation status](#implementation-status) · [Limits](#limits) · [Submission details](#submission-details)
 
@@ -143,7 +143,7 @@ The repaired live threshold mismatch and open tertiary ranking-key difference ar
 | Eight-page site | DEPLOYED SNAPSHOT | GitHub Pages; recorded cases/answers/metrics; local API can execute follow-ups live |
 | Reproducible audit evidence | PACKAGED | data/audit/*/*.gz + manifest; exact synthetic features/predictions restored and verified |
 | Fresh-clone setup | OFFLINE CLONE VERIFIED | Source 91b53c51b0ff0344f8c51204f9b6a7c87323a4c3; real clone, new venv, pinned cached wheels, tests, calibration/metric replay and static build; 22 seconds; no runtime installation or second machine |
-| Current PPTX/PDF/script/Q&A | UPDATED V3 | 00_SUBMISSION/ and docs/; previous V2 deck moved to docs/archive/legacy/submission/ |
+| Current PPTX/PDF/script/Q&A | UPDATED V3 | docs/submission/ and docs/; previous V2 deck moved to docs/archive/legacy/submission/ |
 | Demo video | UPLOADED | [Final submission video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29); original user-recorded MP4, unchanged |
 | Portal submission | USER ACTION REQUIRED | No form submission is claimed; required owner declarations and consent remain pending |
 | Submission deadline | CONFLICTING OFFICIAL PAGES | Event page: 31 October; submission page: 25 October. Rechecked 29 October; acceptance requires organiser confirmation |
@@ -190,11 +190,11 @@ Solo entrants are allowed (teams of one to three). Registration was reported com
 | MIT or Apache licence | READY: MIT | LICENSE |
 | Public or synthetic data only | READY: SYNTHETIC | Generator, data/audit/, provenance inventory |
 | Work created during challenge window | GIT EVIDENCE | First commit f015d5b: 19 October 2026, after registration opened 5 October; timestamps alone cannot independently prove originality |
-| Deck, PDF or PPT | READY: CURRENT V3 | 00_SUBMISSION/Pitch.pptx and .pdf |
+| Deck, PDF or PPT | READY: CURRENT V3 | docs/submission/Pitch.pptx and .pdf |
 | Demo video | UPLOADED | [Final submission video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29), recorded by Kushagra Gupta |
 | Clean README with setup and usage | READY | Concise README; docs/PROJECT_GUIDE.md; exact reproduction scope linked |
 | Deployment instructions and run guide | READY | README, Makefile, website/README.md |
-| AI/tools/data disclosure | READY | README, THIRD_PARTY*, 00_SUBMISSION/README, data/README |
+| AI/tools/data disclosure | READY | README, THIRD_PARTY*, docs/submission/README, data/README |
 | Final review, declarations, consent and portal submission | NOT DONE | Kushagra reviews the actual files and submits via the official event page |
 
 ### Submission fields

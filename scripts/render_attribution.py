@@ -75,4 +75,4 @@ lines += [
     'material cost: evasive recall remains only 57.24% on V2-B and 49.14% on V2-C. '
     'Those misses remain a headline limitation.',
 ]
-Path('docs/ATTRIBUTION.md').write_text('\n'.join(lines) + '\n')
+Path('docs/reference/ATTRIBUTION.md').write_text('\n'.join(lines) + '\n')

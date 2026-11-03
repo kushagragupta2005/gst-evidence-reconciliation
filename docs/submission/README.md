@@ -10,4 +10,4 @@
 
 **Kushagra Gupta · Solo participant · Track 01: Money, Risk & Regulation**
 
-[Project overview](../README.md) · [Setup and project details](../docs/PROJECT_GUIDE.md)
+[Project overview](../../README.md) · [Setup and project details](../PROJECT_GUIDE.md)

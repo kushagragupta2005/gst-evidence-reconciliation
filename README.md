@@ -1,7 +1,7 @@
 # GST Evidence
 Help GST officers find factories whose paperwork disagrees with the evidence, using Exasol Personal.
 
-**[🌐 Live site](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)** · [Demo video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Pitch PDF](00_SUBMISSION/Pitch.pdf) · [Pitch PPTX](00_SUBMISSION/Pitch.pptx)
+**[🌐 Live site](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)** · [Demo video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Pitch PDF](docs/submission/Pitch.pdf) · [Pitch PPTX](docs/submission/Pitch.pptx)
 
 [![Recorded case on the live GST Evidence site](docs/screenshots/readme-hero.png)](https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/)
 
@@ -78,7 +78,7 @@ Open **http://127.0.0.1:8081/**. [Tests, audit reproduction and live Exasol setu
 
 ## Repo map
 ```text
-00_SUBMISSION/  Pitch PDF, PPTX and video link
+docs/submission/  Pitch PDF, PPTX and video link
 website/        Public demo pages
 sql/            Database checks and access rules
 src/            Data generator, scoring, notes and local API

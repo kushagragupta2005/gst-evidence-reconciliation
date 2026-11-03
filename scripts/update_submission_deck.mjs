@@ -33,7 +33,7 @@ for(let i=0;i<p.slides.items.length;i++)p.slides.items[i].speakerNotes.text=`Sou
 await fs.mkdir('.pitch_build/judge/final',{recursive:true});const candidate=path.join(root,'.pitch_build/judge/candidate.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);
 const skill=process.env.GST_PRESENTATIONS_SKILL;if(!skill)throw Error('Set GST_PRESENTATIONS_SKILL to the installed presentations skill directory.');
 const {finalizePresentation}=await import(pathToFileURL(path.join(skill,'container_tools/artifact_tool_utils.mjs')).href);
-const final=path.join(root,'00_SUBMISSION/Pitch.pptx');
+const final=path.join(root,'docs/submission/Pitch.pptx');
 await finalizePresentation({workspaceDir:root,candidatePath:candidate,finalPath:final,pythonExecutable:process.env.GST_RUNTIME_PYTHON,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit'],explicitTotalSlideCount:5,fontPolicy:{basis:'design',families:['Aptos']},verifyArtifactToolImport:true,receiptPath:path.join(root,'.pitch_build/judge/deck.validation.json')});
 for(let i=0;i<p.slides.items.length;i++){const blob=await p.export({slide:p.slides.items[i],format:'png',scale:1});await fs.mkdir('docs/deck',{recursive:true});await fs.writeFile(`docs/deck/slide-${String(i+1).padStart(2,'0')}.png`,new Uint8Array(await blob.arrayBuffer()));}
 execFileSync(process.env.GST_RUNTIME_PYTHON,['scripts/render_pitch_pdf.py'],{stdio:'inherit'});

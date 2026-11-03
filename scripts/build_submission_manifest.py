@@ -14,7 +14,7 @@ for name in sorted(set(files)):
  role=classifications.get(name,'PROJECT_SOURCE_OR_DOCUMENTATION')
  if name.startswith('docs/archive/'):role='HISTORICAL_DO_NOT_SUBMIT'
  elif name.startswith('data/audit/'):role='SYNTHETIC_REPRODUCTION_INPUT'
- elif name.startswith('00_SUBMISSION/'):role='CURRENT_SUBMISSION_MATERIAL'
+ elif name.startswith('docs/submission/'):role='CURRENT_SUBMISSION_MATERIAL'
  elif name.startswith('website/'):role='CURRENT_STATIC_SITE_OR_RETAINED_EXPORT'
  rows.append({'path':name,'role':role,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
 manifest={'generated_at_utc':datetime.now(timezone.utc).isoformat(),'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'state':'AUDITED_PROTOTYPE_PORTAL_PENDING','author':'Kushagra Gupta','licence':'MIT for project source; third-party/runtime terms documented separately.','excluded':'Credentials, environments, DB images, package caches and large regenerated raw datasets.','fresh_clone_scope':json.loads((ROOT/'reports/clean_setup.json').read_text()),'file_count':len(rows),'total_bytes':sum(x['bytes'] for x in rows),'files':rows}

@@ -32,8 +32,8 @@ build due by 25 October 2026 at 18:00 IST; Phase 2 starts only after submission.
 
 ## Guardrails
 
-- No held-out run before its configuration is recorded in `docs/preregistration.md`.
+- No held-out run before its configuration is recorded in `docs/reference/preregistration.md`.
 - Every change runs offline tests; changes that alter detector behaviour also run
   calibration and held-out evaluation and append results to
-  `docs/CHANGELOG_RESULTS.md`.
+  `docs/reference/CHANGELOG_RESULTS.md`.
 - Negative or weaker results remain visible.

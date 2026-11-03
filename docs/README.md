@@ -7,8 +7,8 @@ Start with the [project overview](../README.md) or [live demo](https://kushagrag
 | Document | Use it for |
 |---|---|
 | [Project guide](PROJECT_GUIDE.md) | Architecture, setup, verification scope, limitations and submission notes |
-| [Submission materials](../00_SUBMISSION/README.md) | PDF, PPTX and the original video |
-| [Judge Q&A](judge_qa.md) | Short explanations of design choices |
+| [Submission materials](submission/README.md) | PDF, PPTX and the original video |
+| [Judge Q&A](reference/judge_qa.md) | Short explanations of design choices |
 
 ## Evaluation
 
@@ -29,4 +29,8 @@ Start with the [project overview](../README.md) or [live demo](https://kushagrag
 | [Authoring tools](licences/AUTHORING.md) | Optional deck/PDF tools |
 | [Licence review](LICENCE_AUDIT.md) | Exasol Personal terms and inspection limits |
 
-Historical planning and retired implementations remain in [archive/](archive/). They are not current submission instructions.
+Historical planning and retired implementations remain in [archive/](archive). They are not current submission instructions.
+
+## Supporting records
+
+[Evaluation protocols, result history and demo script](reference/) · [Repository cleanup audit](../reports/repo_cleanup.md). Archived before-repair evidence and the deck source template retain their original paths for provenance.

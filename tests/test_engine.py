@@ -105,7 +105,7 @@ class GeneratorTests(unittest.TestCase):
         roots += [p for folder in ['src','scripts','docs','.github','website','tests'] for p in Path(folder).rglob('*') if p.is_file() and p.suffix in {'.py','.md','.txt','.yml','.yaml','.js','.html','.css'}]
         forbidden=['stream'+'lit','85'+'01']
         for path in roots:
-            if str(path).startswith('docs/archive/legacy/') or path == Path('docs/CHANGELOG_RESULTS.md'):
+            if str(path).startswith('docs/archive/legacy/') or path == Path('docs/reference/CHANGELOG_RESULTS.md'):
                 continue
             text=path.read_text(errors='ignore').lower()
             for token in forbidden:
