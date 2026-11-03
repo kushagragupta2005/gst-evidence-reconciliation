@@ -1,7 +1,11 @@
 # GST Evidence
-Help GST officers find factories whose paperwork disagrees with the evidence.
+Help GST officers find factories whose paperwork disagrees with the evidence, using Exasol Personal.
 
 **[🌐 Live site](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)** · [Demo video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Pitch PDF](00_SUBMISSION/Pitch.pdf) · [Pitch PPTX](00_SUBMISSION/Pitch.pptx)
+
+[![Recorded case on the live GST Evidence site](docs/screenshots/judge-preview.png)](https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/)
+
+[![CI](https://github.com/kushagragupta2005/gst-evidence-reconciliation/actions/workflows/tests.yml/badge.svg)](https://github.com/kushagragupta2005/gst-evidence-reconciliation/actions/workflows/tests.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## The problem
 Imagine checking a shop’s sales using only the owner’s diary. Electricity bills, truck records, supplier statements and bank payments could tell a different story. GST officers need those separate records brought together, with each disagreement explained.
@@ -18,6 +22,13 @@ Imagine checking a shop’s sales using only the owner’s diary. Electricity bi
 3. **Flag carefully:** require disagreements in at least two source families; three flagged months put a factory in the review queue. These are separate evidence groups, not proven statistically independent signals.
 4. **Explain:** show the expected value, recorded value and gap for each flag, plus a case note for an officer to review.
 
+**Source families** are groups of related evidence: production, movement, suppliers and finances.
+
+### Sample flagged case
+> **F000902 · May 2026 · recorded synthetic example.**<br>
+> Dispatch records show **1,336.9296 kg**; invoices show **935.8507 kg**—a **401.0789 kg** gap.<br>
+> **Four source families** raised signals, so this month was prioritised for human review. [Inspect the evidence](reports/site_examples.json).
+
 ## How a case reaches an officer
 ```mermaid
 flowchart LR
@@ -25,6 +36,7 @@ flowchart LR
 ```
 
 ## How it is built
+Exasol Personal stores the evidence and runs the SQL checks that feed the site and reports.
 ```mermaid
 flowchart LR
   A[Seeded synthetic-data generator] --> B[(Exasol Personal)] --> C[SQL checks] --> D[Site and evidence reports]
@@ -33,6 +45,8 @@ flowchart LR
 
 ## What 'model' are we using?
 The detector is a transparent rule-based SQL system. It cross-checks declarations against physical and financial evidence; no ML or LLM decides flags. V3-A selected threshold **0.05** and the three-month queue rule; those choices were frozen and tested on V3-B and V3-C.
+**V3-A/B/C** are three separately seeded synthetic datasets: A chooses the settings; B and C test them.
+
 | Component | What it is | Does it decide flags? |
 |---|---|---|
 | Detection | Six SQL checks and the source-family rule | Yes |
@@ -45,7 +59,7 @@ The detector is a transparent rule-based SQL system. It cross-checks declaration
 </details>
 
 ## Results
-**2,400 synthetic factories · 12 months · 28,800 factory-months per seed.** Precision means the share of flagged months that were planted cheats.
+**2,400 synthetic factories · 12 months · 28,800 factory-months per seed.** **Precision** means the share of flagged months that were planted cheats: of 100 flagged months, ~85 are real cheats **within the synthetic test**.
 | Held-out test | Cheating months caught | Honest months falsely flagged | Precision |
 |---|---:|---:|---:|
 | V3-B · primary | 81.14% | 2.20% | 85.56% |
@@ -78,7 +92,12 @@ reports/        Measured results and verification records
 </details>
 
 ## Limits, licence and credits
-All data and document-verification labels are synthetic. Flags need human review; real-world validation remains open. [Full limitations](docs/PROJECT_GUIDE.md#limits).
+
+- All records are synthetic; real-world accuracy is untested.
+- Document verification is generated, not independently authenticated.
+- Flags need human review; false alarms and missed cheats remain possible.
+- Forger testing, current full-scale testing and second-machine reproduction remain open. [Full limitations](docs/PROJECT_GUIDE.md#limits).
+
 [MIT licence](LICENSE) · [Third-party licences](docs/README.md#licences-and-disclosures).
 Built by **Kushagra Gupta**, solo participant, for **ExaThon India 2026 — Money, Risk & Regulation**.
 OpenAI Codex coding assistants helped build and audit the project. The optional LLM only writes notes; it does not decide flags.
