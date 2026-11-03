@@ -76,3 +76,50 @@ tests/
 tmp/
 website/
 ```
+
+## After (tracked root)
+
+```text
+.gitattributes
+.github/
+.gitignore
+LICENSE
+Makefile
+README.md
+data/
+docs/
+reports/
+requirements.txt
+requirements/
+results.json
+scripts/
+sql/
+src/
+tests/
+website/
+```
+
+## Moves and retained exceptions
+
+- `00_SUBMISSION/` → `docs/submission/`; PDF/PPTX bytes unchanged, links and the deliverable checker updated.
+- Node package and lock → `website/`; browser entry points → `website/tools/`, keeping repository-root working-directory semantics. Pages CI uses the moved lock and commands.
+- Python lock → `requirements/requirements-lock.txt`; bootstrap, CI and tests updated; dependency versions unchanged.
+- Seven supporting documents → `docs/reference/`; current links and authoring paths updated. Five Markdown files remain directly in `docs/`.
+- `results.json`, `reports/` and `data/` stay in place: published commit:path URLs and hashes must remain verifiable. No provenance checks were weakened.
+- `scripts/` stays: 41 files at audit time, with reproducible audit/build entry points; folding them into Makefile would obscure rather than simplify them.
+- Historical report/manifest paths describe the tree when measured. They are not rewritten; use this move map for current paths. Two snapshot disposition-scope strings name the original preregistration path; its current location is `docs/reference/preregistration_v3.md`.
+- Historical before-repair evidence and archived implementation stay because they are inventoried audit artifacts. The archived PPTX is also an active deck-export input.
+
+## Removed files
+
+No tracked content deleted. Moves use `git mv`. No unreferenced duplicate was proven safe to delete independently of the audit inventory. Local environments/build caches remain ignored; `.pytest_cache/` and `wheelhouse/` are now explicitly ignored.
+
+## Validation
+
+- Both move groups: `make all` passed (37 tests, 665-field audit, both baseline confusion matrices), followed by `npm --prefix website run site:build`.
+- Submission verifier passed after its required paths were updated. PDF/PPTX hashes are unchanged. Relative Markdown links in current README/docs resolve locally.
+- Snapshot generation was exercised, then timestamp-only generated changes were discarded to preserve the committed recorded artifacts.
+- Byte-for-byte SHA-256 comparison passed for all 119 original tracked files under src/, sql/, reports/, data/audit/ and results.json.
+- Fresh clone `20619cdbe1dca9c21238fc752821520b01be5a25`: separate directory and new venv; README bootstrap and `make site` passed (HTTP 200), plus CI-equivalent offline checks and Node install/build. Playwright: 48 successful checks, 64 internal-link checks, no console/HTTP/request errors. See [browser record](repo_cleanup_browser.json).
+- Initial sandbox-only install failed DNS access to PyPI; retry with network permission passed. This is author-machine verification, not second-machine or live Exasol verification.
+- GitHub-hosted CI status is checked after publication; local verification above is not a claim about a remote run.
