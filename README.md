@@ -3,7 +3,7 @@ Help GST officers find factories whose paperwork disagrees with the evidence, us
 
 **[🌐 Live site](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)** · [Demo video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Pitch PDF](00_SUBMISSION/Pitch.pdf) · [Pitch PPTX](00_SUBMISSION/Pitch.pptx)
 
-[![Recorded case on the live GST Evidence site](docs/screenshots/judge-preview.png)](https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/)
+[![Recorded case on the live GST Evidence site](docs/screenshots/readme-hero.png)](https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/)
 
 [![CI](https://github.com/kushagragupta2005/gst-evidence-reconciliation/actions/workflows/tests.yml/badge.svg)](https://github.com/kushagragupta2005/gst-evidence-reconciliation/actions/workflows/tests.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
