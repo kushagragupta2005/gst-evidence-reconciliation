@@ -101,7 +101,7 @@ class GeneratorTests(unittest.TestCase):
         evaluator=Path('src/evaluate_v2.py').read_text()
         self.assertIn("['signals','weakest_link_normalised_gap','estimated_tax_exposure_inr','factory_id']",evaluator)
     def test_retired_frontend_tokens_are_confined(self):
-        roots=[Path('README.md'),Path('Makefile'),Path('requirements.txt'),Path('requirements-lock.txt'),Path('docs/licences/PYTHON.md')]
+        roots=[Path('README.md'),Path('Makefile'),Path('requirements.txt'),Path('requirements/requirements-lock.txt'),Path('docs/licences/PYTHON.md')]
         roots += [p for folder in ['src','scripts','docs','.github','website','tests'] for p in Path(folder).rglob('*') if p.is_file() and p.suffix in {'.py','.md','.txt','.yml','.yaml','.js','.html','.css'}]
         forbidden=['stream'+'lit','85'+'01']
         for path in roots:

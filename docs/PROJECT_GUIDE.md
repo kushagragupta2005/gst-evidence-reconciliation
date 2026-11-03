@@ -89,7 +89,7 @@ The first command creates/repairs the local reader account using loader credenti
 Use the bootstrap's retry options or prepare an OS/Python-compatible local wheelhouse:
 
 ```sh
-python3 -m pip download --retries 10 --timeout 60 -r requirements-lock.txt -d wheelhouse
+python3 -m pip download --retries 10 --timeout 60 -r requirements/requirements-lock.txt -d wheelhouse
 PIP_NO_INDEX=1 PIP_FIND_LINKS="$PWD/wheelhouse" sh scripts/verify_clean_setup.sh --offline
 ```
 
@@ -98,9 +98,9 @@ Do not upload wheels, venvs, database images or credentials.
 ### Browser and numeric checks
 
 ```sh
-npm ci
-npx playwright install chromium
-npm run site:smoke -- --url https://kushagragupta2005.github.io/gst-evidence-reconciliation/
+npm --prefix website ci
+npm --prefix website exec -- playwright install chromium
+npm --prefix website run site:smoke -- --url https://kushagragupta2005.github.io/gst-evidence-reconciliation/
 PYTHONPATH=. .venv/bin/python scripts/audit_site_numbers.py
 ```
 

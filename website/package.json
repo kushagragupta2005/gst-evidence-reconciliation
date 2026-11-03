@@ -1,0 +1,14 @@
+{
+  "name": "gst-evidence-site-checks",
+  "private": true,
+  "scripts": {
+    "site:smoke": "node tools/site_browser_smoke.mjs",
+    "site:build": "cd .. && python3 scripts/build_metrics.py && python3 scripts/build_pages.py",
+    "site:lighthouse": "node tools/site_lighthouse.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "lighthouse": "13.5.0"
+  }
+}

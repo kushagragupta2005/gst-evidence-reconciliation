@@ -1,3 +1,5 @@
+import {fileURLToPath} from 'node:url';
+process.chdir(fileURLToPath(new URL('../../', import.meta.url)));
 import lighthouse from 'lighthouse';
 import * as chromeLauncher from 'chrome-launcher';
 import {chromium} from '@playwright/test';

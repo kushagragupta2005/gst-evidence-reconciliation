@@ -1,3 +1,5 @@
+import {fileURLToPath} from 'node:url';
+process.chdir(fileURLToPath(new URL('../../', import.meta.url)));
 import {chromium} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';

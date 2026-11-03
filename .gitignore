@@ -21,3 +21,6 @@ reports/attribution/*_features.csv
 node_modules/
 test-results/
 playwright-report/
+
+.pytest_cache/
+wheelhouse/

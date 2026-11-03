@@ -5,11 +5,10 @@ on:
     branches: [main]
     paths:
       - 'website/**'
-      - 'scripts/site_browser_smoke.mjs'
+      - 'website/tools/site_browser_smoke.mjs'
       - 'scripts/build_metrics.py'
       - 'scripts/build_pages.py'
       - 'data/metrics.json'
-      - 'package*.json'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -48,12 +47,13 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
+          cache-dependency-path: website/package-lock.json
+      - run: npm --prefix website ci
+      - run: npm --prefix website exec -- playwright install --with-deps chromium
       - name: Verify deployed snapshot with Playwright
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
-        run: npm run site:smoke -- --url "$SITE_URL" --report reports/pages_browser_smoke.json
+        run: npm --prefix website run site:smoke -- --url "$SITE_URL" --report reports/pages_browser_smoke.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
