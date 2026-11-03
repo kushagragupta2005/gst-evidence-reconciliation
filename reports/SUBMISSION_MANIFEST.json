@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-29T04:22:37.391048+00:00",
-  "source_commit": "e3ac2ff39e56ceb06af090c3972d55e517c906a1",
+  "generated_at_utc": "2026-11-03T15:31:02.558922+00:00",
+  "source_commit": "30bb8b835d0d11f2a177197292d37883b57a0cbf",
   "state": "AUDITED_PROTOTYPE_PORTAL_PENDING",
   "author": "Kushagra Gupta",
   "licence": "MIT for project source; third-party/runtime terms documented separately.",
@@ -14,8 +14,8 @@
     "scope": "Real local Git clone, new venv, locked dependency install, tests, archived-evidence restoration, numeric audit, ablation replay, static build. Database/runtime installation and second-machine reproduction excluded.",
     "dependency_installation": "Pinned versions installed into a fresh isolated venv from OS/Python-compatible local cached wheels; live PyPI availability not claimed."
   },
-  "file_count": 242,
-  "total_bytes": 40825029,
+  "file_count": 243,
+  "total_bytes": 40828427,
   "files": [
     {
       "path": ".gitattributes",
@@ -74,8 +74,8 @@
     {
       "path": "README.md",
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
-      "bytes": 3759,
-      "sha256": "b6fd04c3c6ae8ec3704cd71b1200ebf387ac9322483de506bba64d2562a491cf"
+      "bytes": 5527,
+      "sha256": "4f5802036a66215334e94b7934a0622da397a49f0a4b26c126701f7dbca9c99e"
     },
     {
       "path": "data/README.md",
@@ -172,6 +172,12 @@
       "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
       "bytes": 20453,
       "sha256": "0a1dbca7d0a7a834e39eea11718980bd1abbd9d98220bbca1c798345303e21dd"
+    },
+    {
+      "path": "docs/README.md",
+      "role": "PROJECT_SOURCE_OR_DOCUMENTATION",
+      "bytes": 1630,
+      "sha256": "3bc8a1eeb5be3fb0142ee60ad2e6200c0432d6b5fafa0e7479ce0a1eec780279"
     },
     {
       "path": "docs/archive/AUDIT_VERIFICATION.md",

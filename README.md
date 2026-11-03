@@ -1,54 +1,84 @@
 # GST Evidence
+Help GST officers find factories whose paperwork disagrees with the evidence.
 
-### [Pitch PDF](00_SUBMISSION/Pitch.pdf) · [Pitch PPTX](00_SUBMISSION/Pitch.pptx) · [Watch video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Open demo](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)
+**[🌐 Live site](https://kushagragupta2005.github.io/gst-evidence-reconciliation/)** · [Demo video](https://github.com/kushagragupta2005/gst-evidence-reconciliation/releases/tag/walkthrough-2026-10-29) · [Pitch PDF](00_SUBMISSION/Pitch.pdf) · [Pitch PPTX](00_SUBMISSION/Pitch.pptx)
 
-**Evidence-backed GST investigations. Built on Exasol Personal.**
+## The problem
+Imagine checking a shop’s sales using only the owner’s diary. Electricity bills, truck records, supplier statements and bank payments could tell a different story. GST officers need those separate records brought together, with each disagreement explained.
+
+<details><summary>Original competition problem statement — preserved verbatim</summary>
 
 > A GST officer can’t tell which factories are hiding production or inflating tax credits, because every document she checks is declared by the factory itself, while the independent evidence (power use, goods movement, supplier records, bank flows) sits in separate places and is never compared. If this worked, she would start each week with a short list of units whose paperwork contradicts physical reality, each contradiction spelled out, and honest-but-unusual factories cleared.
 
-**Kushagra Gupta · Solo project · ExaThon India 2026 · Track 01: Money, Risk & Regulation**
+</details>
 
-## From scattered records to a case an officer can explain
+## What we do
+1. **Collect evidence:** bring together production, goods movement, supplier and bank records.
+2. **Compare:** run six SQL checks—database rules that compare output, dispatches, stock, supplier returns, bank receipts and bank payments with declarations.
+3. **Flag carefully:** require disagreements in at least two source families; three flagged months put a factory in the review queue. These are separate evidence groups, not proven statistically independent signals.
+4. **Explain:** show the expected value, recorded value and gap for each flag, plus a case note for an officer to review.
 
-GST Evidence compares declarations with goods movement, supplier records, electricity use and bank flows. It turns contradictions into a review list with the supporting numbers attached.
+## How a case reaches an officer
+```mermaid
+flowchart LR
+  A[Production, movement, supplier and bank records] --> B[6 SQL checks] --> C[At least 2 source families disagree] --> D[3 flagged months: review queue] --> E[Case note with supporting numbers]
+```
 
-- **Reconcile:** six SQL checks across production, movement, supplier and financial evidence.
-- **Corroborate:** two source families must fire before a month is prioritised; three prioritised months put a factory in the review queue.
-- **Explain:** inspect expected values, observed values, gaps and a validated case note. Try a [caught cheat, an honest exception and a miss](https://kushagragupta2005.github.io/gst-evidence-reconciliation/cases/).
+## How it is built
+```mermaid
+flowchart LR
+  A[Seeded synthetic-data generator] --> B[(Exasol Personal)] --> C[SQL checks] --> D[Site and evidence reports]
+  A -. Separate answers for scoring .-> E[Evaluation reports]
+```
 
-SQL determines priority. No ML model or LLM decides flags. The demonstrated notes use a deterministic fallback; an LLM option is implemented separately.
+## What 'model' are we using?
+The detector is a transparent rule-based SQL system. It cross-checks declarations against physical and financial evidence; no ML or LLM decides flags. V3-A selected threshold **0.05** and the three-month queue rule; those choices were frozen and tested on V3-B and V3-C.
+| Component | What it is | Does it decide flags? |
+|---|---|---|
+| Detection | Six SQL checks and the source-family rule | Yes |
+| Displayed case notes | Fixed sentences from evidence; numbers checked against their source rows | No |
+| Optional LLM notes | OpenAI Responses API; code default `gpt-6-astra`, overridable by `OPENAI_MODEL`; no live model-backed demo claimed | No |
+<details><summary>Inspect the rules and note writer</summary>
 
-## Results you can inspect
+[SQL checks](sql/10_checks.sql) · [Case-note code and validator](src/case_notes.py) · [Detailed method and limits](docs/PROJECT_GUIDE.md#limits). The deterministic template is the demonstrated fallback. Optional generated notes are rejected if numeric validation fails; this does not verify every statement’s meaning.
 
-**2,400 synthetic factories · 12 months · 28,800 factory-months per seed.** V3-A chose the threshold and queue rule; V3-B and V3-C tested those frozen choices.
+</details>
 
+## Results
+**2,400 synthetic factories · 12 months · 28,800 factory-months per seed.** Precision means the share of flagged months that were planted cheats.
 | Held-out test | Cheating months caught | Honest months falsely flagged | Precision |
 |---|---:|---:|---:|
 | V3-B · primary | 81.14% | 2.20% | 85.56% |
 | V3-C · confirmation | 81.24% | 2.28% | 85.01% |
+Synthetic data, not real-world accuracy. [Results and confidence intervals](https://kushagragupta2005.github.io/gst-evidence-reconciliation/results/) · [Source reports](docs/README.md#evaluation).
 
-[Explore results and confidence intervals](https://kushagragupta2005.github.io/gst-evidence-reconciliation/results/) · [Primary report](results.json) · [Confirmation report](reports/v3_c_results.json)
-
-All data is synthetic. These are scenario-recovery results, not real-world fraud accuracy. Alerts support human review. Verification assumptions, measurement scope and remaining work are documented in the [project guide](docs/PROJECT_GUIDE.md#limits).
-
-## Run it
-
-Requires Git, Make and Python 3.12+. The recorded demo and offline audit need no database or API key.
-
+## Quick start
+Requires Git, Make and Python 3.12+. These four commands start the recorded demo without a database or API key.
 ```sh
 git clone https://github.com/kushagragupta2005/gst-evidence-reconciliation.git
 cd gst-evidence-reconciliation
 sh scripts/bootstrap.sh
-make all
 make site
 ```
+Open **http://127.0.0.1:8081/**. [Tests, audit reproduction and live Exasol setup](docs/PROJECT_GUIDE.md#run-and-reproduce).
 
-Open **http://127.0.0.1:8081/**. For live Exasol setup, architecture, reproduction and verification details, use the [project guide](docs/PROJECT_GUIDE.md).
+## Repo map
+```text
+00_SUBMISSION/  Pitch PDF, PPTX and video link
+website/        Public demo pages
+sql/            Database checks and access rules
+src/            Data generator, scoring, notes and local API
+tests/          Regression and guard checks
+reports/        Measured results and verification records
+```
+<details><summary>Supporting documentation and data</summary>
 
-## Project
+`docs/` holds the [documentation index](docs/README.md), project guide, licences and historical archive. `data/` holds synthetic evaluation inputs and the recorded site data. See [reproduction inputs](data/audit/README.md).
 
-[Submission materials](00_SUBMISSION/) · [Project guide](docs/PROJECT_GUIDE.md) · [Source](src/) · [SQL checks](sql/) · [Synthetic evaluation inputs](data/audit/README.md)
+</details>
 
-Source is [MIT-licensed](LICENSE). [Dependency licences and tool disclosures](docs/licences/) include Exasol Personal's separate EULA and the optional OpenAI API's service terms. All records come from the seeded generator; there are no real taxpayer records or live tax, power or bank integrations. Real use needs lawful access and human review.
-
-OpenAI Codex coding assistants helped build and audit the project. Kushagra Gupta is responsible for final review and submission.
+## Limits, licence and credits
+All data and document-verification labels are synthetic. Flags need human review; real-world validation remains open. [Full limitations](docs/PROJECT_GUIDE.md#limits).
+[MIT licence](LICENSE) · [Third-party licences](docs/README.md#licences-and-disclosures).
+Built by **Kushagra Gupta**, solo participant, for **ExaThon India 2026 — Money, Risk & Regulation**.
+OpenAI Codex coding assistants helped build and audit the project. The optional LLM only writes notes; it does not decide flags.
