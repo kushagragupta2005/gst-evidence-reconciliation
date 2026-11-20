@@ -2,8 +2,8 @@
   "scope": "Sanitised authoring receipt; PPTX exported/imported and rendered. PDF is a matching rendered-slide export. Office application compatibility and second-machine rendering unverified.",
   "receipt": {
     "schemaVersion": "presentation-finalization.v1",
-    "finalSha256": "0257ebd0f9d7c4f4c27760ed90a1ee369bbc5a9ae650c03d6fec5de36b7cf9b7",
-    "byteCount": 39097,
+    "finalSha256": "9e52d6a8be9698fac0b85e7bbff2a0146505de5d1f028dd416ac0d7f3e5d75e5",
+    "byteCount": 38870,
     "packageIntegrity": {
       "chart_count": 0,
       "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
@@ -78,8 +78,8 @@
       "passed": true,
       "slideCount": 5,
       "sha256": "0257ebd0f9d7c4f4c27760ed90a1ee369bbc5a9ae650c03d6fec5de36b7cf9b7",
-      "runtimeNodeModules": "<author-home>/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
-      "nodeExecutable": "<author-home>/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
+      "runtimeNodeModules": "<authoring-runtime>/node/node_modules",
+      "nodeExecutable": "<authoring-runtime>/node/bin/node"
     },
     "nativeTableArithmetic": {
       "performed": true,
@@ -130,5 +130,11 @@
       "validatorRan": false,
       "passed": true
     }
+  },
+  "post_export_edit": {
+    "date": "2026-11-21",
+    "change": "Removed one attribution sentence from the speaker notes of all five slides and renamed the default theme to \"GST Evidence\"; slide content and the PDF are unchanged.",
+    "previous_sha256": "0257ebd0f9d7c4f4c27760ed90a1ee369bbc5a9ae650c03d6fec5de36b7cf9b7",
+    "previous_byte_count": 39097
   }
 }

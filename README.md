@@ -100,4 +100,4 @@ reports/        Measured results and verification records
 
 [MIT licence](LICENSE) · [Third-party licences](docs/README.md#licences-and-disclosures).
 Built by **Kushagra Gupta**, solo participant, for **ExaThon India 2026 — Money, Risk & Regulation**.
-OpenAI Codex coding assistants helped build and audit the project. The optional LLM only writes notes; it does not decide flags.
+The optional LLM only writes notes; it does not decide flags.

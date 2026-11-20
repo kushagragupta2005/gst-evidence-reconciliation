@@ -4,7 +4,7 @@
 
 **Review opinion:** a credible, inspectable synthetic reconciliation prototype with a clear officer-facing problem and strong presentation. It is not yet a complete submission because the required user-recorded demo video and final portal submission are outstanding. Real-taxpayer validation is absent. The most important technical finding was a deployed threshold mismatch; it was repaired with explicit user approval and verified against every V3-C monthly output.
 
-This is a mock judge review by the coding assistant, not an official jury score, competition ranking or probability of winning. Evidence was read from code, SQL, local CSVs, artifacts, the live restricted database, the deck, website sources and GitHub. Provenance dates distinguish recorded runs from new checks.
+This is a mock judge review, not an official jury score, competition ranking or probability of winning. Evidence was read from code, SQL, local CSVs, artifacts, the live restricted database, the deck, website sources and GitHub. Provenance dates distinguish recorded runs from new checks.
 
 ## 1. Official rubric and provisional assessment
 
