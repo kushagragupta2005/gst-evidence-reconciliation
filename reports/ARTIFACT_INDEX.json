@@ -117,8 +117,8 @@
       "path": "reports/deck_export_checks.json",
       "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
       "embedded_status": null,
-      "bytes": 4095,
-      "sha256": "40790209cd8226f8f066d543981ee2c3cb7a751f8debc165cc1533c5e962f860"
+      "bytes": 4356,
+      "sha256": "db0e42709141b29f28429adc0ce8f0e37e351fcfba69a812ba7b5f86c85e39f5"
     },
     {
       "path": "reports/evaluation.md",
@@ -366,6 +366,20 @@
       "sha256": "56888895f24a73f575f1ed1b67bb4d3f321b40c41c94b0f2c32cee91f0651285"
     },
     {
+      "path": "reports/repo_cleanup.md",
+      "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
+      "embedded_status": null,
+      "bytes": 19242,
+      "sha256": "b93d73b361b29fe21a61a5f666edc6376c5ff575274252652e1146da914407bb"
+    },
+    {
+      "path": "reports/repo_cleanup_browser.json",
+      "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
+      "embedded_status": null,
+      "bytes": 17348,
+      "sha256": "490a8854458daf742e1dca4c721905ec1964fa97091ced864cbc2ea65d9e9e19"
+    },
+    {
       "path": "reports/results_v1_seed_b.json",
       "classification": "HISTORICAL_OR_DEV_NOT_CURRENT_HELDOUT",
       "embedded_status": null,
@@ -453,8 +467,8 @@
       "path": "reports/submission_file_checks.json",
       "classification": "CURRENT_DELIVERABLE_CHECK",
       "embedded_status": null,
-      "bytes": 939,
-      "sha256": "19aac1fa6f788b71b6dd9b7b99287c8fa1c87dfae4f204560bdc5aaa8cb7108f"
+      "bytes": 967,
+      "sha256": "c11f211cfad35879102858dddb9fafd29843b2d723fe255ce3310f0b43d14eff"
     },
     {
       "path": "reports/submission_readiness_2026-10-29.json",

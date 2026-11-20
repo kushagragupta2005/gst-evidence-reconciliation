@@ -135,5 +135,5 @@ with problem_tab:
     st.subheader('The problem')
     problem=Path('README.md').read_text().split('\n> ',1)[1].split('\n',1)[0];st.write(problem)
     st.subheader('Limits and next validation')
-    st.write('Synthetic data only. Human review is required. Power and bank records require lawful, authorised access and privacy safeguards. Distinct data sources can still be correlated. The model never decides flags. AI coding assistants helped build the implementation and submission materials.')
+    st.write('Synthetic data only. Human review is required. Power and bank records require lawful, authorised access and privacy safeguards. Distinct data sources can still be correlated. The model never decides flags.')
     st.write('Germany: a proposed adaptation of evidence reconciliation, requiring local tax rules and independent validation. No German statistics or deployment are claimed.')

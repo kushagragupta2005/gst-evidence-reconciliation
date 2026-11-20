@@ -5,11 +5,11 @@
     "README.md",
     "docs/PROJECT_GUIDE.md",
     "docs/JUDGE_AUDIT.md",
-    "docs/demo_script.md",
-    "docs/judge_qa.md",
+    "docs/reference/demo_script.md",
+    "docs/reference/judge_qa.md",
     "data/audit/manifest.json",
-    "00_SUBMISSION/Pitch.pptx",
-    "00_SUBMISSION/Pitch.pdf"
+    "docs/submission/Pitch.pptx",
+    "docs/submission/Pitch.pdf"
   ],
   "native_slides": 5,
   "problem_statement_hash": "matched",
@@ -19,12 +19,12 @@
   "portal_submission": "not performed",
   "files": [
     {
-      "path": "00_SUBMISSION/Pitch.pptx",
-      "bytes": 39097,
-      "sha256": "0257ebd0f9d7c4f4c27760ed90a1ee369bbc5a9ae650c03d6fec5de36b7cf9b7"
+      "path": "docs/submission/Pitch.pptx",
+      "bytes": 38870,
+      "sha256": "9e52d6a8be9698fac0b85e7bbff2a0146505de5d1f028dd416ac0d7f3e5d75e5"
     },
     {
-      "path": "00_SUBMISSION/Pitch.pdf",
+      "path": "docs/submission/Pitch.pdf",
       "bytes": 373116,
       "sha256": "df1e5f336f134e1c06660858d708d88a103d579fbf92c8de92beb602c64eeb1a"
     }

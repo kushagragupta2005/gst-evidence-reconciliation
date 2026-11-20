@@ -213,6 +213,6 @@ The repository contains the named materials. Presence and public access do not c
 
 ## Deck authoring
 
-The deck is generated from result/report artifacts by `scripts/update_submission_deck.mjs` using the Codex bundled Artifact Tool (authoring dependency; not needed to run the app). The native PDF exporter failed in that runtime on a missing standard-font module, so the PDF was rendered from the inspected slide PNGs with `scripts/render_pitch_pdf.py`. Its editable source remains the PPTX. Optional public PDF-export dependencies are pinned in scripts/requirements/authoring.txt. Neither PowerPoint nor a second machine has been used to verify the final deck.
+The deck is generated from result/report artifacts by `scripts/update_submission_deck.mjs` using the bundled Artifact Tool (authoring dependency; not needed to run the app). The native PDF exporter failed in that runtime on a missing standard-font module, so the PDF was rendered from the inspected slide PNGs with `scripts/render_pitch_pdf.py`. Its editable source remains the PPTX. Optional public PDF-export dependencies are pinned in scripts/requirements/authoring.txt. Neither PowerPoint nor a second machine has been used to verify the final deck.
 
 The user-recorded final submission video is hosted on GitHub Releases. Portal submission has not been performed.
